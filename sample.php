@@ -13,14 +13,14 @@ h1 {letter-spacing: 6px}
 </style>
 
 <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
-  <h1 class="w3-xlarge">CLAS12 Job Submission Moniotoring</h1>
+  <h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
 
   <div class="w3-padding-32">
     <div class="w3-bar w3-border">
-      <a href="#0" class="w3-bar-item w3-button w3-light-grey">Nodes Summary</a>
-      <a href="#1" class="w3-bar-item w3-button">MIT Tier2</a>
+      <a href="#0" class="w3-bar-item w3-button w3-light-grey">MIT Tier 3</a>
+      <a href="#1" class="w3-bar-item w3-button">MIT Tier 2</a>
       <a href="#2" class="w3-bar-item w3-button w3-light-grey">OSG</a>
-      <a href="#3" class="w3-bar-item w3-button">AUGER</a>
+      <a href="#3" class="w3-bar-item w3-button">JLab</a>
     </div>
     <br>
   </div>
@@ -29,8 +29,7 @@ h1 {letter-spacing: 6px}
   <div class="w3-row-padding" style="margin-bottom:128px;">
     <div class="w3-content" id="0">
     	<p>
-    		<h1>Nodes Summary</h1>
-    		<h2>MIT Tier 3 </h2>
+    		<h1>MIT Tier 3</h1>
     		<?php
 				if ($fh = fopen('Sample_script_result', 'r')) {
 				    while (!feof($fh)) {
@@ -46,7 +45,7 @@ h1 {letter-spacing: 6px}
 
     <div class="w3-content" id="1">
         <p>
-            <h1>MIT Tier2</h1>
+            <h1>MIT Tier 2</h1>
                 <a href="http://submit.mit.edu/condormon/index.php">http://submit.mit.edu/condormon/index.php</a><br>
                 <img src="http://submit.mit.edu/condormon/imgs/Total_2h.png" width = 400px>
                 <img src="http://submit.mit.edu/condormon/imgs/Total_1d.png" width = 400px>
@@ -77,8 +76,9 @@ h1 {letter-spacing: 6px}
     </div>
     <div class="w3-content" id="3">
         <p>
-                <h1>AUGER</h1>
-                Slurm Statistics?
+                <h1>JLab</h1>
+                <a href="https://scicomp.jlab.org/scicomp/#/farmNodes">https://scicomp.jlab.org/scicomp/#/farmNodes</a><br>
+                <a href="https://scicomp.jlab.org/ganglia/?r=hour&cs=&ce=&c=Scicomp+Misc&h=scosg16.jlab.org&tab=&vn=&mc=2&z=small&metric_group=ALLGROUPS">https://scicomp.jlab.org/ganglia/?r=hour&cs=&ce=&c=Scicomp+Misc&h=scosg16.jlab.org&tab=&vn=&mc=2&z=small&metric_group=ALLGROUPS</a>
         </p>
     </div>
   </div>
