@@ -37,7 +37,7 @@ Instruction for XAMPP is straightforward for Mac OSX at [Webucator](https://www.
 * ```cd \Applications\XAMPP\xamppfiles\htdocs\ ``` (or htdocs directory for Windows and Linux)
 * ```git clone https://github.com/mit-mc-clas12/web_interface```
 * Go to [http://localhost/web_interface/](http://localhost/web_interface/) to browse files
-* Click php files
+* Click php files or html files for browsing them (e.g. sample.php and sample.html. See the bottom.)
 * Make your own.
 
 # Syntax for php and javascript
@@ -49,4 +49,4 @@ Syntax for javascript is also at [https://www.w3schools.com/js/](https://www.w3s
 ## Examples
 
 Please look at sample.html for javascript and sample.php for php.
-The latter shows how to execute python script at php and pass variable to javascript.
+sample.php shows how to execute python script at php and pass variable to javascript.
