@@ -8,8 +8,19 @@
     $output = shell_exec($command);
 	// $fp = fopen('/Applications/XAMPP/xamppfiles/htdocs/Sample/text.txt', 'a+');
 	// fwrite($fp, $output);
-	// fclose($fp);
-    echo ($output);
+	// fclose($fp);  
+	echo ("This is from php. <br>");
+	echo ($output);
 ?>
+
+<br>
+<br>
+This is from javascript.
+<div id="demo"> </div>
+
+<script> 
+  document.getElementById("demo").innerHTML = "<?php echo substr_replace($output,"",-1); ?>"; 
+</script> 
+
 </body>
 </html>
