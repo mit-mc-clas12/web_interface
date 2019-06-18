@@ -31,7 +31,7 @@ h1 {letter-spacing: 6px}
     	<p>
     		<h1>MIT Tier 3</h1>
     		<?php
-				if ($fh = fopen('Sample_script_result', 'r')) {
+				if ($fh = fopen('Sample_script_result_osg', 'r')) {
 				    while (!feof($fh)) {
 				        $line = fgets($fh);
 				        echo nl2br($line);
@@ -54,24 +54,33 @@ h1 {letter-spacing: 6px}
     </div>
     <div class="w3-content" id="2">
         <p>
-        <h1>OSG </h1>
-        <a href="https://display.opensciencegrid.org">https://display.opensciencegrid.org</a>
-        <h2>Jobs </h2>
-         <img src="https://display.opensciencegrid.org/osg_display/jobs_hourly.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/jobs_daily.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/jobs_monthly.png" width=400px>
-        <h2>CPU Time </h2>
-         <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_hourly.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_daily.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_monthly.png" width=400px>  
-        <h2>Transfers </h2>
-         <img src="https://display.opensciencegrid.org/osg_display/transfers_hourly.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/transfers_daily.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/transfers_monthly.png" width=400px>  
-        <h2>Transfer Volume</h2>
-         <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_hourly.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_daily.png" width=400px>
-         <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_monthly.png" width=400px>
+            <h1>OSG </h1>
+                <?php
+                    if ($fh = fopen('Sample_script_result', 'r')) {
+                        while (!feof($fh)) {
+                            $line = fgets($fh);
+                            echo nl2br($line);
+                        }
+                        fclose($fh);
+                    }
+                ?>
+                <a href="https://display.opensciencegrid.org">https://display.opensciencegrid.org</a>
+                <h2>Jobs </h2>
+                 <img src="https://display.opensciencegrid.org/osg_display/jobs_hourly.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/jobs_daily.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/jobs_monthly.png" width=400px>
+                <h2>CPU Time </h2>
+                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_hourly.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_daily.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_monthly.png" width=400px>  
+                <h2>Transfers </h2>
+                 <img src="https://display.opensciencegrid.org/osg_display/transfers_hourly.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/transfers_daily.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/transfers_monthly.png" width=400px>  
+                <h2>Transfer Volume</h2>
+                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_hourly.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_daily.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_monthly.png" width=400px>
         </p>
     </div>
     <div class="w3-content" id="3">
