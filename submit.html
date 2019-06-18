@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+</style>
+<head>
+  <title>CLAS12 MC Submission</title>
+</head>
+<body>
+ <form action="insert_submit.php" method="POST">
+  <table>
+   <tr>
+    <td>Group :</td>
+    <td>
+     <select name="Group" required>
+      <option selected hidden value=""></option>
+      <option value="RGA">RGA</option>
+      <option value="RGB">RGB</option>
+     </select>
+    </td>
+    <td>
+      <div class="tooltip">What is this?
+        <span class="tooltiptext">Lorem ipsum</span>
+      </div>
+    </td>
+   </tr>
+   <tr>
+    <td>      
+      <div class="tooltip">Farm
+        <span class="tooltiptext">Lorem ipsum</span>
+      </div>
+    </td>
+    <td>
+     <input type="radio" name="farm" value="JLab" required>JLab
+     <input type="radio" name="farm" value="MIT" required>MIT
+     <input type="radio" name="farm" value="OSG" required>OSG
+    </td>
+   </tr>
+   <tr>
+    <td>Number of Events :</td>
+    <td><input type="number" name="nevents" min="1" required></td>
+   </tr>
+   <tr>
+    <td>Generator :</td>
+    <td>
+     <select name="generator" required>
+      <option selected hidden value=""></option>
+      <option value="clasdis">clasdis</option>
+      <option value="dvcs">dvcs</option>
+      <option value="disrad">disrad</option>
+     </select>
+    </td>
+   </tr>
+   <tr>
+    <td>Number of Jobs :</td>
+    <td><input type="number" name="jobs" min="0" required></td>
+   </tr>
+   <tr>
+   <tr>
+    <td>Luminosity (percent of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>):</td>
+    <td><input type="number" name="lumi" min="0" max="100" required> % </td>
+   </tr>
+   <tr>
+    <td>Torus current :</td>
+    <td><input type="number" name="tcurrent" min="-100" max="100" required> % </td>
+   </tr>
+   <tr>
+    <td>Solenoid current :</td>
+    <td><input type="number" name="pcurrent" min="-100" max="100" required> % </td>
+   </tr>
+   <tr>
+    <td>Cores request :</td>
+    <td><input type="number" name="core_req" min="1" required></td>
+   </tr>
+   <tr>
+    <td>RAM request :</td>
+    <td><input type="number" name="mem_req" min="1" required> GB</td>
+   </tr>
+    <td><input type="submit" value="Submit"></td>
+   </tr>
+  </table>
+ </form>
+</body>
+</html>
