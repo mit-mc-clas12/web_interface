@@ -31,7 +31,7 @@ h1 {letter-spacing: 6px}
     	<p>
     		<h1>MIT Tier 3</h1>
     		<?php
-				if ($fh = fopen('Sample_script_result_osg', 'r')) {
+				if ($fh = fopen('Sample_script_result', 'r')) {
 				    while (!feof($fh)) {
 				        $line = fgets($fh);
 				        echo nl2br($line);
@@ -56,7 +56,7 @@ h1 {letter-spacing: 6px}
         <p>
             <h1>OSG </h1>
                 <?php
-                    if ($fh = fopen('Sample_script_result', 'r')) {
+                    if ($fh = fopen('Sample_script_result_osg', 'r')) {
                         while (!feof($fh)) {
                             $line = fgets($fh);
                             echo nl2br($line);

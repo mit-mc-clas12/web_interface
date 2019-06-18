@@ -1,6 +1,6 @@
 import subprocess
 
-text=subprocess.Popen(['ssh','scosg16','~/farmnodes.sh'], stdout=subprocess.PIPE)
+text=subprocess.Popen(['/u/home/sangbaek/osg/farmnodes.sh'], stdout=subprocess.PIPE)
 string=text.communicate()[0]
 array=string.split(' ',2)
 
