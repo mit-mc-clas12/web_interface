@@ -10,6 +10,13 @@
 body,h1,h2,h3 {font-family: "Raleway", Helvetica, sans-serif}
 h1 {letter-spacing: 6px}
 .w3-row-padding img {margin-bottom: 12px}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+}
 </style>
 
 <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
@@ -17,10 +24,11 @@ h1 {letter-spacing: 6px}
 
   <div class="w3-padding-32">
     <div class="w3-bar w3-border">
-      <a href="#0" class="w3-bar-item w3-button w3-light-grey">MIT Tier 3</a>
+      <a href="#0" class="w3-bar-item w3-button w3-light-grey">Summary</a>
       <a href="#1" class="w3-bar-item w3-button">MIT Tier 2</a>
       <a href="#2" class="w3-bar-item w3-button w3-light-grey">OSG</a>
       <a href="#3" class="w3-bar-item w3-button">JLab</a>
+      <a href="submit.html" class="w3-bar-item w3-button">Job Submission</a>
     </div>
     <br>
   </div>
@@ -28,24 +36,67 @@ h1 {letter-spacing: 6px}
 
   <div class="w3-row-padding" style="margin-bottom:128px;">
     <div class="w3-content" id="0">
-    	<p>
-    		<h1>MIT Tier 3</h1>
-    		<?php
-				if ($fh = fopen('Sample_script_result', 'r')) {
-				    while (!feof($fh)) {
-				        $line = fgets($fh);
-				        echo nl2br($line);
-				    }
-				    fclose($fh);
-				}
-			?>
-		</p>
+      <p>
+        <h1>Summary</h1>
+        <?php
+        if ($fh = fopen('Sample_script_result', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $t2_total = substr($line2, 12);
+                $line3 = fgets($fh);
+                $t2_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $t2_idle = substr($line4, 11);
+            fclose($fh);
+        }
+        if ($fh = fopen('Sample_script_result_osg', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $osg_total= substr($line2, 12);
+                $line3 = fgets($fh);
+                $osg_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $osg_idle = substr($line4, 11);
+            fclose($fh);
+        }
+      ?>
+        <table style="width:100%;text-align:center">
+          <tr>
+            <th> Farm Name </th>
+            <th> Total Available Nodes </th>
+            <th> Busy Nodes </th>
+            <th> Idle Nodes </th>
+          </tr>
+          <tr>
+            <td> MIT </td>
+            <td> <?php echo nl2br($t2_total); ?> </td>
+            <td> <?php echo nl2br($t2_busy); ?> </td>
+            <td> <?php echo nl2br($t2_idle); ?> </td>
+          </tr>
+          <tr>
+            <td> OSG </td>
+            <td> <?php echo nl2br($osg_total); ?> </td>
+            <td> <?php echo nl2br($osg_busy); ?> </td>
+            <td> <?php echo nl2br($osg_idle); ?> </td>
+          </tr>
+
+        </table>
+    </p>
     </div>
 
 
     <div class="w3-content" id="1">
         <p>
             <h1>MIT Tier 2</h1>
+                <?php
+                if ($fh = fopen('Sample_script_result', 'r')) {
+                    while (!feof($fh)) {
+                        $line = fgets($fh);
+                        echo nl2br($line);
+                    }
+                    fclose($fh);
+                }
+              ?>
                 <a href="http://submit.mit.edu/condormon/index.php">http://submit.mit.edu/condormon/index.php</a><br>
                 <img src="http://submit.mit.edu/condormon/imgs/Total_2h.png" width = 400px>
                 <img src="http://submit.mit.edu/condormon/imgs/Total_1d.png" width = 400px>
