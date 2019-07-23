@@ -76,6 +76,16 @@ th, td {
                 $osg_idle = substr($line4, 11);
             fclose($fh);
         }
+        if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $jlab_total= substr($line2, 12);
+                $line3 = fgets($fh);
+                $jlab_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $jlab_idle = substr($line4, 11);
+            fclose($fh);
+        }        
       ?>
         <table style="width:1200px;text-align:center">
           <tr>
@@ -96,7 +106,12 @@ th, td {
             <td> <?php echo nl2br($osg_busy); ?> </td>
             <td> <?php echo nl2br($osg_idle); ?> </td>
           </tr>
-
+          <tr>
+            <td> JLab </td>
+            <td> <?php echo nl2br($jlab_total); ?> </td>
+            <td> <?php echo nl2br($jlab_busy); ?> </td>
+            <td> <?php echo nl2br($jlab_idle); ?> </td>
+          </tr>
         </table>
     </p>
     </div>
@@ -154,6 +169,16 @@ th, td {
     <div class="w3-rest" id="3">
         <p>
                 <h1>JLab</h1>
+                <?php
+                    if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+                        while (!feof($fh)) {
+                            $line = fgets($fh);
+                            echo nl2br($line);
+                        }
+                        fclose($fh);
+                    }
+                ?>
+
                 <a href="https://scicomp.jlab.org/scicomp/#/farmNodes">https://scicomp.jlab.org/scicomp/#/farmNodes</a><br>
                 <a href="https://scicomp.jlab.org/ganglia/?r=hour&cs=&ce=&c=Scicomp+Misc&h=scosg16.jlab.org&tab=&vn=&mc=2&z=small&metric_group=ALLGROUPS">https://scicomp.jlab.org/ganglia/?r=hour&cs=&ce=&c=Scicomp+Misc&h=scosg16.jlab.org&tab=&vn=&mc=2&z=small&metric_group=ALLGROUPS</a>
         </p>

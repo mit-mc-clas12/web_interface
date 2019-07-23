@@ -76,6 +76,16 @@ th, td {
                 $osg_idle = substr($line4, 11);
             fclose($fh);
         }
+        if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $jlab_total= substr($line2, 12);
+                $line3 = fgets($fh);
+                $jlab_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $jlab_idle = substr($line4, 11);
+            fclose($fh);
+        }
       ?>
         <table style="width:100%;text-align:center">
           <tr>
@@ -95,6 +105,12 @@ th, td {
             <td> <?php echo nl2br($osg_total); ?> </td>
             <td> <?php echo nl2br($osg_busy); ?> </td>
             <td> <?php echo nl2br($osg_idle); ?> </td>
+          </tr>
+          <tr>
+            <td> OSG </td>
+            <td> <?php echo nl2br($jlab_total); ?> </td>
+            <td> <?php echo nl2br($jlab_busy); ?> </td>
+            <td> <?php echo nl2br($jlab_idle); ?> </td>
           </tr>
 
         </table>
