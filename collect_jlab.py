@@ -15,11 +15,11 @@ for i, content in enumerate(b.split()):
 	if i%6==4:
 		if (state=="MIXED" or state=="IDLE" or state=="ALLOCATED"):
 			available=available+int(content.split('/')[0])
-		total=total+int(content.split('/')[0])
+		total=total+int(content.split('/')[1])
 
 file = open(r"Sample_script_result_jlab","w")
 file.write("Updated on "+currentDT.strftime("%Y-%m-%d %H:%M:%S"))
-file.write("\nTotal cores: "+total)
-file.write("\nBusy cores: "+total-available)
-file.write("\nIdle cores: "+available)
+file.write("\nTotal cores: "+str(total))
+file.write("\nBusy cores: "+str(total-available))
+file.write("\nIdle cores: "+str(available))
 file.close()
