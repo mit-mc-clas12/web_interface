@@ -80,9 +80,9 @@ th, td {
         <table style="width:1200px;text-align:center">
           <tr>
             <th> Farm Name </th>
-            <th> Total Available Nodes </th>
-            <th> Busy Nodes </th>
-            <th> Idle Nodes </th>
+            <th> Total Available Cores </th>
+            <th> Busy Cores </th>
+            <th> Idle Cores </th>
           </tr>
           <tr>
             <td> MIT </td>
