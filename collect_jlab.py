@@ -1,6 +1,8 @@
 import subprocess
 import datetime
 
+currentDT = datetime.datetime.now()
+
 a=subprocess.Popen("/site/scicomp/auger-slurm/bin/slurmHosts",stdout=subprocess.PIPE)
 b= a.communicate()[0]
 available=0
