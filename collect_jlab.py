@@ -8,13 +8,16 @@ a=subprocess.Popen("/site/scicomp/auger-slurm/bin/slurmHosts",stdout=subprocess.
 b= a.communicate()[0]
 available=0
 total=0
+state='DEFAULT'
 for i, content in enumerate(re.split('684|1563|771|308|332',b)):
-	if i>0:
-		state=content[i-1][-1]
-		job=content[i][1]
-		total=total+int(job.split('/')[1])
-		if state=='IDLE' or state=='MIXED':
-			available=available+int(job.split('/')[0])
+	if i==0:
+		state=content[-1]
+		continue
+	job=content[1]
+	total=total+int(job.split('/')[1])
+	if state=='IDLE' or state=='MIXED':
+		available=available+int(job.split('/')[0])
+	state=content[-1]
 
 file = open(r"Sample_script_result_jlab","w")
 file.write("Updated on "+currentDT.strftime("%Y-%m-%d %H:%M:%S"))
