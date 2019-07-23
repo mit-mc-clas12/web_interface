@@ -107,7 +107,7 @@ th, td {
             <td> <?php echo nl2br($osg_idle); ?> </td>
           </tr>
           <tr>
-            <td> OSG </td>
+            <td> JLab </td>
             <td> <?php echo nl2br($jlab_total); ?> </td>
             <td> <?php echo nl2br($jlab_busy); ?> </td>
             <td> <?php echo nl2br($jlab_idle); ?> </td>
@@ -188,7 +188,7 @@ th, td {
 function w3_open() {
   var x = document.getElementById("mySidebar");
   x.style.width = "30%";
-  x.style.height = "30%";
+  x.style.height = "50%";
   x.style.fontSize = "40px";
   x.style.paddingTop = "0%";
   x.style.display = "block";
