@@ -12,8 +12,8 @@ for i, content in enumerate(b.split()):
 		state=content
 	if i%6==4:
 		if (state=="MIXED" or state=="IDLE" or state=="ALLOCATED"):
-			available=available+content.split('/')[0]
-		total=total+content.split('/')[0]
+			available=available+int(content.split('/')[0])
+		total=total+int(content.split('/')[0])
 
 file = open(r"Sample_script_result_jlab","w")
 file.write("Updated on "+currentDT.strftime("%Y-%m-%d %H:%M:%S"))
