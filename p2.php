@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
 <style>
 body,h1,h2,h3 {font-family: "Raleway", Helvetica, sans-serif}
 h1 {letter-spacing: 6px}
@@ -18,11 +20,25 @@ th, td {
   padding: 10px;
 }
 </style>
+<!-- Side Navigation -->
+<nav class="w3-bar w3-border w3-sidebar w3-bar-block w3-card w3-center" style="display:none" id="mySidebar">
+  <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
+  <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
+  <h4>
+  <a href="submit.html" class="w3-bar-item w3-button">Job Submission</a>
+  <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
+  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Useful Links</a>
+  <a href="#" class="w3-bar-item w3-button">Contacts</a>
+</h4>
+</nav>
 
-<header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
+<!-- Header -->
+<header class="w3-panel w3-opacity w3-container" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i> 
+  <div class="w3-center">
+  <!-- <h4></h4> -->
   <h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
-
-  <div class="w3-padding-32">
+  <div class=" w3-center w3-opacity w3-padding-32">
     <div class="w3-bar w3-border">
       <a href="#0" class="w3-bar-item w3-button w3-light-grey">Summary</a>
       <a href="#1" class="w3-bar-item w3-button">MIT Tier 2</a>
@@ -32,10 +48,11 @@ th, td {
     </div>
     <br>
   </div>
+  </div>
 </header>
 
-  <div class="w3-row-padding" style="margin-bottom:128px;">
-    <div class="w3-content" id="0">
+  <div class="w3-row-padding w3-rest" style="margin-bottom:128px;">
+    <div class="w3-rest" id="0">
       <p>
         <h1>Summary</h1>
         <?php
@@ -59,13 +76,23 @@ th, td {
                 $osg_idle = substr($line4, 11);
             fclose($fh);
         }
+        if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $jlab_total= substr($line2, 12);
+                $line3 = fgets($fh);
+                $jlab_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $jlab_idle = substr($line4, 11);
+            fclose($fh);
+        }        
       ?>
-        <table style="width:100%;text-align:center">
+        <table style="width:1200px;text-align:center">
           <tr>
             <th> Farm Name </th>
-            <th> Total Available Nodes </th>
-            <th> Busy Nodes </th>
-            <th> Idle Nodes </th>
+            <th> Total Available Cores </th>
+            <th> Busy Cores </th>
+            <th> Idle Cores </th>
           </tr>
           <tr>
             <td> MIT </td>
@@ -79,13 +106,18 @@ th, td {
             <td> <?php echo nl2br($osg_busy); ?> </td>
             <td> <?php echo nl2br($osg_idle); ?> </td>
           </tr>
-
+          <tr>
+            <td> JLab </td>
+            <td> <?php echo nl2br($jlab_total); ?> </td>
+            <td> <?php echo nl2br($jlab_busy); ?> </td>
+            <td> <?php echo nl2br($jlab_idle); ?> </td>
+          </tr>
         </table>
     </p>
     </div>
 
 
-    <div class="w3-content" id="1">
+    <div class="w3-rest" id="1">
         <p>
             <h1>MIT Tier 2</h1>
                 <?php
@@ -103,7 +135,7 @@ th, td {
                 <img src="http://submit.mit.edu/condormon/imgs/Total_1w.png" width = 400px>
         </p>
     </div>
-    <div class="w3-content" id="2">
+    <div class="w3-rest" id="2">
         <p>
             <h1>OSG </h1>
                 <?php
@@ -134,9 +166,19 @@ th, td {
                  <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_monthly.png" width=400px>
         </p>
     </div>
-    <div class="w3-content" id="3">
+    <div class="w3-rest" id="3">
         <p>
                 <h1>JLab</h1>
+                <?php
+                    if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+                        while (!feof($fh)) {
+                            $line = fgets($fh);
+                            echo nl2br($line);
+                        }
+                        fclose($fh);
+                    }
+                ?>
+                <br>
                 <a href="https://scicomp.jlab.org/scicomp/#/farmNodes">https://scicomp.jlab.org/scicomp/#/farmNodes</a><br>
                 <a href="https://scicomp.jlab.org/ganglia/?r=hour&cs=&ce=&c=Scicomp+Misc&h=scosg16.jlab.org&tab=&vn=&mc=2&z=small&metric_group=ALLGROUPS">https://scicomp.jlab.org/ganglia/?r=hour&cs=&ce=&c=Scicomp+Misc&h=scosg16.jlab.org&tab=&vn=&mc=2&z=small&metric_group=ALLGROUPS</a>
         </p>
@@ -146,6 +188,37 @@ th, td {
 <!-- End Page Content -->
 </div>
 
-
+<hr>
+<div class="w3-center">
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
+      <a href="p1.php" class="w3-bar-item w3-button w3-hover-theme">1</a>
+      <a href="submit.html" class="w3-bar-item w3-button w3-hover-theme">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">3</a>
+      <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button w3-hover-theme">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">5</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
+    </div>
+  </div>
+</div>
+<br>
 </body>
+<script>
+// Side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "30%";
+  x.style.height = "50%";
+  x.style.fontSize = "40px";
+  x.style.paddingTop = "0%";
+  x.style.display = "block";
+}
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+</script>
+
 </html>
