@@ -34,6 +34,13 @@
  <form action="insert_submit.php" method="POST">
   <table>
    <tr>
+    <td>Project :</td>
+    <td>
+     <input type="" name="project" required>
+     </select>
+    </td>
+  </tr>
+  <tr>
     <td>Group :</td>
     <td>
      <select name="rungroup" required>
@@ -61,10 +68,6 @@
     </td>
    </tr>
    <tr>
-    <td>Number of Events :</td>
-    <td><input type="number" name="nevents" min="1" required></td>
-   </tr>
-   <tr>
     <td>Generator :</td>
     <td>
      <select name="generator" required>
@@ -76,10 +79,21 @@
     </td>
    </tr>
    <tr>
-    <td>Number of Jobs :</td>
-    <td><input type="number" name="jobs" min="0" required></td>
+    <td>gcards :</td>
+    <td>
+     <input type="" name="gcards" required>
+    </td>
+  </tr>
+   <tr>
+    <td>Number of Events :</td>
+    <td><input type="number" name="nevents" min="1" required></td>
    </tr>
    <tr>
+    <td>Generator Options :</td>
+    <td>
+     <input type="" name="genOptions" required>
+    </td>
+  </tr>
    <tr>
     <td>Luminosity (percent of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>):</td>
     <td><input type="number" name="lumi" min="0" max="100" required> % </td>
@@ -99,6 +113,10 @@
    <tr>
     <td>RAM request :</td>
     <td><input type="number" name="ram" min="1" required> GB</td>
+   </tr>
+   <tr>
+    <td>Number of Jobs :</td>
+    <td><input type="number" name="jobs" min="0" required></td>
    </tr>
     <td><input type="submit" value="Submit"></td>
    </tr>
