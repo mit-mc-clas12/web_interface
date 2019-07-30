@@ -40,9 +40,67 @@ th, td {
   <div class="w3-center">
   <!-- <h4></h4> -->
   <h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
-    <div class="w3-padding-32">
-      <button class="w3-btn w3-large w3-border" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">Farm Status</button>
-    </div>
+   <div class="w3-padding w3-center">
+        <?php
+        if ($fh = fopen('Sample_script_result', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $t2_total = substr($line2, 12);
+                $line3 = fgets($fh);
+                $t2_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $t2_idle = substr($line4, 11);
+            fclose($fh);
+        }
+        if ($fh = fopen('Sample_script_result_osg', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $osg_total= substr($line2, 12);
+                $line3 = fgets($fh);
+                $osg_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $osg_idle = substr($line4, 11);
+            fclose($fh);
+        }
+        if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+                $line1 = fgets($fh);
+                $line2 = fgets($fh);
+                $jlab_total= substr($line2, 12);
+                $line3 = fgets($fh);
+                $jlab_busy = substr($line3, 11);
+                $line4 = fgets($fh);
+                $jlab_idle = substr($line4, 11);
+            fclose($fh);
+        }
+      ?>
+        <table style="width:100%;text-align:center">
+          <tr>
+            <th> Farm Name </th>
+            <th> Total Available Cores </th>
+            <th> Busy Cores </th>
+            <th> Idle Cores </th>
+          </tr>
+          <tr>
+            <td> MIT </td>
+            <td> <?php echo nl2br($t2_total); ?> </td>
+            <td> <?php echo nl2br($t2_busy); ?> </td>
+            <td> <?php echo nl2br($t2_idle); ?> </td>
+          </tr>
+          <tr>
+            <td> OSG </td>
+            <td> <?php echo nl2br($osg_total); ?> </td>
+            <td> <?php echo nl2br($osg_busy); ?> </td>
+            <td> <?php echo nl2br($osg_idle); ?> </td>
+          </tr>
+          <tr>
+            <td> JLab </td>
+            <td> <?php echo nl2br($jlab_total); ?> </td>
+            <td> <?php echo nl2br($jlab_busy); ?> </td>
+            <td> <?php echo nl2br($jlab_idle); ?> </td>
+          </tr>
+
+        </table>
+      </div>
   </div>
 </header>
 

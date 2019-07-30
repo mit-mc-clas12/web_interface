@@ -22,5 +22,13 @@ This is from javascript.
   document.getElementById("demo").innerHTML = "<?php echo substr_replace($output,"",-1); ?>"; 
 </script> 
 
+<br>
+
+<?php
+$fp = fopen('lidn.txt', 'w');
+fwrite($fp, 'Cats chase mice');
+fclose($fp);
+?>
+
 </body>
 </html>
