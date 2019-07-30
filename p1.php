@@ -180,7 +180,7 @@ th, td {
 </div>
 
 <div class="w3-row-padding w3-center w3-margin-top">
-<a href="submit.html" >
+<a href="type1.html" >
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:460px">
   <h3>Type 1</h3><br>
@@ -190,7 +190,7 @@ th, td {
 </div>
 </a>
 
-<a href="submit.html" >
+<a href="type1.html" >
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:460px">
   <h3>Type 2</h3><br>
@@ -200,7 +200,7 @@ th, td {
 </div>
 </a>
 
-<a href="submit.html" >
+<a href="type1.html" >
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:460px">
   <h3>Type 3</h3><br>
@@ -210,7 +210,7 @@ th, td {
 </div>
 </a>
 
-<a href="submit.html" >
+<a href="type1.html" >
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:460px">
   <h3>Type 4</h3><br>
