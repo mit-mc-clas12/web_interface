@@ -75,7 +75,7 @@ th, td {
 </header>
 <body>
   <div class="w3-center">
-  <form action="submit_type1.php" method="POST">
+  <form action="submit.type2.php" method="POST">
   <table align="center">
    <tr>
     <td>Project :</td>
@@ -129,16 +129,6 @@ th, td {
     </td>
   </tr>
    <tr>
-    <td>Number of Events :</td>
-    <td><input type="number" name="nevents" min="1" required></td>
-   </tr>
-   <tr>
-    <td>Generator Options :</td>
-    <td>
-     <input type="" name="genOptions" required>
-    </td>
-  </tr>
-   <tr>
     <td>Luminosity (percent of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>):</td>
     <td><input type="number" name="lumi" min="0" max="100" required> % </td>
    </tr>
@@ -158,11 +148,7 @@ th, td {
     <td>RAM request :</td>
     <td><input type="number" name="ram" min="1" required> GB</td>
    </tr>
-   <tr>
-    <td>Number of Jobs :</td>
-    <td><input type="number" name="jobs" min="0" required></td>
-   </tr>
-    <td><input type="submit" value="Submit"></td>
+    <td><input type="submit" value="Submit">
    </tr>
   </table>
  </form>

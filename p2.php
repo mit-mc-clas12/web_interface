@@ -25,7 +25,7 @@ th, td {
   <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
   <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
   <h4>
-  <a href="submit.html" class="w3-bar-item w3-button">Job Submission</a>
+  <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
   <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
   <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Useful Links</a>
   <a href="#" class="w3-bar-item w3-button">Contacts</a>
@@ -44,7 +44,7 @@ th, td {
       <a href="#1" class="w3-bar-item w3-button">MIT Tier 2</a>
       <a href="#2" class="w3-bar-item w3-button w3-light-grey">OSG</a>
       <a href="#3" class="w3-bar-item w3-button">JLab</a>
-      <a href="submit.html" class="w3-bar-item w3-button">Job Submission</a>
+      <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
     </div>
     <br>
   </div>
@@ -87,7 +87,7 @@ th, td {
             fclose($fh);
         }        
       ?>
-        <table style="width:1200px;text-align:center">
+        <table style="width:1200px;text-align:center" align="center">
           <tr>
             <th> Farm Name </th>
             <th> Total Available Cores </th>
