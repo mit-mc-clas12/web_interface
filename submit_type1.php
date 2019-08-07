@@ -37,6 +37,11 @@ th, td {
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 
 </style>
 
