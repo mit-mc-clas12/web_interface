@@ -27,7 +27,7 @@ th, td {
   <h4>
   <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
   <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
-  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Useful Links</a>
+  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Documentation</a>
   <a href="#" class="w3-bar-item w3-button">Contacts</a>
 </h4>
 </nav>
@@ -51,7 +51,7 @@ th, td {
   </div>
 </header>
 
-  <div class="w3-row-padding w3-rest" style="margin-bottom:128px;">
+  <div class="w3-row-padding w3-rest" style="margin-bottom:5%;">
     <div class="w3-rest" id="0">
       <p>
         <h1>Summary</h1>
@@ -87,7 +87,7 @@ th, td {
             fclose($fh);
         }        
       ?>
-        <table style="width:1200px;text-align:center" align="center">
+       <table style="width:100%;text-align:center" align="center">
           <tr>
             <th> Farm Name </th>
             <th> Total Available Cores </th>
@@ -130,9 +130,9 @@ th, td {
                 }
               ?>
                 <a href="http://submit.mit.edu/condormon/index.php">http://submit.mit.edu/condormon/index.php</a><br>
-                <img src="http://submit.mit.edu/condormon/imgs/Total_2h.png" width = 400px>
-                <img src="http://submit.mit.edu/condormon/imgs/Total_1d.png" width = 400px>
-                <img src="http://submit.mit.edu/condormon/imgs/Total_1w.png" width = 400px>
+                <img src="http://submit.mit.edu/condormon/imgs/Total_2h.png" style="width:30%;">
+                <img src="http://submit.mit.edu/condormon/imgs/Total_1d.png" style="width:30%;">
+                <img src="http://submit.mit.edu/condormon/imgs/Total_1w.png" style="width:30%;">
         </p>
     </div>
     <div class="w3-rest" id="2">
@@ -149,21 +149,21 @@ th, td {
                 ?>
                 <a href="https://display.opensciencegrid.org">https://display.opensciencegrid.org</a>
                 <h2>Jobs </h2>
-                 <img src="https://display.opensciencegrid.org/osg_display/jobs_hourly.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/jobs_daily.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/jobs_monthly.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/jobs_hourly.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/jobs_daily.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/jobs_monthly.png" style="width:30%;">
                 <h2>CPU Time </h2>
-                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_hourly.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_daily.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_monthly.png" width=400px>  
+                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_hourly.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_daily.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/cpu_hours_monthly.png" style="width:30%;">  
                 <h2>Transfers </h2>
-                 <img src="https://display.opensciencegrid.org/osg_display/transfers_hourly.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/transfers_daily.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/transfers_monthly.png" width=400px>  
+                 <img src="https://display.opensciencegrid.org/osg_display/transfers_hourly.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/transfers_daily.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/transfers_monthly.png" style="width:30%;">  
                 <h2>Transfer Volume</h2>
-                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_hourly.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_daily.png" width=400px>
-                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_monthly.png" width=400px>
+                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_hourly.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_daily.png" style="width:30%;">
+                 <img src="https://display.opensciencegrid.org/osg_display/transfer_volume_monthly.png" style="width:30%;">
         </p>
     </div>
     <div class="w3-rest" id="3">

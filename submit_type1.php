@@ -1,3 +1,48 @@
+<!DOCTYPE html>
+<html>
+<title>CLAS12 Monte-Carlo Job Submission Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<style>
+body,h1,h2,h3,h4 {font-family: "Raleway", Helvetica, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+}
+</style>
+
+<nav class="w3-bar w3-border w3-sidebar w3-bar-block w3-card w3-center" style="display:none" id="mySidebar">
+  <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
+  <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
+  <h4>
+  <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
+  <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
+  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Documentation</a>
+  <a href="#" class="w3-bar-item w3-button">Contacts</a>
+</h4>
+</nav>
+
+<!-- Header -->
+<header class="w3-panel w3-opacity w3-container" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i> 
+  <div class="w3-center">
+  <!-- <h4></h4> -->
+  <h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
+    <br>
+  </div>
+  </div>
+</header>
+
     <?php
     $project = $_POST['project'];
     $rungroup = $_POST['rungroup'];
@@ -28,9 +73,111 @@
             fwrite($fp, 'mem_req: '.$ram.'  # GB of RAM to request from node.'.PHP_EOL);
             fwrite($fp, 'jobs: '.$jobs.'    # number of jobs for each submission. This entry is ignored if lund files are used. In that case, theres is exactly one job / file'.PHP_EOL);
             fclose($fp);
+            $command = escapeshellcmd('/group/clas12/SubMit/client/src/SubMit.py scard_type1.txt');
+            $output = shell_exec($command);
         }
     else {
      echo "All field are required";
      die();
     }
-    ?>
+?>
+
+
+<div class="w3-center">
+<h4>Your job was successfully submitted! (Type 1)</h4>
+ <table align="center">
+   <tr>
+    <td>Project</td>
+    <td>
+      <?php echo($project); ?>
+    </td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>
+        <?php echo($rungroup); ?>
+    </td>
+    <td>
+      <div class="tooltip">What is this?
+        <span class="tooltiptext">Lorem ipsum</span>
+      </div>
+    </td>
+   </tr>
+   <tr>
+    <td>      
+      <div class="tooltip">Farm
+        <span class="tooltiptext">Lorem ipsum</span>
+      </div>
+    </td>
+    <td>
+        <?php echo($farm); ?>
+    </td>
+   </tr>
+   <tr>
+    <td>Generator</td>
+    <td>
+        <?php echo($generator); ?>
+    </td>
+   </tr>
+   <tr>
+    <td>gcards</td>
+    <td>
+        <?php echo($gcards); ?>
+    </td>
+  </tr>
+   <tr>
+    <td>Number of Events</td>
+    <td><?php echo($nevents); ?></td>
+   </tr>
+   <tr>
+    <td>Generator Options</td>
+    <td>
+     <?php echo($genOptions); ?>
+    </td>
+  </tr>
+   <tr>
+    <td>Luminosity (percent of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>):</td>
+    <td><?php echo($lumi); ?></td>
+   </tr>
+   <tr>
+    <td>Torus current</td>
+    <td><?php echo($tcurrent); ?> </td>
+   </tr>
+   <tr>
+    <td>Solenoid current</td>
+    <td><?php echo($pcurrent); ?> </td>
+   </tr>
+   <tr>
+    <td>Cores request</td>
+    <td><?php echo($cores); ?></td>
+   </tr>
+   <tr>
+    <td>RAM request</td>
+    <td><?php echo($ram); ?> GB</td>
+   </tr>
+   <tr>
+    <td>Number of Jobs</td>
+    <td><?php echo($jobs); ?></td>
+   </tr>
+  </table>
+</div>
+
+</body>
+
+<script>
+// Side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "30%";
+  x.style.height = "50%";
+  x.style.fontSize = "40px";
+  x.style.paddingTop = "0%";
+  x.style.display = "block";
+}
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+</script>
+
+</html>
