@@ -16,7 +16,7 @@
             $fp = fopen('scard_type1.txt', 'w');
             fwrite($fp, 'project: '.$project.'  # project name'.PHP_EOL);
             fwrite($fp, 'group: '.$rungroup.'   # project description'.PHP_EOL);
-            fwrite($fp, 'farm_name: '.' # farm pool'.$farm.PHP_EOL);
+            fwrite($fp, 'farm_name: '.$farm.' # farm pool'.PHP_EOL);
             fwrite($fp, 'generator: '.$generator.'  # one of clasdis, dvcs, disrad. Alternatively, the online public accessible location of user lund files.'.PHP_EOL);
             fwrite($fp, 'gcards: '.$gcards.'    # gcard, or online public accessible location of user gcards. If online address, there will be a submission for each gcard at that address'.PHP_EOL);
             fwrite($fp, 'nevents: '.$nevents.'  # run 100 events, this include the generator'.PHP_EOL);
