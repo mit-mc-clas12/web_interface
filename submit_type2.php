@@ -69,6 +69,7 @@ th, td {
             fclose($fp);
             $command = escapeshellcmd('/group/clas12/SubMit/client/src/SubMit.py scard_type2.txt');
             $output = shell_exec($command);
+            echo($output);
         }
     else {
      echo "All field are required";
