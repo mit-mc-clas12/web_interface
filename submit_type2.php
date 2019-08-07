@@ -68,8 +68,7 @@ th, td {
             fwrite($fp, 'mem_req: '.$ram.'  # GB of RAM to request from node.'.PHP_EOL);
             fclose($fp);
             $command = escapeshellcmd('/group/clas12/SubMit/client/src/SubMit.py scard_type2.txt');
-            $output = shell_exec($command);
-            echo($output);
+            $output = shell_exec($command);            
         }
     else {
      echo "All field are required";
@@ -79,7 +78,7 @@ th, td {
 
 
 <div class="w3-center">
-<h4>Your job was successfully submitted! (Type 2)</h4>
+<h4>Your job was successfully submitted! (Type 2) (Command: <?php echo($output); ?>)</h4>
  <table align="center">
    <tr>
     <td>Project</td>

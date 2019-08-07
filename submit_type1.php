@@ -84,8 +84,7 @@ th, td {
 
 
 <div class="w3-center">
-<h4>Your job was successfully submitted! (Type 1)</h4> <br>
-<?php echo($output); ?>
+<h4>Your job was successfully submitted! (Type 1) (Command: <?php echo($output); ?>)</h4>
  <table align="center">
    <tr>
     <td>Project</td>
