@@ -55,7 +55,7 @@ th, td {
     $cores = $_POST['cores'];
     $ram = $_POST['ram'];
     if (!empty($project) || !empty($gcards) || !empty($rungroup) || !empty($farm) || !empty($generator) || !empty($lumi) || !empty($tcurrent) || !empty($pcurrent) || !empty($cores) || !empty($ram)) {
-            $fp = fopen('scard_type1.txt', 'w');
+            $fp = fopen('scard_type2.txt', 'w');
             fwrite($fp, 'project: '.$project.'  # project name'.PHP_EOL);
             fwrite($fp, 'group: '.$rungroup.'   # project description'.PHP_EOL);
             fwrite($fp, 'farm_name: '.$farm.' # farm pool'.PHP_EOL);
