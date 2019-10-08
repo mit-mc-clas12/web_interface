@@ -91,7 +91,7 @@ th, td {
             fwrite($fp, 'cores_req: '.$cores.'  # number of cores to request from node'.PHP_EOL);
             fwrite($fp, 'mem_req: '.$ram.'  # GB of RAM to request from node.'.PHP_EOL);
             fclose($fp);
-            $command = escapeshellcmd('/group/clas12/SubMit/client/src/SubMit.py scard_type2.txt');
+            $command = escapeshellcmd('/group/clas12/SubMit/client/src/SubMit.py -u '.PHP_AUTH_USER.' scard_type2.txt');
             $output = shell_exec($command);            
         }
     else {
