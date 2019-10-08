@@ -71,11 +71,11 @@ def scard_validator(scard):
         
     cores_req=d["cores_req"]
     if not cores_req.isdigit():
-        print("Error: Invalid core request. Must be an integer value."
+        print("Error: Invalid core request. Must be an integer value.")
         
     mem_req=d["mem_req"]
     if not mem_req.isdigit():
-        print("Error: Invalid memory request. Must be an integer value."
+        print("Error: Invalid memory request. Must be an integer value.")
               
         
 def is_number(s):
