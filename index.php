@@ -28,7 +28,7 @@ th, td {
   <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
   <h4>
   <a href="#" class="w3-bar-item w3-button">Job Submission</a>
-  <a href="stat.php" class="w3-bar-item w3-button">Farm Statistics</a>
+  <a href="stats.php" class="w3-bar-item w3-button">Farm Statistics</a>
   <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
   <a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
   <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
@@ -163,7 +163,7 @@ th, td {
     <div class="w3-bar">
       <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
       <a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">1</a>
-      <a href="stat.php" class="w3-bar-item w3-button w3-hover-theme">2</a>
+      <a href="stats.php" class="w3-bar-item w3-button w3-hover-theme">2</a>
       <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button w3-hover-theme">3</a>
       <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button w3-hover-theme">4</a>
       <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
