@@ -225,7 +225,7 @@ th, td {
 function w3_open() {
   var x = document.getElementById("mySidebar");
   x.style.width = "30%";
-  x.style.height = "50%";
+  x.style.height = "60%";
   x.style.fontSize = "40px";
   x.style.paddingTop = "0%";
   x.style.display = "block";
