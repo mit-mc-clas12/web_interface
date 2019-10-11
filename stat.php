@@ -209,6 +209,12 @@ th, td {
 </div>
 <br>
  -->
+<br>
+<br>
+<hr>
+<div class="w3-center">
+  <a href="#myHeader">Go to top</a>
+</div>
 </body>
 <script>
 // Side navigation
