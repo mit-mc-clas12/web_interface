@@ -25,10 +25,11 @@ th, td {
   <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
   <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
   <h4>
-  <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
-  <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
-  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Documentation</a>
-  <a href="#" class="w3-bar-item w3-button">Contacts</a>
+  <a href="index.php" class="w3-bar-item w3-button">Job Submission</a>
+  <a href="#" class="w3-bar-item w3-button">Farm Statistics</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
+  <a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
 </h4>
 </nav>
 
@@ -44,7 +45,7 @@ th, td {
       <a href="#1" class="w3-bar-item w3-button">MIT Tier 2</a>
       <a href="#2" class="w3-bar-item w3-button w3-light-grey">OSG</a>
       <a href="#3" class="w3-bar-item w3-button">JLab</a>
-      <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
+      <a href="index.php" class="w3-bar-item w3-button">Job Submission</a>
     </div>
     <br>
   </div>
@@ -58,6 +59,7 @@ th, td {
         <?php
         if ($fh = fopen('Sample_script_result', 'r')) {
                 $line1 = fgets($fh);
+                $t2_time = substr($line1, 11);
                 $line2 = fgets($fh);
                 $t2_total = substr($line2, 12);
                 $line3 = fgets($fh);
@@ -68,6 +70,7 @@ th, td {
         }
         if ($fh = fopen('Sample_script_result_osg', 'r')) {
                 $line1 = fgets($fh);
+                $osg_time = substr($line1, 11);
                 $line2 = fgets($fh);
                 $osg_total= substr($line2, 12);
                 $line3 = fgets($fh);
@@ -78,6 +81,7 @@ th, td {
         }
         if ($fh = fopen('Sample_script_result_jlab', 'r')) {
                 $line1 = fgets($fh);
+                $jlab_time = substr($line1, 11);
                 $line2 = fgets($fh);
                 $jlab_total= substr($line2, 12);
                 $line3 = fgets($fh);
@@ -88,6 +92,7 @@ th, td {
         }        
       ?>
        <table style="width:100%;text-align:center" align="center">
+          <caption style="text-align:right" align="right">Last Update: <?php echo nl2br($osg_time); ?> </caption>
           <tr>
             <th> Farm Name </th>
             <th> Total Available Cores </th>
@@ -188,22 +193,22 @@ th, td {
 <!-- End Page Content -->
 </div>
 
+<!-- 
 <hr>
 <div class="w3-center">
-  <!-- Pagination -->
   <div class="w3-center w3-padding-32">
     <div class="w3-bar">
       <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
-      <a href="p1.php" class="w3-bar-item w3-button w3-hover-theme">1</a>
-      <a href="submit.html" class="w3-bar-item w3-button w3-hover-theme">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">3</a>
-      <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button w3-hover-theme">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-theme">5</a>
+     <a href="index.php" class="w3-bar-item w3-button w3-hover-theme">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">2</a>
+      <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button w3-hover-theme">3</a>
+      <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button w3-hover-theme">4</a>
       <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
     </div>
   </div>
 </div>
 <br>
+ -->
 </body>
 <script>
 // Side navigation
