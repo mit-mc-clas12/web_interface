@@ -56,10 +56,11 @@ th, td {
   <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
   <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
   <h4>
-  <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
-  <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
-  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Documentation</a>
-  <a href="#" class="w3-bar-item w3-button">Contacts</a>
+  <a href="index.php" class="w3-bar-item w3-button">Job Submission</a>
+  <a href="stat.php" class="w3-bar-item w3-button">Farm Statistics</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
+  <a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
 </h4>
 </nav>
 
@@ -75,15 +76,14 @@ th, td {
 </header>
 <body>
   <div class="w3-center">
+
+<form action="Logout.php">
+    <input type="submit" value="Go to Google" />
+</form>
+
+
   <form action="submit_type1.php" method="POST">
   <table align="center">
-   <tr>
-    <td>Project :</td>
-    <td>
-     <input type="" name="project" required>
-     </select>
-    </td>
-  </tr>
   <tr>
     <td>Group :</td>
     <td>
@@ -91,14 +91,15 @@ th, td {
       <option selected hidden value=""></option>
       <option value="RGA">RGA</option>
       <option value="RGB">RGB</option>
+      <option value="RGB">RGK</option>
      </select>
     </td>
-    <td>
+<!--     <td>
       <div class="tooltip">What is this?
         <span class="tooltiptext">Lorem ipsum</span>
       </div>
     </td>
-   </tr>
+ -->   </tr>
    <tr>
     <td>      
       <div class="tooltip">Farm
@@ -123,9 +124,17 @@ th, td {
     </td>
    </tr>
    <tr>
-    <td>gcards :</td>
+    <td>Gcards :</td>
     <td>
-     <input type="" name="gcards" required>
+     <select name="gcards" required>
+      <option selected hidden value=""></option>
+      <option value="/jlab/clas12Tags/gcards/clas12-default.gcard">clas12-default</option>
+      <option value="/jlab/clas12Tags/gcards/rga-spring2018.gcard">rga-spring2018</option>
+      <option value="/jlab/clas12Tags/gcards/rgb-spring2018.gcard">rgb-spring2018</option>
+      <option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">rga-fall2018</option>
+      <option value="/jlab/clas12Tags/gcards/rga-spring2019.gcard">rga-spring2019</option>
+      <option value="/jlab/clas12Tags/gcards/rgb-spring2019.gcard">rgb-spring2019</option>
+     </select>
     </td>
   </tr>
    <tr>
@@ -149,14 +158,6 @@ th, td {
    <tr>
     <td>Solenoid current :</td>
     <td><input type="number" name="pcurrent" min="-100" max="100" required> % </td>
-   </tr>
-   <tr>
-    <td>Cores request :</td>
-    <td><input type="number" name="cores" min="1" required></td>
-   </tr>
-   <tr>
-    <td>RAM request :</td>
-    <td><input type="number" name="ram" min="1" required> GB</td>
    </tr>
    <tr>
     <td>Number of Jobs :</td>

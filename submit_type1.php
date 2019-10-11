@@ -49,10 +49,11 @@ th, td {
   <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
   <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
   <h4>
-  <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
-  <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
-  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Documentation</a>
-  <a href="#" class="w3-bar-item w3-button">Contacts</a>
+  <a href="index.php" class="w3-bar-item w3-button">Job Submission</a>
+  <a href="stat.php" class="w3-bar-item w3-button">Farm Statistics</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
+  <a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
 </h4>
 </nav>
 
@@ -83,7 +84,7 @@ th, td {
     $jobs = $_POST['jobs'];
     if (!empty($genOptions) ||!empty($project) || !empty($gcards) || !empty($rungroup) || !empty($farm) || !empty($nevents) || !empty($generator) || !empty($jobs) || !empty($lumi) || !empty($tcurrent) || !empty($pcurrent) || !empty($cores) || !empty($ram)) {
             $fp = fopen('scard_type1.txt', 'w');
-            fwrite($fp, 'project: '.$project.'  # project name'.PHP_EOL);
+            fwrite($fp, 'project: CLAS12  # project name'.PHP_EOL);
             fwrite($fp, 'group: '.$rungroup.'   # project description'.PHP_EOL);
             fwrite($fp, 'farm_name: '.$farm.' # farm pool'.PHP_EOL);
             fwrite($fp, 'generator: '.$generator.'  # one of clasdis, dvcs, disrad. Alternatively, the online public accessible location of user lund files.'.PHP_EOL);
@@ -93,11 +94,11 @@ th, td {
             fwrite($fp, 'luminosity: '.$lumi.'  # percent of 10^35 luminosity'.PHP_EOL);
             fwrite($fp, 'tcurrent: '.$tcurrent.'    # torus field scale'.PHP_EOL);
             fwrite($fp, 'pcurrent: '.$pcurrent.'    # solenoid field scale'.PHP_EOL);
-            fwrite($fp, 'cores_req: '.$cores.'  # number of cores to request from node'.PHP_EOL);
-            fwrite($fp, 'mem_req: '.$ram.'  # GB of RAM to request from node.'.PHP_EOL);
+            fwrite($fp, 'cores_req: 1 # number of cores to request from node'.PHP_EOL);
+            fwrite($fp, 'mem_req: 2 # GB of RAM to request from node.'.PHP_EOL);
             fwrite($fp, 'jobs: '.$jobs.'    # number of jobs for each submission. This entry is ignored if lund files are used. In that case, theres is exactly one job / file'.PHP_EOL);
             fclose($fp);
-            $command = escapeshellcmd('SubMit/client/src/SubMit.py -u '.PHP_AUTH_USER.' scard_type1.txt');
+            $command = escapeshellcmd('SubMit/client/src/SubMit.py -u '.$_SERVER['PHP_AUTH_USER'].' scard_type1.txt');
             $output = shell_exec($command);
         }
     else {
@@ -173,11 +174,11 @@ th, td {
    </tr>
    <tr>
     <td>Cores request</td>
-    <td><?php echo($cores); ?></td>
+    <td>1</td>
    </tr>
    <tr>
     <td>RAM request</td>
-    <td><?php echo($ram); ?> GB</td>
+    <td>2 GB</td>
    </tr>
    <tr>
     <td>Number of Jobs</td>
