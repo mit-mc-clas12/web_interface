@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title> Sample php files </title>
+<title> CLAS12 Offsite Farm Statistics </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -34,7 +34,7 @@ th, td {
 </nav>
 
 <!-- Header -->
-<header class="w3-panel w3-opacity w3-container" id="myHeader">
+<header class="w3-panel w3-opacity w3-container" id="top">
   <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i> 
   <div class="w3-center">
   <!-- <h4></h4> -->
@@ -213,7 +213,7 @@ th, td {
 <br>
 <hr>
 <div class="w3-center">
-  <a href="#myHeader">Go to top</a>
+  <a href="#top">Go to top</a>
 </div>
 </body>
 <script>
