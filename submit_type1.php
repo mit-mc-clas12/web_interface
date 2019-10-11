@@ -82,6 +82,7 @@ th, td {
     $cores = $_POST['cores'];
     $ram = $_POST['ram'];
     $jobs = $_POST['jobs'];
+    $username = $_SERVER['PHP_AUTH_USER'];
     if (!empty($genOptions) ||!empty($project) || !empty($gcards) || !empty($rungroup) || !empty($farm) || !empty($nevents) || !empty($generator) || !empty($jobs) || !empty($lumi) || !empty($tcurrent) || !empty($pcurrent) || !empty($cores) || !empty($ram)) {
             $fp = fopen('scard_type1.txt', 'w');
             fwrite($fp, 'project: CLAS12  # project name'.PHP_EOL);
@@ -98,7 +99,7 @@ th, td {
             fwrite($fp, 'mem_req: 2 # GB of RAM to request from node.'.PHP_EOL);
             fwrite($fp, 'jobs: '.$jobs.'    # number of jobs for each submission. This entry is ignored if lund files are used. In that case, theres is exactly one job / file'.PHP_EOL);
             fclose($fp);
-            $command = escapeshellcmd('SubMit/client/src/SubMit.py -u '.$_SERVER['PHP_AUTH_USER'].' scard_type1.txt');
+            $command = escapeshellcmd('SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
             $output = shell_exec($command);
         }
     else {
@@ -109,8 +110,9 @@ th, td {
 
 
 <div class="w3-center">
-<h4>Your job was successfully submitted! (Type 1) (Command: <?php echo($output); ?>)</h4>
+<h4>Your job was successfully submitted! (Type 1)</h4>
  <table align="center">
+  <caption style="text-align:right" align="right">Logged in as <?php echo($username); ?> </caption>
    <tr>
     <td>Project</td>
     <td>
@@ -122,17 +124,19 @@ th, td {
     <td>
         <?php echo($rungroup); ?>
     </td>
-    <td>
+<!--     <td>
       <div class="tooltip">What is this?
         <span class="tooltiptext">Lorem ipsum</span>
       </div>
     </td>
-   </tr>
+ -->   </tr>
    <tr>
     <td>      
-      <div class="tooltip">Farm
+<!--       <div class="tooltip">Farm
         <span class="tooltiptext">Lorem ipsum</span>
       </div>
+ -->    
+    Farm
     </td>
     <td>
         <?php echo($farm); ?>
