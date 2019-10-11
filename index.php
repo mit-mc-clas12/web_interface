@@ -116,7 +116,7 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 1</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 1 scard provides choices with 6 gcards including default clas settings</p>
+  <p>Type 1 scard provides choices with 6 gcards including default clas12 and different run settings</p>
   </div>
 </div>
 </a>
