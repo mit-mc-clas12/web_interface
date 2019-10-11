@@ -27,7 +27,7 @@ th, td {
   <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
   <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
   <h4>
-  <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
+  <a href="#" class="w3-bar-item w3-button">Job Submission</a>
   <a href="stat.php" class="w3-bar-item w3-button">Farm Statistics</a>
   <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
   <a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
