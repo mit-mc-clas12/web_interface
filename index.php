@@ -29,8 +29,8 @@ th, td {
   <h4>
   <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
   <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
-  <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button">Documentation</a>
-  <a href="#" class="w3-bar-item w3-button">Contacts</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
+  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
 </h4>
 </nav>
 
@@ -44,6 +44,7 @@ th, td {
         <?php
         if ($fh = fopen('Sample_script_result', 'r')) {
                 $line1 = fgets($fh);
+                $t2_time = substr($line1, 11); 
                 $line2 = fgets($fh);
                 $t2_total = substr($line2, 12);
                 $line3 = fgets($fh);
@@ -54,6 +55,7 @@ th, td {
         }
         if ($fh = fopen('Sample_script_result_osg', 'r')) {
                 $line1 = fgets($fh);
+                $osg_time = substr($line1, 11); 
                 $line2 = fgets($fh);
                 $osg_total= substr($line2, 12);
                 $line3 = fgets($fh);
@@ -64,6 +66,7 @@ th, td {
         }
         if ($fh = fopen('Sample_script_result_jlab', 'r')) {
                 $line1 = fgets($fh);
+                $jlab_time = substr($line1, 11); 
                 $line2 = fgets($fh);
                 $jlab_total= substr($line2, 12);
                 $line3 = fgets($fh);
@@ -73,7 +76,9 @@ th, td {
             fclose($fh);
         }
       ?>
+
         <table style="width:100%;text-align:center">
+          <caption style="text-align:right" align="right">Last Update: <?php echo nl2br($osg_time); ?> </caption>
           <tr>
             <th> Farm Name </th>
             <th> Total Available Cores </th>
@@ -104,81 +109,6 @@ th, td {
   </div>
 </header>
 
-<!-- Modal -->
-<div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4">
-      <header class="w3-container"> 
-        <span onclick="document.getElementById('id01').style.display='none'"
-        class="w3-button w3-display-topright w3-btn">x</span>
-        <h4>Computing Farm Summary</h4>
-      </header>
-      <div class="w3-padding w3-center">
-        <?php
-        if ($fh = fopen('Sample_script_result', 'r')) {
-                $line1 = fgets($fh);
-                $line2 = fgets($fh);
-                $t2_total = substr($line2, 12);
-                $line3 = fgets($fh);
-                $t2_busy = substr($line3, 11);
-                $line4 = fgets($fh);
-                $t2_idle = substr($line4, 11);
-            fclose($fh);
-        }
-        if ($fh = fopen('Sample_script_result_osg', 'r')) {
-                $line1 = fgets($fh);
-                $line2 = fgets($fh);
-                $osg_total= substr($line2, 12);
-                $line3 = fgets($fh);
-                $osg_busy = substr($line3, 11);
-                $line4 = fgets($fh);
-                $osg_idle = substr($line4, 11);
-            fclose($fh);
-        }
-        if ($fh = fopen('Sample_script_result_jlab', 'r')) {
-                $line1 = fgets($fh);
-                $line2 = fgets($fh);
-                $jlab_total= substr($line2, 12);
-                $line3 = fgets($fh);
-                $jlab_busy = substr($line3, 11);
-                $line4 = fgets($fh);
-                $jlab_idle = substr($line4, 11);
-            fclose($fh);
-        }
-      ?>
-        <table style="width:100%;text-align:center">
-          <tr>
-            <th> Farm Name </th>
-            <th> Total Available Cores </th>
-            <th> Busy Cores </th>
-            <th> Idle Cores </th>
-          </tr>
-          <tr>
-            <td> MIT </td>
-            <td> <?php echo nl2br($t2_total); ?> </td>
-            <td> <?php echo nl2br($t2_busy); ?> </td>
-            <td> <?php echo nl2br($t2_idle); ?> </td>
-          </tr>
-          <tr>
-            <td> OSG </td>
-            <td> <?php echo nl2br($osg_total); ?> </td>
-            <td> <?php echo nl2br($osg_busy); ?> </td>
-            <td> <?php echo nl2br($osg_idle); ?> </td>
-          </tr>
-          <tr>
-            <td> JLab </td>
-            <td> <?php echo nl2br($jlab_total); ?> </td>
-            <td> <?php echo nl2br($jlab_busy); ?> </td>
-            <td> <?php echo nl2br($jlab_idle); ?> </td>
-          </tr>
-
-        </table>
-      </div>
-   <!--    <footer class="w3-container">
-        <p>Modal footer</p>
-      </footer> -->
-    </div>
-</div>
-
 <div class="w3-row-padding w3-center w3-margin-top">
 <a href="type1.html" >
 <div class="w3-quarter">
@@ -195,7 +125,7 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 2</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 2 </p>
+  <p>Type 2 gcard is coming soon!</p>
   </div>
 </div>
 </a>
@@ -205,7 +135,7 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 3</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 3</p>
+  <p>Type 3 gcard is coming soon!</p>
   </div>
 </div>
 </a>
@@ -215,7 +145,7 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 4</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 4</p>
+  <p>Type 4 gcard is coming soon!</p>
   </div>
 </div>
 </a>
@@ -228,13 +158,12 @@ th, td {
   <!-- Pagination -->
   <div class="w3-center w3-padding-32">
     <div class="w3-bar">
-      <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
+      <!-- <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a> -->
       <a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">1</a>
-      <a href="submit.html" class="w3-bar-item w3-button w3-hover-theme">2</a>
-      <a href="p2.php" class="w3-bar-item w3-button w3-hover-theme">3</a>
-      <a href="https://github.com/mit-mc-clas12/documentation" class="w3-bar-item w3-button w3-hover-theme">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-theme">5</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
+      <a href="p2.php" class="w3-bar-item w3-button w3-hover-theme">2</a>
+      <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button w3-hover-theme">3</a>
+      <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button w3-hover-theme">4</a>
+      <!-- <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a> -->
     </div>
   </div>
 </div>
