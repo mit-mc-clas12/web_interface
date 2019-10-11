@@ -89,10 +89,14 @@ th, td {
                 $line4 = fgets($fh);
                 $jlab_idle = substr($line4, 11);
             fclose($fh);
+        $username= $_SERVER['PHP_AUTH_USER'];
         }        
       ?>
        <table style="width:100%;text-align:center" align="center">
-          <caption style="text-align:right" align="right">Last Update: <?php echo nl2br($osg_time); ?> </caption>
+          <caption style="text-align:right" align="right">
+            Logged in as <?php echo($username); ?> <br>
+            Last Update: <?php echo nl2br($osg_time); ?>
+          </caption>
           <tr>
             <th> Farm Name </th>
             <th> Total Available Cores </th>
