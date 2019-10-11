@@ -28,8 +28,9 @@ th, td {
   <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
   <h4>
   <a href="p1.php" class="w3-bar-item w3-button">Job Submission</a>
-  <a href="p2.php" class="w3-bar-item w3-button">Farm Statistics</a>
+  <a href="stat.php" class="w3-bar-item w3-button">Farm Statistics</a>
   <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
+  <a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
   <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
 </h4>
 </nav>
@@ -115,60 +116,59 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 1</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 1</p>
+  <p>Type 1 scard provides choices with 6 gcards including default clas settings</p>
   </div>
 </div>
 </a>
 
-<a href="type2.html" >
+<a href="#" >
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 2</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 2 gcard is coming soon!</p>
+  <p>Type 2 scard is coming soon!</p>
   </div>
 </div>
 </a>
 
-<a href="type1.html" >
+<a href="#" >
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 3</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 3 gcard is coming soon!</p>
+  <p>Type 3 scard is coming soon!</p>
   </div>
 </div>
 </a>
 
-<a href="type1.html" >
+<a href="#" >
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 4</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 4 gcard is coming soon!</p>
+  <p>Type 4 scard is coming soon!</p>
   </div>
 </div>
 </a>
 
 
 </div>
-
+<!-- 
 <hr>
 <div class="w3-center">
-  <!-- Pagination -->
   <div class="w3-center w3-padding-32">
     <div class="w3-bar">
-      <!-- <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a> -->
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
       <a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">1</a>
-      <a href="p2.php" class="w3-bar-item w3-button w3-hover-theme">2</a>
+      <a href="stat.php" class="w3-bar-item w3-button w3-hover-theme">2</a>
       <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button w3-hover-theme">3</a>
       <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button w3-hover-theme">4</a>
-      <!-- <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a> -->
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
     </div>
   </div>
 </div>
 <br>
-
+ -->
 <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
 <script>
 // Side navigation
