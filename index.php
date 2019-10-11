@@ -119,7 +119,7 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 1</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 1 scard provides choices with 6 gcards including default clas12 and different run settings</p>
+	<p>Use one of the generators in the container. <br>Use one of the gcard in the container. <br> Submit arbitrary number of jobs, arbitrary number of events for each job. <br> Specify magnetic fields strength and polarity. <br>  </p>
   </div>
 </div>
 </a>
@@ -129,7 +129,7 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 2</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 2 scard is coming soon!</p>
+	<p>Use LUND files uploaded to a web location. This will run one job per LUND file.  <br>Use one of the gcard in the container.  <br> Specify magnetic fields strength and polarity. <br>  </p>
   </div>
 </div>
 </a>
@@ -139,7 +139,7 @@ th, td {
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 3</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Type 3 scard is coming soon!</p>
+<p>Use one of the generators in the container. <br>Use one or more custom gcards uploaded to a web location. This will run one set of jobs for each gcard.  <br> Submit arbitrary number of jobs, arbitrary number of events for each job. <br> Specify magnetic fields strength and polarity. <br>  </p>
   </div>
 </div>
 </a>
