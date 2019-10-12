@@ -18,6 +18,7 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center;
+  width: 50%;
 }
 th, td {
   padding: 10px;
@@ -118,7 +119,7 @@ th, td {
       <option value="clasdis">clasdis</option>
       <option value="dvcs">dvcs</option>
       <option value="disrad">disrad</option>
-	   <option value="genKYandOnePion">genKYandOnePion</option>
+	    <option value="genKYandOnePion">genKYandOnePion</option>
      </select>
     </td>
    </tr>
@@ -137,10 +138,6 @@ th, td {
     </td>
   </tr>
    <tr>
-    <td>Number of Events :</td>
-    <td><input type="number" name="nevents" min="1" required></td>
-   </tr>
-   <tr>
     <td>Generator Options :</td>
     <td>
      <input type="" name="genOptions" required>
@@ -148,19 +145,23 @@ th, td {
   </tr>
    <tr>
     <td>Luminosity (percent of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>):</td>
-    <td><input type="number" name="lumi" min="0" max="100" required> % </td>
+    <td><input type="number" name="lumi" min="0" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;percent </td>
    </tr>
    <tr>
     <td>Torus current :</td>
-    <td><input type="number" name="tcurrent" min="-100" max="100" required> % </td>
+    <td><input type="number" name="tcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;percent </td>
    </tr>
    <tr>
     <td>Solenoid current :</td>
-    <td><input type="number" name="pcurrent" min="-100" max="100" required> % </td>
+    <td><input type="number" name="pcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;percent </td>
    </tr>
    <tr>
     <td>Number of Jobs :</td>
     <td><input type="number" name="jobs" min="0" required></td>
+   </tr>
+   <tr>
+    <td>Number of Events / Job :</td>
+    <td><input type="number" name="nevents" min="1" required></td>
    </tr>
     <td><input type="submit" value="Submit"></td>
    </tr>
