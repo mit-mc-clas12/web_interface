@@ -41,6 +41,8 @@ th, td {
   <div class="w3-center">
   <!-- <h4></h4> -->
   <h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
+  <h2 class="w3-xlarge">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?> <br>
+
    <div class="w3-padding w3-center">
         <?php
         if ($fh = fopen('Sample_script_result', 'r')) {
@@ -76,13 +78,12 @@ th, td {
                 $jlab_idle = substr($line4, 11);
             fclose($fh);
         }
-        $username= $_SERVER['PHP_AUTH_USER'];
       ?>
 
         <table style="width:100%;text-align:center">
           <caption style="text-align:right" align="right">
-            Logged in as <?php echo($username); ?> <br>
-            Last Update: <?php echo nl2br($osg_time); ?> </caption>
+            Last Update: <?php echo nl2br($osg_time); ?>
+          </caption>
           <tr>
             <th> Farm Name </th>
             <th> Total Available Cores </th>
