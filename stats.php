@@ -93,7 +93,7 @@ th, td {
         }        
       ?>
        <table style="width:100%;text-align:center" align="center">
-          <caption style="text-align:right" align="right">
+          <caption style="text-align:right" align="top">
             Logged in as <?php echo($username); ?> <br>
             Last Update: <?php echo nl2br($osg_time); ?>
           </caption>

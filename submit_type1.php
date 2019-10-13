@@ -112,7 +112,7 @@ th, td {
 <div class="w3-center">
 <h4>Your job was successfully submitted! (Type 1)</h4>
  <table align="center">
-  <caption style="text-align:right" align="right">Logged in as <?php echo($username); ?> </caption>
+  <caption style="text-align:right" align="top">Logged in as <?php echo($username); ?> </caption>
    <tr>
     <td>Project</td>
     <td>
