@@ -15,6 +15,8 @@ h1 {letter-spacing: 6px}
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  text-align: center;
+  width: 50%;
 }
 th, td {
   padding: 10px;
@@ -82,6 +84,7 @@ th, td {
     $cores = $_POST['cores'];
     $ram = $_POST['ram'];
     $jobs = $_POST['jobs'];
+    $totalevents = $_POST['totalevents'];
     $username = $_SERVER['PHP_AUTH_USER'];
     if (!empty($genOptions) ||!empty($project) || !empty($gcards) || !empty($rungroup) || !empty($farm) || !empty($nevents) || !empty($generator) || !empty($jobs) || !empty($lumi) || !empty($tcurrent) || !empty($pcurrent) || !empty($cores) || !empty($ram)) {
             $fp = fopen('scard_type1.txt', 'w');
@@ -116,7 +119,7 @@ th, td {
    <tr>
     <td>Project</td>
     <td>
-      <?php echo($project); ?>
+      CLAS12
     </td>
   </tr>
   <tr>
@@ -149,15 +152,11 @@ th, td {
     </td>
    </tr>
    <tr>
-    <td>gcards</td>
+    <td>Gcards</td>
     <td>
         <?php echo($gcards); ?>
     </td>
   </tr>
-   <tr>
-    <td>Number of Events</td>
-    <td><?php echo($nevents); ?></td>
-   </tr>
    <tr>
     <td>Generator Options</td>
     <td>
@@ -177,16 +176,24 @@ th, td {
     <td><?php echo($pcurrent); ?> </td>
    </tr>
    <tr>
-    <td>Cores request</td>
+    <td>Cores requested</td>
     <td>1</td>
    </tr>
    <tr>
-    <td>RAM request</td>
+    <td>RAM requested</td>
     <td>2 GB</td>
    </tr>
    <tr>
     <td>Number of Jobs</td>
     <td><?php echo($jobs); ?></td>
+   </tr>
+   <tr>
+    <td>Number of Events / Job</td>
+    <td><?php echo($nevents); ?></td>
+   </tr>
+   <tr>
+    <td> Total Events </td>
+    <td><?php echo($totalevents); ?></td>
    </tr>
   </table>
 </div>
