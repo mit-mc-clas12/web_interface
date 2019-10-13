@@ -84,7 +84,7 @@ th, td {
     <caption style="text-align:center" align="center"> <img width = "250" src="username.php"> </caption>
 
   <tr>
-    <td>Group :</td>
+    <td>Group</td>
     <td>
      <select name="rungroup" required>
       <option selected hidden value=""></option>
@@ -112,7 +112,7 @@ th, td {
     </td>
    </tr>
    <tr>
-    <td>Generator :</td>
+    <td>Generator</td>
     <td>
      <select name="generator" required>
       <option selected hidden value=""></option>
@@ -124,7 +124,7 @@ th, td {
     </td>
    </tr>
    <tr>
-    <td>Gcards :</td>
+    <td>Gcards</td>
     <td>
      <select name="gcards" required>
       <option selected hidden value=""></option>
@@ -138,34 +138,34 @@ th, td {
     </td>
   </tr>
    <tr>
-    <td>Generator Options :</td>
+    <td>Generator Options</td>
     <td>
      <input type="" name="genOptions" required>
     </td>
   </tr>
    <tr>
-    <td>Luminosity (percent of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>):</td>
+    <td>Luminosity (percent of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>)</td>
     <td><input type="number" name="lumi" min="0" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;percent </td>
    </tr>
    <tr>
-    <td>Torus current :</td>
+    <td>Torus current</td>
     <td><input type="number" name="tcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;percent </td>
    </tr>
    <tr>
-    <td>Solenoid current :</td>
+    <td>Solenoid current</td>
     <td><input type="number" name="pcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;percent </td>
    </tr>
    <tr>
-    <td>Number of Jobs :</td>
+    <td>Number of Jobs</td>
     <td><input type="number" name="jobs" id='box1' oninput="calculate();" min="0" required></td>
    </tr>
    <tr>
-    <td>Number of Events / Job :</td>
+    <td>Number of Events / Job</td>
     <td><input type="number" name="nevents" id='box2' oninput="calculate();" min="1" required></td>
    </tr>
    <tr>
     <td> Total Events </td>
-    <td><input id="result" readonly /></td>
+    <td><input type="number" name="totalevents" id="result"  readonly /></td>
    </tr>
    <tr>
     <td style='border-left-color:white;border-bottom-color:white;'></td>
@@ -176,7 +176,7 @@ th, td {
 </div>
 </body>
 <script>
-//Multiplication
+//Multiplication (https://stackoverflow.com/questions/21223164/multiplying-two-inputs-with-javascript-displaying-in-text-box)
 function calculate() {
     var myBox1 = document.getElementById('box1').value; 
     var myBox2 = document.getElementById('box2').value;
