@@ -157,12 +157,18 @@ th, td {
    </tr>
    <tr>
     <td>Number of Jobs :</td>
-    <td><input type="number" name="jobs" min="0" required></td>
+    <td><input type="number" name="jobs" id='box1' oninput="calculate();" min="0" required></td>
    </tr>
    <tr>
     <td>Number of Events / Job :</td>
-    <td><input type="number" name="nevents" min="1" required></td>
+    <td><input type="number" name="nevents" id='box2' oninput="calculate();" min="1" required></td>
    </tr>
+   <tr>
+    <td> Total Events </td>
+    <td><input id="result" readonly /></td>
+   </tr>
+   <tr>
+    <td style='border-left-color:white;border-bottom-color:white;'></td>
     <td><input type="submit" value="Submit"></td>
    </tr>
   </table>
@@ -170,6 +176,15 @@ th, td {
 </div>
 </body>
 <script>
+//Multiplication
+function calculate() {
+    var myBox1 = document.getElementById('box1').value; 
+    var myBox2 = document.getElementById('box2').value;
+    var result = document.getElementById('result'); 
+    var myResult = myBox1 * myBox2;
+      document.getElementById('result').value = myResult;
+
+}
 // Side navigation
 function w3_open() {
   var x = document.getElementById("mySidebar");
