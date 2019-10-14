@@ -102,7 +102,7 @@ th, td {
             fwrite($fp, 'mem_req: 2 # GB of RAM to request from node.'.PHP_EOL);
             fwrite($fp, 'jobs: '.$jobs.'    # number of jobs for each submission. This entry is ignored if lund files are used. In that case, theres is exactly one job / file'.PHP_EOL);
             fclose($fp);
-            $command = escapeshellcmd('SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
+            $command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
             $output = shell_exec($command);
         }
     else {

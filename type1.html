@@ -1,203 +1,203 @@
 <!DOCTYPE HTML>
 <html>
 
-<title>CLAS12 Monte-Carlo Job Submission Portal</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<body>
+	<title>CLAS12 Monte-Carlo Job Submission Portal</title>
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+				<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+					<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+							<body>
 
-<style>
-body,h1,h2,h3,h4 {font-family: "Raleway", Helvetica, sans-serif}
-h1 {letter-spacing: 6px}
-.w3-row-padding img {margin-bottom: 12px}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  text-align: center;
-  width: 50%;
-}
-th, td {
-  padding: 10px;
-}
+								<style>
+									body,h1,h2,h3,h4 {font-family: "Raleway", Helvetica, sans-serif}
+									h1 {letter-spacing: 6px}
+									.w3-row-padding img {margin-bottom: 12px}
+									table, th, td {
+										border: 1px solid black;
+										border-collapse: collapse;
+										text-align: center;
+										width: 50%;
+									}
+								th, td {
+									padding: 10px;
+								}
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
+								.tooltip {
+									position: relative;
+									display: inline-block;
+									border-bottom: 1px dotted black;
+								}
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+								.tooltip .tooltiptext {
+									visibility: hidden;
+									width: 120px;
+									background-color: black;
+									color: #fff;
+									text-align: center;
+									border-radius: 6px;
+									padding: 5px 0;
 
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
+									/* Position the tooltip */
+									position: absolute;
+									z-index: 1;
+								}
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-
-</style>
-
-<title>CLAS12 MC Submission Script Type 1 </title>
-
-<nav class="w3-bar w3-border w3-sidebar w3-bar-block w3-card w3-center" style="display:none" id="mySidebar">
-  <h2 class="w3-xxlarge w3-text-theme">Menus </h2>
-  <button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
-  <h4>
-  <a href="index.php" class="w3-bar-item w3-button">Job Submission</a>
-  <a href="stats.php" class="w3-bar-item w3-button">Farm Statistics</a>
-  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
-  <a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
-  <a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
-</h4>
-</nav>
+								.tooltip:hover .tooltiptext {
+									visibility: visible;
+								}
 
 
+									</style>
 
-<header class="w3-panel w3-opacity w3-container" id="myHeader">
-  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i> 
-  <div class="w3-center">
-  <!-- <h4></h4> -->
-  <h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
-    <br>
-  </div>
-</header>
-<body>
-  <div class="w3-center">
+								<title>CLAS12 MC Submission Script Type 1 </title>
 
-  <form action="submit_type1.php" method="POST">
-  <table align="center">
+								<nav class="w3-bar w3-border w3-sidebar w3-bar-block w3-card w3-center" style="display:none" id="mySidebar">
+									<h2 class="w3-xxlarge w3-text-theme">Menus </h2>
+									<button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
+									<h4>
+										<a href="index.php" class="w3-bar-item w3-button">Job Submission</a>
+										<a href="stats.php" class="w3-bar-item w3-button">Farm Statistics</a>
+										<a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
+										<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>
+										<a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
+									</h4>
+								</nav>
 
-    <caption style="text-align:center" align="center"> <img width = "250" src="username.php"> </caption>
 
-  <tr>
-    <td>Group</td>
-    <td>
-     <select name="rungroup" required>
-      <option selected hidden value=""></option>
-      <option value="RGA">RGA</option>
-      <option value="RGB">RGB</option>
-      <option value="RGB">RGK</option>
-     </select>
-    </td>
-<!--     <td>
-      <div class="tooltip">What is this?
-        <span class="tooltiptext">Lorem ipsum</span>
-      </div>
-    </td>
- -->   </tr>
-   <tr>
-    <td>      
-      <div class="tooltip">Farm
-        <span class="tooltiptext">Lorem ipsum</span>
-      </div>
-    </td>
-    <td>
-     <input type="radio" name="farm" value="JLab" required>JLab
-     <input type="radio" name="farm" value="MIT" required>MIT
-     <input type="radio" name="farm" value="OSG" required>OSG
-    </td>
-   </tr>
-   <tr>
-    <td>Generator</td>
-    <td>
-     <select name="generator" required>
-      <option selected hidden value=""></option>
-      <option value="clasdis">clasdis</option>
-      <option value="dvcs">dvcs</option>
-      <option value="disrad">disrad</option>
-	    <option value="genKYandOnePion">genKYandOnePion</option>
-     </select>
-    </td>
-   </tr>
-   <tr>
-    <td>Gcards</td>
-    <td>
-     <select name="gcards" required>
-      <option selected hidden value=""></option>
-      <option value="/jlab/clas12Tags/gcards/clas12-default.gcard">clas12-default</option>
-      <option value="/jlab/clas12Tags/gcards/rga-spring2018.gcard">rga-spring2018</option>
-      <option value="/jlab/clas12Tags/gcards/rgb-spring2018.gcard">rgb-spring2018</option>
-      <option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">rga-fall2018</option>
-      <option value="/jlab/clas12Tags/gcards/rga-spring2019.gcard">rga-spring2019</option>
-      <option value="/jlab/clas12Tags/gcards/rgb-spring2019.gcard">rgb-spring2019</option>
-     </select>
-    </td>
-  </tr>
-   <tr>
-    <td>Generator Options</td>
-    <td>
-     <input type="" name="genOptions" required>
-    </td>
-  </tr>
-   <tr>
-    <td>Luminosity (% of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>)</td>
-    <td><input type="number" name="lumi" min="0" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;% </td>
-   </tr>
-   <tr>
-    <td>Torus current</td>
-    <td><input type="number" name="tcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;% </td>
-   </tr>
-   <tr>
-    <td>Solenoid current</td>
-    <td><input type="number" name="pcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;% </td>
-   </tr>
-   <tr>
-    <td>Number of Jobs</td>
-    <td><input type="number" name="jobs" id='box1' oninput="calculate();" min="0" required></td>
-   </tr>
-   <tr>
-    <td>Number of Events / Job</td>
-    <td><input type="number" name="nevents" id='box2' oninput="calculate();" min="1" required></td>
-   </tr>
-   <tr>
-    <td> Total Events </td>
-    <td><input type="number" name="totalevents" id="result"  readonly /></td>
-   </tr>
-   <tr>
-    <td style='border-left-color:white;border-bottom-color:white;'></td>
-    <td><input type="submit" value="Submit"></td>
-   </tr>
-  </table>
- </form>
-</div>
-</body>
-<script>
-//Multiplication (https://stackoverflow.com/questions/21223164/multiplying-two-inputs-with-javascript-displaying-in-text-box)
-function calculate() {
-    var myBox1 = document.getElementById('box1').value; 
-    var myBox2 = document.getElementById('box2').value;
-    var result = document.getElementById('result'); 
-    var myResult = myBox1 * myBox2;
-      document.getElementById('result').value = myResult;
 
-}
-// Side navigation
-function w3_open() {
-  var x = document.getElementById("mySidebar");
-  x.style.width = "30%";
-  x.style.height = "60%";
-  x.style.fontSize = "40px";
-  x.style.paddingTop = "0%";
-  x.style.display = "block";
-}
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
+								<header class="w3-panel w3-opacity w3-container" id="myHeader">
+									<i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i>
+									<div class="w3-center">
+										<!-- <h4></h4> -->
+										<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
+										<br>
+									</div>
+								</header>
+								<body>
+									<div class="w3-center">
 
-</script>
+										<form action="submit_type1.php" method="POST">
+											<table align="center">
+
+												<caption style="text-align:center" align="center"> <img width = "250" src="username.php"> </caption>
+
+												<tr>
+													<td>Group</td>
+													<td>
+														<select name="rungroup" required>
+															<option selected hidden value=""></option>
+															<option value="RGA">RGA</option>
+															<option value="RGB">RGB</option>
+															<option value="RGB">RGK</option>
+														</select>
+													</td>
+													<!--     <td>
+													<div class="tooltip">What is this?
+													<span class="tooltiptext">Lorem ipsum</span>
+													</div>
+													</td>
+													-->   </tr>
+												<tr>
+													<td>
+														<div class="tooltip">Farm
+															<span class="tooltiptext">Lorem ipsum</span>
+														</div>
+													</td>
+													<td>
+														<input type="radio" name="farm" value="JLab" required>JLab
+															<input type="radio" name="farm" value="MIT" required>MIT
+																<input type="radio" name="farm" value="OSG" required>OSG
+																	</td>
+												</tr>
+												<tr>
+													<td>Generator</td>
+													<td>
+														<select name="generator" required>
+															<option selected hidden value=""></option>
+															<option value="clasdis">clasdis</option>
+															<option value="dvcs">dvcs</option>
+															<option value="disrad">disrad</option>
+															<option value="genKYandOnePion">genKYandOnePion</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td>Gcards</td>
+													<td>
+														<select name="gcards" required>
+															<option selected hidden value=""></option>
+															<option value="/jlab/clas12Tags/gcards/clas12-default.gcard">clas12-default</option>
+															<option value="/jlab/clas12Tags/gcards/rga-spring2018.gcard">rga-spring2018</option>
+															<option value="/jlab/clas12Tags/gcards/rgb-spring2018.gcard">rgb-spring2018</option>
+															<option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">rga-fall2018</option>
+															<option value="/jlab/clas12Tags/gcards/rga-spring2019.gcard">rga-spring2019</option>
+															<option value="/jlab/clas12Tags/gcards/rgb-spring2019.gcard">rgb-spring2019</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td>Generator Options</td>
+													<td>
+														<input type="" name="genOptions" required>
+															</td>
+												</tr>
+												<tr>
+													<td>Luminosity (% of 10<sup>23</sup> cm<sup>-2</sup> s<sup>-1</sup>)</td>
+													<td><input type="number" name="lumi" min="0" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;% </td>
+												</tr>
+												<tr>
+													<td>Torus current</td>
+													<td><input type="number" name="tcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;% </td>
+												</tr>
+												<tr>
+													<td>Solenoid current</td>
+													<td><input type="number" name="pcurrent" min="-100" max="100" required>&nbsp;&nbsp;&nbsp;&nbsp;% </td>
+												</tr>
+												<tr>
+													<td>Number of Jobs</td>
+													<td><input type="number" name="jobs" id='box1' oninput="calculate();" min="0" required></td>
+												</tr>
+												<tr>
+													<td>Number of Events / Job</td>
+													<td><input type="number" name="nevents" id='box2' oninput="calculate();" min="1" required></td>
+												</tr>
+												<tr>
+													<td> Total Events </td>
+													<td><input type="number" name="totalevents" id="result"  readonly /></td>
+												</tr>
+												<tr>
+													<td style='border-left-color:white;border-bottom-color:white;'></td>
+													<td><input type="submit" value="Submit"></td>
+												</tr>
+											</table>
+										</form>
+									</div>
+								</body>
+								<script>
+									//Multiplication (https://stackoverflow.com/questions/21223164/multiplying-two-inputs-with-javascript-displaying-in-text-box)
+									function calculate() {
+										var myBox1 = document.getElementById('box1').value;
+										var myBox2 = document.getElementById('box2').value;
+										var result = document.getElementById('result');
+										var myResult = myBox1 * myBox2;
+										document.getElementById('result').value = myResult;
+
+									}
+								// Side navigation
+								function w3_open() {
+									var x = document.getElementById("mySidebar");
+									x.style.width = "30%";
+									x.style.height = "60%";
+									x.style.fontSize = "40px";
+									x.style.paddingTop = "0%";
+									x.style.display = "block";
+								}
+								function w3_close() {
+									document.getElementById("mySidebar").style.display = "none";
+								}
+
+									</script>
 
 </html>
