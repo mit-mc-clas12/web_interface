@@ -120,8 +120,8 @@ th, td {
 <div class="w3-quarter">
   <div class="w3-card w3-container" style="min-height:400px">
   <h3>Type 1</h3><br>
-  <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-	<p>Use one of the generators in the container. <br>Use one of the gcard in the container. <br> Submit arbitrary number of jobs, arbitrary number of events for each job. <br> Specify magnetic fields strength and polarity. <br>  </p>
+  <i class="w3-margin-bottom w3-text-theme" style="font-size:120px;"></i>
+	<p style="text-align: left"> - Container generator <br> - Container CLAS12 gcard <br> - Arbitrary number of jobs <br> - Arbitrary number of events for each job <br> - Specify magnetic fields strength and polarity. <br>  </p>
   </div>
 </div>
 </a>
