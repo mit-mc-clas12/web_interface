@@ -126,7 +126,7 @@
 					</div>
 				</a>
 				
-				<a href="#" >
+				<a href="type2.html" >
 					<div class="w3-quarter">
 						<div class="w3-card w3-container" style="min-height:400px">
 							<h3>Type 2</h3><br>
