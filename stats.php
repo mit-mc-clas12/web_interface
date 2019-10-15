@@ -57,7 +57,7 @@ th, td {
       <p>
         <h1>Summary</h1>
         <?php
-        if ($fh = fopen('Sample_script_result', 'r')) {
+        if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
                 $line1 = fgets($fh);
                 $t2_time = substr($line1, 11);
                 $line2 = fgets($fh);
@@ -68,7 +68,7 @@ th, td {
                 $t2_idle = substr($line4, 11);
             fclose($fh);
         }
-        if ($fh = fopen('Sample_script_result_osg', 'r')) {
+        if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
                 $line1 = fgets($fh);
                 $osg_time = substr($line1, 11);
                 $line2 = fgets($fh);
@@ -79,7 +79,7 @@ th, td {
                 $osg_idle = substr($line4, 11);
             fclose($fh);
         }
-        if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+        if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
                 $line1 = fgets($fh);
                 $jlab_time = substr($line1, 11);
                 $line2 = fgets($fh);
@@ -130,7 +130,7 @@ th, td {
         <p>
             <h1>MIT Tier 2</h1>
                 <?php
-                if ($fh = fopen('Sample_script_result', 'r')) {
+                if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
                     while (!feof($fh)) {
                         $line = fgets($fh);
                         echo nl2br($line);
@@ -148,7 +148,7 @@ th, td {
         <p>
             <h1>OSG </h1>
                 <?php
-                    if ($fh = fopen('Sample_script_result_osg', 'r')) {
+                    if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
                         while (!feof($fh)) {
                             $line = fgets($fh);
                             echo nl2br($line);
@@ -179,7 +179,7 @@ th, td {
         <p>
                 <h1>JLab</h1>
                 <?php
-                    if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+                    if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
                         while (!feof($fh)) {
                             $line = fgets($fh);
                             echo nl2br($line);

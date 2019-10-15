@@ -46,7 +46,7 @@
 					
 					<div class="w3-padding w3-center">
 						<?php
-							if ($fh = fopen('Sample_script_result', 'r')) {
+							if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
 								$line1 = fgets($fh);
 								$t2_time = substr($line1, 11);
 								$line2 = fgets($fh);
@@ -57,7 +57,7 @@
 								$t2_idle = substr($line4, 11);
 								fclose($fh);
 							}
-						if ($fh = fopen('Sample_script_result_osg', 'r')) {
+						if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
 							$line1 = fgets($fh);
 							$osg_time = substr($line1, 11);
 							$line2 = fgets($fh);
@@ -68,7 +68,7 @@
 							$osg_idle = substr($line4, 11);
 							fclose($fh);
 						}
-						if ($fh = fopen('Sample_script_result_jlab', 'r')) {
+						if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
 							$line1 = fgets($fh);
 							$jlab_time = substr($line1, 11);
 							$line2 = fgets($fh);
