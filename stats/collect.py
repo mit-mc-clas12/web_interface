@@ -3,7 +3,7 @@ import datetime
 
 currentDT = datetime.datetime.now()
 
-text=subprocess.Popen(['ssh','t3desk000.mit.edu','~/farmnodes.sh'], stdout=subprocess.PIPE)
+text=subprocess.Popen(['ssh','t3home000.mit.edu','~/farmnodes.sh'], stdout=subprocess.PIPE)
 string=text.communicate()[0]
 array=string.split(' ',2)
 
