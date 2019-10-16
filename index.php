@@ -120,7 +120,12 @@
 						<div class="w3-card w3-container" style="min-height:400px">
 							<h3>Type 1</h3><br>
 							<i class="w3-margin-bottom w3-text-theme" style="font-size:120px;"></i>
-							<p style="text-align: left"> - Container CLAS12 gcard <br> - Container generator <br>  - Arbitrary number of jobs <br> - Arbitrary number of events for each job <br> - Specify magnetic fields strength and polarity. <br>  </p>
+							<p style="text-align: left">
+							- Container CLAS12 gcard <br>
+							- Container generator <br>
+							- Arbitrary number of jobs <br>
+							- Arbitrary number of events for each job <br>
+							</p>
 						</div>
 					</div>
 				</a>
@@ -130,7 +135,11 @@
 						<div class="w3-card w3-container" style="min-height:400px">
 							<h3>Type 2</h3><br>
 							<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-							<p style="text-align: left">- Container CLAS12 gcard <br> - Use LUND files from a web location<br> - One job per LUND file <br> -  Specify magnetic fields strength and polarity. <br>  </p>
+							<p style="text-align: left">
+							- Container CLAS12 gcard <br>
+							- Use LUND files from a web location<br>
+							- One job per LUND file <br>
+							</p>
 						</div>
 					</div>
 				</a>
@@ -140,7 +149,13 @@
 						<div class="w3-card w3-container" style="min-height:400px">
 							<h3>Type 3</h3><br>
 							<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-							<p>Use one of the generators in the container. <br>Use one or more custom gcards uploaded to a web location. This will run one set of jobs for each gcard.  <br> Submit arbitrary number of jobs, arbitrary number of events for each job. <br> Specify magnetic fields strength and polarity. <br>  </p>
+							<p style="text-align: left">
+							- Use gcards from web location.<br>
+							- One set of jobs per gcard.  <br>
+							- Container generator  <br>
+							- Arbitrary number of jobs <br>
+							- Arbitrary number of events for each job <br>
+							</p>
 						</div>
 					</div>
 				</a>
@@ -150,7 +165,12 @@
 						<div class="w3-card w3-container" style="min-height:400px">
 							<h3>Type 4</h3><br>
 							<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-							<p>Type 4 scard is coming soon!</p>
+							<p style="text-align: left">
+							- Use gcards from web location.<br>
+							- One set of jobs per gcard.  <br>
+							- Use LUND files from a web location<br>
+							- One job per LUND file <br>
+							</p>
 						</div>
 					</div>
 				</a>
