@@ -32,12 +32,12 @@
 
 			.tooltip .tooltiptext {
 				visibility: hidden;
-				width: 120px;
+				width: 150px;
 				background-color: black;
 				color: #fff;
 				text-align: center;
 				border-radius: 6px;
-				padding: 5px 0;
+				padding: 2px 0;
 
 				/* Position the tooltip */
 				position: absolute;
@@ -87,7 +87,7 @@
 							<caption style="text-align:center" align="center"> <img width = "250" src="username.php"> </caption>
 
 							<tr>
-								<td>Tag</td>
+								<td> <div class="tooltip">Tag <span class="tooltiptext">Used for statistical purposes</span></div> </td>
 								<td>
 									<select name="rungroup" required>
 										<option selected hidden value=""></option>
@@ -103,32 +103,16 @@
 								</td>
 								-->   </tr>
 							<tr>
+								<td> <div class="tooltip">Farm <span class="tooltiptext">Off-site farm destination.</span></div> </td>
 								<td>
-									<div class="tooltip">Farm
-										<span class="tooltiptext">Lorem ipsum</span>
-									</div>
-								</td>
-								<td>
+									<input type="radio" name="farm" value="OSG" required checked/>OSG
 									<!--									<input type="radio" name="farm" value="JLab" required/>JLab-->
 									<!--									<input type="radio" name="farm" value="MIT" required/>MIT-->
-									<input type="radio" name="farm" value="OSG" required/>OSG
-									<input type="radio" name="farm" value="Glasgow" required/>GRIDPP
+									<!--									<input type="radio" name="farm" value="Glasgow" required />GRIDPP-->
 								</td>
 							</tr>
 							<tr>
-								<td>Generator</td>
-								<td>
-									<select name="generator" id="generator" required onchange="genSelected(this)">
-										<option selected hidden value=""></option>
-										<option value="clasdis">clasdis</option>
-										<option value="dvcs">dvcs</option>
-										<option value="disrad">disrad</option>
-										<option value="genKYandOnePion">genKYandOnePion</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>Gcards</td>
+								<td> <div class="tooltip">Gcards <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 								<td>
 									<select name="gcards" required>
 										<option selected hidden value=""></option>
@@ -142,20 +126,32 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Generator Options</td>
+								<td> <div class="tooltip">Generator <span class="tooltiptext">Choose one of the generators in the container</span></div> </td>
+								<td>
+									<select name="generator" id="generator" required onchange="genSelected(this)">
+										<option selected hidden value=""></option>
+										<option value="clasdis">clasdis</option>
+										<option value="dvcs">dvcs</option>
+										<option value="disrad">disrad</option>
+										<option value="genKYandOnePion">genKYandOnePion</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td> <div class="tooltip">Generator Options<span class="tooltiptext">Once a generator is selected, click on the right link to open a new window with the selected generator documentation</span></div> </td>
 								<td> <input type="" name="genOptions" required/></td>
 								<td><div id="generatorLink" >
-									<a href="gemc.com" target="_blank"></a>
+									<a href="#" target="_blank">            </a>
 									</div>
 								</td>
 							</tr>
 							<tr>
-								<td>Number of Jobs</td>
-								<td><input type="number" name="jobs" id='box1' oninput="calculate();" min="0" required></td>
-							</tr>
-							<tr>
 								<td>Number of Events / Job</td>
 								<td><input type="number" name="nevents" id='box2' oninput="calculate();" min="1" required></td>
+							</tr>
+							<tr>
+								<td>Number of Jobs</td>
+								<td><input type="number" name="jobs" id='box1' oninput="calculate();" min="0" required></td>
 							</tr>
 							<tr>
 								<td> Total Number of Events </td>
