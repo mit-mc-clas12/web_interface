@@ -11,7 +11,7 @@
 		<body>
 
 			<style>
-				body,h1,h2,h3,h4 {font-family: "Raleway", Helvetica, sans-serif}
+				body,h1,h2,h3,h4 {font-family: "Avenir", Helvetica, sans-serif}
 				h1 {letter-spacing: 6px}
 				.w3-row-padding img {margin-bottom: 12px}
 				table, th, td {
@@ -48,19 +48,24 @@
 				visibility: visible;
 			}
 
+			input[type=number]::-webkit-inner-spin-button,
+			input[type=number]::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
 
 				</style>
 
 			<title>CLAS12 MC Submission Script Type 1 </title>
 
 			<nav class="w3-bar w3-border w3-sidebar w3-bar-block w3-card w3-center" style="display:none" id="mySidebar">
-				<h2 class="w3-xxlarge w3-text-theme">Menus </h2>
 				<button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
 				<h4>
 					<a href="index.php" class="w3-bar-item w3-button">Home</a>
-<!--					<a href="stats.php" class="w3-bar-item w3-button">Farm Statistics</a>-->
+					<!--					<a href="stats.php" class="w3-bar-item w3-button">Farm Statistics</a>-->
 					<a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button">Documentation</a>
-<!--					<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>-->
+					<!--					<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html" class="w3-bar-item w3-button">Simulation Distribution</a>-->
 					<a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
 				</h4>
 			</nav>
@@ -82,7 +87,7 @@
 							<caption style="text-align:center" align="center"> <img width = "250" src="username.php"> </caption>
 
 							<tr>
-								<td>Group</td>
+								<td>Tag</td>
 								<td>
 									<select name="rungroup" required>
 										<option selected hidden value=""></option>
@@ -104,15 +109,16 @@
 									</div>
 								</td>
 								<td>
-									<input type="radio" name="farm" value="JLab" required>JLab
-										<input type="radio" name="farm" value="MIT" required>MIT
-											<input type="radio" name="farm" value="OSG" required>OSG
-												</td>
+									<!--									<input type="radio" name="farm" value="JLab" required/>JLab-->
+									<!--									<input type="radio" name="farm" value="MIT" required/>MIT-->
+									<input type="radio" name="farm" value="OSG" required/>OSG
+									<input type="radio" name="farm" value="Glasgow" required/>OSG
+								</td>
 							</tr>
 							<tr>
 								<td>Generator</td>
 								<td>
-									<select name="generator" required>
+									<select name="generator" id="generator" required onchange="genSelected(this)">
 										<option selected hidden value=""></option>
 										<option value="clasdis">clasdis</option>
 										<option value="dvcs">dvcs</option>
@@ -137,9 +143,12 @@
 							</tr>
 							<tr>
 								<td>Generator Options</td>
-								<td>
-									<input type="" name="genOptions" required>
-										</td>
+								<td> <input type="" name="genOptions" required/></td>
+								<td><div id="generatorLink" >
+									<a href="gemc.com" target="_blank"></a>
+									</div>
+								</td>
+<!--							<td><a href="" id="generatorLink"  readonly >generator options</a></td>-->
 							</tr>
 							<tr>
 								<td>Number of Jobs</td>
@@ -150,7 +159,7 @@
 								<td><input type="number" name="nevents" id='box2' oninput="calculate();" min="1" required></td>
 							</tr>
 							<tr>
-								<td> Total Events </td>
+								<td> Total Number of Events </td>
 								<td><input type="number" name="totalevents" id="result"  readonly /></td>
 							</tr>
 							<tr>
@@ -177,7 +186,7 @@
 			function w3_open() {
 				var x = document.getElementById("mySidebar");
 				x.style.width = "30%";
-				x.style.height = "60%";
+				x.style.height = "20%";
 				x.style.fontSize = "40px";
 				x.style.paddingTop = "0%";
 				x.style.display = "block";
@@ -186,6 +195,28 @@
 			function w3_close() {
 				document.getElementById("mySidebar").style.display = "none";
 			}
+
+			function genSelected(val) {
+				var generator = document.getElementById("generator").value;
+				var text = ""
+				if (generator == "clasdis") {
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/clasdis-nocernlib/blob/master/README.md';
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clasdis options';
+				} else if (generator == "dvcs") {
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/dvcsgen/blob/master/README.md';
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='dvcs options';
+
+				} else if (generator == "disrad") {
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/inclusive-dis-rad/blob/master/README.md';
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='disrad options';
+
+				} else if (generator == "genKYandOnePion") {
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/ValeriiKlimenko/genKYandOnePion';
+					document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='genKYandOnePion options';
+
+				}
+			}
+
 
 				</script>
 

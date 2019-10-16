@@ -20,11 +20,10 @@
 				padding: 10px;
 			}
 			</style>
-			
-			
+
+
 			<!-- Side Navigation -->
 			<nav class="w3-bar w3-border w3-sidebar w3-bar-block w3-card w3-center" style="display:none" id="mySidebar">
-				<h2 class="w3-xxlarge w3-text-theme">Menus </h2>
 				<button class="w3-button w3-display-topright w3-btn" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
 				<h4>
 					<a href="#" class="w3-bar-item w3-button">Job Submission</a>
@@ -34,7 +33,7 @@
 					<a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button">Contacts</a>
 				</h4>
 			</nav>
-			
+
 			<!-- Header -->
 			<header class="w3-panel w3-opacity w3-container" id="myHeader">
 				<i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i>
@@ -43,7 +42,7 @@
 					<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
 					<h2 class="w3-xlarge">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?> <br>
 					</h2>
-					
+
 					<div class="w3-padding w3-center">
 						<?php
 							if ($fh = fopen('Sample_script_result', 'r')) {
@@ -80,7 +79,7 @@
 							fclose($fh);
 						}
 						?>
-						
+
 						<table style="width:100%;text-align:center">
 							<caption style="text-align:right" align="top">
 								Last Update: <?php echo nl2br($osg_time); ?>
@@ -109,12 +108,12 @@
 								<td> <?php echo nl2br($jlab_busy); ?> </td>
 								<td> <?php echo nl2br($jlab_idle); ?> </td>
 							</tr>
-							
+
 						</table>
 					</div>
 				</div>
 			</header>
-			
+
 			<div class="w3-row-padding w3-center w3-margin-top">
 				<a href="type1.html" >
 					<div class="w3-quarter">
@@ -125,7 +124,7 @@
 						</div>
 					</div>
 				</a>
-				
+
 				<a href="#" >
 					<div class="w3-quarter">
 						<div class="w3-card w3-container" style="min-height:400px">
@@ -135,7 +134,7 @@
 						</div>
 					</div>
 				</a>
-				
+
 				<a href="#" >
 					<div class="w3-quarter">
 						<div class="w3-card w3-container" style="min-height:400px">
@@ -145,7 +144,7 @@
 						</div>
 					</div>
 				</a>
-				
+
 				<a href="#" >
 					<div class="w3-quarter">
 						<div class="w3-card w3-container" style="min-height:400px">
@@ -155,8 +154,8 @@
 						</div>
 					</div>
 				</a>
-				
-				
+
+
 			</div>
 			<!--
 			<hr>
@@ -188,8 +187,8 @@
 			function w3_close() {
 				document.getElementById("mySidebar").style.display = "none";
 			}
-			
+
 				</script>
-			
+
 		</body>
 </html>
