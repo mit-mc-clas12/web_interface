@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<body>
 			<style>
-				body,h1,h2,h3,h4 {font-family: "Raleway", Helvetica, sans-serif}
+				body,h1,h2,h3,h4 {font-family: "Avenir", Helvetica, sans-serif}
 				h1 {letter-spacing: 6px}
 				.w3-row-padding img {margin-bottom: 12px}
 				table, th, td {
@@ -38,7 +38,6 @@
 			<header class="w3-panel w3-opacity w3-container" id="myHeader">
 				<i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i>
 				<div class="w3-center">
-					<!-- <h4></h4> -->
 					<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
 					<h2 class="w3-xlarge">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?> <br>
 					</h2>
@@ -177,22 +176,7 @@
 
 
 			</div>
-			<!--
-			<hr>
-			<div class="w3-center">
-			<div class="w3-center w3-padding-32">
-			<div class="w3-bar">
-			<a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
-			<a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">1</a>
-			<a href="stats.php" class="w3-bar-item w3-button w3-hover-theme">2</a>
-			<a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md" class="w3-bar-item w3-button w3-hover-theme">3</a>
-			<a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md" class="w3-bar-item w3-button w3-hover-theme">4</a>
-			<a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
-			</div>
-			</div>
-			</div>
-			<br>
-			-->
+
 			<!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
 			<script>
 				// Side navigation
