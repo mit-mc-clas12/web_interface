@@ -83,14 +83,14 @@
 
 			if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($generator) || !empty($nevents)  || !empty($jobs)) {
 				$fp = fopen('scard_type1.txt', 'w');
-				fwrite($fp, 'project: CLAS12                # project name'.PHP_EOL);
-				fwrite($fp, 'group: '.$rungroup.'           # project description'.PHP_EOL);
-				fwrite($fp, 'farm_name: '.$farm.'           # farm pool'.PHP_EOL);
-				fwrite($fp, 'gcards: '.$gcards.'            # gcard, or online public accessible location of user gcards. If online address, there will be a submission for each gcard at that address'.PHP_EOL);
-				fwrite($fp, 'genOptions: '.$genOptions.'    # clasdis options: theta between 10 and 15 degrees'.PHP_EOL);
-				fwrite($fp, 'generator: '.$generator.'      # one of clasdis, dvcs, disrad. Alternatively, the online public accessible location of user lund files.'.PHP_EOL);
-				fwrite($fp, 'nevents: '.$nevents.'          # run 100 events, this include the generator'.PHP_EOL);
-				fwrite($fp, 'jobs: '.$jobs.'                # number of jobs for each submission. This entry is ignored if lund files are used. In that case, theres is exactly one job / file'.PHP_EOL);
+				fwrite($fp, 'project: CLAS12             '.PHP_EOL);
+				fwrite($fp, 'group: '.$rungroup.'        '.PHP_EOL);
+				fwrite($fp, 'farm_name: '.$farm.'        '.PHP_EOL);
+				fwrite($fp, 'gcards: '.$gcards.'         '.PHP_EOL);
+				fwrite($fp, 'genOptions: '.$genOptions.' '.PHP_EOL);
+				fwrite($fp, 'generator: '.$generator.'   '.PHP_EOL);
+				fwrite($fp, 'nevents: '.$nevents.'       '.PHP_EOL);
+				fwrite($fp, 'jobs: '.$jobs.'             '.PHP_EOL);
 				fclose($fp);
 				$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
 				$output = shell_exec($command);
