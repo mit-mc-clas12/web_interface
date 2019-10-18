@@ -8,18 +8,7 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<style>
-			body,h1,h2,h3 {font-family: "Raleway", Helvetica, sans-serif}
-			h1 {letter-spacing: 6px}
-			.w3-row-padding img {margin-bottom: 12px}
-			table, th, td {
-				border: 1px solid black;
-				border-collapse: collapse;
-			}
-		th, td {
-			padding: 10px;
-		}
-		</style>
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
 
@@ -43,78 +32,77 @@
 		<div class="w3-row-padding w3-rest" style="margin-bottom:5%;">
 			<div class="w3-rest" id="0">
 				<p>
-				<h1>Summary</h1>
-				<?php
-					if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
-						$t3_line1 = fgets($fh);
-						$t2_time = substr($t3_line1, 11);
-						$t3_line2 = fgets($fh);
-						$t2_total = substr($t3_line2, 12);
-						$t3_line3 = fgets($fh);
-						$t2_busy = substr($t3_line3, 11);
-						$t3_line4 = fgets($fh);
-						$t2_idle = substr($t3_line4, 11);
-						fclose($fh);
-					}
-					if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
-						$osg_line1 = fgets($fh);
-						$osg_time = substr($osg_line1, 11);
-						$osg_line2 = fgets($fh);
-						$osg_total= substr($osg_line2, 12);
-						$osg_line3 = fgets($fh);
-						$osg_busy = substr($osg_line3, 11);
-						$osg_line4 = fgets($fh);
-						$osg_idle = substr($osg_line4, 11);
-						fclose($fh);
-					}
-					if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
-						$jlab_line1 = fgets($fh);
-						$jlab_time = substr($jlab_line1, 11);
-						$jlab_line2 = fgets($fh);
-						$jlab_total= substr($jlab_line2, 12);
-						$jlab_line3 = fgets($fh);
-						$jlab_busy = substr($jlab_line3, 11);
-						$jlab_line4 = fgets($fh);
-						$jlab_idle = substr($jlab_line4, 11);
-						fclose($fh);
-					}
+					<h1>Summary</h1>
+					<?php
+						if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
+							$t3_line1 = fgets($fh);
+							$t2_time = substr($t3_line1, 11);
+							$t3_line2 = fgets($fh);
+							$t2_total = substr($t3_line2, 12);
+							$t3_line3 = fgets($fh);
+							$t2_busy = substr($t3_line3, 11);
+							$t3_line4 = fgets($fh);
+							$t2_idle = substr($t3_line4, 11);
+							fclose($fh);
+						}
+						if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
+							$osg_line1 = fgets($fh);
+							$osg_time = substr($osg_line1, 11);
+							$osg_line2 = fgets($fh);
+							$osg_total= substr($osg_line2, 12);
+							$osg_line3 = fgets($fh);
+							$osg_busy = substr($osg_line3, 11);
+							$osg_line4 = fgets($fh);
+							$osg_idle = substr($osg_line4, 11);
+							fclose($fh);
+						}
+						if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
+							$jlab_line1 = fgets($fh);
+							$jlab_time = substr($jlab_line1, 11);
+							$jlab_line2 = fgets($fh);
+							$jlab_total= substr($jlab_line2, 12);
+							$jlab_line3 = fgets($fh);
+							$jlab_busy = substr($jlab_line3, 11);
+							$jlab_line4 = fgets($fh);
+							$jlab_idle = substr($jlab_line4, 11);
+							fclose($fh);
+						}
 
-					$username= $_SERVER['PHP_AUTH_USER'];
+						$username= $_SERVER['PHP_AUTH_USER'];
 
-				?>
-				<table style="width:100%;text-align:center" align="center">
-					<caption style="text-align:right" align="top">
-						Logged in as <?php echo($username); ?> <br>
-						Last Update: <?php echo nl2br($osg_time); ?>
-					</caption>
-					<tr>
-						<th> Farm Name </th>
-						<th> Total Available Cores </th>
-						<th> Busy Cores </th>
-						<th> Idle Cores </th>
-					</tr>
-					<tr>
-						<td> MIT </td>
-						<td> <?php echo nl2br($t2_total); ?> </td>
-						<td> <?php echo nl2br($t2_busy); ?> </td>
-						<td> <?php echo nl2br($t2_idle); ?> </td>
-					</tr>
-					<tr>
-						<td> OSG </td>
-						<td> <?php echo nl2br($osg_total); ?> </td>
-						<td> <?php echo nl2br($osg_busy); ?> </td>
-						<td> <?php echo nl2br($osg_idle); ?> </td>
-					</tr>
-					<tr>
-						<td> JLab </td>
-						<td> <?php echo nl2br($jlab_total); ?> </td>
-						<td> <?php echo nl2br($jlab_busy); ?> </td>
-						<td> <?php echo nl2br($jlab_idle); ?> </td>
-					</tr>
-				</table>
+					?>
+					<table style="width:100%;text-align:center" align="center">
+						<caption style="text-align:right" align="top">
+							Logged in as <?php echo($username); ?> <br>
+							Last Update: <?php echo nl2br($osg_time); ?>
+						</caption>
+						<tr>
+							<th> Farm Name </th>
+							<th> Total Available Cores </th>
+							<th> Busy Cores </th>
+							<th> Idle Cores </th>
+						</tr>
+						<tr>
+							<td> MIT </td>
+							<td> <?php echo nl2br($t2_total); ?> </td>
+							<td> <?php echo nl2br($t2_busy); ?> </td>
+							<td> <?php echo nl2br($t2_idle); ?> </td>
+						</tr>
+						<tr>
+							<td> OSG </td>
+							<td> <?php echo nl2br($osg_total); ?> </td>
+							<td> <?php echo nl2br($osg_busy); ?> </td>
+							<td> <?php echo nl2br($osg_idle); ?> </td>
+						</tr>
+						<tr>
+							<td> JLab </td>
+							<td> <?php echo nl2br($jlab_total); ?> </td>
+							<td> <?php echo nl2br($jlab_busy); ?> </td>
+							<td> <?php echo nl2br($jlab_idle); ?> </td>
+						</tr>
+					</table>
 				</p>
 			</div>
-
 
 			<div class="w3-rest" id="1">
 				<p>

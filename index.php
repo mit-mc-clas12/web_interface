@@ -8,21 +8,7 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-		<style>
-			body,h1,h2,h3,h4 {font-family: "Avenir", Helvetica, sans-serif}
-			h1 {letter-spacing: 6px}
-			.w3-row-padding img {margin-bottom: 12px}
-			table, th, td {
-				border: 1px solid black;
-				border-collapse: collapse;
-			}
-		th, td {
-			padding: 10px;
-		}
-		</style>
-
-
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
 		<!-- Header -->
@@ -36,38 +22,38 @@
 				<div class="w3-padding w3-center">
 					<?php
 						if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
-							$line1 = fgets($fh);
-							$t2_time = substr($line1, 11);
-							$line2 = fgets($fh);
-							$t2_total = substr($line2, 12);
-							$line3 = fgets($fh);
-							$t2_busy = substr($line3, 11);
-							$line4 = fgets($fh);
-							$t2_idle = substr($line4, 11);
+							$t3_line1 = fgets($fh);
+							$t2_time = substr($t3_line1, 11);
+							$t3_line2 = fgets($fh);
+							$t2_total = substr($t3_line2, 12);
+							$t3_line3 = fgets($fh);
+							$t2_busy = substr($t3_line3, 11);
+							$t3_line4 = fgets($fh);
+							$t2_idle = substr($t3_line4, 11);
 							fclose($fh);
 						}
-					if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
-						$line1 = fgets($fh);
-						$osg_time = substr($line1, 11);
-						$line2 = fgets($fh);
-						$osg_total= substr($line2, 12);
-						$line3 = fgets($fh);
-						$osg_busy = substr($line3, 11);
-						$line4 = fgets($fh);
-						$osg_idle = substr($line4, 11);
-						fclose($fh);
-					}
-					if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
-						$line1 = fgets($fh);
-						$jlab_time = substr($line1, 11);
-						$line2 = fgets($fh);
-						$jlab_total= substr($line2, 12);
-						$line3 = fgets($fh);
-						$jlab_busy = substr($line3, 11);
-						$line4 = fgets($fh);
-						$jlab_idle = substr($line4, 11);
-						fclose($fh);
-					}
+						if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
+							$osg_line1 = fgets($fh);
+							$osg_time = substr($osg_line1, 11);
+							$osg_line2 = fgets($fh);
+							$osg_total= substr($osg_line2, 12);
+							$osg_line3 = fgets($fh);
+							$osg_busy = substr($osg_line3, 11);
+							$osg_line4 = fgets($fh);
+							$osg_idle = substr($osg_line4, 11);
+							fclose($fh);
+						}
+						if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
+							$jlab_line1 = fgets($fh);
+							$jlab_time = substr($jlab_line1, 11);
+							$jlab_line2 = fgets($fh);
+							$jlab_total= substr($jlab_line2, 12);
+							$jlab_line3 = fgets($fh);
+							$jlab_busy = substr($jlab_line3, 11);
+							$jlab_line4 = fgets($fh);
+							$jlab_idle = substr($jlab_line4, 11);
+							fclose($fh);
+						}
 					?>
 
 					<table style="width:100%;text-align:center">
@@ -164,7 +150,7 @@
 				</div>
 			</a>
 		</div>
-		
+
 		<script src="main.js">
 		</script>
 	</body>
