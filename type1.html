@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<title>CLAS12 Monte-Carlo Job Submission Portal</title>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>CLAS12 Monte-Carlo Job Submission Portal</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
@@ -127,9 +127,7 @@
 				-webkit-appearance: none;
 				margin: 0;
 			}
-
-
-			</style>
+		</style>
 	</head>
 	<body>
 		<header class="w3-panel w3-container" id="myHeader">
@@ -237,65 +235,7 @@
 		</div>
 	</body>
 
-	<script>
-		window.onscroll = function() {myFunction()};
-
-		var navbar = document.getElementById("nav");
-		var sticky = navbar.offsetTop;
-
-		function myFunction() {
-		  if (window.pageYOffset >= sticky) {
-		    navbar.classList.add("sticky")
-		  } else {
-		    navbar.classList.remove("sticky");
-		  }
-		}
-
-		//Multiplication (https://stackoverflow.com/questions/21223164/multiplying-two-inputs-with-javascript-displaying-in-text-box)
-		function calculate() {
-			var myBox1 = document.getElementById('box1').value;
-			var myBox2 = document.getElementById('box2').value;
-			var result = document.getElementById('result');
-			var myResult = myBox1 * myBox2;
-			document.getElementById('result').value = myResult;
-
-		}
-
-		// Side navigation
-		function w3_open() {
-			var x = document.getElementById("mySidebar");
-			x.style.width = "30%";
-			x.style.height = "20%";
-			x.style.fontSize = "40px";
-			x.style.paddingTop = "0%";
-			x.style.display = "block";
-		}
-
-		function w3_close() {
-			document.getElementById("mySidebar").style.display = "none";
-		}
-
-		function genSelected(val) {
-			var generator = document.getElementById("generator").value;
-			var text = ""
-			if (generator == "clasdis") {
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/clasdis-nocernlib/blob/master/README.md';
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clasdis options';
-			} else if (generator == "dvcs") {
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/dvcsgen/blob/master/README.md';
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='dvcs options';
-
-			} else if (generator == "disrad") {
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/inclusive-dis-rad/blob/master/README.md';
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='disrad options';
-
-			} else if (generator == "genKYandOnePion") {
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/ValeriiKlimenko/genKYandOnePion';
-				document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='genKYandOnePion options';
-
-			}
-		}
-
+	<script src="main.js">
 	</script>
 
 </html>
