@@ -13,7 +13,13 @@
 	<body>
 
 		<header class="w3-panel w3-opacity w3-container" id="top">
-			<i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i>
+		    <ul id="nav">
+		      <li><a href="index.php">Home</a></li>
+		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md">About</a></li>
+		      <li><a class="active" href="stats.php">Farm Statistics</a></li>
+		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md">Contact</a></li>
+		    </ul>
+
 			<div class="w3-center">
 				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
 				<div class=" w3-center w3-opacity w3-padding-32">

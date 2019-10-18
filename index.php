@@ -13,7 +13,14 @@
 	<body>
 		<!-- Header -->
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
-			<i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i>
+			
+		    <ul id="nav">
+		      <li><a class="active" href="index.php">Home</a></li>
+		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md">About</a></li>
+		      <li><a href="stats.php">Farm Statistics</a></li>
+		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md">Contact</a></li>
+		    </ul>
+
 			<div class="w3-center">
 				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
 				<h2 class="w3-xlarge">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?> <br>
@@ -96,10 +103,10 @@
 						<h3>Type 1</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px;"></i>
 						<p style="text-align: left">
-						- Container CLAS12 gcard <br>
-						- Container generator <br>
-						- Arbitrary number of jobs <br>
-						- Arbitrary number of events for each job <br>
+							- Container CLAS12 gcard <br>
+							- Container generator <br>
+							- Arbitrary number of jobs <br>
+							- Arbitrary number of events for each job <br>
 						</p>
 					</div>
 				</div>
@@ -111,9 +118,9 @@
 						<h3>Type 2</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
-						- Container CLAS12 gcard <br>
-						- Use LUND files from a web location<br>
-						- One job per LUND file <br>
+							- Container CLAS12 gcard <br>
+							- Use LUND files from a web location<br>
+							- One job per LUND file <br>
 						</p>
 					</div>
 				</div>
@@ -125,11 +132,11 @@
 						<h3>Type 3</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
-						- Use gcards from web location.<br>
-						- One set of jobs per gcard.  <br>
-						- Container generator  <br>
-						- Arbitrary number of jobs <br>
-						- Arbitrary number of events for each job <br>
+							- Use gcards from web location.<br>
+							- One set of jobs per gcard.  <br>
+							- Container generator  <br>
+							- Arbitrary number of jobs <br>
+							- Arbitrary number of events for each job <br>
 						</p>
 					</div>
 				</div>
@@ -141,10 +148,10 @@
 						<h3>Type 4</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
-						- Use gcards from web location.<br>
-						- One set of jobs per gcard.  <br>
-						- Use LUND files from a web location<br>
-						- One job per LUND file <br>
+							- Use gcards from web location.<br>
+							- One set of jobs per gcard.  <br>
+							- Use LUND files from a web location<br>
+							- One job per LUND file <br>
 						</p>
 					</div>
 				</div>
