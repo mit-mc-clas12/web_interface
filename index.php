@@ -30,13 +30,13 @@
 					<?php
 						if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
 							$t3_line1 = fgets($fh);
-							$t2_time = substr($t3_line1, 11);
+							$t3_time = substr($t3_line1, 11);
 							$t3_line2 = fgets($fh);
-							$t2_total = substr($t3_line2, 12);
+							$t3_total = substr($t3_line2, 12);
 							$t3_line3 = fgets($fh);
-							$t2_busy = substr($t3_line3, 11);
+							$t3_busy = substr($t3_line3, 11);
 							$t3_line4 = fgets($fh);
-							$t2_idle = substr($t3_line4, 11);
+							$t3_idle = substr($t3_line4, 11);
 							fclose($fh);
 						}
 						if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
@@ -75,9 +75,9 @@
 						</tr>
 						<tr>
 							<td> MIT </td>
-							<td> <?php echo nl2br($t2_total); ?> </td>
-							<td> <?php echo nl2br($t2_busy); ?> </td>
-							<td> <?php echo nl2br($t2_idle); ?> </td>
+							<td> <?php echo nl2br($t3_total); ?> </td>
+							<td> <?php echo nl2br($t3_busy); ?> </td>
+							<td> <?php echo nl2br($t3_idle); ?> </td>
 						</tr>
 						<tr>
 							<td> OSG </td>

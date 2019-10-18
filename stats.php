@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title> CLAS12 Offsite Farm Statistics </title>
-	<meta charset="UTF-8">
+		<title> CLAS12 Offsite Farm Statistics </title>
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
@@ -28,7 +28,6 @@
 						<a href="#1" class="w3-bar-item w3-button">MIT Tier 2</a>
 						<a href="#2" class="w3-bar-item w3-button w3-light-grey">OSG</a>
 						<a href="#3" class="w3-bar-item w3-button">JLab</a>
-						<a href="index.php" class="w3-bar-item w3-button">Job Submission</a>
 					</div>
 					<br>
 				</div>
