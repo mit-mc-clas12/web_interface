@@ -26,41 +26,43 @@
 			</div>
 		</header>
 
-		<?php
-			$project     = $_POST['project'];
-			$rungroup    = $_POST['rungroup'];
-			$farm        = $_POST['farm'];
-			$gcards      = $_POST['gcards'];
-			$generator   = $_POST['generator'];
-			$genOptions  = $_POST['genOptions'];
-			$nevents     = $_POST['nevents'];
-			$jobs        = $_POST['jobs'];
-			$totalevents = $_POST['totalevents'];
-			$username    = $_SERVER['PHP_AUTH_USER'];
-
-			if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($generator) || !empty($nevents)  || !empty($jobs)) {
-				$fp = fopen('scard_type1.txt', 'w');
-				fwrite($fp, 'project: CLAS12             #'.PHP_EOL);
-				fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
-				fwrite($fp, 'farm_name: '.$farm.'        #'.PHP_EOL);
-				fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
-				fwrite($fp, 'genOptions: '.$genOptions.' #'.PHP_EOL);
-				fwrite($fp, 'generator: '.$generator.'   #'.PHP_EOL);
-				fwrite($fp, 'nevents: '.$nevents.'       #'.PHP_EOL);
-				fwrite($fp, 'jobs: '.$jobs.'             #'.PHP_EOL);
-				fclose($fp);
-				$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
-				$output = shell_exec($command);
-			}
-			else {
-				echo "All field are required";
-				die();
-			}
-		?>
-
 		<div class="w3-center">
+			
+			<?php
+				$project     = $_POST['project'];
+				$rungroup    = $_POST['rungroup'];
+				$farm        = $_POST['farm'];
+				$gcards      = $_POST['gcards'];
+				$generator   = $_POST['generator'];
+				$genOptions  = $_POST['genOptions'];
+				$nevents     = $_POST['nevents'];
+				$jobs        = $_POST['jobs'];
+				$totalevents = $_POST['totalevents'];
+				$username    = $_SERVER['PHP_AUTH_USER'];
+
+				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($generator) || !empty($nevents)  || !empty($jobs)) {
+					$fp = fopen('scard_type1.txt', 'w');
+					fwrite($fp, 'project: CLAS12             #'.PHP_EOL);
+					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
+					fwrite($fp, 'farm_name: '.$farm.'        #'.PHP_EOL);
+					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
+					fwrite($fp, 'genOptions: '.$genOptions.' #'.PHP_EOL);
+					fwrite($fp, 'generator: '.$generator.'   #'.PHP_EOL);
+					fwrite($fp, 'nevents: '.$nevents.'       #'.PHP_EOL);
+					fwrite($fp, 'jobs: '.$jobs.'             #'.PHP_EOL);
+					fclose($fp);
+					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
+					$output = shell_exec($command);
+				}
+				else {
+					echo "All field are required";
+					die();
+				}
+			?>
+
+
 			Your job was successfully submitted with the following parameters.
-			<table align="center">
+			<table style="text-align: center;width: 50%;"align="center">
 				<tr>
 					<td>Project</td>
 					<td> CLAS12</td>
