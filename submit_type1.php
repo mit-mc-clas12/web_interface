@@ -16,7 +16,7 @@
 		    
 		    <ul id="nav">
 		      <li><a href="index.php">Home</a></li>
-		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md">About</a></li>
+		      <li><a href="about.html">About</a></li>
 		    </ul>
 
 			<div class="w3-center">
