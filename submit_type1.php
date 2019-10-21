@@ -13,11 +13,10 @@
 	<body>
 		<!-- Header -->
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
+		    
 		    <ul id="nav">
 		      <li><a href="index.php">Home</a></li>
-		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md">About</a></li>
-		      <li><a href="stats.php">Farm Statistics</a></li>
-		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md">Contact</a></li>
+		      <li><a href="about.html">About</a></li>
 		    </ul>
 
 			<div class="w3-center">
@@ -61,7 +60,7 @@
 			?>
 
 
-			Your job was successfully submitted with the following parameters.
+			<h4>Your job was successfully submitted with the following parameters.</h4>
 			<table style="text-align: center;width: 50%;"align="center">
 				<tr>
 					<td>Project</td>
@@ -100,7 +99,7 @@
 					<td><?php echo($totalevents); ?></td>
 				</tr>
 			</table>
-			Output and logs will be at /lustre/expphy/volatile/clas12/osg/ at the bottom of the table.
+			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
 
