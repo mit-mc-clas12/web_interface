@@ -15,10 +15,8 @@
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
 			
 		    <ul id="nav">
-		      <li><a class="active" href="index.php">Home</a></li>
-		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md">About</a></li>
-		      <li><a href="stats.php">Farm Statistics</a></li>
-		      <li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/contacts.md">Contact</a></li>
+		     	<li><a href="index.php">Home</a></li>
+		     	<li><a href="https://github.com/mit-mc-clas12/documentation/blob/master/web_interface/web_interface.md">About</a></li>
 		    </ul>
 
 			<div class="w3-center">
