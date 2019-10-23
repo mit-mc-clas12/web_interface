@@ -41,7 +41,7 @@
 
 				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($generator) || !empty($nevents)  || !empty($jobs)) {
 					$fp = fopen('scard_type1.txt', 'w');
-					fwrite($fp, 'project: "CLAS12"           #'.PHP_EOL);
+					fwrite($fp, 'project:    CLAS12          #'.PHP_EOL);
 					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
 					fwrite($fp, 'farm_name: '.$farm.'        #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
@@ -64,7 +64,7 @@
 			<table style="text-align: center;width: 50%;"align="center">
 				<tr>
 					<td>Project</td>
-					<td> "CLAS12" </td>
+					<td> CLAS12 </td>
 				</tr>
 				<tr>
 					<td>Tag</td>
