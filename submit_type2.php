@@ -28,7 +28,7 @@
 		<div class="w3-center">
 			
 			<?php
-				$project     = $_POST['project'];
+				$project     = 'CLAS12';
 				$rungroup    = $_POST['rungroup'];
 				$farm        = $_POST['farm'];
 				$gcards      = $_POST['gcards'];
@@ -37,7 +37,7 @@
 
 				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($lundFiles)) {
 					$fp = fopen('scard_type2.txt', 'w');
-					fwrite($fp, 'project:    CLAS12          #'.PHP_EOL);
+					fwrite($fp, 'project:  '.$project.'      #'.PHP_EOL);
 					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
 					fwrite($fp, 'farm_name: '.$farm.'        #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
