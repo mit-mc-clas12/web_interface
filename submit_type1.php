@@ -64,7 +64,7 @@
 			<table style="text-align: center;width: 50%;"align="center">
 				<tr>
 					<td>Project</td>
-					<td> CLAS12 </td>
+					<td> <?php echo($project); ?> </td>
 				</tr>
 				<tr>
 					<td>Tag</td>
