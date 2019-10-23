@@ -32,7 +32,7 @@
 				$rungroup    = $_POST['rungroup'];
 				$farm        = $_POST['farm'];
 				$gcards      = $_POST['gcards'];
-				$lundFiles   = $_POST['$lundFiles'];
+				$lundFiles   = $_POST['lundFiles'];
 				$username    = $_SERVER['PHP_AUTH_USER'];
 
 				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($lundFiles)) {
