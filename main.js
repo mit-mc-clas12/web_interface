@@ -20,16 +20,6 @@ function myFunction() {
   }
 }
 
-//Multiplication (https://stackoverflow.com/questions/21223164/multiplying-two-inputs-with-javascript-displaying-in-text-box)
-function calculate() {
-	var myBox1 = document.getElementById('box1').value;
-	var myBox2 = document.getElementById('box2').value;
-	var result = document.getElementById('result');
-	var myResult = myBox1 * myBox2;
-	document.getElementById('result').value = myResult;
-
-}
-
 function genSelected(val) {
 	var generator = document.getElementById("generator").value;
 	var text = ""
