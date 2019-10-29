@@ -38,6 +38,10 @@ function genSelected(val) {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/ValeriiKlimenko/genKYandOnePion';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='genKYandOnePion options';
 
+	} else if (generator == "gemc") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://gemc.jlab.org/gemc/html/documentation/generator/internal.html';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='gemc generator options';
+
 	}
 }
 

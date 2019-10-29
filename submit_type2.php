@@ -33,6 +33,10 @@
 				$farm        = $_POST['farm'];
 				$gcards      = $_POST['gcards'];
 				$lundFiles   = $_POST['lundFiles'];
+
+
+
+
 				$username    = $_SERVER['PHP_AUTH_USER'];
 
 				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($lundFiles)) {
@@ -42,6 +46,9 @@
 					fwrite($fp, 'farm_name: '.$farm.'        #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
 					fwrite($fp, 'generator: '.$lundFiles.'   #'.PHP_EOL);
+
+
+
 					fclose($fp);
 					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type2.txt');
 					$output = shell_exec($command);
@@ -76,10 +83,25 @@
 					<td> <?php echo($lundFiles); ?> </td>
 				</tr>
 			</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
 
-	<script src="main.js">
-	</script>
+	<script src="main.js"> </script>
 </html>

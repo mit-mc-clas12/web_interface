@@ -4,12 +4,12 @@
 		<title>CLAS12 Monte-Carlo Job Submission Portal</title>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-		<link rel="stylesheet" href="main.css">
-	</head>
+			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+			<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+			<link rel="stylesheet" href="main.css">
+				</head>
 	<body>
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
@@ -20,8 +20,8 @@
 			<div class="w3-center">
 				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
 				<h2 class="w3-xlarge">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logged in as <img width = "160" src="username.php"> <br>
-				<br>
-			</div>
+					<br>
+					</div>
 		</header>
 
 		<div class="w3-center">
@@ -59,11 +59,11 @@
 							<select name="gcards" required>
 								<option selected hidden value=""></option>
 								<option value="/jlab/clas12Tags/gcards/clas12-default.gcard"> clas12-default </option>
-                                <option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">   rga-fall2018   </option>
-										  <option value="/jlab/clas12Tags/gcards/rga-spring2018.gcard"> rga-spring2018 </option>
-                                <option value="/jlab/clas12Tags/gcards/rga-spring2019.gcard"> rga-spring2019 </option>
-                                <option value="/jlab/clas12Tags/gcards/rgb-spring2019.gcard"> rgb-spring2019 </option>
-                                <option value="/jlab/clas12Tags/gcards/rgk-fall2018.gcard">   rgk-fall2018   </option>
+								<option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">   rga-fall2018   </option>
+								<option value="/jlab/clas12Tags/gcards/rga-spring2018.gcard"> rga-spring2018 </option>
+								<option value="/jlab/clas12Tags/gcards/rga-spring2019.gcard"> rga-spring2019 </option>
+								<option value="/jlab/clas12Tags/gcards/rgb-spring2019.gcard"> rgb-spring2019 </option>
+								<option value="/jlab/clas12Tags/gcards/rgk-fall2018.gcard">   rgk-fall2018   </option>
 							</select>
 						</td>
 					</tr>
@@ -72,6 +72,7 @@
 						<td>
 							<select name="generator" id="generator" required onchange="genSelected(this)">
 								<option selected hidden value=""></option>
+<!--								<option value="gemc">gemc</option>-->
 								<option value="clasdis">clasdis</option>
 								<option value="dvcs">dvcs</option>
 								<option value="disrad">disrad</option>
@@ -83,14 +84,14 @@
 						<td> <div class="tooltip">Generator Options<span class="tooltiptext">Once a generator is selected, click on the right link to open a new window with the selected generator documentation</span></div> </td>
 						<td> <input type="" name="genOptions" /></td>
 						<td>
-                            <div id="generatorLink" >
-							<a href="#" target="_blank">  </a>
+							<div id="generatorLink" >
+								<a href="#" target="_blank">  </a>
 							</div>
 						</td>
 					</tr>
-i                    <tr>
-                        <td colspan = "2"> After selecting the generator, check the documentation and paste the needed options above.</td>
-                    </tr>
+					<tr>
+						<td colspan = "2"> After selecting the generator, check the documentation and paste the needed options above.</td>
+					</tr>
 					<tr>
 						<td>Number of Events / Job</td>
 						<td><input type="number" name="nevents" id='box2' oninput="calculate();" min="1" required></td>
@@ -113,6 +114,6 @@ i                    <tr>
 	</body>
 
 	<script src="main.js">
-	</script>
+		</script>
 
 </html>
