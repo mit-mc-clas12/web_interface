@@ -102,7 +102,7 @@
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px;"></i>
 						<p style="text-align: left">
 							- Container CLAS12 gcard <br>
-							- Container generator <br>
+							- Container or gemc internal generator <br>
 							- Arbitrary number of jobs <br>
 							- Arbitrary number of events for each job <br>
 						</p>
@@ -117,7 +117,7 @@
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
 							- Container CLAS12 gcard <br>
-							- Use LUND files from a web location<br>
+							- Use LUND files from a web location or directory in /volatile <br>
 							- One job per LUND file <br>
 						</p>
 					</div>
