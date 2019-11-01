@@ -3,7 +3,7 @@ import datetime
 
 currentDT = datetime.datetime.now()
 
-text=subprocess.Popen(['../stats_raw/jlab/farmnodes.sh'], stdout=subprocess.PIPE)
+text=subprocess.Popen(['../stats_raw/osg/farmnodes.sh'], stdout=subprocess.PIPE)
 string=text.communicate()[0]
 array=string.split(' ',2)
 
