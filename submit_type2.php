@@ -30,7 +30,6 @@
 			<?php
 				$project     = 'CLAS12';
 				$rungroup    = $_POST['rungroup'];
-				$farm        = $_POST['farm'];
 				$gcards      = $_POST['gcards'];
 				$lundFiles   = $_POST['lundFiles'];
 
@@ -43,7 +42,7 @@
 					$fp = fopen('scard_type2.txt', 'w');
 					fwrite($fp, 'project:  '.$project.'      #'.PHP_EOL);
 					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
-					fwrite($fp, 'farm_name: '.$farm.'        #'.PHP_EOL);
+					fwrite($fp, 'farm_name: OSG              #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
 					fwrite($fp, 'generator: '.$lundFiles.'   #'.PHP_EOL);
 
