@@ -37,6 +37,7 @@
 				$jobs        = $_POST['jobs'];
 				$totalevents = $_POST['totalevents'];
 				$username    = $_SERVER['PHP_AUTH_USER'];
+			        $client_ip   = $_SERVER['REMOTE_ADDR'];
 
 				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($generator) || !empty($nevents)  || !empty($jobs)) {
 					$fp = fopen('scard_type1.txt', 'w');
@@ -48,6 +49,7 @@
 					fwrite($fp, 'generator: '.$generator.'   #'.PHP_EOL);
 					fwrite($fp, 'nevents: '.$nevents.'       #'.PHP_EOL);
 					fwrite($fp, 'jobs: '.$jobs.'             #'.PHP_EOL);
+			                fwrite($fp, 'client_ip: '.$client_ip.'   #'.PHP_EOL);
 					fclose($fp);
 					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
 					$output = shell_exec($command);

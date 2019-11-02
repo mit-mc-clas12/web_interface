@@ -32,11 +32,8 @@
 				$rungroup    = $_POST['rungroup'];
 				$gcards      = $_POST['gcards'];
 				$lundFiles   = $_POST['lundFiles'];
-
-
-
-
 				$username    = $_SERVER['PHP_AUTH_USER'];
+			        $client_ip   = $_SERVER['REMOTE_ADDR'];
 
 				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($lundFiles)) {
 					$fp = fopen('scard_type2.txt', 'w');
@@ -45,9 +42,7 @@
 					fwrite($fp, 'farm_name: OSG              #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
 					fwrite($fp, 'generator: '.$lundFiles.'   #'.PHP_EOL);
-
-
-
+			                fwrite($fp, 'client_ip: '.$client_ip.'   #'.PHP_EOL);
 					fclose($fp);
 					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type2.txt');
 					$output = shell_exec($command);
