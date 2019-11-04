@@ -4,7 +4,7 @@ function calculate() {
 	var myBox2 = document.getElementById('box2').value;
 	var result = document.getElementById('result');
 	var myResult = myBox1 * myBox2;
-	document.getElementById('result').value = myResult;
+	document.getElementById('result').value = myResult/1000000;
 
 }
 
