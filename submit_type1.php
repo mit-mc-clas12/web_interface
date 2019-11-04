@@ -37,9 +37,24 @@
 				$jobs        = $_POST['jobs'];
 				$totalevents = $_POST['totalevents'];
 				$username    = $_SERVER['PHP_AUTH_USER'];
-			        $client_ip   = $_SERVER['REMOTE_ADDR'];
+				$client_ip   = $_SERVER['REMOTE_ADDR'];
 
-				if (!empty($genOptions) ||!empty($project) || !empty($rungroup) || !empty($farm) || !empty($gcards)  || !empty($generator) || !empty($nevents)  || !empty($jobs)) {
+				function yesorno($cond){
+					$val = "no";
+					if($cond) $val="yes";
+					return $val;
+				}
+				$generatorOUT		= yesorno(isset($_POST['generatorOUT']));
+				$gemcEvioOUT		= yesorno(isset($_POST['gemcEvioOUT']));
+				$gemcHipoOUT		= yesorno(isset($_POST['generatorOUT']));
+				$reconstructionOUT	= yesorno(isset($_POST['reconstructionOUT']));
+				$dstOUT				= yesorno(isset($_POST['dstOUT']));
+
+				if (!isset($_POST['reconstructionOUT'])&&!isset($_POST['dstOUT'])){
+					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
+					die();
+				}
+				if (!empty($project) && !empty($rungroup) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs)) {
 					$fp = fopen('scard_type1.txt', 'w');
 					fwrite($fp, 'project:  '.$project.'      #'.PHP_EOL);
 					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
@@ -49,15 +64,21 @@
 					fwrite($fp, 'generator: '.$generator.'   #'.PHP_EOL);
 					fwrite($fp, 'nevents: '.$nevents.'       #'.PHP_EOL);
 					fwrite($fp, 'jobs: '.$jobs.'             #'.PHP_EOL);
-			                fwrite($fp, 'client_ip: '.$client_ip.'   #'.PHP_EOL);
+			        fwrite($fp, 'client_ip: '.$client_ip.'   #'.PHP_EOL);
+			        fwrite($fp, 'generatorOUT: '.$generatorOUT.'   #'.PHP_EOL);
+			        fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
+			        fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'   #'.PHP_EOL);
+			        fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
+			        fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
 					fclose($fp);
 					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
 					$output = shell_exec($command);
 				}
 				else {
-					echo "All field are required";
+					echo("<h2> All fields are required </h2>");
 					die();
 				}
+
 			?>
 
 
@@ -97,8 +118,21 @@
 				</tr>
 				<tr>
 					<td> Total Number of Events </td>
-					<td><?php echo($totalevents); ?></td>
+					<td><?php echo($totalevents); ?> M</td>
 				</tr>
+				<tr>
+					<td> Output Options </td>
+					<td>
+						<div style="text-align: left; display: inline-block;">
+							generator: <?php echo($generatorOUT); ?><br>
+							gemc: <?php echo($gemcEvioOUT); ?><br>
+							gemc decoded: <?php echo($gemcHipoOUT); ?><br>
+							reconstruction: <?php echo($reconstructionOUT); ?><br>
+							dst: <?php echo($dstOUT); ?>
+						</div>					
+					</td>
+				</tr>
+
 			</table>
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>

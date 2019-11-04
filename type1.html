@@ -68,7 +68,7 @@
 					</tr>
 					<tr>
 						<td> <div class="tooltip">Generator Options<span class="tooltiptext">Once a generator is selected, click on the right link to open a new window with the selected generator documentation</span></div> </td>
-						<td> <input type="" name="genOptions" /></td>
+						<td> <input type="" name="genOptions"/></td>
 						<td>
 							<div id="generatorLink" >
 								<a href="#" target="_blank">  </a>
@@ -88,7 +88,19 @@
 					</tr>
 					<tr>
 						<td> Total Number of Events </td>
-						<td><input type="number" name="totalevents" id="result"  readonly /></td>
+						<td><input type="number" name="totalevents" id="result"  readonly /> M</td>
+					</tr>
+					<tr>
+						<td> Output Options </td>
+						<td>
+							<div style="text-align: left; display: inline-block;">
+								<input type="checkbox" name="generatorOUT"> generator<br>
+								<input type="checkbox" name="gemcEvioOUT"> gemc<br>
+								<input type="checkbox" name="gemcHipoOUT"> gemc decoded<br>
+								<input type="checkbox" name="reconstructionOUT"> reconstruction<br>
+								<input type="checkbox" name="dstOUT" checked/> dst<br>
+							</div>					
+				</td>
 					</tr>
 					<tr>
 						<td style='border-left-color:white;border-bottom-color:white;'></td>
