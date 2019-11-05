@@ -51,8 +51,8 @@
 					fwrite($fp, 'group: '.$rungroup.'            #'.PHP_EOL);
 					fwrite($fp, 'farm_name: OSG                  #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'             #'.PHP_EOL);
+					fwrite($fp, 'generator: '.$lundFiles.'       #'.PHP_EOL);
 					fwrite($fp, 'client_ip: '.$client_ip.'       #'.PHP_EOL);
-					fwrite($fp, 'generatorOUT: '.$generatorOUT.' #'.PHP_EOL);
 					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
 					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'   #'.PHP_EOL);
 					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
