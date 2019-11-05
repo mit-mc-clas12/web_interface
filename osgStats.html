@@ -10,6 +10,16 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css">
 	</head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+
+		$('#content').load("https://gracc.opensciencegrid.org/dashboard/db/project-summary?orgId=1&from=now-2d&to=now&var-interval=$__auto_interval&var-project=CLAS12&var-type=Payload");
+
+	});
+	</script>
+
 	<body>
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
@@ -25,25 +35,11 @@
 			</div>
 		</header>
 
+		<iframe style="position:fixed; top:100; left:0; bottom:0; right:0; width:100%; height:85%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" src="https://gracc.opensciencegrid.org/dashboard/db/project-summary?orgId=1&from=now-2d&to=now&var-interval=$__auto_interval&var-project=CLAS12&var-type=Payload"></iframe>
 
-	<div class="w3-row-padding w3-rest" id="contact">
-		
-			<h1> Contacts </h1>
-			<h2> JLab </h2>
-				<p style="margin-left: 40px">
-					Maurizo Ungaro <a href="mailto:ungaro@jlab.org">(email)</a>
-				</p>
-			<h2> MIT </h2>
-				<p style="margin-left: 40px">
-					Bobby Johnston <a href="mailto:robertej@mit.edu">(email)</a><br>
-					Sangbaek Lee <a href="mailto:sangbaek@mit.edu">(email)</a> <br>
-					Patrick Moran <a href="mailto:moranp@mit.edu">(email)</a>
-				</p>
-			<h2> U. Conn </h2>
-				<p style="margin-left: 40px">
-					David Riser <a href="mailto:dmriser@jlab.org">(email)</a>
-				</p>
-	</div>
+
+
+
 
 	</body>
 

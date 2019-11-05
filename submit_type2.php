@@ -48,17 +48,17 @@
 
 				if (!empty($project) && !empty($rungroup) && !empty($gcards)  && !empty($lundFiles)) {
 					$fp = fopen('scard_type2.txt', 'w');
-					fwrite($fp, 'project:  '.$project.'      #'.PHP_EOL);
-					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
-					fwrite($fp, 'farm_name: OSG              #'.PHP_EOL);
-					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
-					fwrite($fp, 'generator: '.$lundFiles.'   #'.PHP_EOL);
-			        fwrite($fp, 'client_ip: '.$client_ip.'   #'.PHP_EOL);
-			        fwrite($fp, 'generatorOUT: '.$generatorOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
+					fwrite($fp, 'project:  '.$project.'          #'.PHP_EOL);
+					fwrite($fp, 'group: '.$rungroup.'            #'.PHP_EOL);
+					fwrite($fp, 'farm_name: OSG                  #'.PHP_EOL);
+					fwrite($fp, 'gcards: '.$gcards.'             #'.PHP_EOL);
+					fwrite($fp, 'generator: '.$lundFiles.'       #'.PHP_EOL);
+					fwrite($fp, 'client_ip: '.$client_ip.'       #'.PHP_EOL);
+					fwrite($fp, 'generatorOUT: '.$generatorOUT.' #'.PHP_EOL);
+					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
+					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'   #'.PHP_EOL);
+					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
+					fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
 					fclose($fp);
 					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type2.txt');
 					$output = shell_exec($command);
@@ -79,10 +79,6 @@
 				<tr>
 					<td>Tag</td>
 					<td><?php echo($rungroup); ?></td>
-				</tr>
-				<tr>
-					<td> Farm </td>
-					<td> <?php echo($farm); ?> </td>
 				</tr>
 				<tr>
 					<td>Gcards</td>
