@@ -40,7 +40,6 @@
 					if($cond) $val="yes";
 					return $val;
 				}
-				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));
 				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));
 				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));
 				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));
@@ -52,7 +51,6 @@
 					fwrite($fp, 'group: '.$rungroup.'            #'.PHP_EOL);
 					fwrite($fp, 'farm_name: OSG                  #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'             #'.PHP_EOL);
-					fwrite($fp, 'generator: '.$lundFiles.'       #'.PHP_EOL);
 					fwrite($fp, 'client_ip: '.$client_ip.'       #'.PHP_EOL);
 					fwrite($fp, 'generatorOUT: '.$generatorOUT.' #'.PHP_EOL);
 					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
@@ -92,7 +90,6 @@
 					<td> Output Options </td>
 					<td>
 						<div style="text-align: left; display: inline-block;">
-							generator: <?php echo($generatorOUT); ?><br>
 							gemc: <?php echo($gemcEvioOUT); ?><br>
 							gemc decoded: <?php echo($gemcHipoOUT); ?><br>
 							reconstruction: <?php echo($reconstructionOUT); ?><br>
