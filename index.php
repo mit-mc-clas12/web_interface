@@ -90,6 +90,47 @@
 							<td> <?php echo nl2br($jlab_idle); ?> </td>
 						</tr>
 					</table>
+
+                   <table style="width:100%;text-align:center">
+                        <tr>
+                                <td></td>
+                                <td>Submitted</td>
+                                <td>Done</td>
+                                <td>Run</td>
+                                <td>Idle</td>
+                                <td>Hold</td>
+                                <td>Total</td>
+                                <td>Job IDs</td>
+                        </tr>
+
+
+                        <?php
+                                if ($fh = fopen('stats_results/gemcRunning.log','r')){
+                                        $totlines= count(file('stats_results/gemcRunning.log'));
+                                        $nlines = 0;
+                                        $headline = ''; 
+                                        $footline = ''; 
+                                        $dataArray =[];
+                                        while(!feof($fh)){
+                                                $line = fgets($fh);
+                                                if ($nlines==0) {$headline = $line;}
+                                                elseif ($nlines<$totlines-2){
+                                                        $dataArray=preg_split('/ /',$line, null, PREG_SPLIT_NO_EMPTY);
+                                                                echo("<tr>");
+                                                                for ($x = 0; $x <= 8; $x++) {
+                                                                        if ($x==1) {echo("<td> $dataArray[1] $dataArray[2] </td>");}
+                                                                        elseif ($x!=2){echo("<td> $dataArray[$x] </td>");}
+                                                                }   
+                                                                echo("</tr>");
+
+                                                }
+                                                elseif($nlines==$totlines-1){ $footline=$line;}
+                                                $nlines=$nlines+1;
+                                        }   
+                                }   
+                        ?>
+		            </table>
+		            <?php echo $footline;?>
 				</div>
 			</div>
 		</header>
