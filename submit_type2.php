@@ -40,11 +40,11 @@
 					if($cond) $val="yes";
 					return $val;
 				}
-				$generatorOUT		= yesorno(isset($_POST['generatorOUT']));
-				$gemcEvioOUT		= yesorno(isset($_POST['gemcEvioOUT']));
-				$gemcHipoOUT		= yesorno(isset($_POST['generatorOUT']));
-				$reconstructionOUT	= yesorno(isset($_POST['reconstructionOUT']));
-				$dstOUT				= yesorno(isset($_POST['dstOUT']));
+				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));
+				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));
+				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));
+				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));
+				$dstOUT				 = yesorno(isset($_POST['dstOUT']));
 
 				if (!empty($project) && !empty($rungroup) && !empty($gcards)  && !empty($lundFiles)) {
 					$fp = fopen('scard_type2.txt', 'w');
