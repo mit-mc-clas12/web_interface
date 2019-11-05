@@ -44,11 +44,11 @@
 					if($cond) $val="yes";
 					return $val;
 				}
-				$generatorOUT		= yesorno(isset($_POST['generatorOUT']));
-				$gemcEvioOUT		= yesorno(isset($_POST['gemcEvioOUT']));
-				$gemcHipoOUT		= yesorno(isset($_POST['generatorOUT']));
-				$reconstructionOUT	= yesorno(isset($_POST['reconstructionOUT']));
-				$dstOUT				= yesorno(isset($_POST['dstOUT']));
+				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));
+				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));
+				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));
+				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));
+				$dstOUT				 = yesorno(isset($_POST['dstOUT']));
 
 				if (!isset($_POST['reconstructionOUT'])&&!isset($_POST['dstOUT'])){
 					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
