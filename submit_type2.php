@@ -14,10 +14,11 @@
 		<!-- Header -->
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
 		    
-		    <ul id="nav">
-		      <li><a href="index.php">Home</a></li>
-		      <li><a href="about.html">About</a></li>
-		    </ul>
+			 <ul id="nav">
+				 <li><a href="index.php">Home</a></li>
+				 <li><a href="about.html">About</a></li>
+				 <li><a href="osgStats.html">OSG Stats</a></li>
+			 </ul>
 
 			<div class="w3-center">
 				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
@@ -40,25 +41,23 @@
 					if($cond) $val="yes";
 					return $val;
 				}
-				$generatorOUT		= yesorno(isset($_POST['generatorOUT']));
-				$gemcEvioOUT		= yesorno(isset($_POST['gemcEvioOUT']));
-				$gemcHipoOUT		= yesorno(isset($_POST['generatorOUT']));
-				$reconstructionOUT	= yesorno(isset($_POST['reconstructionOUT']));
-				$dstOUT				= yesorno(isset($_POST['dstOUT']));
+				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));
+				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));
+				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));
+				$dstOUT				 = yesorno(isset($_POST['dstOUT']));
 
 				if (!empty($project) && !empty($rungroup) && !empty($gcards)  && !empty($lundFiles)) {
 					$fp = fopen('scard_type2.txt', 'w');
-					fwrite($fp, 'project:  '.$project.'      #'.PHP_EOL);
-					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
-					fwrite($fp, 'farm_name: OSG              #'.PHP_EOL);
-					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
-					fwrite($fp, 'generator: '.$lundFiles.'   #'.PHP_EOL);
-			        fwrite($fp, 'client_ip: '.$client_ip.'   #'.PHP_EOL);
-			        fwrite($fp, 'generatorOUT: '.$generatorOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
+					fwrite($fp, 'project:  '.$project.'          #'.PHP_EOL);
+					fwrite($fp, 'group: '.$rungroup.'            #'.PHP_EOL);
+					fwrite($fp, 'farm_name: OSG                  #'.PHP_EOL);
+					fwrite($fp, 'gcards: '.$gcards.'             #'.PHP_EOL);
+					fwrite($fp, 'generator: '.$lundFiles.'       #'.PHP_EOL);
+					fwrite($fp, 'client_ip: '.$client_ip.'       #'.PHP_EOL);
+					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
+					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'   #'.PHP_EOL);
+					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
+					fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
 					fclose($fp);
 					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type2.txt');
 					$output = shell_exec($command);
@@ -81,10 +80,6 @@
 					<td><?php echo($rungroup); ?></td>
 				</tr>
 				<tr>
-					<td> Farm </td>
-					<td> <?php echo($farm); ?> </td>
-				</tr>
-				<tr>
 					<td>Gcards</td>
 					<td><?php echo($gcards); ?></td>
 				</tr>
@@ -96,7 +91,6 @@
 					<td> Output Options </td>
 					<td>
 						<div style="text-align: left; display: inline-block;">
-							generator: <?php echo($generatorOUT); ?><br>
 							gemc: <?php echo($gemcEvioOUT); ?><br>
 							gemc decoded: <?php echo($gemcHipoOUT); ?><br>
 							reconstruction: <?php echo($reconstructionOUT); ?><br>

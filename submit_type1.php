@@ -13,11 +13,12 @@
 	<body>
 		<!-- Header -->
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
-		    
-		    <ul id="nav">
-		      <li><a href="index.php">Home</a></li>
-		      <li><a href="about.html">About</a></li>
-		    </ul>
+
+			 <ul id="nav">
+				 <li><a href="index.php">Home</a></li>
+				 <li><a href="about.html">About</a></li>
+				 <li><a href="osgStats.html">OSG Stats</a></li>
+			 </ul>
 
 			<div class="w3-center">
 				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
@@ -26,7 +27,7 @@
 		</header>
 
 		<div class="w3-center">
-			
+
 			<?php
 				$project     = 'CLAS12';
 				$rungroup    = $_POST['rungroup'];
@@ -44,11 +45,11 @@
 					if($cond) $val="yes";
 					return $val;
 				}
-				$generatorOUT		= yesorno(isset($_POST['generatorOUT']));
-				$gemcEvioOUT		= yesorno(isset($_POST['gemcEvioOUT']));
-				$gemcHipoOUT		= yesorno(isset($_POST['generatorOUT']));
-				$reconstructionOUT	= yesorno(isset($_POST['reconstructionOUT']));
-				$dstOUT				= yesorno(isset($_POST['dstOUT']));
+				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));
+				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));
+				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));
+				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));
+				$dstOUT				 = yesorno(isset($_POST['dstOUT']));
 
 				if (!isset($_POST['reconstructionOUT'])&&!isset($_POST['dstOUT'])){
 					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
@@ -56,20 +57,20 @@
 				}
 				if (!empty($project) && !empty($rungroup) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs)) {
 					$fp = fopen('scard_type1.txt', 'w');
-					fwrite($fp, 'project:  '.$project.'      #'.PHP_EOL);
-					fwrite($fp, 'group: '.$rungroup.'        #'.PHP_EOL);
-					fwrite($fp, 'farm_name: OSG              #'.PHP_EOL);
-					fwrite($fp, 'gcards: '.$gcards.'         #'.PHP_EOL);
-					fwrite($fp, 'genOptions: '.$genOptions.' #'.PHP_EOL);
-					fwrite($fp, 'generator: '.$generator.'   #'.PHP_EOL);
-					fwrite($fp, 'nevents: '.$nevents.'       #'.PHP_EOL);
-					fwrite($fp, 'jobs: '.$jobs.'             #'.PHP_EOL);
-			        fwrite($fp, 'client_ip: '.$client_ip.'   #'.PHP_EOL);
-			        fwrite($fp, 'generatorOUT: '.$generatorOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
-			        fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
+					fwrite($fp, 'project:  '.$project.'           #'.PHP_EOL);
+					fwrite($fp, 'group: '.$rungroup.'             #'.PHP_EOL);
+					fwrite($fp, 'farm_name: OSG                   #'.PHP_EOL);
+					fwrite($fp, 'gcards: '.$gcards.'              #'.PHP_EOL);
+					fwrite($fp, 'genOptions: '.$genOptions.'      #'.PHP_EOL);
+					fwrite($fp, 'generator: '.$generator.'        #'.PHP_EOL);
+					fwrite($fp, 'nevents: '.$nevents.'            #'.PHP_EOL);
+					fwrite($fp, 'jobs: '.$jobs.'                  #'.PHP_EOL);
+					fwrite($fp, 'client_ip: '.$client_ip.'        #'.PHP_EOL);
+					fwrite($fp, 'generatorOUT: '.$generatorOUT.'  #'.PHP_EOL);
+					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'    #'.PHP_EOL);
+					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'    #'.PHP_EOL);
+					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.' #'.PHP_EOL);
+					fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
 					fclose($fp);
 					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
 					$output = shell_exec($command);
@@ -91,10 +92,6 @@
 				<tr>
 					<td>Tag</td>
 					<td><?php echo($rungroup); ?></td>
-				</tr>
-				<tr>
-					<td> Farm </td>
-					<td> <?php echo($farm); ?> </td>
 				</tr>
 				<tr>
 					<td>Gcards</td>
@@ -129,7 +126,7 @@
 							gemc decoded: <?php echo($gemcHipoOUT); ?><br>
 							reconstruction: <?php echo($reconstructionOUT); ?><br>
 							dst: <?php echo($dstOUT); ?>
-						</div>					
+						</div>
 					</td>
 				</tr>
 

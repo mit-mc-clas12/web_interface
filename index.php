@@ -14,10 +14,11 @@
 		<!-- Header -->
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
 			
-		    <ul id="nav">
-		     	<li><a href="index.php">Home</a></li>
-		     	<li><a href="about.html">About</a></li>
-		    </ul>
+			<ul id="nav">
+				<li><a href="index.php">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="osgStats.html">OSG Stats</a></li>
+			</ul>
 
 			<div class="w3-center">
 				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
