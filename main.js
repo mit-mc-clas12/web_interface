@@ -45,3 +45,33 @@ function genSelected(val) {
 	}
 }
 
+function osgLogtoTable() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+		    var myObj = JSON.parse(this.responseText);
+		    var keys = Object.keys(myObj.user_data[0]);
+		    var txt = "<table><tr>";
+		    // first row from keys
+		    for (i=0; i<keys.length; i++){
+		    	txt+="<td>";
+		    	txt+=keys[i];
+		    	txt+="</td>";
+		    }
+		    // data rows
+		    for (rows=0; rows<myObj.user_data.length;rows++){
+		    	txt+="</tr><tr>";
+		    	var val = myObj.user_data[rows];
+			    for (var newkeys in val){
+			    	txt+="<td>";
+			    	txt+=val[newkeys];
+			    	txt+="</td>";
+			    }
+		    }
+		    txt+="</tr></table>";
+		    document.getElementById("osgLog").innerHTML = txt;
+		  }
+		};
+		xmlhttp.open("GET", "stats_results/osgLog.json", true);
+		xmlhttp.send();
+}
