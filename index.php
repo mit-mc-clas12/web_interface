@@ -98,6 +98,7 @@
 							<td> <?php echo nl2br($jlab_idle); ?> </td>
 						</tr>
 -->
+
 					</table>
 
 					<br>
