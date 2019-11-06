@@ -51,7 +51,7 @@ function osgLogtoTable() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
 		    var keys = Object.keys(myObj.user_data[0]);
-		    var txt = "<table><tr>";
+		    var txt = "<table style=\"width:100%;text-align:center\"><tr>";
 		    // first row from keys
 		    for (i=0; i<keys.length; i++){
 		    	txt+="<td>";
