@@ -45,3 +45,45 @@ function genSelected(val) {
 	}
 }
 
+function osgLogtoTable() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+		    var myObj = JSON.parse(this.responseText);
+		    //set up table
+		    var txt = "<table style=\"width:100%;text-align:center\"><caption align=\"bottom\">"
+		    //bottom caption from metadata
+		    var meta = myObj.metadata;
+		    txt += meta["jobs"]+" jobs, ";
+		    txt += meta["completed"]+" completed, ";
+		    txt += meta["removed"]+" removed, ";
+		    txt += meta["idle"]+" idle, ";
+		    txt += meta["running"]+" running, ";
+		    txt += meta["held"]+" held, ";
+		    txt += meta["suspended"]+" suspended. ";
+		    txt += "updated on "+meta["update_timestamp"];
+		    txt+= "</caption><tr>";
+		    // first row from keys
+   		    var keys = Object.keys(myObj.user_data[0]);
+		    for (i=0; i<keys.length; i++){
+		    	txt+="<th>";
+		    	txt+=keys[i];
+		    	txt+="</th>";
+		    }
+		    // data rows
+		    for (rows=0; rows<myObj.user_data.length;rows++){
+		    	txt+="</tr><tr>";
+		    	var val = myObj.user_data[rows];
+			    for (var newkeys in val){
+			    	txt+="<td>";
+			    	txt+=val[newkeys];
+			    	txt+="</td>";
+			    }
+		    }
+		    txt+="</tr></table>";
+		    document.getElementById("osgLog").innerHTML = txt;
+		  }
+		};
+		xmlhttp.open("GET", "stats_results/osgLog.json", true);
+		xmlhttp.send();
+}

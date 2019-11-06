@@ -9,8 +9,10 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="main.css">
+		<script src="main.js">	</script>
+
 	</head>
-	<body>
+	<body onload='osgLogtoTable()'>
 		<!-- Header -->
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
 			
@@ -22,7 +24,7 @@
 
 			<div class="w3-center">
 				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
-				<h2 class="w3-xlarge">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?> <br>
+				<h2 class="w3-xlarge" style="width:73%;text-align:right">Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?> <br>
 				</h2>
 
 				<div class="w3-padding w3-center">
@@ -62,6 +64,8 @@
 						}
 					?>
 
+					<br><br>
+
 					<table style="width:100%;text-align:center">
 						<caption style="text-align:right" align="top">
 							Last Update: <?php echo nl2br($osg_time); ?>
@@ -92,46 +96,10 @@
 						</tr>
 					</table>
 
-                   <table style="width:100%;text-align:center">
-                        <tr>
-                                <td></td>
-                                <td>Submitted</td>
-                                <td>Done</td>
-                                <td>Run</td>
-                                <td>Idle</td>
-                                <td>Hold</td>
-                                <td>Total</td>
-                                <td>Job IDs</td>
-                        </tr>
+					<br>
+					<br>
+					<div id="osgLog"></div>
 
-
-                        <?php
-                                if ($fh = fopen('stats_results/gemcRunning.log','r')){
-                                        $totlines= count(file('stats_results/gemcRunning.log'));
-                                        $nlines = 0;
-                                        $headline = ''; 
-                                        $footline = ''; 
-                                        $dataArray =[];
-                                        while(!feof($fh)){
-                                                $line = fgets($fh);
-                                                if ($nlines==0) {$headline = $line;}
-                                                elseif ($nlines<$totlines-2){
-                                                        $dataArray=preg_split('/ /',$line, null, PREG_SPLIT_NO_EMPTY);
-                                                                echo("<tr>");
-                                                                for ($x = 0; $x <= 8; $x++) {
-                                                                        if ($x==1) {echo("<td> $dataArray[1] $dataArray[2] </td>");}
-                                                                        elseif ($x!=2){echo("<td> $dataArray[$x] </td>");}
-                                                                }   
-                                                                echo("</tr>");
-
-                                                }
-                                                elseif($nlines==$totlines-1){ $footline=$line;}
-                                                $nlines=$nlines+1;
-                                        }   
-                                }   
-                        ?>
-		            </table>
-		            <?php echo $footline;?>
 				</div>
 			</div>
 		</header>
@@ -197,8 +165,5 @@
 				</div>
 			</a>
 		</div>
-
-		<script src="main.js">
-		</script>
 	</body>
 </html>
