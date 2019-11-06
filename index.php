@@ -76,24 +76,28 @@
 							<th> Busy Cores </th>
 							<th> Idle Cores </th>
 						</tr>
+<!--
 						<tr>
 							<td> MIT </td>
 							<td> <?php echo nl2br($t3_total); ?> </td>
 							<td> <?php echo nl2br($t3_busy); ?> </td>
 							<td> <?php echo nl2br($t3_idle); ?> </td>
 						</tr>
+-->
 						<tr>
 							<td> OSG </td>
 							<td> <?php echo nl2br($osg_total); ?> </td>
 							<td> <?php echo nl2br($osg_busy); ?> </td>
 							<td> <?php echo nl2br($osg_idle); ?> </td>
 						</tr>
+<!--
 						<tr>
 							<td> JLab </td>
 							<td> <?php echo nl2br($jlab_total); ?> </td>
 							<td> <?php echo nl2br($jlab_busy); ?> </td>
 							<td> <?php echo nl2br($jlab_idle); ?> </td>
 						</tr>
+-->
 					</table>
 
 					<br>
