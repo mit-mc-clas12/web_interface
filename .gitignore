@@ -1,3 +1,4 @@
 *.txt
 Sample_script_result*
 stats_results/gemcRunning.log
+stats_results/osgLog.json
