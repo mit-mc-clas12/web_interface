@@ -64,6 +64,8 @@
 						}
 					?>
 
+					<br><br>
+
 					<table style="width:100%;text-align:center">
 						<caption style="text-align:right" align="top">
 							Last Update: <?php echo nl2br($osg_time); ?>
@@ -94,6 +96,8 @@
 						</tr>
 					</table>
 
+					<br>
+					<br>
 					<div id="osgLog"></div>
 
 				</div>
