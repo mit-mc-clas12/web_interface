@@ -50,13 +50,25 @@ function osgLogtoTable() {
 		xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
-		    var keys = Object.keys(myObj.user_data[0]);
-		    var txt = "<table style=\"width:100%;text-align:center\"><tr>";
+		    //set up table
+		    var txt = "<table style=\"width:100%;text-align:center\"><caption align=\"bottom\">"
+		    //bottom caption from metadata
+		    var meta = myObj.metadata;
+		    txt += meta["jobs"]+" jobs, ";
+		    txt += meta["completed"]+" completed, ";
+		    txt += meta["removed"]+" removed, ";
+		    txt += meta["idle"]+" idle, ";
+		    txt += meta["running"]+" running, ";
+		    txt += meta["held"]+" held, ";
+		    txt += meta["suspended"]+" suspended. ";
+		    txt += "updated on "+meta["update_timestamp"];
+		    txt+= "</caption><tr>";
 		    // first row from keys
+   		    var keys = Object.keys(myObj.user_data[0]);
 		    for (i=0; i<keys.length; i++){
-		    	txt+="<td>";
+		    	txt+="<th>";
 		    	txt+=keys[i];
-		    	txt+="</td>";
+		    	txt+="</th>";
 		    }
 		    // data rows
 		    for (rows=0; rows<myObj.user_data.length;rows++){
