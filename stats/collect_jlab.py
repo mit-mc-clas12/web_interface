@@ -25,6 +25,6 @@ for i, array in enumerate(c):
 		available=available+int(job.split('/')[0])
 	state=content[-1]
 	
-dic =OrderedDict([('Total cores',str(total)),('Busy cores',str(total-available)),('Idle cores',str(available)),('timestamp',currentDT.strftime("%Y-%m-%d %H:%M:%S"))])
+dic =OrderedDict([('Total cores',str(total)),('Busy cores',str(total-available)),('Idle cores',str(available)),('timestamp',currentDT.strftime("%Y-%m-%d %H:%M:%S")),('farm','JLab')])
 with open('../stats_results/stats_jlab.json', 'w') as outfile:
     json.dump(dic, outfile)
