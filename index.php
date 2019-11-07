@@ -119,7 +119,7 @@
 							- Container CLAS12 gcard <br>
 							- Container or gemc internal generator <br>
 							- Arbitrary number of jobs <br>
-							- Arbitrary number of events for each job <br/> (max 10,000) <br/>
+							- Arbitrary number of events for each job (max 10,000) <br/>
 						</p>
 					</div>
 				</div>

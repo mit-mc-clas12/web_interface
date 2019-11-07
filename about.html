@@ -30,7 +30,17 @@
 
 			<h1> Types </h1>
 			<p style="margin-left: 40px">
-			<b>Type 1 and 2</b> corresponds to conditions of CLAS12 experiments that already ran.<br/>
+			<b>Type 1 and 2</b> corresponds to conditions of CLAS12 experiments that already ran:<br/>
+			<li style="margin-left: 60px"> <b>clas12-default</b>: nominal CLAS12 geometry </li>
+			<li style="margin-left: 60px"> <b>rga-spring2018</b>: RGA spring 2018 configuration  </li>
+			<li style="margin-left: 60px"> <b>rga-fall2018</b>:   RGA fall 2018 configuration </li>
+			<li style="margin-left: 60px"> <b>rgk-fall2018</b>:   RGK fall 2018 configuration (torus out-bending)  </li>
+			<li style="margin-left: 60px"> <b>rga-spring2019</b>: RGA spring 2019 </li>
+			<li style="margin-left: 60px"> <b>rgb-spring2019</b>: RGB spring 2019  </li><br/>
+			</p>
+
+
+			<p style="margin-left: 40px">
 			<b>Type 3 and 4</b> can be used for custom user conditions, for example to test
 			a new detector design or a different magnet configurations.<br/>
 			</p>
@@ -42,7 +52,9 @@
 
 			<pre style="font-size: 20px">	/volatile/clas12/osg/"username"/job_ID </pre>
 			<p style="margin-left: 40px">
-			where "<b>username</b>" is your jlab account name and <b>ID</b> is the submission ID<br/>
+			where "<b>username</b>" is your jlab account name and <b>ID</b> is the submission ID.<br/>
+			Individual "subjobs" are organized in subdirs named <b>simu_SJID</b>, where SJID is the subjob id.
+			If you submit 500 jobs, SJID will run from 0 to 499.<br>
 			</p>
 			<br/>
 			<h1> Priority </h1>
