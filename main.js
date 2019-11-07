@@ -62,7 +62,7 @@ function farmStatstoTable() {
    		    txt += "<th>Busy Cores</th>"
    		    txt += "<th>Idle Name</th></tr>"
 		    // // data rows
-			    for (index=2;index<3;index++){
+			    for (index=0;index<1;index++){
 			    	var farmstat = myObj[index];
 			    	for (newkeys in farmstat){
 			    		if (newkeys!="timestamp"){
