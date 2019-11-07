@@ -45,6 +45,45 @@ function genSelected(val) {
 	}
 }
 
+function farmStatstoTable() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+		    var myObj = JSON.parse(this.responseText);
+		    //set up table
+		    var txt = "<table style=\"width:100%;text-align:center\"><caption style=\"text-align:right\" align=\"top\">";
+		    //top caption from timestamp
+		    txt += "updated on "+myObj[0]["timestamp"];
+		    txt += "</caption><tr>";
+		    // // first row from keys
+   		    var keys = Object.keys(myObj);
+   		    txt += "<th>Farm Name</th>"
+   		    txt += "<th>Total Available Cores</th>"
+   		    txt += "<th>Busy Cores</th>"
+   		    txt += "<th>Idle Name</th></tr>"
+		    // // data rows
+			    for (index=2;index<3;index++){
+			    	var farmstat = myObj[index];
+			    	for (newkeys in farmstat){
+			    		if (newkeys!="timestamp"){
+					    	txt+="<td>";
+					    	txt+=farmstat[newkeys];
+					    	txt+="</td>";
+				    	}
+			    	}
+			    	txt+="</tr>"
+		    	}
+		    	txt+="</table>";
+
+		  }
+		  document.getElementById("farmStats").innerHTML = txt;
+
+		};
+		xmlhttp.open("GET", "stats_results/stats.json", true);
+		xmlhttp.send();
+}
+
+
 function osgLogtoTable() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {

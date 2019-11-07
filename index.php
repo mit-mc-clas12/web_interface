@@ -12,7 +12,7 @@
 		<script src="main.js">	</script>
 
 	</head>
-	<body onload='osgLogtoTable()'>
+	<body onload='osgLogtoTable();farmStatstoTable();'>
 		<!-- Header -->
 		<header class="w3-panel w3-container" id="myHeader">
 			
@@ -28,79 +28,8 @@
 				</h2>
 
 				<div class="w3-padding w3-center">
-					<?php
-						if ($fh = fopen('stats_results/Sample_script_result', 'r')) {
-							$t3_line1 = fgets($fh);
-							$t3_time = substr($t3_line1, 11);
-							$t3_line2 = fgets($fh);
-							$t3_total = substr($t3_line2, 12);
-							$t3_line3 = fgets($fh);
-							$t3_busy = substr($t3_line3, 11);
-							$t3_line4 = fgets($fh);
-							$t3_idle = substr($t3_line4, 11);
-							fclose($fh);
-						}
-						if ($fh = fopen('stats_results/Sample_script_result_osg', 'r')) {
-							$osg_line1 = fgets($fh);
-							$osg_time = substr($osg_line1, 11);
-							$osg_line2 = fgets($fh);
-							$osg_total= substr($osg_line2, 12);
-							$osg_line3 = fgets($fh);
-							$osg_busy = substr($osg_line3, 11);
-							$osg_line4 = fgets($fh);
-							$osg_idle = substr($osg_line4, 11);
-							fclose($fh);
-						}
-						if ($fh = fopen('stats_results/Sample_script_result_jlab', 'r')) {
-							$jlab_line1 = fgets($fh);
-							$jlab_time = substr($jlab_line1, 11);
-							$jlab_line2 = fgets($fh);
-							$jlab_total= substr($jlab_line2, 12);
-							$jlab_line3 = fgets($fh);
-							$jlab_busy = substr($jlab_line3, 11);
-							$jlab_line4 = fgets($fh);
-							$jlab_idle = substr($jlab_line4, 11);
-							fclose($fh);
-						}
-					?>
 
-					<br><br>
-
-					<table style="width:100%;text-align:center">
-						<caption style="text-align:right" align="top">
-							Last Update: <?php echo nl2br($osg_time); ?>
-						</caption>
-						<tr>
-							<th> Farm Name </th>
-							<th> Total Available Cores </th>
-							<th> Busy Cores </th>
-							<th> Idle Cores </th>
-						</tr>
-<!--
-						<tr>
-							<td> MIT </td>
-							<td> <?php echo nl2br($t3_total); ?> </td>
-							<td> <?php echo nl2br($t3_busy); ?> </td>
-							<td> <?php echo nl2br($t3_idle); ?> </td>
-						</tr>
--->
-						<tr>
-							<td> OSG </td>
-							<td> <?php echo nl2br($osg_total); ?> </td>
-							<td> <?php echo nl2br($osg_busy); ?> </td>
-							<td> <?php echo nl2br($osg_idle); ?> </td>
-						</tr>
-<!--
-						<tr>
-							<td> JLab </td>
-							<td> <?php echo nl2br($jlab_total); ?> </td>
-							<td> <?php echo nl2br($jlab_busy); ?> </td>
-							<td> <?php echo nl2br($jlab_idle); ?> </td>
-						</tr>
--->
-
-					</table>
-
+					<div id="farmStats"></div>
 					<br>
 					<br>
 					<div id="osgLog"></div>
