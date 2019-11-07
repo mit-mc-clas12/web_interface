@@ -142,7 +142,7 @@
 			<a href="#" >
 				<div class="w3-quarter">
 					<div class="w3-card w3-container" style="min-height:380px">
-						<h3>Type 3</h3><br>
+						<h3>Type 3<br>(coming soon)</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
 							- Use gcards from web location.<br>
