@@ -7,9 +7,6 @@ text=subprocess.Popen(['../stats_raw/osg/farmnodes.sh'], stdout=subprocess.PIPE)
 string=text.communicate()[0]
 array=string.split(' ',2)
 
-file = open(r"Sample_script_result_osg","w")
-file.write("Updated on "+currentDT.strftime("%Y-%m-%d %H:%M:%S"))
-file.write("\nTotal cores: "+array[0])
-file.write("\nBusy cores: "+array[1])
-file.write("\nIdle cores: "+array[2])
-file.close()
+dic =OrderedDict([('Total cores',array[0]),('Busy cores',array[1]),('Idle cores',array[2]),('timestamp',currentDT.strftime("%Y-%m-%d %H:%M:%S"))])
+with open('../stats_results/stats_MIT.json', 'w') as outfile:
+    json.dump(dic, outfile)
