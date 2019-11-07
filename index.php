@@ -119,7 +119,7 @@
 							- Container CLAS12 gcard <br>
 							- Container or gemc internal generator <br>
 							- Arbitrary number of jobs <br>
-							- Arbitrary number of events for each job <br>
+							- Arbitrary number of events for each job (max 10,000) <br>
 						</p>
 					</div>
 				</div>
@@ -158,7 +158,7 @@
 			<a href="#" >
 				<div class="w3-quarter">
 					<div class="w3-card w3-container" style="min-height:380px">
-						<h3>Type 4</h3><br>
+						<h3>Type 4<br>(coming soon)</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
 							- Use gcards from web location.<br>
