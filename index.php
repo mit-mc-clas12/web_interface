@@ -112,9 +112,9 @@
 		<div class="w3-row-padding w3-center w3-margin-top">
 			<a href="type1.html" >
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:380px">
+					<div class="w3-card w3-container" style="min-height:300px">
 						<h3>Type 1</h3><br>
-						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px;"></i>
+						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px; font-style: normal;"></i>
 						<p style="text-align: left">
 							- Container CLAS12 gcard <br>
 							- Container or gemc internal generator <br>
@@ -127,7 +127,7 @@
 
 			<a href="type2.html" >
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:380px">
+					<div class="w3-card w3-container" style="min-height:300px">
 						<h3>Type 2</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
@@ -141,7 +141,7 @@
 
 			<a href="#" >
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:380px">
+					<div class="w3-card w3-container" style="min-height:300px">
 						<h3>Type 3<br>(coming soon)</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
@@ -157,7 +157,7 @@
 
 			<a href="#" >
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:380px">
+					<div class="w3-card w3-container" style="min-height:300px">
 						<h3>Type 4<br>(coming soon)</h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left">
