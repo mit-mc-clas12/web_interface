@@ -95,11 +95,9 @@ function osgLogtoTable() {
 		    var meta = myObj.metadata;
 		    txt += meta["jobs"]+" jobs, ";
 		    txt += meta["completed"]+" completed, ";
-		    txt += meta["removed"]+" removed, ";
 		    txt += meta["idle"]+" idle, ";
 		    txt += meta["running"]+" running, ";
 		    txt += meta["held"]+" held, ";
-		    txt += meta["suspended"]+" suspended. ";
 		    txt += "updated on "+meta["update_timestamp"];
 		    txt+= "</caption><tr>";
 		    // first row from keys
