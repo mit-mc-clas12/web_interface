@@ -60,7 +60,7 @@ function farmStatstoTable() {
    		    txt += "<th>Farm Name</th>"
    		    txt += "<th>Total Available Cores</th>"
    		    txt += "<th>Busy Cores</th>"
-   		    txt += "<th>Idle Name</th></tr>"
+   		    txt += "<th>Idle Cores</th></tr>"
 		    // // data rows
 			    for (index=0;index<1;index++){
 			    	var farmstat = myObj[index];
