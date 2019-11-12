@@ -100,10 +100,10 @@
 								<p style="text-align: left; font-weight: normal;">
 								Warning: any of the choices below will enlarge the overall output size significantly.<br>
 								</p>
-								<input type="checkbox" name="generatorOUT"> generator<br>
-								<input type="checkbox" name="gemcEvioOUT"> gemc<br>
-								<input type="checkbox" name="gemcHipoOUT"> gemc decoded<br>
-								<input type="checkbox" name="reconstructionOUT"> reconstruction<br>
+								<input type="checkbox" name="generatorOUT" id="generatorOUT" onchange="max_events(this);"> generator<br>
+								<input type="checkbox" name="gemcEvioOUT" id="gemcEvioOUT" onchange="max_events(this);"> gemc<br>
+								<input type="checkbox" name="gemcHipoOUT" id="gemcHipoOUT" onchange="max_events(this);"> gemc decoded<br>
+								<input type="checkbox" name="reconstructionOUT" id="reconstructionOUT" onchange="max_events(this);"> reconstruction<br>
 							</div>
 						</td>
 					</tr>

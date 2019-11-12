@@ -124,3 +124,10 @@ function osgLogtoTable() {
 		xmlhttp.open("GET", "stats_results/osgLog.json", true);
 		xmlhttp.send();
 }
+
+function max_events(checkboxElem) {
+	var jobs = document.getElementById('box1');
+	if(document.getElementById('gemcEvioOUT').checked || document.getElementById('generatorOUT').checked || document.getElementById('gemcHipoOUT').checked || document.getElementById('reconstructionOUT').checked)
+		jobs.max = "1000";
+	else jobs.removeAttribute('max')
+			}
