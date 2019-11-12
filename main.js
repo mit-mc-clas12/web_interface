@@ -128,6 +128,6 @@ function osgLogtoTable() {
 function max_events(checkboxElem) {
 	var jobs = document.getElementById('box1');
 	if(document.getElementById('gemcEvioOUT').checked || document.getElementById('generatorOUT').checked || document.getElementById('gemcHipoOUT').checked || document.getElementById('reconstructionOUT').checked)
-		jobs.max = "1000";
+		jobs.max = "100";
 	else jobs.removeAttribute('max')
 			}
