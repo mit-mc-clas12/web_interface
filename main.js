@@ -125,6 +125,29 @@ function osgLogtoTable() {
 		xmlhttp.send();
 }
 
+function diskUsagetoTable() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+		    var myObj = JSON.parse(this.responseText);
+		    //set up table
+		    var txt = "<table style=\"width:100%;text-align:center\"><tr><th>name</th><th><size></th></tr>";
+   		    for (var user in myObj){
+   		    	txt+="<tr><td>"+users+"</td>";
+   		    	txt+="<td>"+myObj[users].total_size+"</td></tr>"
+   		    	if(user==username){
+   		    		txt+="<td>details</td>"
+   		    	}
+   		    }
+		    txt+="</table>";
+		    document.getElementById("du").innerHTML = txt;
+		  }
+		};
+		xmlhttp.open("GET", "stats_results/disk.json", true);
+		xmlhttp.send();
+}
+
+
 function max_events(checkboxElem) {
 	var jobs = document.getElementById('box1');
 	if(document.getElementById('gemcEvioOUT').checked || document.getElementById('generatorOUT').checked || document.getElementById('gemcHipoOUT').checked || document.getElementById('reconstructionOUT').checked)
