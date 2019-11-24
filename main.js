@@ -131,10 +131,10 @@ function diskUsagetoTable() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
 		    //set up table
-		    var txt = "<table style=\"width:100%;text-align:center\"><tr><th>name</th><th><size></th></tr>";
+		    var txt = "<table style=\"width:100%;text-align:center\"><tr><th>Name</th><th>Disk Usage</th></tr>";
    		    for (var user in myObj){
-   		    	txt+="<tr><td>"+users+"</td>";
-   		    	txt+="<td>"+myObj[users].total_size+"</td></tr>"
+   		    	txt+="<tr><td>"+user+"</td>";
+   		    	txt+="<td>"+myObj[user].total_size+"</td></tr>"
    		    	if(user==username){
    		    		txt+="<td>details</td>"
    		    	}
