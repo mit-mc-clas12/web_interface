@@ -116,6 +116,9 @@ function osgLogtoTable() {
 			    	txt+=val[newkeys];
 			    	txt+="</td>";
 			    }
+			    if (val.username == username){
+			    	txt+="<td>cancel</td>"
+			    }
 		    }
 		    txt+="</tr></table>";
 		    document.getElementById("osgLog").innerHTML = txt;
