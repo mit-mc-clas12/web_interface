@@ -36,7 +36,7 @@
 					<div id="osgLog"></div>
 					<br>
 					<br>
-					<div id="du"></div>
+<!--					<div id="du"></div>-->
 
 				</div>
 			</div>
