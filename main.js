@@ -51,7 +51,7 @@ function farmStatstoTable() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
 		    //set up table
-		    var txt = "<table style=\"width:100%;text-align:center\"><caption style=\"text-align:right\" align=\"top\">";
+		    var txt = "<table align=\"center\" style=\"width:100%;text-align:center\"><caption style=\"text-align:right\" align=\"top\">";
 		    //top caption from timestamp
 		    txt += "updated on "+myObj[0]["timestamp"];
 		    txt += "</caption><tr>";
@@ -90,7 +90,7 @@ function osgLogtoTable() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
 		    //set up table
-		    var txt = "<table style=\"width:100%;text-align:center\"><caption align=\"bottom\">"
+		    var txt = "<table align=\"center\" style=\"width:100%;text-align:center\"><caption align=\"bottom\">"
 		    //bottom caption from metadata
 		    var meta = myObj.metadata;
 		    txt += meta["jobs"]+" jobs, ";
@@ -134,7 +134,7 @@ function diskUsagetoTable() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
 		    //set up table
-		    var txt = "<table style=\"width:60%;text-align:center\"><tr><th>Name</th><th>Disk Usage</th></tr>";
+		    var txt = "<table align=\"center\" style=\"width:60%;text-align:center\"><tr><th>Name</th><th>Disk Usage</th></tr>";
    		    for (var user in myObj){
    		    	txt+="<tr><td>"+user+"</td>";
    		    	txt+="<td>"+myObj[user].total_size+"</td>"
