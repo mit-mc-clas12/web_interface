@@ -20,6 +20,7 @@
 			<ul id="nav">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="about.html">About</a></li>
+				<li><a href="disk.html">OSG Stats</a></li>
 				<li><a href="osgStats.html">OSG Stats</a></li>
 			</ul>
 
@@ -36,7 +37,6 @@
 					<div id="osgLog"></div>
 					<br>
 					<br>
-<!--					<div id="du"></div>-->
 
 				</div>
 			</div>
