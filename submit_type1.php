@@ -8,11 +8,13 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="main.css"/>
 		<script src="main.js">	</script>
+
+
 	</head>
+
 	<body>
-		<!-- Header -->
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
 
 			 <ul id="nav">
