@@ -137,10 +137,11 @@ function diskUsagetoTable() {
 		    var txt = "<table style=\"width:100%;text-align:center\"><tr><th>Name</th><th>Disk Usage</th></tr>";
    		    for (var user in myObj){
    		    	txt+="<tr><td>"+user+"</td>";
-   		    	txt+="<td>"+myObj[user].total_size+"</td></tr>"
+   		    	txt+="<td>"+myObj[user].total_size+"</td>"
    		    	if(user==username){
    		    		txt+="<td>details</td>"
    		    	}
+   		    	txt+="</tr>"
    		    }
 		    txt+="</table>";
 		    document.getElementById("du").innerHTML = txt;
