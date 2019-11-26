@@ -13,7 +13,8 @@
 		<script src="main.js"></script>
 
 	</head>
-	<body onload='osgLogtoTable();farmStatstoTable();diskUsagetoTable();'>
+	
+	<body onload='osgLogtoTable(); farmStatstoTable();'>
 		<!-- Header -->
 		<header class="w3-panel w3-container" id="myHeader">
 			
