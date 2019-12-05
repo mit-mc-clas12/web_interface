@@ -93,12 +93,7 @@ function osgLogtoTable() {
 		    var txt = "<table align=\"center\" style=\"width:100%;text-align:center\"><caption align=\"bottom\">"
 		    //bottom caption from metadata
 		    var meta = myObj.metadata;
-		    txt += meta["jobs"]+" jobs, ";
-		    txt += meta["completed"]+" completed, ";
-		    txt += meta["idle"]+" idle, ";
-		    txt += meta["running"]+" running, ";
-		    txt += meta["held"]+" held, ";
-		    txt += "updated on "+meta["update_timestamp"];
+		    txt+= meta["footer"];
 		    txt+= "</caption><tr>";
 		    // first row from keys
    		    var keys = Object.keys(myObj.user_data[0]);
