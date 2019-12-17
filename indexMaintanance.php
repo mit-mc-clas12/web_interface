@@ -16,8 +16,17 @@
 	
 	<body onload='osgLogtoTable(); farmStatstoTable();'>
 
-	<h1><font color="red">December 17 2019 Maintanance: the framework is being update to support future improvements</font>
 	<h1>
+		<center>
+			<font color="red">
+				December 17 2019 Maintanance at 3pm: <br/>
+				the framework is being updated. <br/>
+				Job Submission is suspended. <br/>
+				Jobs already submitted will run normally.
+
+			</font>
+		</center>
+	</h1>
 
 
 		<header class="w3-panel w3-container" id="myHeader">
@@ -47,66 +56,5 @@
 			</div>
 		</header>
 
-		<div class="w3-row-padding w3-center w3-margin-top">
-			<a href="type1.html" >
-				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:300px">
-						<h3>Type 1<br></h3><br>
-						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px; "></i>
-						<p style="text-align: left; font-weight: normal;">
-							- Container CLAS12 gcard <br>
-							- Container or gemc internal generator <br>
-							- Arbitrary number of jobs <br>
-							- Arbitrary number of events for each job (max 10,000) <br/>
-						</p>
-					</div>
-				</div>
-			</a>
-
-			<a href="type2.html" >
-				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:300px">
-						<h3>Type 2<br></h3><br>
-						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-						<p style="text-align: left; font-weight: normal;">
-							- Container CLAS12 gcard <br>
-							- Use LUND files from a web location or directory in /volatile <br>
-							- One job per LUND file <br>
-						</p>
-					</div>
-				</div>
-			</a>
-
-			<a href="#" >
-				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:300px">
-						<h3>Type 3<br>(coming soon)</h3><br>
-						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-						<p style="text-align: left; font-weight: normal;">
-							- Use gcards from web location.<br>
-							- One set of jobs per gcard.  <br>
-							- Container generator  <br>
-							- Arbitrary number of jobs <br>
-							- Arbitrary number of events for each job <br>
-						</p>
-					</div>
-				</div>
-			</a>
-
-			<a href="#" >
-				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:300px">
-						<h3>Type 4<br>(coming soon)</h3><br>
-						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-						<p style="text-align: left; font-weight: normal;">
-							- Use gcards from web location.<br>
-							- One set of jobs per gcard.  <br>
-							- Use LUND files from a web location<br>
-							- One job per LUND file <br>
-						</p>
-					</div>
-				</div>
-			</a>
-		</div>
 	</body>
 </html>
