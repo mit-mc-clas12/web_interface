@@ -48,12 +48,13 @@
 			//$command = escapeshellcmd("whoami");
 			//$output = shell_exec($command); 
 			//echo ($output);
+			echo "<h2>";
 			while ($on = current($_POST)){
 			        echo key($_POST);
 			        echo "   ";
 			        next($_POST);
 			}
-			echo "will be cancelled on request.";
+			echo "will be cancelled on request.</h2>";
 			?>
 
 		</div>
