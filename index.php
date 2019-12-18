@@ -19,7 +19,7 @@
 		<h3>
 			<center>
 				<font color="blue">
-					December 17 2019 Maintanance Completed. <br/>
+					December 17 2019 Maintanance Completed<br/>
 				</font>
 			</center>
 		</h3>
