@@ -133,12 +133,26 @@ function diskUsagetoTable() {
    		    for (var user in myObj){
    		    	txt+="<tr><td>"+user+"</td>";
    		    	txt+="<td>"+myObj[user].total_size+"</td>"
-//   		    	if(user==username){
-//   		    		txt+="<td>details</td>"
-//   		    	}
-   		    	txt+="</tr>"
-   		    }
-		    txt+="</table>";
+                        if(user==username){
+                                txt+="<td><details><summary>details</summary>";
+                                txt+="<div class=\"w3-center\"><form action=\"condorrm.php\" method=\"POST\">";
+                                for (var index in myObj[username]["sub_directories"]){
+                                        var nameandsize = myObj[username]["sub_directories"][index];
+                                        for (var keys in nameandsize){
+                                                if (keys=="name"){
+                                                        txt+="<input type=\"checkbox\" name=\""+nameandsize[keys]+"\">";
+                                                }
+                                                txt+=keys+": "+nameandsize[keys]+"  ";
+                                        }
+                                        txt+="<br>";
+                                }
+	                        txt+="<input type=\"submit\" value=\"cancel\">";
+	                        txt+="</form>";
+	                        txt+="</div></details></td>";
+	                        txt+="</tr>";
+                        }
+                    }
+                    txt+="</table>";
 		    document.getElementById("du").innerHTML = txt;
 		  }
 		};
