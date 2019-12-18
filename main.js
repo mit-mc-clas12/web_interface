@@ -133,9 +133,9 @@ function diskUsagetoTable() {
    		    for (var user in myObj){
    		    	txt+="<tr><td>"+user+"</td>";
    		    	txt+="<td>"+myObj[user].total_size+"</td>"
-   		    	if(user==username){
-   		    		txt+="<td>details</td>"
-   		    	}
+//   		    	if(user==username){
+//   		    		txt+="<td>details</td>"
+//   		    	}
    		    	txt+="</tr>"
    		    }
 		    txt+="</table>";
