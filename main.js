@@ -90,14 +90,11 @@ function osgLogtoTable() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
 		    //set up table
-		    var txt = "<table align=\"center\" style=\"width:100%;text-align:center\"><caption style=\"text-align:right\" align=\"top\">";"
-			  //top caption from timestamp
-			  txt += "updated on "+myObj[0]["timestamp"];
-			  txt += "</caption>";
-			  txt += "<caption align=\"bottom\">";
+		    var txt = "<table align=\"center\" style=\"width:100%;text-align:center\"><caption align=\"bottom\">"
 		    //bottom caption from metadata
 		    var meta = myObj.metadata;
 		    txt+= meta["footer"];
+			  txt += "updated on "+myObj[0]["timestamp"];
 		    txt+= "</caption><tr>";
 		    // first row from keys
    		    var keys = Object.keys(myObj.user_data[0]);
