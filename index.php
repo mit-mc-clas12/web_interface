@@ -16,13 +16,13 @@
 	
 	<body onload='osgLogtoTable(); farmStatstoTable();'>
 		
-		<h3>
-			<center>
-				<font color="blue">
-					December 17 2019 Maintanance Completed<br/>
-				</font>
-			</center>
-		</h3>
+<!--		<h3>-->
+<!--			<center>-->
+<!--				<font color="blue">-->
+<!--					December 17 2019 Maintanance Completed<br/>-->
+<!--				</font>-->
+<!--			</center>-->
+<!--		</h3>-->
 		<header class="w3-panel w3-container" id="myHeader">
 			
 			<ul id="nav">
