@@ -94,7 +94,6 @@ function osgLogtoTable() {
 		    //bottom caption from metadata
 		    var meta = myObj.metadata;
 		    txt+= meta["footer"];
-			  txt += "updated on "+myObj[0]["timestamp"];
 		    txt+= "</caption><tr>";
 		    // first row from keys
    		    var keys = Object.keys(myObj.user_data[0]);
