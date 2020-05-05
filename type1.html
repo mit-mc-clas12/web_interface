@@ -35,17 +35,6 @@
 			<form action="submit_type1.php" method="POST">
 				<table style="text-align: center;width: 50%;"align="center">
 					<tr>
-						<td> <div class="tooltip">Tag <span class="tooltiptext">Used for statistical purposes</span></div> </td>
-						<td>
-							<select name="rungroup" required>
-								<option selected hidden value=""></option>
-								<option value="RGA">RGA</option>
-								<option value="RGB">RGB</option>
-								<option value="RGB">RGK</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
 						<td> <div class="tooltip">Gcards <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 						<td>
 							<select name="gcards" required>
@@ -64,11 +53,14 @@
 						<td>
 							<select name="generator" id="generator" required onchange="genSelected(this)">
 								<option selected hidden value=""></option>
-								<option value="gemc">gemc</option>
-								<option value="clasdis">clasdis</option>
-								<option value="dvcs">dvcs</option>
-								<option value="disrad">disrad</option>
-								<option value="genKYandOnePion">genKYandOnePion</option>
+								<option value="gemc">              gemc</option>
+								<option value="clasdis">           clasdis</option>
+								<!--								<option value="claspyth">          claspyth (not guaranteed to work)</option>-->
+								<option value="dvcsgen">           dvcs</option>
+								<option value="genKYandOnePion">   genKYandOnePion</option>
+								<!--								<option value="inclusive-dis-rad"> inclusive-dis-rad (not guaranteed to work)</option>-->
+								<!--								<option value="tcsgen">            tcsgen (not guaranteed to work)</option>-->
+								<!--								<option value="jpsigen">           jpsigen (not guaranteed to work)</option>-->
 							</select>
 						</td>
 					</tr>
@@ -84,7 +76,7 @@
 					</tr>
 					<tr>
 						<td colspan = "2"> After selecting the generator, check the documentation and paste the needed options above.<br>
-							Notice: do no use --docker or --trig options to specify number of events, they will be passed automatically.</td>
+							Notice: do no use the following options as they are automatically passed for you: --docker, output file name --trig options. </td>
 					</tr>
 					<tr>
 						<td>Number of Events / Job</td>
@@ -106,9 +98,9 @@
 								<p style="text-align: left; font-weight: normal;">
 								Warning: any of the choices below will enlarge the overall output size significantly.<br>
 								</p>
-								<input type="checkbox" name="generatorOUT" id="generatorOUT" onchange="max_events(this);"> generator<br></input>
-								<input type="checkbox" name="gemcEvioOUT" id="gemcEvioOUT" onchange="max_events(this);"> gemc<br></input>
-								<input type="checkbox" name="gemcHipoOUT" id="gemcHipoOUT" onchange="max_events(this);"> gemc decoded<br></input>
+								<input type="checkbox" name="generatorOUT"      id="generatorOUT" onchange="max_events(this);"> generator<br></input>
+								<input type="checkbox" name="gemcEvioOUT"       id="gemcEvioOUT" onchange="max_events(this);"> gemc<br></input>
+								<input type="checkbox" name="gemcHipoOUT"       id="gemcHipoOUT" onchange="max_events(this);"> gemc decoded<br></input>
 								<input type="checkbox" name="reconstructionOUT" id="reconstructionOUT" onchange="max_events(this);"> reconstruction<br></input>
 							</div>
 						</td>
