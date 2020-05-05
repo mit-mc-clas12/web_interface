@@ -50,7 +50,19 @@
 			</div>
 		</header>
 
+
+
 		<div class="w3-row-padding w3-center w3-margin-top">
+			<a>
+				<!--		Notice: these two must be in different lines:-->
+				<!--		<div class="w3-card w3-container" style="min-height:300px">-->
+				<!--		</div>-->
+				<div class="w3-quarter">
+					<div class="w3-card w3-container" style="min-height:300px">
+					</div>
+				</div>
+			</a>
+
 			<a href="type1.html" >
 				<div class="w3-quarter">
 					<div class="w3-card w3-container" style="min-height:300px">
@@ -79,6 +91,17 @@
 					</div>
 				</div>
 			</a>
+
+			<a>
+				<!--		Notice: these two must be in different lines:-->
+				<!--		<div class="w3-card w3-container" style="min-height:300px">-->
+				<!--		</div>-->
+				<div class="w3-quarter">
+					<div class="w3-card w3-container" style="min-height:300px">
+					</div>
+				</div>
+			</a>
+
 
 <!--			<a href="#" >-->
 <!--				<div class="w3-quarter">-->
