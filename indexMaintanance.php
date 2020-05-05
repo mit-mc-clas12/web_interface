@@ -19,7 +19,7 @@
 	<h1>
 		<center>
 			<font color="red">
-				December 17 2019 Maintanance at 3pm: <br/>
+                                May 4 2020 Maintanance at 3pm: <br/>
 				the framework is being updated. <br/>
 				Job Submission is suspended. <br/>
 				Jobs already submitted will run normally.
