@@ -35,7 +35,6 @@
 
 			<?php
 				$project     = 'CLAS12';
-				$rungroup    = $_POST['rungroup'];
 				$gcards      = $_POST['gcards'];
 				$generator   = $_POST['generator'];
 				$genOptions  = $_POST['genOptions'];
@@ -60,10 +59,9 @@
 					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
 					die();
 				}
-				if (!empty($project) && !empty($rungroup) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs)) {
+				if (!empty($project) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs)) {
 					$fp = fopen('scard_type1.txt', 'w');
 					fwrite($fp, 'project:  '.$project.'           #'.PHP_EOL);
-					fwrite($fp, 'group: '.$rungroup.'             #'.PHP_EOL);
 					fwrite($fp, 'farm_name: OSG                   #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'              #'.PHP_EOL);
 					fwrite($fp, 'genOptions: '.$genOptions.'      #'.PHP_EOL);
@@ -93,10 +91,6 @@
 				<tr>
 					<td>Project</td>
 					<td> <?php echo($project); ?> </td>
-				</tr>
-				<tr>
-					<td>Tag</td>
-					<td><?php echo($rungroup); ?></td>
 				</tr>
 				<tr>
 					<td>Gcards</td>
