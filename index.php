@@ -19,7 +19,7 @@
 		<h3>
 			<center>
 				<font color="blue">
-					May 4 2020 Maintanance Completed<br/>
+					May 4 2020 Maintenance Completed<br/>
 				</font>
 			</center>
 		</h3>
