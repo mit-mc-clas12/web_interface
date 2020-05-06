@@ -26,10 +26,10 @@
 		<header class="w3-panel w3-container" id="myHeader">
 			
 			<ul id="nav">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="disk.php">Disk Usage</a></li>
-				<li><a href="osgStats.html">OSG Stats</a></li>
+				<li><a href="index.php">     Home</a></li>
+				<li><a href="about.html">    About</a></li>
+				<li><a href="disk.php">      Disk Usage</a></li>
+				<li><a href="osgStats.html"> OSG Stats</a></li>
 			</ul>
 
 			<div class="w3-center">
@@ -38,18 +38,13 @@
 				<br/><br/>
 
 				<div class="w3-padding w3-center">
-
 					<div id="farmStats"></div>
-					<br>
-					<br>
+					<br><br>
 					<div id="osgLog"></div>
-					<br>
-					<br>
-
+					<br><br>
 				</div>
 			</div>
 		</header>
-
 
 
 		<div class="w3-row-padding w3-center w3-margin-top">
@@ -69,8 +64,8 @@
 						<h3>Type 1<br></h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px; "></i>
 						<p style="text-align: left; font-weight: normal;">
-							- Container CLAS12 gcard <br>
-							- Container or gemc internal generator <br>
+							- In-Container gcard/yaml configurations <br>
+							- In-Container or gemc internal generator <br>
 							- Arbitrary number of jobs <br>
 							- Arbitrary number of events for each job (max 10,000) <br/>
 						</p>
@@ -84,8 +79,8 @@
 						<h3>Type 2<br></h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left; font-weight: normal;">
-							- Container CLAS12 gcard <br>
-							- Use LUND files from a web location or directory in /volatile <br>
+							- In-Container gcard/yaml configurations <br>
+							- LUND files from a web location or directory in /volatile <br>
 							- One job per LUND file <br>
 						</p>
 					</div>
