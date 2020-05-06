@@ -35,6 +35,7 @@
 			
 			<?php
 				$project     = 'CLAS12';
+				$rungroup    = 'RGA';
 				$gcards      = $_POST['gcards'];
 				$lundFiles   = $_POST['lundFiles'];
 				$username    = $_SERVER['PHP_AUTH_USER'];
@@ -53,6 +54,7 @@
 				if (!empty($project) && !empty($gcards)  && !empty($lundFiles)) {
 					$fp = fopen('scard_type2.txt', 'w');
 					fwrite($fp, 'project:  '.$project.'          #'.PHP_EOL);
+					fwrite($fp, 'group: '.$rungroup.'             #'.PHP_EOL);
 					fwrite($fp, 'farm_name: OSG                  #'.PHP_EOL);
 					fwrite($fp, 'gcards: '.$gcards.'             #'.PHP_EOL);
 					fwrite($fp, 'generator: '.$lundFiles.'       #'.PHP_EOL);
