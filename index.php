@@ -19,7 +19,7 @@
 		<h3>
 			<center>
 				<font color="blue">
-					May 4 2020 Maintenance Completed<br/>
+					Warning: monitoring not working. OSG Submission is working.<br/>
 				</font>
 			</center>
 		</h3>
@@ -40,7 +40,7 @@
 				<div class="w3-padding w3-center">
 					<div id="farmStats"></div>
 					<br><br>
-					<div id="osgLog"></div>
+<!--					<div id="osgLog"></div>-->
 					<br><br>
 				</div>
 			</div>
