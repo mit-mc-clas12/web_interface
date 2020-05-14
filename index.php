@@ -19,7 +19,7 @@
 		<h3>
 			<center>
 				<font color="blue">
-					Warning: monitoring not working. OSG Submission is working.<br/>
+					Warning: monitoring not working (working on it!). OSG Submission is working.<br/>
 				</font>
 			</center>
 		</h3>
