@@ -38,7 +38,7 @@
 				<br/><br/>
 
 				<div class="w3-padding w3-center">
-					<div id="farmStats"></div>
+<!--					<div id="farmStats"></div>-->
 					<br><br>
 <!--					<div id="osgLog"></div>-->
 					<br><br>
