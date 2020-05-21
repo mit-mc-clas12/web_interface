@@ -16,13 +16,13 @@
 	
 	<body onload='osgLogtoTable(); farmStatstoTable();'>
 		
-		<h3>
-			<center>
-				<font color="blue">
-					Warning: monitoring not working (working on it!). OSG Submission is working.<br/>
-				</font>
-			</center>
-		</h3>
+<!--		<h3>-->
+<!--			<center>-->
+<!--				<font color="blue">-->
+<!--					Warning: monitoring not working (working on it!). OSG Submission is working.<br/>-->
+<!--				</font>-->
+<!--			</center>-->
+<!--		</h3>-->
 		<header class="w3-panel w3-container" id="myHeader">
 			
 			<ul id="nav">
@@ -40,7 +40,7 @@
 				<div class="w3-padding w3-center">
 <!--					<div id="farmStats"></div>-->
 					<br><br>
-<!--					<div id="osgLog"></div>-->
+					<div id="osgLog"></div>
 					<br><br>
 				</div>
 			</div>
