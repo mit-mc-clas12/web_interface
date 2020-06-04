@@ -112,7 +112,7 @@ function bkg_rows() {
 			}
 			txt_exp += "</select>"
 			cell_exp_options.innerHTML = txt_exp;
-			cell_field.innerHTML = "Field Setting";
+			cell_field.innerHTML = "Fields Setup";
 			keys_field = Object.keys(myObj["rga_fall2018"])
 			var txt_field= "<select name=\"fields\" id =\"fields\">"
 			for (key in keys_field){
