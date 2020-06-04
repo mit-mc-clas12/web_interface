@@ -42,7 +42,7 @@
 				$nevents     = $_POST['nevents'];
 				$jobs        = $_POST['jobs'];
 				$totalevents = $_POST['totalevents'];
-				$username    = 'sangbaek';//$_SERVER['PHP_AUTH_USER'];
+				$username    = $_SERVER['PHP_AUTH_USER'];
 				$client_ip   = $_SERVER['REMOTE_ADDR'];
 				$bkg_merging = $_POST['bkg_merging'];
 				$experiments = $_POST['experiments'];
