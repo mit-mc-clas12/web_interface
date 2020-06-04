@@ -33,7 +33,7 @@
 		<div class="w3-center">
 
 			<form action="submit_type1.php" method="POST">
-				<table style="text-align: center;width: 50%;"align="center">
+				<table id = "submission_table" style="text-align: center;width: 50%;"align="center">
 					<tr>
 						<td> <div class="tooltip">Gcards <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 						<td>
@@ -89,6 +89,17 @@
 					<tr>
 						<td> Total Number of Events </td>
 						<td><input type="number" name="totalevents" id="result"  readonly /> M</td>
+					</tr>
+					<tr>
+						<td> <div class="tooltip">Background Merging <span class="tooltiptext">Choose Yes, to merge background from random trigger. No merging is selected by default.</span></div> </td>
+						<td>
+<!-- 							<button type="button" onclick="myFunction()">Try it</button>
+ -->
+							<select name="bkg_merging" id="bkg_merging" required onchange="bkg_rows()">
+								<option value="yes">              Yes</option>
+								<option selected value="no">           No</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td> Output Options </td>
