@@ -44,8 +44,6 @@
 				$totalevents = $_POST['totalevents'];
 				$username    = $_SERVER['PHP_AUTH_USER'];
 				$client_ip   = $_SERVER['REMOTE_ADDR'];
-				$bkg_merging = $_POST['bkg_merging'];
-				$experiments = $_POST['experiments'];
 				$fields		 = $_POST['fields'];
 				$currentenergy = $_POST['currentenergy'];
 
@@ -64,7 +62,7 @@
 					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
 					die();
 				}
-				if (!empty($project) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty(bkg_merging)) {
+				if (!empty($project) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($currentenergy)) {
 					$fp = fopen('scard_type1.txt', 'w');
 					fwrite($fp, 'project:  '.$project.'           #'.PHP_EOL);
 					fwrite($fp, 'group: '.$rungroup.'             #'.PHP_EOL);
@@ -80,13 +78,11 @@
 					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'    #'.PHP_EOL);
 					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.' #'.PHP_EOL);
 					fwrite($fp, 'dstOUT: '.$dstOUT.'   #'.PHP_EOL);
-					if (!empty($experiments) && !empty($fields) && !empty($currentenergy)){
-						fwrite($fp, 'fields: '.$fields.'	#'.PHP_EOL);
-						fwrite($fp, 'currentenergy: '.$currentenergy.'	#');
-					} 
+					fwrite($fp, 'fields: '.$fields.'	#'.PHP_EOL);
+					fwrite($fp, 'currentenergy: '.$currentenergy.'	#');
 					fclose($fp);
-					// $command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
-					// $output = shell_exec($command);
+					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
+					$output = shell_exec($command);
 				}
 				else {
 					echo("<h2> All fields are required </h2>");
@@ -105,6 +101,10 @@
 				<tr>
 					<td>Gcards</td>
 					<td><?php echo($gcards); ?></td>
+				</tr>
+				<tr>
+					<td>Field Setup</td>
+					<td><?php echo($fields); ?></td>
 				</tr>
 				<tr>
 					<td>Generator</td>
@@ -138,15 +138,10 @@
 						</div>
 					</td>
 				</tr>
-			<?php
-				echo("<tr><td>Background Merging</td><td>".ucfirst($bkg_merging)."</td></tr>");
-				if (!empty($experiments) && !empty($fields) && !empty($currentenergy)){
-					
-					echo("<tr><td>Experimental Setup</td><td>".$experiments."</td></tr>");
-					echo("<tr><td>Fields Setup</td><td>".$fields."</td></tr>");
-					echo("<tr><td>Current/Energy</td><td>".$currentenergy."</td></tr>");
-				}
-			?>
+				<tr>
+					<td> Current/ Energy </td>
+					<td> <?php echo($currentenergy); ?> M</td>
+				</tr>
 			</table>
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>

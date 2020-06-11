@@ -37,7 +37,7 @@
 					<tr>
 						<td> <div class="tooltip">Gcards <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 						<td>
-							<select name="gcards" required>
+							<select name="gcards" id="gcards" required onchange="fieldSelected(); currentenergySelected();">
 								<option selected hidden value=""></option>
 								<option value="/jlab/clas12Tags/gcards/clas12-default.gcard"> clas12-default </option>
 								<option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">   rga-fall2018   </option>
@@ -48,6 +48,13 @@
 							</select>
 						</td>
 					</tr>
+					<tr>
+						<td><div class="tooltip">Magnetic Fields <span class="tooltiptext">Choose one of the fields setup for corresponding gcards, select gcards first.</span></div></td>
+						<td>
+							<select name="fields" id ="fields" required onchange="currentenergySelected()">
+								<option selected hidden value=""></option>
+							</select>
+						</td>
 					<tr>
 						<td> <div class="tooltip">Generator <span class="tooltiptext">Choose one of the generators in the container</span></div> </td>
 						<td>
@@ -91,12 +98,9 @@
 						<td><input type="number" name="totalevents" id="result"  readonly /> M</td>
 					</tr>
 					<tr>
-						<td> <div class="tooltip">Background Merging <span class="tooltiptext">Choose Yes, to merge background from random trigger. No merging is selected by default.</span></div> </td>
+						<td> <div class="tooltip">Current and Energy <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div> </td>
 						<td>
-<!-- 							<button type="button" onclick="myFunction()">Try it</button>
- -->
-							<select name="bkg_merging" id="bkg_merging" required onchange="bkg_rows()">
-								<option value="yes">              Yes</option>
+							<select name="currentenergy" id="currentenergy" required onchange="bkg_rows()">
 								<option selected value="no">           No</option>
 							</select>
 						</td>
