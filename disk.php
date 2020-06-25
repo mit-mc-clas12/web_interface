@@ -10,8 +10,6 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<script type="text/javascript"> var username = "<?= $_SERVER['PHP_AUTH_USER'] ?>";</script>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js"></script>
-		
 		
 	</head>
 	
@@ -42,4 +40,7 @@
 		
 		
 	</body>
+
+	<script src="main.js"></script>
+
 </html>
