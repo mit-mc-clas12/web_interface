@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js">	</script>
 
 
 	</head>
@@ -40,6 +39,7 @@
 				$lundFiles   = $_POST['lundFiles'];
 				$username    = $_SERVER['PHP_AUTH_USER'];
 				$client_ip   = $_SERVER['REMOTE_ADDR'];
+				$uri		 = $_SERVER['REQUEST_URI'];
 				
 				function yesorno($cond){
 					$val = "no";
@@ -64,8 +64,13 @@
 					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.'   #'.PHP_EOL);
 					fwrite($fp, 'dstOUT: '.$dstOUT.'   #');
 					fclose($fp);
-					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type2.txt');
-					$output = shell_exec($command);
+					if (strpos($uri, 'test') !== false){
+						echo 'This is a test web page. Submitting jobs through test database...';
+					}
+					else{
+						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type2.txt');
+						$output = shell_exec($command);
+					}
 				}
 				else {
 					echo "All field are required";
@@ -104,4 +109,7 @@
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
+
+	<script src="main.js">	</script>
+
 </html>

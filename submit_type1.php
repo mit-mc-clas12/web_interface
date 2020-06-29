@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js">	</script>
 
 
 	</head>
@@ -46,6 +45,7 @@
 				$client_ip   = $_SERVER['REMOTE_ADDR'];
 				$fields		 = $_POST['fields'];
 				$currentenergy = $_POST['currentenergy'];
+				$uri		 = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
 					$val = "no";
@@ -81,8 +81,13 @@
 					fwrite($fp, 'fields: '.$fields.'	#'.PHP_EOL);
 					fwrite($fp, 'currentenergy: '.$currentenergy.'	#');
 					fclose($fp);
-					$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
-					$output = shell_exec($command);
+					if (strpos($uri, 'test') !== false){
+						echo 'This is a test web page. Submitting jobs through test database...';
+					}
+					else{
+						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
+						$output = shell_exec($command);
+					}
 				}
 				else {
 					echo("<h2> All fields are required </h2>");
@@ -146,4 +151,7 @@
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
+
+	<script src="main.js">	</script>
+
 </html>
