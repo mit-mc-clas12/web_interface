@@ -64,7 +64,7 @@ function fieldSelected() {
 			document.getElementById("fields").innerHTML= text;
 		}
 	};
-	xmlhttp.open("GET", "xrootd/xrootd.json", true);
+	xmlhttp.open("GET", "data/xrootd.json", true);
 	xmlhttp.send();
 
 }
@@ -87,7 +87,7 @@ function currentenergySelected() {
 			document.getElementById("currentenergy").innerHTML= text;
 		}
 	};
-	xmlhttp.open("GET", "xrootd/xrootd.json", true);
+	xmlhttp.open("GET", "data/xrootd.json", true);
 	xmlhttp.send();
 }
 
@@ -144,7 +144,7 @@ function currentenergySelected() {
 // 			cell_currentenergy_options.innerHTML = txt_currentenergy;
 // 		  }
 // 		};
-// 		xmlhttp.open("GET", "xrootd/xrootd.json", true);
+// 		xmlhttp.open("GET", "data/xrootd.json", true);
 // 		xmlhttp.send();
 
 // 	}

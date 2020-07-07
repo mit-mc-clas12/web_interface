@@ -18,7 +18,11 @@
 <!--		<h3>-->
 <!--			<center>-->
 <!--				<font color="blue">-->
-<!--					Warning: monitoring not working (working on it!). OSG Submission is working.<br/>-->
+<!--	Warning: monitoring not working (working on it!). OSG Submission is working.<br/>-->
+<!--	May 4 2020 Maintanance at 3pm: <br/>-->
+<!--	the framework is being updated. <br/>-->
+<!--	Job Submission is suspended. <br/>-->
+<!--	Jobs already submitted will run normally.-->
 <!--				</font>-->
 <!--			</center>-->
 <!--		</h3>-->
@@ -60,10 +64,9 @@
 			<a href="type1.html" >
 				<div class="w3-quarter">
 					<div class="w3-card w3-container" style="min-height:300px">
-						<h3>Type 1<br></h3><br>
+						<h3>Generator<br></h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px; "></i>
 						<p style="text-align: left; font-weight: normal;">
-							- In-Container gcard/yaml configurations <br>
 							- In-Container or gemc internal generator <br>
 							- Arbitrary number of jobs <br>
 							- Arbitrary number of events for each job (max 10,000) <br/>
@@ -75,10 +78,9 @@
 			<a href="type2.html" >
 				<div class="w3-quarter">
 					<div class="w3-card w3-container" style="min-height:300px">
-						<h3>Type 2<br></h3><br>
+						<h3>LUND Files<br></h3><br>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left; font-weight: normal;">
-							- In-Container gcard/yaml configurations <br>
 							- LUND files from a web location or directory in /volatile <br>
 							- One job per LUND file <br>
 						</p>
