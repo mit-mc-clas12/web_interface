@@ -1,0 +1,5 @@
+In submit_type1 and submit_type2:
+
+- gcards should be named configuration
+- it should read the file data/xrootd.json for the gcards
+- Current and Energy should be renamed "Background Merging"
