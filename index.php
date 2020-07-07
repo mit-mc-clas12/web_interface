@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			<link rel="stylesheet" href="main.css">
 				<script type="text/javascript"> var username = "<?= $_SERVER['PHP_AUTH_USER'] ?>";</script>
-				
+
 				</head>
 	
 	<body onload='osgLogtoTable(); farmStatstoTable();'>
@@ -34,12 +34,12 @@
 				<li><a href="disk.php">      Disk Usage</a></li>
 				<li><a href="osgStats.html"> OSG Stats</a></li>
 			</ul>
-			
+
 			<div class="w3-center">
 				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
 				<h2 class="w3-xlarge" style="width:73%;text-align:right">Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?></h2>
 				<br/><br/>
-				
+
 				<div class="w3-padding w3-center">
 					<!--					<div id="farmStats"></div>-->
 					<br/><br/>
@@ -48,24 +48,24 @@
 				</div>
 			</div>
 		</header>
-		
-		
+
+
 		<div class="w3-row-padding w3-center w3-margin-top">
 			<!--		Notice: these two must be in different lines:-->
 			<!--		<div class="w3-card w3-container" style="min-height:300px">-->
 			<!--		</div>-->
 			<a>
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:220px">
+					<div class="w3-card w3-container" style="min-height:230px">
 						<br/><br/>
 						<br/><br/>
 					</div>
 				</div>
 			</a>
-			
+
 			<a href="type1.html" >
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:200px">
+					<div class="w3-card w3-container" style="min-height:210px">
 						<h3>Generator<br/></h3><br/>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px; "></i>
 						<p style="text-align: left; font-weight: normal;">
@@ -76,10 +76,10 @@
 					</div>
 				</div>
 			</a>
-			
+
 			<a href="type2.html" >
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:220px">
+					<div class="w3-card w3-container" style="min-height:210px">
 						<h3>LUND Files<br/></h3><br/>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left; font-weight: normal;">
@@ -89,19 +89,21 @@
 					</div>
 				</div>
 			</a>
-			
+
 			<a>
 				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:220px">
+					<div class="w3-card w3-container" style="min-height:230px">
 						<br/><br/>
 						<br/><br/>
 					</div>
 				</div>
 			</a>
-			
+			<br/><br/>
+			<br/><br/>
+
 		</div>
 	</body>
-	
+
 	<script src="main.js"></script>
-	
+
 </html>
