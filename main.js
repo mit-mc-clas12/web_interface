@@ -25,9 +25,9 @@ function genSelected(val) {
 	if (generator == "clasdis") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/clasdis-nocernlib/blob/master/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clasdis options';
-	} else if (generator == "dvcs") {
+	} else if (generator == "dvcsgen") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/dvcsgen/blob/master/README.md';
-		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='dvcs options';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='dvcsgen options';
 
 	} else if (generator == "disrad") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/inclusive-dis-rad/blob/master/README.md';
