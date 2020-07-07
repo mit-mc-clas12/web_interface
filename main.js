@@ -189,7 +189,7 @@ function farmStatstoTable() {
 		  document.getElementById("farmStats").innerHTML = txt;
 
 		};
-		xmlhttp.open("GET", "stats_results/stats.json", true);
+		xmlhttp.open("GET", "data/stats.json", true);
 		xmlhttp.send();
 }
 
@@ -229,7 +229,7 @@ function osgLogtoTable() {
 		    document.getElementById("osgLog").innerHTML = txt;
 		  }
 		};
-		xmlhttp.open("GET", "stats_results/osgLog.json", true);
+		xmlhttp.open("GET", "data/osgLog.json", true);
 		xmlhttp.send();
 }
 
@@ -266,7 +266,7 @@ function diskUsagetoTable() {
 		    document.getElementById("du").innerHTML = txt;
 		  }
 		};
-		xmlhttp.open("GET", "stats_results/disk.json", true);
+		xmlhttp.open("GET", "data/disk.json", true);
 		xmlhttp.send();
 }
 
