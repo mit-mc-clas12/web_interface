@@ -44,56 +44,8 @@ function genSelected(val) {
 	}
 }
 
-function fieldSelected() {
-	var experiments = document.getElementById("configuration").value;
-	var text = "";
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		  if (this.readyState == 4 && this.status == 200) {
-			var myObj = JSON.parse(this.responseText);
-			if (experiments in myObj){
-				var keys_field = Object.keys(myObj[experiments]);
-				for (key in keys_field){
-					text += "<option value=\""+keys_field[key]+"\">"+keys_field[key]+"</option>";
-				}
-			}
-			else if (experiments == "clas12_default"){
-				text += "<option value=\"tor-1.00_sol-1.00\">tor-1.00_sol-1.00</option>";
-				text += "<option value=\"tor+1.00_sol-1.00\">tor+1.00_sol-1.00</option>";
-			}
-			document.getElementById("fields").innerHTML= text;
-		}
-	};
-	xmlhttp.open("GET", "data/xrootd.json", true);
-	xmlhttp.send();
-
-}
-
-function currentenergySelected() {
-	var experiments = document.getElementById("configuration").value;
-	var fields = document.getElementById("fields").value;
-	var text = "";
-	text += "<option selected  value=\"no\"> No </option>"
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		  if (this.readyState == 4 && this.status == 200) {
-			var myObj = JSON.parse(this.responseText);
-			if (experiments in myObj){
-				var vals  = myObj[experiments][fields];
-				for (val in vals){
-					if (vals[val] != "") text += "<option value=\""+vals[val]+"\">"+vals[val]+"</option>";
-				}
-			}
-			document.getElementById("currentenergy").innerHTML= text;
-		}
-	};
-	xmlhttp.open("GET", "data/xrootd.json", true);
-	xmlhttp.send();
-}
-
-
 function configurationSelected(){
-	var text = "";
+	var text = "<option selected hidden value=\"\"></option>";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
@@ -108,68 +60,48 @@ function configurationSelected(){
 	xmlhttp.send();
 }
 
-// function bkg_rows() {
-// 	var e = document.getElementById("bkg_merging").value;
-// 	var table = document.getElementById("submission_table");
-// 	var row1 = table.insertRow(8);
-// 	var row2 = table.insertRow(9);
-// 	var row3 = table.insertRow(10);
-// 	if (e == "yes"){
-// 		var cell_exp = row1.insertCell(0);
-// 		var cell_exp_options = row1.insertCell(1);
-// 		var cell_field = row2.insertCell(0);
-// 		var cell_field_options = row2.insertCell(1);
-// 		var cell_currentenergy = row3.insertCell(0);
-// 		var cell_currentenergy_options = row3.insertCell(1);
-// 		var xmlhttp = new XMLHttpRequest();
-// 		xmlhttp.onreadystatechange = function() {
-// 		  if (this.readyState == 4 && this.status == 200) {
-// 			var myObj = JSON.parse(this.responseText);
-// 			var keys = Object.keys(myObj);
-// 			var txt_exp = ""
-// 			var keys_field;
-// 			cell_exp.innerHTML = "Experimental Setup";
-// 			txt_exp += "<select name=\"experiments\" id =\"experiments\" onchange=\"fieldSelected();\">"
-// 			for (key in keys){
-// 				txt_exp += "<option value=\""+keys[key]+"\">"
-// 				txt_exp += keys[key];
-// 				txt_exp += "</option>"
-// 			}
-// 			txt_exp += "</select>"
-// 			cell_exp_options.innerHTML = txt_exp;
-// 			cell_field.innerHTML = "Fields Setup";
-// 			keys_field = Object.keys(myObj["rga_fall2018"])
-// 			var txt_field= "<select name=\"fields\" id =\"fields\">"
-// 			for (key in keys_field){
-// 				txt_field += "<option value=\""+keys_field[key]+"\">"
-// 				txt_field += keys_field[key];
-// 				txt_field += "</option>"
-// 			}
-// 			txt_field += "</select>"
-// 			cell_field_options.innerHTML = txt_field;
-// 			cell_currentenergy.innerHTML = "Current/ Energy";
-// 			var vals = myObj["rga_fall2018"]["tor-1.00_sol-1.00"];
-// 			var txt_currentenergy ="<select name=\"currentenergy\" id =\"currentenergy\"  onclick =\"currentenergySelected()\">"
-// 			txt_currentenergy += "<option selected hidden value=\"\"></option>"
-// 			for (val in vals){
-// 				txt_currentenergy += "<option value=\""+vals[val]+"\">"
-// 				txt_currentenergy += vals[val];
-// 				txt_currentenergy += "</option>"
-// 			}
-// 			txt_currentenergy += "</select>"
-// 			cell_currentenergy_options.innerHTML = txt_currentenergy;
-// 		  }
-// 		};
-// 		xmlhttp.open("GET", "data/xrootd.json", true);
-// 		xmlhttp.send();
+function fieldSelected() {
+	var experiments = document.getElementById("configuration").value;
+	var text = "<option selected hidden value=\"\"></option>";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+			var myObj = JSON.parse(this.responseText);
+			if (experiments in myObj){
+				var keys_field = Object.keys(myObj[experiments]);
+				for (key in keys_field){
+					text += "<option value=\""+keys_field[key]+"\">"+keys_field[key]+"</option>";
+				}
+			}
+			document.getElementById("fields").innerHTML= text;
+		}
+	};
+	xmlhttp.open("GET", "data/xrootd.json", true);
+	xmlhttp.send();
 
-// 	}
-// 	else if (e == "no"){
-// 		table.deleteRow(11)
-// 		table.deleteRow(11)
-// 		table.deleteRow(11)
-// 	}
-// }
+}
+
+function bkgmergingSelected() {
+	var experiments = document.getElementById("configuration").value;
+	var fields = document.getElementById("fields").value;
+	var text = "";
+	text += "<option selected  value=\"no\"> No </option>"
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+			var myObj = JSON.parse(this.responseText);
+			if (experiments in myObj){
+				var vals  = myObj[experiments][fields];
+				for (val in vals){
+					if (vals[val] != "") text += "<option value=\""+vals[val]+"\">"+vals[val]+"</option>";
+				}
+			}
+			document.getElementById("bkgmerging").innerHTML= text;
+		}
+	};
+	xmlhttp.open("GET", "data/xrootd.json", true);
+	xmlhttp.send();
+}
 
 function farmStatstoTable() {
 		var xmlhttp = new XMLHttpRequest();

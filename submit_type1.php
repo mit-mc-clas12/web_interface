@@ -76,7 +76,7 @@
 					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.' #'.PHP_EOL);
 					fwrite($fp, 'dstOUT: '.$dstOUT.'   #'.PHP_EOL);
 					fwrite($fp, 'fields: '.$fields.'	#'.PHP_EOL);
-					fwrite($fp, 'currentenergy: '.$currentenergy.'	#');
+					fwrite($fp, 'bkgmerging: '.$bkgmerging.'	#');
 					fclose($fp);
 					if (strpos($uri, 'test') !== false){
 						echo 'This is a test web page. Submitting jobs through test database...';
@@ -141,8 +141,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td> Current/ Energy </td>
-					<td> <?php echo($currentenergy); ?> M</td>
+					<td> Background Merging </td>
+					<td> <?php echo($bkgmerging); ?> M</td>
 				</tr>
 			</table>
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>

@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="main.css"/>
 	</head>
 
-	<body onload="configurationSelected()">
+	<body onload="configurationSelected(); fieldSelected()">
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
 				<li><a href="index.php">     Home</a></li>
@@ -34,15 +34,14 @@
 					<tr>
 						<td> <div class="tooltip">Configuration <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 						<td>
-							<select name="configuration" id="configuration" required onchange="fieldSelected(); currentenergySelected();">
+							<select name="configuration" id="configuration" required onchange="fieldSelected(); bkgmergingSelected();">
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td><div class="tooltip">Magnetic Fields <span class="tooltiptext">Choose one of the fields setup for corresponding gcards, select gcards first.</span></div></td>
 						<td>
-							<select name="fields" id ="fields" required onchange="currentenergySelected()">
-								<option selected hidden value=""></option>
+							<select name="fields" id ="fields" required onchange="bkgmergingSelected()">
 							</select>
 						</td>
 					<tr>
@@ -88,9 +87,9 @@
 						<td><input type="number" name="totalevents" id="result"  readonly /> M</td>
 					</tr>
 					<tr>
-						<td> <div class="tooltip">Current and Energy <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div> </td>
+						<td> <div class="tooltip">Background Merging <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div> </td>
 						<td>
-							<select name="currentenergy" id="currentenergy" required onchange="bkg_rows()">
+							<select name="bkgmerging" id="bkgmerging" required>
 								<option selected value="no">           No</option>
 							</select>
 						</td>

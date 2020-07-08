@@ -34,18 +34,33 @@
 					<tr>
 						<td> <div class="tooltip">Configuration <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 						<td>
-							<select name="configuration" required>
+							<select id="configuration" name="configuration" onchange="bkgmergingSelected(); fieldSelected()" required>
 							</select>
 						</td>
 					</tr>
+					<tr>
+						<td><div class="tooltip">Magnetic Fields <span class="tooltiptext">Choose one of the fields setup for corresponding gcards, select gcards first.</span></div></td>
+						<td>
+							<select name="fields" id ="fields" required onchange="bkgmergingSelected()">
+							</select>
+						</td>
+					<tr>
 					<tr>
 						<td> <div class="tooltip">LUND File(s) (.txt) Location<span class="tooltiptext">
 							Public online location of one or more LUND files. Extension required: .txt </span></div> </td>
 						<td> <input type="" name="lundFiles" required/></td>
 					</tr>
-					<tr><td colspan="2"></td></tr>
+					<tr><td colspan="2">Example: <a href="https://userweb.jlab.org/~ungaro/lund/">https://userweb.jlab.org/~ungaro/lund/ </a> </td></tr>
 					<tr>
 						<td colspan="2"> If the LUND File(s) location is a directory, please make sure to end the address with a "/".<br/></td>
+					</tr>
+					<tr>
+						<td> <div class="tooltip">Background Merging <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div> </td>
+						<td>
+							<select name="bkgmerging" id="bkgmerging" required>
+								<option selected value="no">           No</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td> Output Options </td>
