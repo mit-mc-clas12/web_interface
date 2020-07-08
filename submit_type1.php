@@ -32,8 +32,8 @@
 
 			<?php
 				$project     = 'CLAS12';
-				$rungroup    = 'RGA';
-				$gcards      = $_POST['gcards'];
+				$configuration      = $_POST['configuration'];
+				$rungroup    = strtoupper(substr($configuration,0,3));
 				$generator   = $_POST['generator'];
 				$genOptions  = $_POST['genOptions'];
 				$nevents     = $_POST['nevents'];
@@ -60,12 +60,12 @@
 					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
 					die();
 				}
-				if (!empty($project) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($currentenergy)) {
+				if (!empty($project) && !empty($configuration)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($currentenergy)) {
 					$fp = fopen('scard_type1.txt', 'w');
 					fwrite($fp, 'project:  '.$project.'           #'.PHP_EOL);
 					fwrite($fp, 'group: '.$rungroup.'             #'.PHP_EOL);
 					fwrite($fp, 'farm_name: OSG                   #'.PHP_EOL);
-					fwrite($fp, 'gcards: '.$gcards.'              #'.PHP_EOL);
+					fwrite($fp, 'configuration: '.$configuration.'              #'.PHP_EOL);
 					fwrite($fp, 'genOptions: '.$genOptions.'      #'.PHP_EOL);
 					fwrite($fp, 'generator: '.$generator.'        #'.PHP_EOL);
 					fwrite($fp, 'nevents: '.$nevents.'            #'.PHP_EOL);
@@ -102,8 +102,8 @@
 					<td> <?php echo($project); ?> </td>
 				</tr>
 				<tr>
-					<td>Gcards</td>
-					<td><?php echo($gcards); ?></td>
+					<td>Configuration</td>
+					<td><?php echo($configuration); ?></td>
 				</tr>
 				<tr>
 					<td>Field Setup</td>

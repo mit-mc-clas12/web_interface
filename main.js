@@ -45,7 +45,7 @@ function genSelected(val) {
 }
 
 function fieldSelected() {
-	var experiments = document.getElementById("gcards").value.split("/")[4].split(".gcard")[0].replace("-","_");
+	var experiments = document.getElementById("configuration").value.split("/")[4].split(".gcard")[0].replace("-","_");
 	var text = "";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -70,7 +70,7 @@ function fieldSelected() {
 }
 
 function currentenergySelected() {
-	var experiments = document.getElementById("gcards").value.split("/")[4].split(".gcard")[0].replace("-","_");
+	var experiments = document.getElementById("configuration").value.split("/")[4].split(".gcard")[0].replace("-","_");
 	var fields = document.getElementById("fields").value;
 	var text = "";
 	text += "<option selected  value=\"no\"> No </option>"
