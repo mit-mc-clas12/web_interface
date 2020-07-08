@@ -9,8 +9,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-
-		
+		<script src="main.js"></script>
 	</head>
 	
 	<body onload='diskUsagetoTable();'>
@@ -21,13 +20,13 @@
 				<li><a href="disk.php">      Disk Usage</a></li>
 				<li><a href="osgStats.html"> OSG Stats</a></li>
 			</ul>
-			
+
 			<div class="w3-center">
 				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
-				<h2 class="w3-xlarge" style="text-align:center">Logged in as <img width = "160" src="username.php"/></h2>
+				<h2 class="w3-xlarge" style="text-align:right">Logged in as <img width = "160" src="username.php"/></h2>
 				<br/><br/>
 			</div>
-			
+
 			<div class="w3-padding w3-center">
 				
 				<div id="du"></div>
@@ -40,7 +39,5 @@
 		
 		
 	</body>
-	
-	<script src="main.js"></script>
-	
+		
 </html>
