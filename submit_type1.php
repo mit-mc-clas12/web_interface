@@ -32,7 +32,6 @@
 			<?php
 				$project     = 'CLAS12';
 				$configuration      = $_POST['configuration'];
-				$rungroup    = strtoupper(substr($configuration,0,3));
 				$generator   = $_POST['generator'];
 				$genOptions  = $_POST['genOptions'];
 				$nevents     = $_POST['nevents'];
@@ -41,7 +40,7 @@
 				$username    = $_SERVER['PHP_AUTH_USER'];
 				$client_ip   = $_SERVER['REMOTE_ADDR'];
 				$fields		 = $_POST['fields'];
-				$currentenergy = $_POST['currentenergy'];
+				$bkmerging = $_POST['bkmerging'];
 				$uri		 = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
@@ -59,24 +58,22 @@
 					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
 					die();
 				}
-				if (!empty($project) && !empty($configuration)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($currentenergy)) {
+				if (!empty($project) && !empty($configuration)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($bkmerging)) {
 					$fp = fopen('scard_type1.txt', 'w');
-					fwrite($fp, 'project:  '.$project.'           #'.PHP_EOL);
-					fwrite($fp, 'group: '.$rungroup.'             #'.PHP_EOL);
-					fwrite($fp, 'farm_name: OSG                   #'.PHP_EOL);
-					fwrite($fp, 'configuration: '.$configuration.'              #'.PHP_EOL);
-					fwrite($fp, 'genOptions: '.$genOptions.'      #'.PHP_EOL);
-					fwrite($fp, 'generator: '.$generator.'        #'.PHP_EOL);
-					fwrite($fp, 'nevents: '.$nevents.'            #'.PHP_EOL);
-					fwrite($fp, 'jobs: '.$jobs.'                  #'.PHP_EOL);
-					fwrite($fp, 'client_ip: '.$client_ip.'        #'.PHP_EOL);
-					fwrite($fp, 'generatorOUT: '.$generatorOUT.'  #'.PHP_EOL);
-					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'    #'.PHP_EOL);
-					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'    #'.PHP_EOL);
-					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.' #'.PHP_EOL);
-					fwrite($fp, 'dstOUT: '.$dstOUT.'   #'.PHP_EOL);
-					fwrite($fp, 'fields: '.$fields.'	#'.PHP_EOL);
-					fwrite($fp, 'bkgmerging: '.$bkgmerging.'	#');
+					fwrite($fp, 'project: '.$project.PHP_EOL);
+					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
+					fwrite($fp, 'generator: '.$generator.PHP_EOL);
+					fwrite($fp, 'genOptions: '.$genOptions.PHP_EOL);
+					fwrite($fp, 'nevents: '.$nevents.PHP_EOL);
+					fwrite($fp, 'jobs: '.$jobs.PHP_EOL);
+					fwrite($fp, 'client_ip: '.$client_ip.PHP_EOL);
+					fwrite($fp, 'generatorOUT: '.$generatorOUT.PHP_EOL);
+					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.PHP_EOL);
+					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.PHP_EOL);
+					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.PHP_EOL);
+					fwrite($fp, 'dstOUT: '.$dstOUT.PHP_EOL);
+					fwrite($fp, 'fields: '.$fields.PHP_EOL);
+					fwrite($fp, 'bkmerging: '.$bkmerging);
 					fclose($fp);
 					if (strpos($uri, 'test') !== false){
 						echo 'This is a test web page. Submitting jobs through test database...';
@@ -105,7 +102,7 @@
 					<td><?php echo($configuration); ?></td>
 				</tr>
 				<tr>
-					<td>Field Setup</td>
+					<td>Magnetic Fields</td>
 					<td><?php echo($fields); ?></td>
 				</tr>
 				<tr>
@@ -129,6 +126,10 @@
 					<td><?php echo($totalevents); ?> M</td>
 				</tr>
 				<tr>
+					<td> Background Merging </td>
+					<td> <?php echo($bkgmerging); ?> M</td>
+				</tr>
+				<tr>
 					<td> Output Options </td>
 					<td>
 						<div style="text-align: left; display: inline-block;">
@@ -139,10 +140,6 @@
 							dst: <?php echo($dstOUT); ?>
 						</div>
 					</td>
-				</tr>
-				<tr>
-					<td> Background Merging </td>
-					<td> <?php echo($bkgmerging); ?> M</td>
 				</tr>
 			</table>
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>

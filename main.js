@@ -81,7 +81,7 @@ function fieldSelected() {
 
 }
 
-function bkgmergingSelected() {
+function bkmergingSelected() {
 	var experiments = document.getElementById("configuration").value;
 	var fields = document.getElementById("fields").value;
 	var text = "";
@@ -96,7 +96,7 @@ function bkgmergingSelected() {
 					if (vals[val] != "") text += "<option value=\""+vals[val]+"\">"+vals[val]+"</option>";
 				}
 			}
-			document.getElementById("bkgmerging").innerHTML= text;
+			document.getElementById("bkmerging").innerHTML= text;
 		}
 	};
 	xmlhttp.open("GET", "data/xrootd.json", true);
