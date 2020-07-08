@@ -15,17 +15,16 @@
 
 	<body>
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
-
-			 <ul id="nav">
-				 <li><a href="index.php">Home</a></li>
-				 <li><a href="about.html">About</a></li>
-				 <li><a href="disk.php">Disk Usage</a></li>
-				 <li><a href="osgStats.html">OSG Stats</a></li>
-			 </ul>
+			<ul id="nav">
+				<li><a href="index.php">     Home</a></li>
+				<li><a href="about.html">    About</a></li>
+				<li><a href="disk.php">      Disk Usage</a></li>
+				<li><a href="osgStats.html"> OSG Stats</a></li>
+			</ul>
 
 			<div class="w3-center">
-				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
-				<h2 class="w3-xlarge" style="width:73%;text-align:right">Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?></h2>
+				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
+				<h2 class="w3-xlarge" style="text-align:center">Logged in as <img width = "160" src="username.php"/></h2>
 				<br/><br/>
 			</div>
 		</header>

@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script type="text/javascript"> var username = "<?= $_SERVER['PHP_AUTH_USER'] ?>";</script>
+
 		
 	</head>
 	
@@ -24,7 +24,7 @@
 
 			<div class="w3-center">
 				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
-				<h2 class="w3-xlarge" style="text-align:center">Logged in as <img width = "160" src="username.php"/></h2>
+				<h2 class="w3-xlarge">Logged in as <img src="username.php"/></h2>
 				<br/><br/>
 			</div>
 
