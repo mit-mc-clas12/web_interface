@@ -9,23 +9,21 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-
-
+		<script src="main.js"></script>
 	</head>
 
 	<body>
 		<header class="w3-panel w3-opacity w3-container" id="myHeader">
-		    
-			 <ul id="nav">
-				 <li><a href="index.php">Home</a></li>
-				 <li><a href="about.html">About</a></li>
-				 <li><a href="disk.php">Disk Usage</a></li>
-				 <li><a href="osgStats.html">OSG Stats</a></li>
-			 </ul>
+			<ul id="nav">
+				<li><a href="index.php">     Home</a></li>
+				<li><a href="about.html">    About</a></li>
+				<li><a href="disk.php">      Disk Usage</a></li>
+				<li><a href="osgStats.html"> OSG Stats</a></li>
+			</ul>
 
 			<div class="w3-center">
-				<h1 class="w3-xlarge">CLAS12 Monte-Carlo Job Submission Portal</h1>
-				<h2 class="w3-xlarge" style="width:73%;text-align:right">Logged in as <?php $username= $_SERVER['PHP_AUTH_USER']; echo($username); ?></h2>
+				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
+				<h2 class="w3-xlarge" style="text-align:center">Logged in as <img width = "160" src="username.php"/></h2>
 				<br/><br/>
 			</div>
 		</header>
@@ -109,7 +107,5 @@
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
-
-	<script src="main.js">	</script>
 
 </html>

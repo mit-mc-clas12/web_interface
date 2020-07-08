@@ -9,10 +9,9 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-
-
-
+		<script src="main.js"></script>
 	</head>
+	
 	<body>
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
@@ -24,30 +23,26 @@
 
 			<div class="w3-center">
 				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
-				<h2 class="w3-xlarge" style="width:70%;text-align:right">Logged in as <img width = "160" src="username.php"/></h2>
-				<br/> <br/>
+				<h2 class="w3-xlarge" style="text-align:right">Logged in as <img width = "160" src="username.php"/></h2>
+				<br/><br/>
 			</div>
 		</header>
+		<br/><br/>
 
 
 		<div class="w3-row-padding w3-rest" id="contact">
 
-			<h1> Types </h1>
+			<h1> Configurations </h1>
 			<p style="margin-left: 40px">
-			<b>Type 1 and 2</b> contain the configurations of CLAS12 experiments that already ran:<br/>
-			<li style="margin-left: 60px"> <b>clas12-default</b>: nominal CLAS12 geometry </li>
-			<li style="margin-left: 60px"> <b>rga-spring2018</b>: RGA spring 2018 configuration  </li>
-			<li style="margin-left: 60px"> <b>rga-fall2018</b>:   RGA fall 2018 configuration </li>
-			<li style="margin-left: 60px"> <b>rgk-fall2018</b>:   RGK fall 2018 configuration (torus out-bending)  </li>
-			<li style="margin-left: 60px"> <b>rga-spring2019</b>: RGA spring 2019 </li>
-			<li style="margin-left: 60px"> <b>rgb-spring2019</b>: RGB spring 2019  </li><br/>
+			The available CLAS12 configurations correspond to the approved experiments:<br/>
+			<li style="margin-left: 60px"> <b>rga_spring2018</b>: RGA spring 2018 configuration  </li>
+			<li style="margin-left: 60px"> <b>rga_fall2018</b>:   RGA fall 2018 configuration </li>
+			<li style="margin-left: 60px"> <b>rgk_fall2018</b>:   RGK fall 2018 configuration</li>
+			<li style="margin-left: 60px"> <b>rga_spring2019</b>: RGA spring 2019 </li>
+			<li style="margin-left: 60px"> <b>rgb_spring2019</b>: RGB spring 2019  </li><br/>
 			</p>
 
 
-			<p style="margin-left: 40px">
-			<b>Type 3</b> and <b>4</b> (coming soon) can be used for custom user conditions, for example to test
-			a new detector design or a different magnet configurations.<br/>
-			</p>
 			<br/>
 			<h1> Output </h1>
 			<p style="margin-left: 40px">
@@ -87,7 +82,7 @@
 				<table style=" width:50%; text-align:center; border: 0px; border-collapse: collapse;">
 					<tr >
 						<th style="border-collapse:collapse; border: 0px;"></th>
-						<th style="border-collapse:collapse; border: 0px;"> <h2> Contact and Support </h2>
+						<th style="border-collapse:collapse; border: 0px;"> <h2> Contacts and Support </h2>
 						</th>
 						<th style="border-collapse:collapse; border: 0px;"></th>
 					</tr >
@@ -99,7 +94,10 @@
 							<a href="mailto:sangbaek@mit.edu">Sangbaek Lee</a><br/>
 							<a href="mailto:moranp@mit.edu">Patrick Moran</a>
 						</th>
-						<th style="border-collapse:collapse; border: 0px;"> <h3> CLAS12 Discourse </h3>  <a href="https://clas12.discourse.group/c/simulation/9">Simulation on Discourse</a>
+						<th style="border-collapse:collapse; border: 0px;"> <h3> Additional Resources </h3>
+							<a href="https://clas12.discourse.group/c/simulation/9">Discourse</a><br/>
+							<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html">Simulation Software Distribution</a><br/>
+							<a href="https://github.com/JeffersonLab/clas12-mcgen">CLAS12 Generators Github</a><br/>
 						</th>
 					</tr>
 
@@ -110,7 +108,5 @@
 		</div>
 
 	</body>
-
-	<script src="main.js"> </script>
 
 </html>
