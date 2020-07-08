@@ -45,7 +45,7 @@ function genSelected(val) {
 }
 
 function fieldSelected() {
-	var experiments = document.getElementById("configuration").value.split("/")[4].split(".gcard")[0].replace("-","_");
+	var experiments = document.getElementById("configuration").value;
 	var text = "";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -70,7 +70,7 @@ function fieldSelected() {
 }
 
 function currentenergySelected() {
-	var experiments = document.getElementById("configuration").value.split("/")[4].split(".gcard")[0].replace("-","_");
+	var experiments = document.getElementById("configuration").value;
 	var fields = document.getElementById("fields").value;
 	var text = "";
 	text += "<option selected  value=\"no\"> No </option>"
@@ -91,6 +91,22 @@ function currentenergySelected() {
 	xmlhttp.send();
 }
 
+
+function configurationSelected(){
+	var text = "";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+			var myObj = JSON.parse(this.responseText);
+			for (experiments in myObj){
+				text += "<option value=\""+experiments+"\">"+experiments+"</option>";
+			}
+			document.getElementById("configuration").innerHTML= text;
+		}
+	};
+	xmlhttp.open("GET", "data/xrootd.json", true);
+	xmlhttp.send();
+}
 
 // function bkg_rows() {
 // 	var e = document.getElementById("bkg_merging").value;

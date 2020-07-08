@@ -9,10 +9,9 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js"></script>		
 	</head>
 
-	<body>
+	<body onload="configurationSelected()">
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
 				<li><a href="index.php">     Home</a></li>
@@ -31,18 +30,11 @@
 		<div class="w3-center">
 
 			<form action="submit_type1.php" method="POST">
-				<table id = "submission_table" style="text-align: center;width: 50%;"align="center">
+				<table id = "submission_table" style="text-align: center;width: 50%;" align="center">
 					<tr>
 						<td> <div class="tooltip">Configuration <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 						<td>
 							<select name="configuration" id="configuration" required onchange="fieldSelected(); currentenergySelected();">
-								<option selected hidden value=""></option>
-								<option value="/jlab/clas12Tags/gcards/clas12-default.gcard"> clas12-default </option>
-								<option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">   rga-fall2018   </option>
-								<option value="/jlab/clas12Tags/gcards/rga-spring2018.gcard"> rga-spring2018 </option>
-								<option value="/jlab/clas12Tags/gcards/rga-spring2019.gcard"> rga-spring2019 </option>
-								<option value="/jlab/clas12Tags/gcards/rgb-spring2019.gcard"> rgb-spring2019 </option>
-								<option value="/jlab/clas12Tags/gcards/rgk-fall2018.gcard">   rgk-fall2018   </option>
 							</select>
 						</td>
 					</tr>
@@ -126,5 +118,7 @@
 			</form>
 		</div>
 	</body>
+
+	<script src="main.js"></script>		<!-- Don't move this line to the top! It causes an error at Safari -->
 
 </html>

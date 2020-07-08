@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js"></script>
 	</head>
 
 	<body>
@@ -150,5 +149,6 @@
 		</div>
 	</body>
 
+	<script src="main.js"></script>		<!-- Don't move this line to the top! It causes an error at Safari -->
 
 </html>
