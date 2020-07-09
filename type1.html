@@ -9,10 +9,9 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js"></script>		
 	</head>
 
-	<body>
+	<body onload="configurationSelected(); fieldSelected()">
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
 				<li><a href="index.php">     Home</a></li>
@@ -31,26 +30,18 @@
 		<div class="w3-center">
 
 			<form action="submit_type1.php" method="POST">
-				<table id = "submission_table" style="text-align: center;width: 50%;"align="center">
+				<table id = "submission_table" style="text-align: center;width: 50%;" align="center">
 					<tr>
-						<td> <div class="tooltip">Gcards <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
+						<td> <div class="tooltip">Configuration <span class="tooltiptext">Choose one of the gcards in the container</span></div> </td>
 						<td>
-							<select name="gcards" id="gcards" required onchange="fieldSelected(); currentenergySelected();">
-								<option selected hidden value=""></option>
-								<option value="/jlab/clas12Tags/gcards/clas12-default.gcard"> clas12-default </option>
-								<option value="/jlab/clas12Tags/gcards/rga-fall2018.gcard">   rga-fall2018   </option>
-								<option value="/jlab/clas12Tags/gcards/rga-spring2018.gcard"> rga-spring2018 </option>
-								<option value="/jlab/clas12Tags/gcards/rga-spring2019.gcard"> rga-spring2019 </option>
-								<option value="/jlab/clas12Tags/gcards/rgb-spring2019.gcard"> rgb-spring2019 </option>
-								<option value="/jlab/clas12Tags/gcards/rgk-fall2018.gcard">   rgk-fall2018   </option>
+							<select name="configuration" id="configuration" required onchange="fieldSelected(); bkmergingSelected();">
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td><div class="tooltip">Magnetic Fields <span class="tooltiptext">Choose one of the fields setup for corresponding gcards, select gcards first.</span></div></td>
 						<td>
-							<select name="fields" id ="fields" required onchange="currentenergySelected()">
-								<option selected hidden value=""></option>
+							<select name="fields" id ="fields" required onchange="bkmergingSelected()">
 							</select>
 						</td>
 					<tr>
@@ -96,9 +87,9 @@
 						<td><input type="number" name="totalevents" id="result"  readonly /> M</td>
 					</tr>
 					<tr>
-						<td> <div class="tooltip">Current and Energy <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div> </td>
+						<td> <div class="tooltip">Background Merging <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div> </td>
 						<td>
-							<select name="currentenergy" id="currentenergy" required onchange="bkg_rows()">
+							<select name="bkmerging" id="bkmerging" required>
 								<option selected value="no">           No</option>
 							</select>
 						</td>
@@ -126,5 +117,7 @@
 			</form>
 		</div>
 	</body>
+
+	<script src="main.js"></script>		<!-- Don't move this line to the top! It causes an error at Safari -->
 
 </html>

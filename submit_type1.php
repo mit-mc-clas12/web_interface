@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js"></script>
 	</head>
 
 	<body>
@@ -32,8 +31,7 @@
 
 			<?php
 				$project     = 'CLAS12';
-				$rungroup    = 'RGA';
-				$gcards      = $_POST['gcards'];
+				$configuration      = $_POST['configuration'];
 				$generator   = $_POST['generator'];
 				$genOptions  = $_POST['genOptions'];
 				$nevents     = $_POST['nevents'];
@@ -42,7 +40,7 @@
 				$username    = $_SERVER['PHP_AUTH_USER'];
 				$client_ip   = $_SERVER['REMOTE_ADDR'];
 				$fields		 = $_POST['fields'];
-				$currentenergy = $_POST['currentenergy'];
+				$bkmerging = $_POST['bkmerging'];
 				$uri		 = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
@@ -60,24 +58,22 @@
 					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
 					die();
 				}
-				if (!empty($project) && !empty($gcards)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($currentenergy)) {
+				if (!empty($project) && !empty($configuration)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($bkmerging)) {
 					$fp = fopen('scard_type1.txt', 'w');
-					fwrite($fp, 'project:  '.$project.'           #'.PHP_EOL);
-					fwrite($fp, 'group: '.$rungroup.'             #'.PHP_EOL);
-					fwrite($fp, 'farm_name: OSG                   #'.PHP_EOL);
-					fwrite($fp, 'gcards: '.$gcards.'              #'.PHP_EOL);
-					fwrite($fp, 'genOptions: '.$genOptions.'      #'.PHP_EOL);
-					fwrite($fp, 'generator: '.$generator.'        #'.PHP_EOL);
-					fwrite($fp, 'nevents: '.$nevents.'            #'.PHP_EOL);
-					fwrite($fp, 'jobs: '.$jobs.'                  #'.PHP_EOL);
-					fwrite($fp, 'client_ip: '.$client_ip.'        #'.PHP_EOL);
-					fwrite($fp, 'generatorOUT: '.$generatorOUT.'  #'.PHP_EOL);
-					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.'    #'.PHP_EOL);
-					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.'    #'.PHP_EOL);
-					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.' #'.PHP_EOL);
-					fwrite($fp, 'dstOUT: '.$dstOUT.'   #'.PHP_EOL);
-					fwrite($fp, 'fields: '.$fields.'	#'.PHP_EOL);
-					fwrite($fp, 'currentenergy: '.$currentenergy.'	#');
+					fwrite($fp, 'project: '.$project.PHP_EOL);
+					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
+					fwrite($fp, 'generator: '.$generator.PHP_EOL);
+					fwrite($fp, 'genOptions: '.$genOptions.PHP_EOL);
+					fwrite($fp, 'nevents: '.$nevents.PHP_EOL);
+					fwrite($fp, 'jobs: '.$jobs.PHP_EOL);
+					fwrite($fp, 'client_ip: '.$client_ip.PHP_EOL);
+					fwrite($fp, 'generatorOUT: '.$generatorOUT.PHP_EOL);
+					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.PHP_EOL);
+					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.PHP_EOL);
+					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.PHP_EOL);
+					fwrite($fp, 'dstOUT: '.$dstOUT.PHP_EOL);
+					fwrite($fp, 'fields: '.$fields.PHP_EOL);
+					fwrite($fp, 'bkmerging: '.$bkmerging);
 					fclose($fp);
 					if (strpos($uri, 'test') !== false){
 						echo 'This is a test web page. Submitting jobs through test database...';
@@ -102,11 +98,11 @@
 					<td> <?php echo($project); ?> </td>
 				</tr>
 				<tr>
-					<td>Gcards</td>
-					<td><?php echo($gcards); ?></td>
+					<td>Configuration</td>
+					<td><?php echo($configuration); ?></td>
 				</tr>
 				<tr>
-					<td>Field Setup</td>
+					<td>Magnetic Fields</td>
 					<td><?php echo($fields); ?></td>
 				</tr>
 				<tr>
@@ -130,6 +126,10 @@
 					<td><?php echo($totalevents); ?> M</td>
 				</tr>
 				<tr>
+					<td> Background Merging </td>
+					<td> <?php echo($bkgmerging); ?> M</td>
+				</tr>
+				<tr>
 					<td> Output Options </td>
 					<td>
 						<div style="text-align: left; display: inline-block;">
@@ -141,14 +141,11 @@
 						</div>
 					</td>
 				</tr>
-				<tr>
-					<td> Current/ Energy </td>
-					<td> <?php echo($currentenergy); ?> M</td>
-				</tr>
 			</table>
 			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
 
+	<script src="main.js"></script>		<!-- Don't move this line to the top! It causes an error at Safari -->
 
 </html>
