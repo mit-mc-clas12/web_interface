@@ -92,7 +92,7 @@ function bkmergingSelected() {
 	var experiments = document.getElementById("configuration").value;
 	var fields = document.getElementById("fields").value;
 	var text = "";
-	text += "<option selected  value=\"no\"> No </option>"
+	text += "<option selected  value=\"no\"> Not Available </option>"
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
