@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="main.css"/>
 	</head>
 	
-	<body onload='osgLogtoTable(); farmStatstoTable();'>
+	<body onload='osgLogtoTable();'>
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
 				<li><a href="index.php">     Home</a></li>
