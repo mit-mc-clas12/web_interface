@@ -20,6 +20,13 @@ function myFunction() {
   }
 }
 
+var is_test = window.location.pathname.includes("test");
+var title = "CLAS12 Monte-Carlo Job Submission Portal";
+if (is_test){
+	title = title + " (Test Version)";
+}
+document.getElementById('title').innerHTML = title;
+
 function genSelected(val) {
 	var generator = document.getElementById("generator").value;
 	if (generator == "clasdis") {
