@@ -9,10 +9,9 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script src="main.js"></script>		
 	</head>
 	
-	<body onload='osgLogtoTable(); farmStatstoTable();'>
+	<body onload='osgLogtoTable();'>
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
 				<li><a href="index.php">     Home</a></li>
@@ -22,7 +21,7 @@
 			</ul>
 
 			<div class="w3-center">
-				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
+				<h1 id="title" class="w3-xlarge w3-opacity"></h1>
 				<h2 class="w3-xlarge" style="text-align:right">Logged in as <img width = "160" src="username.php"/></h2>
 				<br/><br/>
 			</div>
@@ -90,6 +89,6 @@
 		</div>
 	</body>
 
-	<script src="main.js"></script>
+	<script src="main.js"></script>		<!-- Don't move this line to the top! It causes an error at Safari -->
 
 </html>

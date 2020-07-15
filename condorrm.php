@@ -21,20 +21,15 @@
 			</ul>
 
 			<div class="w3-center">
-				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
+				<h1 id="title" class="w3-xlarge w3-opacity"></h1>
 				<h2 class="w3-xlarge" style="text-align:right">Logged in as <img width = "160" src="username.php"/></h2>
 				<br/><br/>
 			</div>
 
 			<div class="w3-padding w3-center">
-				
-				<div id="farmStats"></div>
-				<br>
-				<br>
+				<br/><br/>
 				<div id="osgLog"></div>
-				<br>
-				<br>
-				
+				<br/><br/>
 			</div>
 		</header>
 		
