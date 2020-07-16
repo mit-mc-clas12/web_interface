@@ -70,7 +70,7 @@
 					fwrite($fp, 'bkmerging: '.$bkmerging);
 					fclose($fp);
 					if (strpos($uri, 'test') !== false){
-						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -test -u '.$username.' scard_type1.txt');
+						$command = escapeshellcmd('../SubMit/client/src/SubMit.py --test_database -u '.$username.' scard_type1.txt');
 						$output = shell_exec($command);
 					}
 					else{
