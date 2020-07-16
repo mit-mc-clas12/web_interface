@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="main.css"/>
 	</head>
 
-	<body onload="configurationSelected()">
+	<body onload="configurationSelected(); fieldSelected(); bkmergingSelected()">
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
 				<li><a href="index.php">     Home</a></li>
@@ -21,8 +21,8 @@
 			</ul>
 
 			<div class="w3-center">
-				<h1 class="w3-xlarge w3-opacity">CLAS12 Monte-Carlo Job Submission Portal</h1>
-				<h2 class="w3-xlarge" style="text-align:right">Logged in as <img width = "160" src="username.php"/></h2>
+				<h1 id="title" class="w3-xlarge w3-opacity"></h1>
+				<h2 class="w3-xlarge" style="text-align:center">Logged in as <img width = "160" src="username.php"/></h2>
 				<br/><br/>
 			</div>
 		</header>
@@ -58,7 +58,6 @@
 						<td> <div class="tooltip">Background Merging <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div> </td>
 						<td>
 							<select name="bkmerging" id="bkmerging" required>
-								<option selected value="no">           No</option>
 							</select>
 						</td>
 					</tr>
