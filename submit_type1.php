@@ -76,7 +76,8 @@
 					fwrite($fp, 'bkmerging: '.$bkmerging);
 					fclose($fp);
 					if (strpos($uri, 'test') !== false){
-						echo 'This is a test web page. Submitting jobs through test database...';
+						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -test -u '.$username.' scard_type1.txt');
+						$output = shell_exec($command);
 					}
 					else{
 						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
