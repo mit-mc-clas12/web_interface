@@ -73,13 +73,15 @@
 					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.PHP_EOL);
 					fwrite($fp, 'dstOUT: '.$dstOUT.PHP_EOL);
 					fwrite($fp, 'fields: '.$fields.PHP_EOL);
-					fwrite($fp, 'bkmerging: '.$bkmerging);
+					fwrite($fp, 'bkmerging: '.$bkmerging.PHP_EOL);
+					if (strpos($uri, 'test/web_interface') !== false) {
+						fwrite($fp, 'test submission'.PHP_EOL);
+					}
 					fclose($fp);
-					if (strpos($uri, 'test') !== false){
+					if (strpos($uri, 'test/web_interface') !== false) {
 						$command = escapeshellcmd('../SubMit/client/src/SubMit.py --test_database -u '.$username.' scard_type1.txt');
 						$output = shell_exec($command);
-					}
-					else{
+					} else {
 						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
 						$output = shell_exec($command);
 					}
