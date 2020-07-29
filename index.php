@@ -29,9 +29,10 @@
 			<div class="w3-padding w3-center">
 				<!--					<div id="farmStats"></div>-->
 				<br/><br/>
-				<div id="osgLog"></div>
+				<div id="osgLog_summary"></div>
 				<br/><br/>
 			</div>
+
 		</header>
 
 
@@ -87,6 +88,14 @@
 			<br/><br/>
 
 		</div>
+
+		<div class="w3-padding w3-center">
+			<!--					<div id="farmStats"></div>-->
+			<br/><br/>
+			<div id="osgLog"></div>
+			<br/><br/>
+		</div>
+
 	</body>
 
 	<script src="main.js"></script>		<!-- Don't move this line to the top! It causes an error at Safari -->
