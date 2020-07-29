@@ -116,20 +116,27 @@ function osgLogtoTable() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
 		    //set up table
-		    var txt = "<table align=\"center\" style=\"width:100%;text-align:center\"><caption align=\"bottom\">"
+		    var txt = "<table align=\"center\" style=\"width:80%;text-align:center\"><caption align=\"bottom\">";
+		    var txt_summary = "<table align=\"center\" style=\"width:50%;text-align:center\"><tr>";
 		    //bottom caption from metadata
 		    var meta = myObj.metadata;
 		    txt+= meta["footer"];
 		    txt+= "</caption><tr>";
 		    // first row from keys
+		    let data_summary=  {"user": [], "total": [], "done": [], "run": [], "idle": [] };
    		    var keys = Object.keys(myObj.user_data[0]);
-		    for (i=0; i<keys.length; i++){
+		    for (i in keys){
 		    	txt+="<th>";
 		    	txt+=keys[i];
 		    	txt+="</th>";
 		    }
+		    for (i in Object.keys(data_summary)){
+		    	txt_summary+="<th>";
+		    	txt_summary+=Object.keys(data_summary)[i];
+		    	txt_summary+="</th>";
+		    }
 		    // data rows
-		    for (rows=0; rows<myObj.user_data.length;rows++){
+		    for (rows in myObj.user_data){
 		    	txt+="</tr><tr>";
 		    	var val = myObj.user_data[rows];
 			    for (var newkeys in val){
@@ -137,12 +144,39 @@ function osgLogtoTable() {
 			    	txt+=val[newkeys];
 			    	txt+="</td>";
 			    }
-//			    if (val.username == username){
+
+//			    if (val.user == username){
 //			    	txt+="<td>yours</td>"
 //			    }
+
+				//summary part
+			    if (data_summary.user.includes(val.user)){
+			    	for (i=1; i<Object.keys(data_summary).length; i++){
+			    		data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] = Number(data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)]);
+			    		data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] += Number(val[Object.keys(data_summary)[i]]); 
+			    	}
+			    }
+			    else{
+			    	for (i in Object.keys(data_summary)){
+				    	data_summary[Object.keys(data_summary)[i]].push(val[Object.keys(data_summary)[i]]);
+			    	}
+			    }
+
 		    }
 		    txt+="</tr></table>";
+
+		    for (i in data_summary.user){
+		    	txt_summary+="</tr><tr>";
+		    	for (j in Object.keys(data_summary)){
+		    		txt_summary+="<td>";
+		  		  	txt_summary+=data_summary[Object.keys(data_summary)[j]][i];
+					txt_summary+="</td>";
+		    	}
+		    }
+
+		    txt_summary+="</tr></table>";
 		    document.getElementById("osgLog").innerHTML = txt;
+		    document.getElementById("osgLog_summary").innerHTML = txt_summary;
 		  }
 		};
 		xmlhttp.open("GET", "data/osgLog.json", true);
