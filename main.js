@@ -91,16 +91,18 @@ function fieldSelected() {
 function bkmergingSelected() {
 	var experiments = document.getElementById("configuration").value;
 	var fields = document.getElementById("fields").value;
-	var text = "";
-	text += "<option selected  value=\"no\"> Not Available </option>"
+	var text = "<option selected  value=\"no\"> Not Available </option>";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
 			var myObj = JSON.parse(this.responseText);
 			if (experiments in myObj){
 				var vals  = myObj[experiments][fields];
-				for (val in vals){
-					if (vals[val] != "") text += "<option value=\""+vals[val]+"\">"+vals[val]+"</option>";
+				if (! vals.includes("")){
+					text = "<option selected  value=\"no\"> No </option>";
+					for (val in vals){
+						text += "<option value=\""+vals[val]+"\">"+vals[val]+"</option>";
+					}
 				}
 			}
 			document.getElementById("bkmerging").innerHTML= text;
