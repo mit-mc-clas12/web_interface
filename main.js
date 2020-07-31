@@ -125,7 +125,7 @@ function osgLogtoTable() {
 		    txt+= meta["footer"];
 		    txt+= "</caption><tr>";
 		    // first row from keys
-		    let data_summary=  {"user": [], "total": [], "done": [], "run": [], "idle": [] };
+		    let data_summary=  {"user": [], "submission": [], "total": [], "done": [], "run": [], "idle": [] };
    		    var keys = Object.keys(myObj.user_data[0]);
 		    for (i in keys){
 		    	txt+="<th>";
@@ -153,15 +153,19 @@ function osgLogtoTable() {
 
 				//summary part
 			    if (data_summary.user.includes(val.user)){
-			    	for (i=1; i<Object.keys(data_summary).length; i++){
+			    	for (i in Object.keys(data_summary)){
+			    		if (i<2) continue;
 			    		data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] = Number(data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)]);
 			    		data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] += Number(val[Object.keys(data_summary)[i]]); 
 			    	}
+			    	data_summary["submission"][data_summary.user.indexOf(val.user)] += 1;
 			    }
 			    else{
 			    	for (i in Object.keys(data_summary)){
+			    		if (i==1) continue;
 				    	data_summary[Object.keys(data_summary)[i]].push(val[Object.keys(data_summary)[i]]);
 			    	}
+			    	data_summary["submission"].push(1);
 			    }
 
 		    }
@@ -175,6 +179,14 @@ function osgLogtoTable() {
 					txt_summary+="</td>";
 		    	}
 		    }
+
+		    txt_summary+="<tr><td>total</td>";
+	    	for (j in Object.keys(data_summary)){
+	    		if (j==0) continue;
+	    		txt_summary+="<td>";
+	  		  	txt_summary+=data_summary[Object.keys(data_summary)[j]].reduce((a, b) => Number(a) + Number(b), 0);
+				txt_summary+="</td>";
+	    	}
 
 		    txt_summary+="</tr></table>";
 		    document.getElementById("osgLog").innerHTML = txt;
