@@ -69,7 +69,9 @@
 					fwrite($fp, 'fields: '.$fields.PHP_EOL);
 					fwrite($fp, 'bkmerging: '.$bkmerging.PHP_EOL);
 					if (strpos($uri, 'test/web_interface') !== false) {
-						fwrite($fp, 'test submission'.PHP_EOL);
+						fwrite($fp, 'submission: production'.PHP_EOL);
+					} else {
+						fwrite($fp, 'submission: devel'.PHP_EOL);
 					}
 					fclose($fp);
 					if (strpos($uri, 'test/web_interface') !== false) {
