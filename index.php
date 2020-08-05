@@ -29,6 +29,7 @@
 			<div class="w3-padding w3-center">
 				<!--					<div id="farmStats"></div>-->
 				<br/><br/>
+				<h2 class="w3-xlarge" style="text-align:center">Summary of current jobs</h2>
 				<div id="osgLog_summary"></div>
 				<br/><br/>
 			</div>
@@ -40,6 +41,7 @@
 			<!--		Notice: these two must be in different lines:-->
 			<!--		<div class="w3-card w3-container" style="min-height:300px">-->
 			<!--		</div>-->
+			<h2 class="w3-xlarge" style="text-align:center">Click to submit to OSG</h2>
 			<a>
 				<div class="w3-quarter">
 					<div class="w3-card w3-container" style="min-height:230px">
@@ -92,6 +94,7 @@
 		<div class="w3-padding w3-center">
 			<!--					<div id="farmStats"></div>-->
 			<br/><br/>
+			<h2 class="w3-xlarge" style="text-align:center">Details of current OSG Jobs</h2>
 			<div id="osgLog"></div>
 			<br/><br/>
 		</div>
