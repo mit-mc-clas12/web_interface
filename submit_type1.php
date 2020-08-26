@@ -132,7 +132,7 @@
 				</tr>
 				<tr>
 					<td> Background Merging </td>
-					<td> <?php echo($bkgmerging); ?> M</td>
+					<td> <?php echo($bkmerging); ?> M</td>
 				</tr>
 				<tr>
 					<td> Output Options </td>
