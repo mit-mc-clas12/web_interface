@@ -32,17 +32,30 @@ function genSelected(val) {
 	if (generator == "clasdis") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/clasdis-nocernlib/blob/master/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clasdis options';
+
+	} else if (generator == "claspyth") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/claspyth/blob/master/README.md';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='claspyth options';
+
 	} else if (generator == "dvcsgen") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/dvcsgen/blob/master/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='dvcsgen options';
 
-	} else if (generator == "disrad") {
+	} else if (generator == "genKYandOnePion") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/ValeriiKlimenko/genKYandOnePion/blob/master/README.md';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='genKYandOnePion options';
+
+	} else if (generator == "inclusive-dis-rad") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/inclusive-dis-rad/blob/master/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='disrad options';
 
-	} else if (generator == "genKYandOnePion") {
-		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/ValeriiKlimenko/genKYandOnePion';
-		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='genKYandOnePion options';
+	} else if (generator == "JPsiGen") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/JPsiGen/blob/45e2e374a1ac36e1e158af8e1a4f430df57f07fb/README.md';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='JPsiGen options';
+
+	} else if (generator == "TCSGen") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/TCSGen/blob/61314f621fc4fd5c9ff37011cc14c8f214d3171d/README.md';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='TCSGen options';
 
 	} else if (generator == "gemc") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://gemc.jlab.org/gemc/html/documentation/generator/internal.html';

@@ -40,7 +40,7 @@
 				$username    = $_SERVER['PHP_AUTH_USER'];
 				$client_ip   = $_SERVER['REMOTE_ADDR'];
 				$fields		 = $_POST['fields'];
-				$bkmerging = $_POST['bkmerging'];
+				$bkmerging   = $_POST['bkmerging'];
 				$uri		 = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
@@ -51,7 +51,7 @@
 				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));
 				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));
 				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));
-				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));
+				$reconstructionOUT   = yesorno(isset($_POST['reconstructionOUT']));
 				$dstOUT				 = yesorno(isset($_POST['dstOUT']));
 
 				if (!isset($_POST['reconstructionOUT'])&&!isset($_POST['dstOUT'])){
