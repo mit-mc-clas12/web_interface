@@ -40,7 +40,7 @@
 		<h3>
 			<center>
 				<font color="blue">
-					Aug 20 2020 Upgrade <br/>
+					Nov 17 2020 Maintenance <br/>
 					Job Submission is suspended. <br/>
 				</font>
 			</center>
