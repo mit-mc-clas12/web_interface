@@ -138,7 +138,7 @@ function osgLogtoTable() {
 		    txt+= meta["footer"];
 		    txt+= "</caption><tr>";
 		    // first row from keys
-		    let data_summary=  {"user": [], "submissions": [], "total": [], "done": [], "run": [], "idle": [] };
+		    let data_summary=  {"user": [], "submission": [], "total": [], "done": [], "run": [], "idle": [] };
    		    var keys = Object.keys(myObj.user_data[0]);
 		    for (i in keys){
 		    	txt+="<th>";
