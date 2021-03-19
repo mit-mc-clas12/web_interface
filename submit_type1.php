@@ -147,7 +147,7 @@
 					</td>
 				</tr>
 			</table>
-			<h4>Output and logs will be at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
+			<h4>Output is synced hourly at /lustre/expphy/volatile/clas12/osg/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
 

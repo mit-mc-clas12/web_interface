@@ -71,7 +71,7 @@
 						<h3>LUND Files<br/></h3><br/>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
 						<p style="text-align: left; font-weight: normal;">
-						- LUND files (.txt) from a web location <br/> or directory in /volatile <br/>
+						- LUND files (.txt) from a web location <br/> or directory in /work <br/>
 						- One job per LUND file <br/>
 						</p>
 					</div>

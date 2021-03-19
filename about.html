@@ -34,22 +34,22 @@
 			<p style="margin-left: 40px">
 			As soon as you click the "Submit" button, this happens:<br/>
 			<li style="margin-left: 60px"> <b>1</b>: Your submission is logged in our mysql db </li>
-			<li style="margin-left: 60px"> <b>2</b>: Within a few minutes your jobs should be submitted to OSG and visible in this portal.
-				A directory is created in /volatile/osg (see "Output" below)</li>
-			<li style="margin-left: 60px"> <b>3</b>: When the jobs are completed, the job will be delisted from the portal. The "output" directory appears on /volatile</li>
+			<li style="margin-left: 60px"> <b>2</b>: Within a few minutes your jobs will be submitted to OSG and visible in this portal.
+				The output directory is synced every hour on /volatile/osg/clas12 (see "Output" below) once the job is completed</li>
+			<li style="margin-left: 60px"> <b>3</b>: When the jobs are completed, the job will be delisted from the portal. </li>
 
 			<br/>
 
 			<li style="margin-left: 60px"> <b>Q1</b>: my submission doesn't appear on the portal</li>
 
 			<ul>
-				<li style="margin-left: 50px"> A1: Check the content of the file CondorSubmissionError.txt in the output dir. If it has content, the job failed to submit. The most common error here is either a non-existing LUND directory or the LUND web address did not end with "/". If the error is not clear, please report to <a href="mailto:ungaro@jlab.org">Maurizio</a>.</li>
+				<li style="margin-left: 50px"> A1: Check the content of the file CondorSubmissionError.txt in the output dir (it will appear after the hourly sync). If it has content, the job failed to submit. The most common error here is either a non-existing LUND directory or the LUND web address did not end with "/". If the error is not clear, please report to <a href="mailto:ungaro@jlab.org">Maurizio</a>.</li>
 				<li style="margin-left: 50px"> A2: Your jobs (or a close previous submission) have hundreds of LUND files. In this case be patient, it may take up to a couple of hours for the files to be copied in /volatile and submitted to OSG. This process is serial so a LUND submission with many files will block subsequent submissions until all files are processed. </li>
 			</ul>
 
 			<li style="margin-left: 60px"> <b>Q2</b>: There was no output / not all jobs made it to the output</li>
 			<ul>
-				<li style="margin-left: 50px"> A1: Copying the output back to /volatile takes a while.</li>
+				<li style="margin-left: 50px"> A1: Syncing the output back to /volatile takes a while.</li>
 				<li style="margin-left: 50px"> A2: There was an actual error. Please report to <a href="mailto:ungaro@jlab.org">Maurizio</a>. Most likely causes are: </li>
 				<ul>
 					<li style="margin-left: 50px"> E1: xrootd server glitch: background merge files not found</li>
@@ -91,7 +91,7 @@
 
 			<h1> Output </h1>
 			<p style="margin-left: 40px">
-			The output is saved on
+			The output is synced hourly on
 			</p>
 			<pre style="font-size: 20px">	/volatile/clas12/osg/"username"/job_ID </pre>
 			<p style="margin-left: 40px">
