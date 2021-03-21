@@ -65,18 +65,18 @@
 				</div>
 			</a>
 
-			<a href="type2.html" >
-				<div class="w3-quarter">
-					<div class="w3-card w3-container" style="min-height:210px">
-						<h3>LUND Files<br/></h3><br/>
-						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-						<p style="text-align: left; font-weight: normal;">
-						- LUND files (.txt) from a web location <br/>
-						- One job per LUND file <br/>
-						</p>
-					</div>
-				</div>
-			</a>
+<!--			<a href="type2.html" >-->
+<!--				<div class="w3-quarter">-->
+<!--					<div class="w3-card w3-container" style="min-height:210px">-->
+<!--						<h3>LUND Files<br/></h3><br/>-->
+<!--						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>-->
+<!--						<p style="text-align: left; font-weight: normal;">-->
+<!--						- LUND files (.txt) from a web location <br/>-->
+<!--						- One job per LUND file <br/>-->
+<!--						</p>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</a>-->
 
 			<a>
 				<div class="w3-quarter">
