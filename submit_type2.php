@@ -44,16 +44,16 @@
 					if($cond) $val="yes";
 					return $val;
 				}
-				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));
-				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));
-				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));
-				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));
-				$dstOUT				 = yesorno(isset($_POST['dstOUT']));
-
-				if (!isset($_POST['reconstructionOUT'])&&!isset($_POST['dstOUT'])){
-					echo("<h2>Please check at least one of dst or reconstruction.</h2>");
-					die();
-				}
+<!--				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));-->
+<!--				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));-->
+<!--				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));-->
+<!--				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));-->
+<!--				$dstOUT				 = yesorno(isset($_POST['dstOUT']));-->
+<!---->
+<!--				if (!isset($_POST['reconstructionOUT'])&&!isset($_POST['dstOUT'])){-->
+<!--					echo("<h2>Please check at least one of dst or reconstruction.</h2>");-->
+<!--					die();-->
+<!--				}-->
 
 				if (!empty($project) && !empty($configuration)  && !empty($lundFiles) && !empty($fields)&& !empty($bkmerging)) {
 					$fp = fopen('scard_type2.txt', 'w');
