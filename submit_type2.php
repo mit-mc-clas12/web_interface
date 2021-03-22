@@ -44,16 +44,6 @@
 					if($cond) $val="yes";
 					return $val;
 				}
-<!--				$generatorOUT		 = yesorno(isset($_POST['generatorOUT']));-->
-<!--				$gemcEvioOUT		 = yesorno(isset($_POST['gemcEvioOUT']));-->
-<!--				$gemcHipoOUT		 = yesorno(isset($_POST['gemcHipoOUT']));-->
-<!--				$reconstructionOUT = yesorno(isset($_POST['reconstructionOUT']));-->
-<!--				$dstOUT				 = yesorno(isset($_POST['dstOUT']));-->
-<!---->
-<!--				if (!isset($_POST['reconstructionOUT'])&&!isset($_POST['dstOUT'])){-->
-<!--					echo("<h2>Please check at least one of dst or reconstruction.</h2>");-->
-<!--					die();-->
-<!--				}-->
 
 				if (!empty($project) && !empty($configuration)  && !empty($lundFiles) && !empty($fields)&& !empty($bkmerging)) {
 					$fp = fopen('scard_type2.txt', 'w');
@@ -65,7 +55,7 @@
 					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.PHP_EOL);
 					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.PHP_EOL);
 					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.PHP_EOL);
-					fwrite($fp, 'dstOUT: '.$dstOUT.PHP_EOL);
+					fwrite($fp, 'dstOUT: yes');
 					fwrite($fp, 'fields: '.$fields.PHP_EOL);
 					fwrite($fp, 'bkmerging: '.$bkmerging.PHP_EOL);
 					if (strpos($uri, 'test/web_interface') !== false) {
@@ -107,17 +97,7 @@
 					<td> Background Merging </td>
 					<td> <?php echo($bkmerging); ?> M</td>
 				</tr>
-				<tr>
-					<td> Output Options </td>
-					<td>
-						<div style="text-align: left; display: inline-block;">
-							gemc: <?php echo($gemcEvioOUT); ?><br>
-							gemc decoded: <?php echo($gemcHipoOUT); ?><br>
-							reconstruction: <?php echo($reconstructionOUT); ?><br>
-							dst: <?php echo($dstOUT); ?>
-						</div>					
-					</td>
-				</tr>				
+						
 			</table>
 			<h4>Output is synced hourly at /lustre/expphy/volatile/clas12/osg2/<?php echo($username); ?>.</h4>
 		</div>
