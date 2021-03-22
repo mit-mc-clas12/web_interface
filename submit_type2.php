@@ -51,11 +51,7 @@
 					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
 					fwrite($fp, 'generator: '.$lundFiles.PHP_EOL);
 					fwrite($fp, 'client_ip: '.$client_ip.PHP_EOL);
-					fwrite($fp, 'generatorOUT: '.$generatorOUT.PHP_EOL);
-					fwrite($fp, 'gemcEvioOUT: '.$gemcEvioOUT.PHP_EOL);
-					fwrite($fp, 'gemcHipoOUT: '.$gemcHipoOUT.PHP_EOL);
-					fwrite($fp, 'reconstructionOUT: '.$reconstructionOUT.PHP_EOL);
-					fwrite($fp, 'dstOUT: yes');
+					fwrite($fp, 'dstOUT: yes'.PHP_EOL);
 					fwrite($fp, 'fields: '.$fields.PHP_EOL);
 					fwrite($fp, 'bkmerging: '.$bkmerging.PHP_EOL);
 					if (strpos($uri, 'test/web_interface') !== false) {
