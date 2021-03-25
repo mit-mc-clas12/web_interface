@@ -29,6 +29,7 @@ document.getElementById('title').innerHTML = title;
 
 function genSelected(val) {
 	var generator = document.getElementById("generator").value;
+
 	if (generator == "clasdis") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/clasdis-nocernlib/blob/master/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clasdis options';
@@ -61,11 +62,15 @@ function genSelected(val) {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/skorodumina/twopeg/blob/main/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='twopeg options';
 
+	} else if (generator == "clas12-elSpectro") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/dglazier/clas12-elSpectro';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clas12-elSpectro options';
+
 	}  else if (generator == "gemc") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://gemc.jlab.org/gemc/html/documentation/generator/internal.html';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='gemc generator options';
-
 	}
+
 }
 
 function configurationSelected(){
