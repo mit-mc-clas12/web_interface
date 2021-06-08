@@ -30,45 +30,26 @@
 
 		<div class="w3-row-padding w3-rest" id="contact">
 
-			<h1> FAQ </h1>
+			<h1>Submission workflow</h1>
 			<p style="margin-left: 40px">
-			As soon as you click the "Submit" button, this happens:<br/>
+			When you click the "Submit" button:<br/>
 			<li style="margin-left: 60px"> <b>1</b>: Your submission is logged in our mysql db </li>
-			<li style="margin-left: 60px"> <b>2</b>: Within a few minutes your jobs will be submitted to OSG and visible in this portal.
-				The output directory is synced every hour on /volatile/osg/clas12 (see "Output" below) once the job is completed</li>
+			<li style="margin-left: 60px"> <b>2</b>: Within a few minutes your jobs will be submitted to OSG and visible in this portal.</li>
 			<li style="margin-left: 60px"> <b>3</b>: When the jobs are completed, the job will be delisted from the portal. </li>
-
-			<br/>
-
-			<li style="margin-left: 60px"> <b>Q1</b>: my submission doesn't appear on the portal</li>
-
-			<ul>
-				<li style="margin-left: 50px"> A1: Check the content of the file CondorSubmissionError.txt in the output dir (it will appear after the hourly sync). If it has content, the job failed to submit. The most common error here is either a non-existing LUND directory or the LUND web address did not end with "/". If the error is not clear, please report to <a href="mailto:ungaro@jlab.org">Maurizio</a>.</li>
-				<li style="margin-left: 50px"> A2: Your jobs (or a close previous submission) have hundreds of LUND files. In this case be patient, it may take up to a couple of hours for the files to be copied in /volatile and submitted to OSG. This process is serial so a LUND submission with many files will block subsequent submissions until all files are processed. </li>
-			</ul>
-
-			<li style="margin-left: 60px"> <b>Q2</b>: There was no output / not all jobs made it to the output</li>
-			<ul>
-				<li style="margin-left: 50px"> A1: Syncing the output back to /volatile takes a while.</li>
-				<li style="margin-left: 50px"> A2: There was an actual error. Please report to <a href="mailto:ungaro@jlab.org">Maurizio</a>. Most likely causes are: </li>
-				<ul>
-					<li style="margin-left: 50px"> E1: xrootd server glitch: background merge files not found</li>
-					<li style="margin-left: 50px"> E2: CVMFS error on the node.  </li>
-				</ul>
-			</ul>
+			<li style="margin-left: 60px"> <b>4</b>: The output directory is synced every hour on /volatile/clas12/osg2 (see "Output" below) once the job is completed</li>
 
 			</p>
 
 			<br/>
 
-			<h1>The Sweet Spot </h1>
+			<h1>Number of events</h1>
 			<p style="margin-left: 40px">
-			10,000 events is the "sweet spot" for each job, corresponding to the ideal CPU time on the OSG of 2-4 hours.<br/>
-			The events in the LUND files are not counted beforehand so each file should be limited to 10,000 events.<br/>
+			The number of events (clas12 generators) are limited to 10,000 corresponding to a max CPU time on the OSG of ~10 hours.<br/>
+			Only 10,000 events will be processed for LUND files.<br/>
 			</p>
 			<br/>
 
-			<h1> Configurations </h1>
+			<h1> Experiment Configurations </h1>
 			<p style="margin-left: 40px">
 			The available CLAS12 configurations correspond to the approved experiments. As of 8/24/2020:<br/>
 			<li style="margin-left: 60px"> <b>rga_spring2018</b>: RGA spring 2018 configuration  </li>
@@ -155,7 +136,7 @@
 					</tr >
 					<tr >
 						<th style="border-collapse:collapse; border: 0px;"> <h3> JLab </h3>
-							<a href="mailto:baltzell@jlab.org">Nathan Baltzell</a>
+							<a href="mailto:baltzell@jlab.org">Nathan Baltzell</a><br/>
 							<a href="mailto:ungaro@jlab.org">Maurizo Ungaro</a>
 						</th>
 						<th style="border-collapse:collapse; border: 0px;"> <h3> MIT </h3>
