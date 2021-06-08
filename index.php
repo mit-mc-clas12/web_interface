@@ -14,7 +14,7 @@
 	<body onload='osgLogtoTable();'>
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
-				<li><a href="index.php">     <b>Home</b></a></li>
+				<li><a href="index.php">     <h3><b>Home</b></h3></a></li>
 				<li><a href="about.html">    About</a></li>
 <!--				<li><a href="disk.php">      Disk Usage</a></li>-->
 				<li><a href="osgStats.html"> OSG Stats</a></li>
