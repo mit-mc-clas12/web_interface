@@ -118,6 +118,10 @@
 					<td><?php echo($totalevents); ?> M</td>
 				</tr>
 				<tr>
+					<td> Fields: </td>
+					<td><?php echo($fields); ?> M</td>
+				</tr>
+				<tr>
 					<td> Background Merging </td>
 					<td> <?php echo($bkmerging); ?> M</td>
 				</tr>
