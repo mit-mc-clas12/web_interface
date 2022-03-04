@@ -63,7 +63,7 @@ function genSelected(val) {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='twopeg options';
 
 	} else if (generator == "clas12-elSpectro") {
-		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/dglazier/clas12-elSpectro';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/dglazier/clas12-elSpectro/wiki/Running-on-OSG';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clas12-elSpectro options';
 
 	}  else if (generator == "gemc") {
