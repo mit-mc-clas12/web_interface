@@ -117,7 +117,7 @@
 	}
 
 input {
-	min-width:50px!important;
+	min-width:200px!important;
 	max-width:99.99%!important;
 	transition: width 0.1s;
 	text-align:center;
