@@ -115,3 +115,10 @@
 		-webkit-appearance: none;
 		margin: 0;
 	}
+
+input {
+	min-width:50px!important;
+	max-width:99.99%!important;
+	transition: width 0.1s;
+	text-align:center;
+}
