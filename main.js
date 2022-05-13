@@ -46,6 +46,10 @@ function genSelected(val) {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/ValeriiKlimenko/genKYandOnePion/blob/master/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='genKYandOnePion options';
 
+	} else if (generator == "MCEGENpiN_radcorr") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/Maksaska/MCEGENpiN_radcorr#readme';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='MCEGENpiN_radcorr options';
+
 	} else if (generator == "inclusive-dis-rad") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/JeffersonLab/inclusive-dis-rad/blob/master/README.md';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='disrad options';
