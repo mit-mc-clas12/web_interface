@@ -69,8 +69,12 @@ function genSelected(val) {
 	} else if (generator == "clas12-elSpectro") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/dglazier/clas12-elSpectro/wiki/Running-on-OSG';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='clas12-elSpectro options';
-
-	}  else if (generator == "gemc") {
+		
+	} else if (generator == "deep-pipi-gen") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/jeffersonlab/deep-pipi-gen/';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='deep-pipi-gen options';
+		
+	} else if (generator == "gemc") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://gemc.jlab.org/gemc/html/documentation/generator/internal.html';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='gemc generator options';
 	}
