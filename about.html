@@ -36,7 +36,7 @@
 			<li style="margin-left: 60px"> <b>1</b>: Your submission is logged in our mysql db </li>
 			<li style="margin-left: 60px"> <b>2</b>: Within a few minutes your jobs will be submitted to OSG and visible in this portal.</li>
 			<li style="margin-left: 60px"> <b>3</b>: When the jobs are completed, the job will be delisted from the portal. </li>
-			<li style="margin-left: 60px"> <b>4</b>: The output directory is synced every hour on /volatile/clas12/osg2 (see "Output" below) once the job is completed</li>
+			<li style="margin-left: 60px"> <b>4</b>: The output directory is synced every hour on /volatile/clas12/osg2
 
 			</p>
 
@@ -49,35 +49,28 @@
 			</p>
 			<br/>
 
-			<h1>Event Vertex</h1>
-			<p style="margin-left: 40px">
-			While the gcards takes care of the target volumes positions (for example, in rga_spring2019 it is moved upstream by 3cm),
-			it is up to the generators and the LUND files to place the event in the correct location. <br/>
-			The surveyed target positions are listed below:<br/>
-			<li style="margin-left: 60px"> <b>rga_spring2018</b>: -1.94cm  </li>
-			<li style="margin-left: 60px"> <b>rga_fall2018</b>:  -3.0cm</li>
-			<li style="margin-left: 60px"> <b>rgk_fall2018_FTOn</b>:  -3.0cm</li>
-			<li style="margin-left: 60px"> <b>rgk_fall2018_FTOff</b>:  -3.0cm</li>
-			<li style="margin-left: 60px"> <b>rgb_spring2019</b>: -3.0cm  </li>
-			<li style="margin-left: 60px"> <b>rga_spring2019</b>: -3.0cm </li>
-			<li style="margin-left: 60px"> <b>rgb_fall2019</b>:   -3.0cm </li>
-			</p>
-			<br/>
 
 
-			<h1> Experiment Configurations </h1>
+
+			<h1> Experiment Configurations and target position</h1>
 			<p style="margin-left: 40px">
 			The available CLAS12 configurations correspond to the approved experiments. As of 8/24/2020:<br/>
-			<li style="margin-left: 60px"> <b>rga_spring2018</b>: RGA spring 2018 configuration  </li>
-			<li style="margin-left: 60px"> <b>rga_fall2018</b>:   RGA fall 2018 configuration</li>
-			<li style="margin-left: 60px"> <b>rgk_fall2018_FTOn</b>:   RGA fall 2018 configuration with FT On</li>
-			<li style="margin-left: 60px"> <b>rgk_fall2018_FTOff</b>:  RGK fall 2018 configuration with FT Off</li>
-			<li style="margin-left: 60px"> <b>rgb_spring2019</b>: RGB spring 2019  </li>
-			<li style="margin-left: 60px"> <b>rga_spring2019</b>: RGA spring 2019 </li>
-			<li style="margin-left: 60px"> <b>rgb_fall2019</b>:   RGB fall 2019  </li>
+			<li style="margin-left: 60px"> <b>rga_spring2018</b>:      RGA spring 2018 configuration, target at -1.94cm          </li>
+			<li style="margin-left: 60px"> <b>rga_fall2018</b>:        RGA fall 2018 configuration, target at -3.0cm             </li>
+			<li style="margin-left: 60px"> <b>rgk_fall2018_FTOn</b>:   RGA fall 2018 configuration with FT On, target at -3.0cm  </li>
+			<li style="margin-left: 60px"> <b>rgk_fall2018_FTOff</b>:  RGK fall 2018 configuration with FT Off, target at -3.0cm </li>
+			<li style="margin-left: 60px"> <b>rgb_spring2019</b>:      RGB spring 2019, target at -3.0cm                         </li>
+			<li style="margin-left: 60px"> <b>rga_spring2019</b>:      RGA spring 2019, target at -3.0cm                         </li>
+			<li style="margin-left: 60px"> <b>rgb_fall2019</b>:        RGB fall 2019, target at -3.0cm                           </li>
 			</p>
 			<br/>
+			While the gcards takes care of the target volumes positions (for example, in rga_spring2019 it is moved upstream by 3cm),
+			it is up to the generators and the LUND files to place the event in the correct location. <br/>
 
+			<br/>
+
+			
+			
 			<h1> Background Merging </h1>
 			<p style="margin-left: 40px">
 			The user choice of experiment and magnetic fieds enable the possibility of backgrond merging
@@ -116,7 +109,7 @@
 			</p>
 
 			<ul>
-				<li style="margin-left: 50px">  <a href="https://github.com/JeffersonLab/clas12-mcgen">clas12-mcgen</a>:  2.17 </li>
+				<li style="margin-left: 50px">  <a href="https://github.com/JeffersonLab/clas12-mcgen">clas12-mcgen</a>:  2.18 </li>
 				<li style="margin-left: 50px">  <a href="https://github.com/gemc/clas12Tags">Gemc</a> and
 					<a href="https://github.com/gemc/clas12Tags">clas12 geometry</a>:  4.4.2 </li>
 				<li style="margin-left: 50px"> <a href="https://clasweb.jlab.org/wiki/index.php/CLAS12_Software_Center#tab=Reconstruction">Coatjava</a>:
@@ -130,6 +123,8 @@
 
 			For informations about upcoming or older releases of the docker/singularity images visit <a href="https://hub.docker.com/repository/docker/jeffersonlab/clas12software">jeffersonlab/clas12software</a> hub
 
+			<br/>
+			<br/>
 			<h1> Container for Interactive Use </h1>
 
 			<p style="margin-left: 40px">
@@ -165,10 +160,15 @@
 							<a href="https://clas12.discourse.group/c/simulation/9">Discourse</a><br/>
 							<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html">Docker  Distribution</a><br/>
 							<a href="https://github.com/JeffersonLab/clas12-mcgen">clas12-mcgen Repo</a><br/>
+							<a href="https://clasweb.jlab.org/wiki/index.php/CLAS12_Software_Center#tab=Simulation">CLAS12 Software Center </a><br/>
+
 						</th>
 					</tr>
 
 				</table>
+				<br/>
+				<br/>
+
 			</center>
 
 
