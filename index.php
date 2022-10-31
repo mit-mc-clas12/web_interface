@@ -74,6 +74,7 @@
 						<p style="text-align: left; font-weight: normal;">
 						- LUND files (.txt) from a web location <br/>
 						- One job per LUND file <br/>
+						- File define number of events for each job (max 10,000) <br/>
 						</p>
 					</div>
 				</div>
