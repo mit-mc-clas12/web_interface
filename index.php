@@ -58,7 +58,7 @@
 						<h3>Generator<br/></h3><br/>
 						<i class="w3-margin-bottom w3-text-theme" style="font-size:120px; "></i>
 						<p style="text-align: left; font-weight: normal;">
-						- In-Container or gemc internal generator <br/>
+						- clas12-mcgen or gemc internal generator <br/>
 						- Arbitrary number of jobs <br/>
 						- Arbitrary number of events for each job (max 10,000) <br/>
 						</p>
