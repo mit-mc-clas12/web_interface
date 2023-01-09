@@ -74,6 +74,10 @@ function genSelected(val) {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/jeffersonlab/deep-pipi-gen/';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='deep-pipi-gen options';
 		
+	} else if (generator == "genepi") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://github.com/N-Plx/genepi';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='genepi options';
+		
 	} else if (generator == "gemc") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href='https://gemc.jlab.org/gemc/html/documentation/generator/internal.html';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML='gemc generator options';
