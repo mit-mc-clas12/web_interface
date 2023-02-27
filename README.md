@@ -19,10 +19,17 @@ Any php script will use php extension.
 Without a server, php scripts cannot be converted to html at client side.
 So php can't run at public_html environment.
 
-From [MIT KB](http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152584629)
->All courses, ASA activities, living groups, departments, labs and centers at MIT are eligible for an AFS locker. (Your group may even have a locker already – contact IS&T User Accounts if you need assistance identifying your locker.) You can host static content (i.e. .html files, images, PDF files, zip files, etc) on web.mit.edu, but cannot host dynamic content (e.g. wikis, blogs, PHP scripts, CGI scripts). You can restrict access to specific directories using MIT Certificates, but cannot restrict access with a username and password. 
-
 So if we want to test php scripts, assuming we have proper permission at server environment, we can use local server such as XAMPP.
+
+### PHP on mac:
+
+After brew installation with brew install php
+
+ php -S localhost:9000
+ 
+ (in the same dir as index.pho)
+ 
+ then open browser at http://localhost:9000
 
 ## How to play with XAMPP
 
