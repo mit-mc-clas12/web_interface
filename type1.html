@@ -33,13 +33,13 @@
 		<table id="submission_table" style="text-align: center;width: 50%;" align="center">
 			<tr>
 				<td>
-					<div class="tooltip">Configuration <span
-							class="tooltiptext">Choose an experiment configuration</span>
+					<div class="tooltip">Configuration
+						<span class="tooltiptext">Choose an experiment configuration</span>
 					</div>
 				</td>
 				<td>
 					<select name="configuration" id="configuration" required
-							onchange="update_gemc_coatjava_versions(); fieldSelected(); bkmergingSelected(); ">
+							onchange="fieldSelected(); bkmergingSelected(); ">
 					</select>
 				</td>
 			</tr>
@@ -48,9 +48,8 @@
 					<div class="tooltip">Software Versions <span class="tooltiptext">Choose a gemc/coatjava versions pair for the selected experiment</span>
 					</div>
 				</td>
-				<td>
-					<select name="softwarev" id="softwarev" required">
-					</select>
+				<td >
+					<select  name="softwarev" id="softwarev" required ></select>
 				</td>
 			</tr>
 			<tr>
@@ -59,7 +58,7 @@
 					</div>
 				</td>
 				<td>
-					<select name="fields" id="fields" required onchange="bkmergingSelected()">
+					<select name="fields" id="fields" required onchange="bkmergingSelected()" >
 					</select>
 				</td>
 			</tr>

@@ -148,7 +148,7 @@ function update_gemc_coatjava_versions() {
             var vals = myObj["software_versions"];
 
             for (val in vals) {
-                text += "<option value=\"" + vals[val] + "\">" + vals[val] + "</option>";
+                text += "<option  value=\"" + vals[val] + "\">" + vals[val] + "</option>";
             }
 
             document.getElementById("softwarev").innerHTML = text;
@@ -317,7 +317,9 @@ function resizable(el, factor) {
     }
 
     var e = 'keyup,keypress,focus,blur,change'.split(',');
-    for (var i in e) el.addEventListener(e[i], resize, false);
+
+    //for (var i in e) el.addEventListener(e[i], resize, false);
+
     resize();
 }
 
