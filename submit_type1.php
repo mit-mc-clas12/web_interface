@@ -96,6 +96,10 @@
 					<td><?php echo($configuration); ?></td>
 				</tr>
 				<tr>
+					<td>Software Versions</td>
+					<td><?php echo($softwarev); ?></td>
+				</tr>
+				<tr>
 					<td>Magnetic Fields</td>
 					<td><?php echo($fields); ?></td>
 				</tr>

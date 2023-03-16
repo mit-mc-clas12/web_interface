@@ -30,14 +30,15 @@
 		<div class="w3-center">
 			
 			<?php
-				$project     = 'CLAS12';
-				$configuration      = $_POST['configuration'];
-				$lundFiles   = $_POST['lundFiles'];
-				$username    = $_SERVER['PHP_AUTH_USER'];
-				$client_ip   = $_SERVER['REMOTE_ADDR'];
-				$fields		 = $_POST['fields'];
-				$bkmerging = $_POST['bkmerging'];
-				$uri		 = $_SERVER['REQUEST_URI'];
+				$project       = 'CLAS12';
+				$configuration = $_POST['configuration'];
+				$softwarev     = $_POST['softwarev'];
+				$lundFiles     = $_POST['lundFiles'];
+				$username      = $_SERVER['PHP_AUTH_USER'];
+				$client_ip     = $_SERVER['REMOTE_ADDR'];
+				$fields		   = $_POST['fields'];
+				$bkmerging     = $_POST['bkmerging'];
+				$uri		   = $_SERVER['REQUEST_URI'];
 				
 				function yesorno($cond){
 					$val = "no";
@@ -49,6 +50,7 @@
 					$fp = fopen('scard_type2.txt', 'w');
 					fwrite($fp, 'project:  '.$project.PHP_EOL);
 					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
+					fwrite($fp, 'softwarev: '.$softwarev.PHP_EOL);
 					fwrite($fp, 'generator: '.$lundFiles.PHP_EOL);
 					fwrite($fp, 'client_ip: '.$client_ip.PHP_EOL);
 					fwrite($fp, 'dstOUT: yes'.PHP_EOL);
@@ -84,6 +86,10 @@
 				<tr>
 					<td>Configuration</td>
 					<td><?php echo($configuration); ?></td>
+				</tr>
+				<tr>
+					<td>Software Versions</td>
+					<td><?php echo($softwarev); ?></td>
 				</tr>
 				<tr>
 					<td>Lund File Location</td>
