@@ -30,18 +30,19 @@
 		<div class="w3-center">
 
 			<?php
-				$project     = 'CLAS12';
-				$configuration      = $_POST['configuration'];
-				$generator   = $_POST['generator'];
-				$genOptions  = $_POST['genOptions'];
-				$nevents     = $_POST['nevents'];
-				$jobs        = $_POST['jobs'];
-				$totalevents = $_POST['totalevents'];
-				$username    = $_SERVER['PHP_AUTH_USER'];
-				$client_ip   = $_SERVER['REMOTE_ADDR'];
-				$fields		 = $_POST['fields'];
-				$bkmerging   = $_POST['bkmerging'];
-				$uri		 = $_SERVER['REQUEST_URI'];
+				$project       = 'CLAS12';
+				$configuration = $_POST['configuration'];
+				$softwarev     = $_POST['softwarev'];
+				$generator     = $_POST['generator'];
+				$genOptions    = $_POST['genOptions'];
+				$nevents       = $_POST['nevents'];
+				$jobs          = $_POST['jobs'];
+				$totalevents   = $_POST['totalevents'];
+				$username      = $_SERVER['PHP_AUTH_USER'];
+				$client_ip     = $_SERVER['REMOTE_ADDR'];
+				$fields		   = $_POST['fields'];
+				$bkmerging     = $_POST['bkmerging'];
+				$uri		   = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
 					$val = "no";
@@ -53,6 +54,7 @@
 					$fp = fopen('scard_type1.txt', 'w');
 					fwrite($fp, 'project: '.$project.PHP_EOL);
 					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
+					fwrite($fp, 'softwarev: '.$softwarev.PHP_EOL);
 					fwrite($fp, 'generator: '.$generator.PHP_EOL);
 					fwrite($fp, 'genOptions: '.$genOptions.PHP_EOL);
 					fwrite($fp, 'nevents: '.$nevents.PHP_EOL);
