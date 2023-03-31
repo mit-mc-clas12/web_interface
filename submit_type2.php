@@ -105,7 +105,7 @@
 				</tr>
 						
 			</table>
-			<h4>Output is synced hourly at /lustre/expphy/volatile/clas12/osg2/<?php echo($username); ?>.</h4>
+			<h4>Output is synced hourly at /volatile/clas12/osg2/<?php echo($username); ?>.</h4>
 		</div>
 	</body>
 
