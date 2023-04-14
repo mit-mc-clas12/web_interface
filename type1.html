@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="main.css"/>
 </head>
 
-<body onload="configurationSelected(); fieldSelected(); bkmergingSelected(); update_gemc_coatjava_versions();">
+<body onload="configurationSelected(); fieldSelected(); bkmergingSelected(); update_gemc_coatjava_versions(); vertexSelected();">
 <header class="w3-panel w3-container" id="myHeader">
 	<ul id="nav">
 		<li><a href="index.php"> Home</a></li>
@@ -39,7 +39,7 @@
 				</td>
 				<td>
 					<select name="configuration" id="configuration" required
-							onchange="fieldSelected(); bkmergingSelected(); ">
+							onchange="fieldSelected(); bkmergingSelected(); vertexSelected();">
 					</select>
 				</td>
 			</tr>
@@ -59,6 +59,16 @@
 				</td>
 				<td>
 					<select name="fields" id="fields" required onchange="bkmergingSelected()" >
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tooltip">Vertex <span class="tooltiptext">Choose How to modify the vertex </span>
+					</div>
+				</td>
+				<td>
+					<select name="vertex" id="vertex" required onchange="vertexSelected()" >
 					</select>
 				</td>
 			</tr>

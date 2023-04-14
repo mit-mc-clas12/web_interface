@@ -3,8 +3,17 @@
     "tor+1.00_sol-1.00": [
       "60nA_6535MeV", 
       "35nA_6535MeV"
+    ],
+    "raster": [
+      "0.2*cm, 0.2*cm"
+    ],
+    "beam_spot": [
+      "0.2*cm, 0.2*cm"
+    ],
+    "z_offset": [
+      "-3.0*cm, 2.5*cm"
     ]
-  }, 
+  },
   "rgk_fall2018_FTOn": {
     "tor+1.00_sol-1.00": [
       "45nA_7546MeV", 
