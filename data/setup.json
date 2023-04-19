@@ -10,7 +10,7 @@
     "beam_spot": [
       "0.2*cm, 0.2*cm"
     ],
-    "z_offset": [
+    "z-position": [
       "-3.0*cm, 2.5*cm"
     ]
   },

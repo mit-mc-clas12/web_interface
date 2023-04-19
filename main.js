@@ -138,35 +138,32 @@ function fieldSelected() {
 function vertexSelected() {
     var selected_experiment = document.getElementById("configuration").value;
 
-    var text = "<option selected hidden value=\"\"></option>";
+    var text = "<label htmlFor=\"zposition\">on and lengtha</label>";
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("zposition").innerHTML = text;
 
-            var myObj = JSON.parse(this.responseText);
-            text += "<option selected value=\"no\"> do not modify vertex</option>";
-
-            if (selected_experiment in myObj) {
-
-               // var keys_field = Object.keys(myObj[selected_experiment]);
-
-
-                //var raster = keys_field[key];
-
-                var raster_values = myObj[selected_experiment]["raster"];
-                // print raster_values on screen
-
-                for (raster_value in raster_values) {
-                    text += "<option value=\" default, raster: " + raster_values[raster_value] + "  \"> keep user vertex, add experiment raster, beam spot, target position and length</option>";
-                    text += "<option value=\" reset, raster: " + raster_values[raster_value] + "  \"> reset vertex to zero, add experiment raster, beam spot, target position and length</option>";
-                }
-            }
-            document.getElementById("vertex").innerHTML = text;
-        }
-    };
-    xmlhttp.open("GET", "data/setup.json", true);
-    xmlhttp.send();
+    // xmlhttp.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //
+    //         var myObj = JSON.parse(this.responseText);
+    //         // text = "<label htmlFor=\"z-position\">on and lengtha</label>";
+    //         //
+    //         // if (selected_experiment in myObj) {
+    //         //
+    //         //     var zpos = myObj[selected_experiment]["z-position"];
+    //         //     // print raster_values on screen
+    //         // text = "<label htmlFor=\"z-position\">on and lengtha</label>";
+    //         //
+    //         //     for (zpo in zpos) {
+    //         // text = "<label htmlFor=\"z-position\">on and lengtha</label>";
+    //         //     }
+    //         // }
+    //         document.getElementById("zposition").innerHTML = text;
+    //     }
+    // };
+    // xmlhttp.open("GET", "data/setup.json", true);
+    // xmlhttp.send();
 }
 
 

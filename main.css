@@ -64,6 +64,19 @@
     border-bottom: 1px solid #ccc;
 }
 
+checkbox-container {
+  display: flex;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-left: 40px;
+}
+
+.checkbox-container label {
+  margin-left: -170px;
+    text-align: left;
+}
+
 a {
     color: #000;
     text-decoration: none;
