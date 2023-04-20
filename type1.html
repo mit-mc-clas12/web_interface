@@ -30,7 +30,7 @@
 <div class="w3-center">
 
     <form action="submit_type1.php" method="POST">
-        <table id="submission_table" style="text-align: center; width: 50%;" align="center">
+        <table id="submission_table" style="text-align: center; width: 60%;" align="center">
             <tr>
                 <td>
                     <div class="tooltip">Configuration<span class="tooltiptext">Choose an experiment configuration</span></div>
@@ -54,8 +54,7 @@
                     <div class="tooltip">Magnetic Fields <span class="tooltiptext">Choose one of the fields setup for the selected experiment </span></div>
                 </td>
                 <td>
-                    <select name="fields" id="fields" required onchange="bkmergingSelected()">
-                    </select>
+                    <select name="fields" id="fields" required onchange="bkmergingSelected()"></select>
                 </td>
             </tr>
             <tr>
@@ -63,9 +62,21 @@
                     <div class="tooltip">Vertex <span class="tooltiptext">Choose How to modify the vertex </span></div>
                 </td>
                 <td style="text-align: left;">
-                    <div class="checkbox-container"><input type="checkbox" id="zposition" name="zposition" checked> </input></div>
-                    <div class="checkbox-container"><input type="checkbox" id="beamspot" checked/> <label for="beamspot">Vertex x/y: smear beamspot </label></div>
-                    <div class="checkbox-container"><input type="checkbox" id="raster" checked/> <label for="raster">Vertex x/y: raster </label></div>
+                    <div class="checkbox-container"><input type="checkbox" id="zposition-check" checked onchange="vertexSelected();"/>
+                        <label for="zposition-check">Vertex z: adjust for target position and length </label>
+                        <input type="text"   id="zposition-show"  value="" readonly size="15"><br>
+
+                    </div>
+                    <div class="checkbox-container"><input type="checkbox" id="beamspot-check" checked onchange="vertexSelected();"/>
+                        <label for="beamspot-check">Vertex x/y: smear beamspot </label>
+                        <input type="text" id="beamspot-show"  value="" readonly size="15"><br>
+
+                    </div>
+                    <div class="checkbox-container"><input type="checkbox" id="raster-check" checked onchange="vertexSelected();"/>
+                        <label for="raster-check">Vertex x/y: raster </label>
+                        <input type="text" id="raster-show"  value="" readonly size="15"><br>
+
+                    </div>
                     <div style="text-align: center;"><select name="switch_user_lund" id="switch_user_lund">
                         <option value="0"> Ignore Generator Vertex</option>
                         <option value="1">Relative to Generator Vertex</option>

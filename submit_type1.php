@@ -42,6 +42,10 @@
 				$client_ip     = $_SERVER['REMOTE_ADDR'];
 				$fields		   = $_POST['fields'];
 				$bkmerging     = $_POST['bkmerging'];
+				$zposition     = $_POST['zposition-show'];
+				$raster        = $_POST['raster-show'];
+				$beam          = $_POST['beam-show'];
+				$vertex_choice = $_POST['switch_user_lund'];
 				$uri		   = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
@@ -63,6 +67,10 @@
 					fwrite($fp, 'dstOUT: yes'.PHP_EOL);
 					fwrite($fp, 'fields: '.$fields.PHP_EOL);
 					fwrite($fp, 'bkmerging: '.$bkmerging.PHP_EOL);
+					fwrite($fp, 'zposition: '.$zposition.PHP_EOL);
+					fwrite($fp, 'raster: '.$raster.PHP_EOL);
+					fwrite($fp, 'beam: '.$beam.PHP_EOL);
+					fwrite($fp, 'vertex_choice: '.$vertex_choice.PHP_EOL);
 					if (strpos($uri, 'test/web_interface') !== false) {
 						fwrite($fp, 'submission: devel'.PHP_EOL);
 					} else {

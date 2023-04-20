@@ -137,33 +137,49 @@ function fieldSelected() {
 
 function vertexSelected() {
     var selected_experiment = document.getElementById("configuration").value;
+    var textz = "";
+    var textr = "";
+    var texts = "";
 
-    var text = "<label htmlFor=\"zposition\">on and lengtha</label>";
     var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
 
-    document.getElementById("zposition").innerHTML = text;
+            var myObj = JSON.parse(this.responseText);
 
-    // xmlhttp.onreadystatechange = function () {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //
-    //         var myObj = JSON.parse(this.responseText);
-    //         // text = "<label htmlFor=\"z-position\">on and lengtha</label>";
-    //         //
-    //         // if (selected_experiment in myObj) {
-    //         //
-    //         //     var zpos = myObj[selected_experiment]["z-position"];
-    //         //     // print raster_values on screen
-    //         // text = "<label htmlFor=\"z-position\">on and lengtha</label>";
-    //         //
-    //         //     for (zpo in zpos) {
-    //         // text = "<label htmlFor=\"z-position\">on and lengtha</label>";
-    //         //     }
-    //         // }
-    //         document.getElementById("zposition").innerHTML = text;
-    //     }
-    // };
-    // xmlhttp.open("GET", "data/setup.json", true);
-    // xmlhttp.send();
+            if (selected_experiment in myObj) {
+
+
+                var zpos = myObj[selected_experiment]["z-position"];
+                var rast = myObj[selected_experiment]["raster"];
+                var bspot = myObj[selected_experiment]["beam_spot"];
+
+                if (document.getElementById("zposition-check").checked) {
+                    textz = zpos[0];
+                } else {
+                    textz = "";
+                }
+                if (document.getElementById("raster-check").checked) {
+                    textr = rast[0];
+                } else {
+                    textr = "";
+                }
+                if (document.getElementById("beamspot-check").checked) {
+                    texts = bspot[0];
+                } else {
+                    texts = "";
+                }
+
+            } else {
+                text = "";
+            }
+            document.getElementById("zposition-show").value = textz;
+            document.getElementById("raster-show").value = textr;
+            document.getElementById("beamspot-show").value = texts;
+        }
+    };
+    xmlhttp.open("GET", "data/setup.json", true);
+    xmlhttp.send();
 }
 
 
