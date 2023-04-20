@@ -119,6 +119,22 @@
 					<td>Generator Options</td>
 					<td><?php echo($genOptions); ?></td>
 				</tr>
+			    <tr>
+					<td> Target Position and Length </td>
+					<td><?php echo($zposition); ?></td>
+                </tr>
+                <tr>
+                    <td> Raster </td>
+                    <td><?php echo($raster); ?></td>
+                </tr>
+                <tr>
+                    <td> Beamspot </td>
+                    <td><?php echo($beam); ?></td>
+                </tr>
+                <tr>
+                    <td> User Choice: 0=ignore generator vertex -- 1=relative to generator vertex  </td>
+                    <td><?php echo($vertex_choice); ?></td>
+                </tr>
 				<tr>
 					<td>Number of Events / Job</td>
 					<td><?php echo($nevents); ?></td>
