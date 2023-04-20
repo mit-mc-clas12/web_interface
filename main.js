@@ -365,7 +365,7 @@ function resizable(el, factor) {
 
     var e = 'keyup,keypress,focus,blur,change'.split(',');
 
-    //for (var i in e) el.addEventListener(e[i], resize, false);
+    for (var i in e) el.addEventListener(e[i], resize, false);
 
     resize();
 }
