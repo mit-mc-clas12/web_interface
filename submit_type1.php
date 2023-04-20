@@ -124,15 +124,15 @@
 					<td><?php echo($zposition); ?></td>
                 </tr>
                 <tr>
+                    <td> Beamspot </td>
+                    <td><?php echo($beam); ?></td>
+                </tr>                <tr>
                     <td> Raster </td>
                     <td><?php echo($raster); ?></td>
                 </tr>
+
                 <tr>
-                    <td> Beamspot </td>
-                    <td><?php echo($beam); ?></td>
-                </tr>
-                <tr>
-                    <td> User Choice: 0=ignore generator vertex -- 1=relative to generator vertex  </td>
+                    <td> User Choice: <br/> 0=ignore generator vertex <br/> 1=relative to generator vertex  </td>
                     <td><?php echo($vertex_choice); ?></td>
                 </tr>
 				<tr>
