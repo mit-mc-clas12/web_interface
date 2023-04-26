@@ -44,7 +44,7 @@
 				$bkmerging     = $_POST['bkmerging'];
 				$zposition     = $_POST['zposition-show'];
 				$raster        = $_POST['raster-show'];
-				$beam          = $_POST['beam-show'];
+				$beam          = $_POST['beamspot-show'];
 				$vertex_choice = $_POST['vuser_selection'];
 				$uri		   = $_SERVER['REQUEST_URI'];
 
