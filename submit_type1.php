@@ -45,7 +45,7 @@
 				$zposition     = $_POST['zposition-show'];
 				$raster        = $_POST['raster-show'];
 				$beam          = $_POST['beam-show'];
-				$vertex_choice = $_POST['switch_user_lund'];
+				$vertex_choice = $_POST['vuser_selection'];
 				$uri		   = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){

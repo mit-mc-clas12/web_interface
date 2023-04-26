@@ -63,24 +63,31 @@
                 </td>
                 <td style="text-align: left;">
                     <div class="checkbox-container"><input type="checkbox" id="zposition-check" checked onchange="vertexSelected();"/>
-                        <label for="zposition-check">Vertex z: adjust for target position and length </label>
-                        <input type="text"   id="zposition-show" name="zposition-show" value="" readonly size="15"><br>
+                        <label for="zposition-check">z: adjust for target position and length </label>
+                        <input type="text" id="zposition-show" name="zposition-show" value="" readonly size="20"><br>
 
                     </div>
                     <div class="checkbox-container"><input type="checkbox" id="beamspot-check" checked onchange="vertexSelected();"/>
-                        <label for="beamspot-check">Vertex x/y: smear beamspot </label>
-                        <input type="text" id="beamspot-show" name="beamspot-show" value="" readonly size="15"><br>
+                        <label for="beamspot-check">x/y: smear beamspot </label>
+                        <input type="text" id="beamspot-show" name="beamspot-show" value="" readonly size="35"><br>
 
                     </div>
                     <div class="checkbox-container"><input type="checkbox" id="raster-check" checked onchange="vertexSelected();"/>
-                        <label for="raster-check">Vertex x/y: raster </label>
-                        <input type="text" id="raster-show"  name="raster-show" value="" readonly size="15"><br>
+                        <label for="raster-check">x/y: raster </label>
+                        <input type="text" id="raster-show" name="raster-show" value="" readonly size="20"><br>
 
                     </div>
-                    <div style="text-align: center;"><select name="switch_user_lund" id="switch_user_lund">
-                        <option value="0"> Ignore Generator Vertex</option>
-                        <option value="1">Relative to Generator Vertex</option>
-                    </select></div>
+                    <div style="text-align: center;">
+                        <fieldset id="vertex_user_selection" name="vertex_user_selection" style="border-width: 0">
+
+                            <input type="radio" id="ignore"   name="vuser_selection" value="0" checked>
+                            <label for="ignore"> Ignore Generator Vertex</label>
+
+                            <input type="radio" id="relative" name="vuser_selection" value="1">
+                            <label for="relative"> Relative to Generator Vertex</label>
+
+                        </fieldset>
+                    </div>
                 </td>
             </tr>
             <tr>

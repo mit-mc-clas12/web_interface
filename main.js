@@ -176,6 +176,15 @@ function vertexSelected() {
             document.getElementById("zposition-show").value = textz;
             document.getElementById("raster-show").value = textr;
             document.getElementById("beamspot-show").value = texts;
+
+
+            // if textz textr texts are empty, hide the vertex radio buttons
+            if (textz == "" && textr == "" && texts == "") {
+                document.getElementById("vertex_user_selection").style.display = "none";
+            } else {
+                document.getElementById("vertex_user_selection").style.display = "block";
+            }
+
         }
     };
     xmlhttp.open("GET", "data/setup.json", true);
