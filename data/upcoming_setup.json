@@ -1,0 +1,17 @@
+{
+  "rgf": {
+    "tor+1.00_sol-1.00": [
+      "60nA_6535MeV", 
+      "35nA_6535MeV"
+    ],
+    "raster": [
+      "0.0*cm, 0.0*cm"
+    ],
+    "beam_spot": [
+      "0.7*mm, -1.5*mm, 0.5*mm, 0.19*mm, 0*deg"
+    ],
+    "z-position": [
+      "-3.0*cm, 2.5*cm"
+    ]
+  }
+}

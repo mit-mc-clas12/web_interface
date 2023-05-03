@@ -46,7 +46,9 @@
                     <div class="tooltip">Software Versions <span class="tooltiptext">Choose a gemc/coatjava versions pair for the selected experiment</span></div>
                 </td>
                 <td>
-                    <select name="softwarev" id="softwarev" required></select>
+                    <select name="softwarev" id="softwarev" required
+                            onchange="fieldSelected(); bkmergingSelected(); vertexSelected();">
+                    </select>
                 </td>
             </tr>
             <tr>

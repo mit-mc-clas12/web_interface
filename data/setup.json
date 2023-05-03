@@ -8,7 +8,7 @@
       "0.0*cm, 0.0*cm"
     ],
     "beam_spot": [
-      "0.2*cm, 0.2*cm, 0.05*cm, 0.05*cm, 0*deg"
+      "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
     ],
     "z-position": [
       "-3.0*cm, 2.5*cm"
@@ -23,7 +23,7 @@
       "0.0*cm, 0.0*cm"
     ],
     "beam_spot": [
-      "0.2*cm, 0.2*cm, 0.05*cm, 0.05*cm, 0*deg"
+      "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
     ],
     "z-position": [
       "-3.0*cm, 2.5*cm"
@@ -39,7 +39,7 @@
       "0.2*cm, 0.2*cm"
     ],
     "beam_spot": [
-      "0.2*cm, 0.2*cm, 0.05*cm, 0.05*cm, 0*deg"
+      "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
     ],
     "z-position": [
       "-3.0*cm, 2.5*cm"
@@ -53,10 +53,10 @@
       "0.2*cm, 0.2*cm"
     ],
     "beam_spot": [
-      "0.2*cm, 0.2*cm, 0.05*cm, 0.05*cm, 0*deg"
+      "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
     ],
     "z-position": [
-      "-6.0*cm, 2.5*cm"
+      "-3.0*cm, 2.5*cm"
     ]
   },
   "rga_spring2019": {
@@ -67,7 +67,7 @@
       "0.2*cm, 0.2*cm"
     ],
     "beam_spot": [
-      "0.2*cm, 0.2*cm, 0.05*cm, 0.05*cm, 0*deg"
+      "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
     ],
     "z-position": [
       "-3.0*cm, 2.5*cm"
@@ -82,7 +82,7 @@
       "0.0*cm, 0.0*cm"
     ],
     "beam_spot": [
-      "0.2*cm, 0.2*cm, 0.05*cm, 0.05*cm, 0*deg"
+      "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
     ],
     "z-position": [
       "-1.94*cm, 2.5*cm"
@@ -105,7 +105,7 @@
       "0.0*cm, 0.0*cm"
     ],
     "beam_spot": [
-      "0.2*cm, 0.2*cm, 0.05*cm, 0.05*cm, 0*deg"
+      "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
     ],
     "z-position": [
       "-3.0*cm, 2.5*cm"

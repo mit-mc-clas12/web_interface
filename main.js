@@ -136,10 +136,15 @@ function fieldSelected() {
 }
 
 function vertexSelected() {
+
     var selected_experiment = document.getElementById("configuration").value;
     var textz = "";
     var textr = "";
     var texts = "";
+
+    var selected_softwareversion = document.getElementById("softwarev").value;
+    // exit if selected_softwareversion is "gemc/4.4.2 coatjava/6.5.9 (pass1 rgb)"
+
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -148,7 +153,6 @@ function vertexSelected() {
             var myObj = JSON.parse(this.responseText);
 
             if (selected_experiment in myObj) {
-
 
                 var zpos = myObj[selected_experiment]["z-position"];
                 var rast = myObj[selected_experiment]["raster"];
@@ -184,11 +188,28 @@ function vertexSelected() {
             } else {
                 document.getElementById("vertex_user_selection").style.display = "block";
             }
+            if (selected_softwareversion == "gemc/4.4.2 coatjava/6.5.9 (pass1 rgb)" || selected_softwareversion == "gemc/4.4.2 coatjava/6.5.6.1 (pass1 rga and rgk)") {
+                document.getElementById("zposition-check").style.display = "none";
+                document.getElementById("raster-check").style.display = "none";
+                document.getElementById("beamspot-check").style.display = "none";
+                document.getElementById("vertex_user_selection").style.display = "none";
+                document.getElementById("zposition-show").value = "na";
+                document.getElementById("raster-show").value = "na";
+                document.getElementById("beamspot-show").value = "na";
 
+            } else {
+                document.getElementById("zposition-check").style.display = "inline";
+                document.getElementById("raster-check").style.display = "inline";
+                document.getElementById("beamspot-check").style.display = "inline";
+                document.getElementById("vertex_user_selection").style.display = "inline";
+
+            }
         }
     };
     xmlhttp.open("GET", "data/setup.json", true);
     xmlhttp.send();
+
+
 }
 
 
