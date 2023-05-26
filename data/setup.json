@@ -36,7 +36,7 @@
       "50nA_10599MeV"
     ],
     "raster": [
-      "0.2*cm, 0.2*cm"
+      "0.0*cm, 0.0*cm"
     ],
     "beam_spot": [
       "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
@@ -50,7 +50,7 @@
       "40nA_10410MeV"
     ],
     "raster": [
-      "0.2*cm, 0.2*cm"
+      "0.0*cm, 0.0*cm"
     ],
     "beam_spot": [
       "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
@@ -64,7 +64,7 @@
       "-3.0*cm, 2.5*cm"
     ],
     "raster": [
-      "0.2*cm, 0.2*cm"
+      "0.0*cm, 0.0*cm"
     ],
     "beam_spot": [
       "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
