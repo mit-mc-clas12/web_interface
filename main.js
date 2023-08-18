@@ -193,9 +193,9 @@ function vertexSelected() {
                 document.getElementById("raster-check").style.display = "none";
                 document.getElementById("beamspot-check").style.display = "none";
                 document.getElementById("vertex_user_selection").style.display = "none";
-                document.getElementById("zposition-show").value = "na";
-                document.getElementById("raster-show").value = "na";
-                document.getElementById("beamspot-show").value = "na";
+                document.getElementById("zposition-show").value = "n/a";
+                document.getElementById("raster-show").value = "n/a";
+                document.getElementById("beamspot-show").value = "n/a";
 
             } else {
                 document.getElementById("zposition-check").style.display = "inline";
