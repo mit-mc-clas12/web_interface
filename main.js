@@ -188,7 +188,7 @@ function vertexSelected() {
             } else {
                 document.getElementById("vertex_user_selection").style.display = "block";
             }
-            if (selected_softwareversion == "gemc/4.4.2 coatjava/6.5.9 (pass1 rgb)" || selected_softwareversion == "gemc/4.4.2 coatjava/6.5.6.1 (pass1 rga and rgk)") {
+            if (selected_softwareversion == "gemc/4.4.2 coatjava/6.5.9" || selected_softwareversion == "gemc/4.4.2 coatjava/6.5.6.1") {
                 document.getElementById("zposition-check").style.display = "none";
                 document.getElementById("raster-check").style.display = "none";
                 document.getElementById("beamspot-check").style.display = "none";
