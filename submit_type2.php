@@ -92,12 +92,12 @@
 					<td><?php echo($softwarev); ?></td>
 				</tr>
 				<tr>
-					<td>Lund File Location</td>
-					<td> <?php echo($lundFiles); ?> </td>
+					<td>Magnetic Fields</td>
+					<td><?php echo($fields); ?></td>
 				</tr>
 				<tr>
-					<td> Fields: </td>
-					<td><?php echo($fields); ?> M</td>
+					<td>Lund File Location</td>
+					<td> <?php echo($lundFiles); ?> </td>
 				</tr>
 				<tr>
 					<td> Background Merging </td>
