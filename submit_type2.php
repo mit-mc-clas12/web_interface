@@ -99,6 +99,21 @@
 					<td>Lund File Location</td>
 					<td> <?php echo($lundFiles); ?> </td>
 				</tr>
+					<td> Target Position and Length </td>
+					<td><?php echo($zposition); ?></td>
+                </tr>
+                <tr>
+                    <td> Beamspot </td>
+                    <td><?php echo($beam); ?></td>
+                </tr>                <tr>
+                    <td> Raster </td>
+                    <td><?php echo($raster); ?></td>
+                </tr>
+
+                <tr>
+                    <td> User Choice: <br/> 0=ignore generator vertex <br/> 1=relative to generator vertex  </td>
+                    <td><?php echo($vertex_choice); ?></td>
+                </tr>
 				<tr>
 					<td> Background Merging </td>
 					<td> <?php echo($bkmerging); ?> M</td>
