@@ -38,6 +38,10 @@
 				$client_ip     = $_SERVER['REMOTE_ADDR'];
 				$fields		   = $_POST['fields'];
 				$bkmerging     = $_POST['bkmerging'];
+    			$zposition     = $_POST['zposition-show'];
+				$raster        = $_POST['raster-show'];
+				$beam          = $_POST['beamspot-show'];
+				$vertex_choice = $_POST['vuser_selection'];
 				$uri		   = $_SERVER['REQUEST_URI'];
 				
 				function yesorno($cond){
