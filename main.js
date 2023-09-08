@@ -188,6 +188,7 @@ function vertexSelected() {
             } else {
                 document.getElementById("vertex_user_selection").style.display = "block";
             }
+
             if (selected_softwareversion == "gemc/4.4.2 coatjava/6.5.9" || selected_softwareversion == "gemc/4.4.2 coatjava/6.5.6.1") {
                 document.getElementById("zposition-check").style.display = "none";
                 document.getElementById("raster-check").style.display = "none";
@@ -202,7 +203,15 @@ function vertexSelected() {
                 document.getElementById("raster-check").style.display = "inline";
                 document.getElementById("beamspot-check").style.display = "inline";
                 document.getElementById("vertex_user_selection").style.display = "inline";
-
+            }
+            if (textz == "") {
+                document.getElementById("zposition-show").value = "n/a";
+            }
+            if (textr == "") {
+                document.getElementById("raster-show").value = "n/a";
+            }
+            if (texts == "") {
+                document.getElementById("beamspot-show").value = "n/a";
             }
         }
     };
