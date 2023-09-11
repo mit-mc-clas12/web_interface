@@ -244,6 +244,28 @@ function update_gemc_coatjava_versions() {
     xmlhttp.send();
 }
 
+function update_mcgen_versions() {
+
+    var text = "<option selected hidden value=\"\"></option>";
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            var myObj = JSON.parse(this.responseText);
+            var vals = myObj["mcgen_versions"];
+
+            for (val in vals) {
+                text += "<option  value=\"" + vals[val] + "\">" + vals[val] + "</option>";
+            }
+
+            document.getElementById("mcgenv").innerHTML = text;
+        }
+    };
+    xmlhttp.open("GET", "data/software_versions.json", true);
+    xmlhttp.send();
+}
+
 function bkmergingSelected() {
     var experiments = document.getElementById("configuration").value;
     var fields = document.getElementById("fields").value;
@@ -399,12 +421,21 @@ function resizable(el, factor) {
     var int = Number(factor) || 7.7;
 
     function resize() {
-        el.style.width = ((el.value.length + 1) * int) + 'px'
+        if (el) {
+            el.style.width = ((el.value.length + 1) * int) + 'px'
+        }
     }
 
     var e = 'keyup,keypress,focus,blur,change'.split(',');
 
-    for (var i in e) el.addEventListener(e[i], resize, false);
+
+    for (var i in e) {
+        if (el) {
+            el.addEventListener(e[i], resize, false);
+        }
+
+    }
+
 
     resize();
 }

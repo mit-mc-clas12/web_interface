@@ -33,6 +33,7 @@
 				$project       = 'CLAS12';
 				$configuration = $_POST['configuration'];
 				$softwarev     = $_POST['softwarev'];
+				$mcgenv        = $_POST['mcgenv'];
 				$generator     = $_POST['generator'];
 				$genOptions    = $_POST['genOptions'];
 				$nevents       = $_POST['nevents'];
@@ -54,11 +55,12 @@
 					return $val;
 				}
 
-				if (!empty($project) && !empty($configuration)  && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($bkmerging)) {
+				if (!empty($project) && !empty($configuration)  && !empty($softwarev)   && !empty($mcgenv)   && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($bkmerging) ) {
 					$fp = fopen('scard_type1.txt', 'w');
 					fwrite($fp, 'project: '.$project.PHP_EOL);
 					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
 					fwrite($fp, 'softwarev: '.$softwarev.PHP_EOL);
+					fwrite($fp, 'mcgenv: '.$mcgenv.PHP_EOL);
 					fwrite($fp, 'generator: '.$generator.PHP_EOL);
 					fwrite($fp, 'genOptions: '.$genOptions.PHP_EOL);
 					fwrite($fp, 'nevents: '.$nevents.PHP_EOL);
@@ -106,6 +108,10 @@
 				<tr>
 					<td>Software Versions</td>
 					<td><?php echo($softwarev); ?></td>
+				</tr>
+				<tr>
+					<td>MC Gen Versions</td>
+					<td><?php echo($mcgenv); ?></td>
 				</tr>
 				<tr>
 					<td>Magnetic Fields</td>

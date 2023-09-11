@@ -50,7 +50,7 @@
 					return $val;
 				}
 
-				if (!empty($project) && !empty($configuration)  && !empty($lundFiles) && !empty($fields)&& !empty($bkmerging)) {
+				if (!empty($project) && !empty($configuration)  && !empty($softwarev)  && !empty($lundFiles) && !empty($fields)&& !empty($bkmerging)) {
 					$fp = fopen('scard_type2.txt', 'w');
 					fwrite($fp, 'project:  '.$project.PHP_EOL);
 					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
