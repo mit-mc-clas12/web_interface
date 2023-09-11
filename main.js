@@ -246,7 +246,8 @@ function update_gemc_coatjava_versions() {
 
 function update_mcgen_versions() {
 
-    var text = "<option selected hidden value=\"\"></option>";
+    var default_val = "2.31";
+    var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
@@ -256,6 +257,7 @@ function update_mcgen_versions() {
             var vals = myObj["mcgen_versions"];
 
             for (val in vals) {
+                if (vals[val] == default_val) continue;
                 text += "<option  value=\"" + vals[val] + "\">" + vals[val] + "</option>";
             }
 
