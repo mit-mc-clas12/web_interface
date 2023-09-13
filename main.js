@@ -224,7 +224,8 @@ function vertexSelected() {
 
 function update_gemc_coatjava_versions() {
 
-    var text = "<option selected hidden value=\"\"></option>";
+    var default_val = "gemc/5.4 coatjava/10.0.2";
+    var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
@@ -234,6 +235,7 @@ function update_gemc_coatjava_versions() {
             var vals = myObj["software_versions"];
 
             for (val in vals) {
+                if (vals[val] == default_val) continue;
                 text += "<option  value=\"" + vals[val] + "\">" + vals[val] + "</option>";
             }
 
