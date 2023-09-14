@@ -41,38 +41,19 @@
 	<li style="margin-left: 60px"><b>4</b>: The output directory is synced every hour on /volatile/clas12/osg2</li>
 	</p>
 	<p style="margin-left: 40px">
-		The number of events per sub-job are limited to 10,000 corresponding to a
+		The number of events per job are limited to 10,000 corresponding to a
 		time on the OSG between 4-10 hours depending on the node CPU<br/>
 	</p>
 	<p style="margin-left: 40px">
 		HOWTOS:<br/>
-	<li style="margin-left: 60px"> Submit Jobs to OSG:
-		<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/submitToOSG.html"> Software Distribution </a>
-		|
+	<li style="margin-left: 60px"> Submit Jobs to OSG
 		<a href="https://clasweb.jlab.org/wiki/index.php/Submit_Jobs_to_OSG"> CLAS12 Software Center </a></li>
 
 	<br/>
 
 
-	<h1> Experiment Configurations and target position</h1>
-	<p style="margin-left: 40px">
-		The available CLAS12 configurations correspond to the approved experiments. As of 8/24/2020:<br/>
-	<li style="margin-left: 60px"><b>rga_spring2018</b>: RGA spring 2018 configuration, target at -1.94cm</li>
-	<li style="margin-left: 60px"><b>rga_fall2018</b>: RGA fall 2018 configuration, target at -3.0cm</li>
-	<li style="margin-left: 60px"><b>rgk_fall2018_FTOn</b>: RGA fall 2018 configuration with FT On, target at -3.0cm
-	</li>
-	<li style="margin-left: 60px"><b>rgk_fall2018_FTOff</b>: RGK fall 2018 configuration with FT Off, target at -3.0cm
-	</li>
-	<li style="margin-left: 60px"><b>rgb_spring2019</b>: RGB spring 2019, target at -3.0cm</li>
-	<li style="margin-left: 60px"><b>rga_spring2019</b>: RGA spring 2019, target at -3.0cm</li>
-	<li style="margin-left: 60px"><b>rgb_fall2019</b>: RGB fall 2019, target at -3.0cm</li>
-	</p>
-	<br/>
-	<p style="margin-left: 40px">
-		While the gcards takes care of the target volumes positions (for example, in rga_spring2019 it is moved upstream
-		by 3cm),
-		it is up to the generators and the LUND files to place the event in the correct location. <br/>
-	</p>
+	<h1> Experiment Configurations, Gcards and Yaml Files</h1>
+	The job workflow and steering cards are maintained in the <a href="https://github.com/JeffersonLab/clas12-config">clas12-config</a> repo.<br/>
 
 	<br/>
 
@@ -111,46 +92,9 @@
 
 	<h1> Versions </h1>
 
-	<p style="margin-left: 40px">
-		The software versions of the CLAS12 generators, gemc simulation and coatjava reconstruction are:
-	</p>
+	The software versions of gemc, coatjava and mcgen are maintained selectable by the users using dropdown menus.
+	By default, the latest versions are selected.<br/>
 
-	<ul>
-		<li style="margin-left: 50px"><a href="https://github.com/JeffersonLab/clas12-mcgen">clas12-mcgen</a>: 2.22</li>
-
-
-		<li style="margin-left: 50px">
-			<a href="https://github.com/gemc/clas12Tags">gemc</a> and
-			<a href="https://github.com/JeffersonLab/clas12-offline-software">coatjava</a> pairings:<br/><br/>
-		</li>
-
-		<ul>
-			<li style="margin-left: 50px"> gemc 4.4.2 / coatjava 6.5.9 (rgb pass1)</li>
-			<li style="margin-left: 50px"> gemc 4.4.2 / coatjava 6.5.6.1 (rga and rgk pass1)</li>
-			<li style="margin-left: 50px"> gemc 5.1   / coatjava 9.0.1 (pass2)</li>
-		</ul>
-		<br/>
-	</ul>
-
-	<p style="margin-left: 40px">
-		For pass1, the yaml file is provided inside the config directory in clas12Tags.<br/><br/>
-		For pass2 and onward, the base yaml file is $COATJAVA/config/mc.yaml, with the addition of the configuration->global->variation entry to
-		match the vaule of the gcard's DIGITIZATION_VARIATION:<br/>
-		<ul>
-			<li> rgk_fall2018_FTOff : rga_fall2018_bg </li>
-			<li> rgf_spring2020 : rgf_spring2020_mc </li>
-			<li> rgk_fall2018_FTOn : rga_fall2018_bg </li>
-			<li> rgc : rga_fall2018_bg </li>
-			<li> rga_fall2018 : rga_fall2018_bg </li>
-			<li> rga_spring2019 : rga_fall2018_bg </li>
-			<li> rgb_spring2019 : rga_fall2018_bg </li>
-			<li> rga_spring2018 : rga_spring2018_mc </li>
-			<li> clas12-default : default </li>
-			<li> rgb_fall2019 : rga_fall2018_bg </li>
-		</ul>
-		See also <a href=" https://clasweb.jlab.org/wiki/index.php/How_to_run_the_full_simulation_train_single-threaded">
-		How to run the full simulation train single-threaded</a>.
-	</p>
 
 	<br/>
 	<br/>
@@ -171,8 +115,7 @@
 		<table style=" width:70%; text-align:center; border: 0px; border-collapse: collapse;">
 			<tr>
 				<th style="border-collapse:collapse; border: 0px;"></th>
-				<th style="border-collapse:collapse; border: 0px;"><h2> Contacts and Support </h2>
-				</th>
+				<th style="border-collapse:collapse; border: 0px;"><h2> Contacts and Support </h2></th>
 				<th style="border-collapse:collapse; border: 0px;"></th>
 			</tr>
 			<tr>
@@ -180,11 +123,7 @@
 					<a href="mailto:baltzell@jlab.org">Nathan Baltzell</a><br/>
 					<a href="mailto:ungaro@jlab.org">Maurizo Ungaro</a>
 				</th>
-				<th style="border-collapse:collapse; border: 0px;"><h3> MIT </h3>
-					<a href="mailto:robertej@mit.edu">Bobby Johnston</a><br/>
-					<a href="mailto:sangbaek@mit.edu">Sangbaek Lee</a><br/>
-					<a href="mailto:moranp@mit.edu">Patrick Moran</a>
-				</th>
+				<th style="border-collapse:collapse; border: 0px;"><h3>  </h3>
 				<th style="border-collapse:collapse; border: 0px;"><h3> Additional Resources </h3>
 					<a href="https://clas12.discourse.group/c/simulation/9">Discourse</a><br/>
 					<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html">Docker Distribution</a><br/>
@@ -193,6 +132,7 @@
 						Software Center </a><br/>
 
 				</th>
+
 			</tr>
 
 		</table>

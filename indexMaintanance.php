@@ -14,10 +14,11 @@
 	<body onload='osgLogtoTable();'>
 		<header class="w3-panel w3-container" id="myHeader">
 			<ul id="nav">
-				<li><a href="index.php">     Home</a></li>
+				<li><a href="index.php">     <h3><b>Home</b></h3></a></li>
 				<li><a href="about.html">    About</a></li>
-				<li><a href="disk.php">      Disk Usage</a></li>
+<!--				<li><a href="disk.php">      Disk Usage</a></li>-->
 				<li><a href="osgStats.html"> OSG Stats</a></li>
+				<li><a href="monitor.html">  Monitors</a></li>
 			</ul>
 
 			<div class="w3-center">
@@ -40,13 +41,19 @@
 		<h3>
 			<center>
 				<font color="blue">
-					Nov 17 2020 Maintenance <br/>
+					Sept 14 2023 Upgrade <br/>
 					Job Submission is suspended. <br/>
 				</font>
 			</center>
 		</h3>
 
-
+		<div class="w3-padding w3-center">
+			<!--					<div id="farmStats"></div>-->
+			<br/><br/>
+			<h2 class="w3-xlarge" style="text-align:center">Details of current OSG Jobs</h2>
+			<div id="osgLog"></div>
+			<br/><br/>
+		</div>
 
 	</body>
 

@@ -142,7 +142,7 @@
                     <td><?php echo($vertex_choice); ?></td>
                 </tr>
 				<tr>
-					<td>Number of Events / Job</td>
+					<td>Number of Events per Job</td>
 					<td><?php echo($nevents); ?></td>
 				</tr>
 				<tr>

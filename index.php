@@ -60,7 +60,7 @@
 						<p style="text-align: left; font-weight: normal;">
 						- clas12-mcgen or gemc internal generator <br/>
 						- Arbitrary number of jobs <br/>
-						- Arbitrary number of events for each job (max 10,000) <br/>
+						- Arbitrary number of events per job (max 10,000) <br/>
 						</p>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 						<p style="text-align: left; font-weight: normal;">
 						- LUND files (.txt) from a web location <br/>
 						- One job per LUND file <br/>
-						- File define number of events for each job (max 10,000) <br/>
+						- File define number of events per job (max 10,000) <br/>
 						</p>
 					</div>
 				</div>
