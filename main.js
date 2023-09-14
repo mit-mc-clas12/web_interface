@@ -248,7 +248,7 @@ function update_gemc_coatjava_versions() {
 
 function update_mcgen_versions() {
 
-    var default_val = "2.31";
+    var default_val = "2.31b";
     var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
     var xmlhttp = new XMLHttpRequest();
 
