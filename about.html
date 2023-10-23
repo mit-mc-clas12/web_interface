@@ -33,12 +33,12 @@
 	<h1>Submitting Jobs</h1>
 	<p style="margin-left: 40px">
 		When you click the "Submit" button:<br/>
-	<li style="margin-left: 60px"><b>1</b>: Your submission is logged in our mysql db</li>
-	<li style="margin-left: 60px"><b>2</b>: Within a few minutes your jobs will be submitted to OSG and visible in this
-		portal.
-	</li>
-	<li style="margin-left: 60px"><b>3</b>: When the jobs are completed, the job will be delisted from the portal.</li>
-	<li style="margin-left: 60px"><b>4</b>: The output directory is synced every hour on /volatile/clas12/osg2</li>
+		<li style="margin-left: 60px"><b>1</b>: Your submission is logged in our mysql db</li>
+		<li style="margin-left: 60px"><b>2</b>: Within a few minutes your jobs will be submitted to OSG and visible in this
+			portal.
+		</li>
+		<li style="margin-left: 60px"><b>3</b>: When the jobs are completed, the job will be delisted from the portal.</li>
+		<li style="margin-left: 60px"><b>4</b>: The output directory is synced every hour on /volatile/clas12/osg2</li>
 	</p>
 	<p style="margin-left: 40px">
 		The number of events per job are limited to 10,000 corresponding to a
@@ -46,10 +46,10 @@
 	</p>
 	<p style="margin-left: 40px">
 		HOWTOS:<br/>
-	<li style="margin-left: 60px"> Submit Jobs to OSG
-		<a href="https://clasweb.jlab.org/wiki/index.php/Submit_Jobs_to_OSG"> CLAS12 Software Center </a></li>
+		<li style="margin-left: 60px"> Submit Jobs to OSG
+			<a href="https://clasweb.jlab.org/wiki/index.php/Submit_Jobs_to_OSG"> CLAS12 Software Center </a></li>
 
-	<br/>
+		<br/>
 
 
 	<h1> Experiment Configurations, Gcards and Yaml Files</h1>
@@ -86,18 +86,50 @@
 		Analysis groups can submit the <a href="Priority Permission Increase Form.pdf"> Priority Permission Increase
 		Form </a>
 		to increase an account priority.<br/>
-	<p style="margin-left: 40px">
-		<br/>
+	</p>
+	<br/>
 
+
+	<h1> Generators </h1>
+	<p style="margin-left: 40px">
+
+		The generators available on the portal are collected in the <a href="https://github.com/JeffersonLab/clas12-mcgen">clas12-mcgen</a> repo.<br/>
+		This is the preferred way of submitting jobs:
+		<li style="margin-left: 60px"><b> Blessed Generators</b> Using a generator developed on a repository, available to, vetted and
+			developed by CLAS12 users, ensures analyses robustness.
+		</li>
+		<li style="margin-left: 60px"><b> Data reproducibility</b> all generators are tagged, and the submission parameters are saved in a MYSQL database.</li>
+		<li style="margin-left: 60px"><b> Efficiency</b> Using LUND submissions add a network and disk allocation which may cause issue and inefficiencies</li>
+	</p>
+	<br/>
+
+	<h1> Test Generators </h1>
+	<p style="margin-left: 40px">
+		Before submitting large scale jobs to OSG it is recommended to test the generator. This can be done on the JLab cue machines:<br/>
+	<pre>
+	module load clas12
+	clasdis --t 20 25
+	</pre>
+	Notice on the portal the additional arguments will be given:
+	<pre>
+	--trig  #nevents
+	--docker
+	--seed #seed
+	</pre>
+	</p>
+	<br/>
 
 	<h1> Versions </h1>
+	<p style="margin-left: 40px">
 
-	The software versions of gemc, coatjava and mcgen are maintained selectable by the users using dropdown menus.
-	By default, the latest versions are selected.<br/>
+		The <a href="https://github.com/JeffersonLab/clas12-config">software versions of gemc, coatjava</a> and <a target="_blank" href="https://github.com/JeffersonLab/clas12-mcgen#readme">mcgen</a> are
+		selectable by dropdown menu.  <br/>  Please check the corresponding README for details.
+	</p>
 
 
 	<br/>
 	<br/>
+	<section id="gen-test">
 	<h1> Container for Interactive Use </h1>
 
 	<p style="margin-left: 40px">
@@ -123,7 +155,7 @@
 					<a href="mailto:baltzell@jlab.org">Nathan Baltzell</a><br/>
 					<a href="mailto:ungaro@jlab.org">Maurizo Ungaro</a>
 				</th>
-				<th style="border-collapse:collapse; border: 0px;"><h3>  </h3>
+				<th style="border-collapse:collapse; border: 0px;"><h3></h3>
 				<th style="border-collapse:collapse; border: 0px;"><h3> Additional Resources </h3>
 					<a href="https://clas12.discourse.group/c/simulation/9">Discourse</a><br/>
 					<a href="https://clasweb.jlab.org/clas12/clas12SoftwarePage/html/index.html">Docker Distribution</a><br/>
