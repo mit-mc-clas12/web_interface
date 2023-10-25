@@ -107,11 +107,15 @@
 	<section id="gen-test"><br/>
 	<h1> Test Generators </h1>
 	<p style="margin-left: 40px">
-		Before submitting large scale jobs to OSG it is recommended to test the generator. This can be done on the JLab cue machines:<br/>
+		Before submitting large scale jobs to OSG it is recommended to test the generator. This can be done on the JLab cue machines.<br/>
+		To test mcgen version X (2.33 for example):
 	<pre>
 	module load clas12
+	module switch mcgen/X
 	clasdis --t 20 25
+	dvcsgen --beam 10.604 --x 0.05 0.85 --trig 100 --q2 0.9 14 --t 0 0.79 --gpd 101 --y 0.15 0.9 --w 3.61 --zpos -3 --zwidth 5 --raster 0.025
 	</pre>
+
 	Notice on the portal the additional arguments will be given:
 	<pre>
 	--trig  #nevents
