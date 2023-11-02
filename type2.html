@@ -30,25 +30,26 @@
 <div class="w3-center">
 
 	<form action="submit_type2.php" method="POST">
-        <table id="submission_table" style="text-align: center; width: 70%;" align="center">
+		<table id="submission_table" style="text-align: center; width: 70%;" align="center">
 			<tr>
 				<td>
-                    <div class="tooltip">Configuration<span class="tooltiptext">Choose an experiment configuration</span></div>
+					<div class="tooltip">Configuration<span class="tooltiptext">Choose an experiment configuration</span></div>
 				</td>
 				<td>
-                    <select name="configuration" id="configuration" required
-                            onchange="fieldSelected(); bkmergingSelected(); vertexSelected(); ">
-                    </select>
+					<select name="configuration" id="configuration" required
+							onchange="fieldSelected(); bkmergingSelected(); vertexSelected(); ">
+					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
-                    <div class="tooltip">Versions (see <a target="_blank" href="https://github.com/JeffersonLab/clas12-config#readme">README)</a><span class="tooltiptext">Choose a gemc/coatjava versions pair for the selected experiment</span></div>
+					<div class="tooltip">Versions (see <a target="_blank" href="https://github.com/JeffersonLab/clas12-config#readme">README)</a><span class="tooltiptext">Choose a gemc/coatjava versions pair for the selected experiment</span>
+					</div>
 				</td>
 				<td>
-                    <select name="softwarev" id="softwarev" required
-                            onchange="fieldSelected(); bkmergingSelected(); vertexSelected(); ">
-                    </select>
+					<select name="softwarev" id="softwarev" required
+							onchange="fieldSelected(); bkmergingSelected(); vertexSelected(); ">
+					</select>
 				</td>
 			</tr>
 			<tr>
@@ -60,38 +61,38 @@
 				</td>
 			</tr>
 			<tr>
-                <td>
-                    <div class="tooltip">Vertex <span class="tooltiptext">Choose How to modify the vertex </span></div>
-                </td>
-                <td style="text-align: left;">
-                    <div class="checkbox-container"><input type="checkbox" id="zposition-check" checked onchange="vertexSelected();"/>
-                        <label for="zposition-check">z: adjust for target position and semi-length </label>
-                        <input type="text" id="zposition-show" name="zposition-show" value="" readonly size="20"><br>
+				<td>
+					<div class="tooltip">Vertex <span class="tooltiptext">Choose How to modify the vertex </span></div>
+				</td>
+				<td style="text-align: left;">
+					<div class="checkbox-container"><input type="checkbox" id="zposition-check" checked onchange="vertexSelected();"/>
+						<label for="zposition-check">z: adjust for target position and semi-length </label>
+						<input type="text" id="zposition-show" name="zposition-show" value="" readonly size="20"><br>
 
-                    </div>
-                    <div class="checkbox-container"><input type="checkbox" id="beamspot-check" checked onchange="vertexSelected();"/>
-                        <label for="beamspot-check">x/y: smear beamspot </label>
-                        <input type="text" id="beamspot-show" name="beamspot-show" value="" readonly size="35"><br>
+					</div>
+					<div class="checkbox-container"><input type="checkbox" id="beamspot-check" checked onchange="vertexSelected();"/>
+						<label for="beamspot-check">x/y: smear beamspot </label>
+						<input type="text" id="beamspot-show" name="beamspot-show" value="" readonly size="35"><br>
 
-                    </div>
-                    <div class="checkbox-container"><input type="checkbox" id="raster-check" checked onchange="vertexSelected();"/>
-                        <label for="raster-check">x/y: raster </label>
-                        <input type="text" id="raster-show" name="raster-show" value="" readonly size="20"><br>
+					</div>
+					<div class="checkbox-container"><input type="checkbox" id="raster-check" checked onchange="vertexSelected();"/>
+						<label for="raster-check">x/y: raster </label>
+						<input type="text" id="raster-show" name="raster-show" value="" readonly size="20"><br>
 
-                    </div>
-                    <div style="text-align: center;">
-                        <fieldset id="vertex_user_selection" name="vertex_user_selection" style="border-width: 0">
+					</div>
+					<div style="text-align: center;">
+						<fieldset id="vertex_user_selection" name="vertex_user_selection" style="border-width: 0">
 
-                            <input type="radio" id="ignore"   name="vuser_selection" value="0" checked>
-                            <label for="ignore"> Ignore Generator Vertex</label>
+							<input type="radio" id="ignore" name="vuser_selection" value="0" checked>
+							<label for="ignore"> Ignore Generator Vertex</label>
 
-                            <input type="radio" id="relative" name="vuser_selection" value="1">
-                            <label for="relative"> Relative to Generator Vertex</label>
+							<input type="radio" id="relative" name="vuser_selection" value="1">
+							<label for="relative"> Relative to Generator Vertex</label>
 
-                        </fieldset>
-                    </div>
-                </td>
-            </tr>
+						</fieldset>
+					</div>
+				</td>
+			</tr>
 			<tr>
 				<td>
 					<div class="tooltip">LUND File(s) (.txt) Location<span class="tooltiptext">
@@ -108,56 +109,23 @@
 			</tr>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			<tr>
 				<td>
-					<div class="tooltip">Background Merging <span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div>
+					<div class="tooltip">Background Merging
+						<span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div>
 				</td>
 				<td>
-                    <select name="bkmerging" id="bkmerging" required></select>
+					<select name="bkmerging" id="bkmerging" required></select>
 				</td>
 			</tr>
-
+			<tr>
+				<td>
+					<div class="tooltip">String Identifier (optional). Output filename: <br/> OSGID-JOBINDEX-STRINGID-LUNDFILENAME.hipo</div>
+				</td>
+				<td>
+					<input type="text" id="user_string" name="user_string" value="" size="20" onkeydown="return /[aA-zZ0-9-]/i.test(event.key)"><br>
+				</td>
+			</tr>
 			<tr>
 				<td style='border-left-color:white;border-bottom-color:white;'></td>
 				<td><br/><input type="submit" value="Submit"><br/><br/>The submission will launch one job per LUND file.

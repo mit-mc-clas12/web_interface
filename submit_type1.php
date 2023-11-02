@@ -47,6 +47,7 @@
 				$raster        = $_POST['raster-show'];
 				$beam          = $_POST['beamspot-show'];
 				$vertex_choice = $_POST['vuser_selection'];
+				$string_id     = $_POST['user_string'];
 				$uri		   = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
@@ -73,6 +74,7 @@
 					fwrite($fp, 'raster: '.$raster.PHP_EOL);
 					fwrite($fp, 'beam: '.$beam.PHP_EOL);
 					fwrite($fp, 'vertex_choice: '.$vertex_choice.PHP_EOL);
+					fwrite($fp, 'string_id: '.$string_id.PHP_EOL);
 					if (strpos($uri, 'test/web_interface') !== false) {
 						fwrite($fp, 'submission: devel'.PHP_EOL);
 					} else {
@@ -157,6 +159,10 @@
 					<td> Background Merging </td>
 					<td> <?php echo($bkmerging); ?> M</td>
 				</tr>
+				<tr>
+                    <td> String Identifier: </td>
+                    <td><?php echo($string_id); ?></td>
+                </tr>
 			</table>
 			<h4>Output is synced hourly at /volatile/clas12/osg2/<?php echo($username); ?>.</h4>
 		</div>

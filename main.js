@@ -227,7 +227,6 @@ function vertexSelected() {
 
 
 function update_gemc_coatjava_versions() {
-
     var default_val = "gemc/5.4 coatjava/10.0.2";
     var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
     var xmlhttp = new XMLHttpRequest();
@@ -251,7 +250,6 @@ function update_gemc_coatjava_versions() {
 }
 
 function update_mcgen_versions() {
-
     var default_val = "2.33";
     var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
     var xmlhttp = new XMLHttpRequest();

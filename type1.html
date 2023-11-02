@@ -145,7 +145,7 @@
 			<tr>
 				<td colspan="2"> Once you've chosen the generator, review the linked documentation and insert the desired options above.<br/>
 
-				Do not utilize the following options, as they are automatically included:  <i>--docker, output file name,  --trig </i>.
+					Do not utilize the following options, as they are automatically included: <i>--docker, output file name, --trig </i>.
 				</td>
 			</tr>
 			<tr>
@@ -163,17 +163,25 @@
 			</tr>
 			<tr>
 				<td>
-					<div class="tooltip">Background Merging <span
-							class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div>
+					<div class="tooltip">Background Merging
+						<span class="tooltiptext">Choose values to merge background from random trigger. Select magentic fields at second row first! No merging is selected by default.</span></div>
 				</td>
 				<td>
 					<select name="bkmerging" id="bkmerging" required></select>
 				</td>
 			</tr>
-
+			<tr>
+				<td>
+					<div class="tooltip">String Identifier (optional). Output filename: <br/> OSGID-JOBINDEX-STRINGID.hipo</div>
+				</td>
+				<td>
+					<input type="text" id="user_string" name="user_string" value="" size="20" onkeydown="return /[aA-zZ0-9-]/i.test(event.key)"><br>
+				</td>
+			</tr>
 			<tr>
 				<td style='border-left-color:white;border-bottom-color:white;'></td>
-				<td><input type="submit" value="Submit"></td>
+				<td><input type="submit" value="Submit">
+				</td>
 			</tr>
 		</table>
 	</form>
