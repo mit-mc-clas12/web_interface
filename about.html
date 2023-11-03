@@ -33,7 +33,7 @@
 	<h1>Submitting Jobs</h1>
 	<p style="margin-left: 40px">
 		When you click the "Submit" button:<br/>
-		<li style="margin-left: 60px"><b>1</b>: Your submission is logged in our mysql db</li>
+		<li style="margin-left: 60px"><b>1</b>: Your submission is saved in our mysql db</li>
 		<li style="margin-left: 60px"><b>2</b>: Within a few minutes your jobs will be submitted to OSG and visible in this
 			portal.
 		</li>
@@ -71,11 +71,16 @@
 	<p style="margin-left: 40px">
 		The output is synced hourly on
 	</p>
-	<pre style="font-size: 20px">	/volatile/clas12/osg2/"username"/job_ID </pre>
+	<pre style="font-size: 20px">	/volatile/clas12/osg2/"username"/job_OSGID </pre>
 	<p style="margin-left: 40px">
-		where "<b>username</b>" is your jlab account name and <b>ID</b> is the submission ID.<br/>
-		Individual "subjobs" are organized in subdirs named <b>simu_SJID</b>, where SJID is the subjob id.
-		If you submit 500 jobs, SJID will run from 0 to 499.<br>
+		where "<b>username</b>" is your jlab account name and <b>OSGID</b> is the OSG submission ID.<br/>
+		The optional string identifier STRINGID, the OSG JOB ID and the JOBINDEX are used to form the filenames:
+
+		<li style="margin-left: 40px"><b>STRINGID-OSGID-JOBINDEX.hipo</b> for type 1 submissions</li>
+		<li style="margin-left: 40px"><b>STRINGID-LUNDFILENAME-OSGID-JOBINDEX.hipo</b> for type 2 submissions</li>
+		<p style="margin-left: 40px">
+		If you submit 500 jobs, JOBINDEX will run from 0 to 499.
+		</p>
 	</p>
 	<br/>
 
@@ -99,38 +104,39 @@
 			developed by CLAS12 users, ensures analyses robustness. LUND submissions uses files whose provenience is not vetted (sometimes unknown).
 		</li>
 		<li style="margin-left: 60px"><b> Data reproducibility:</b> all generators are tagged, and the submission parameters are saved in a MYSQL database.
-			A generator submission is completely reproducible. LUND files are usually not permanently stored and are lost after a submission.</li>
+			A generator submission is completely reproducible. LUND files are usually not permanently stored and are lost after a submission.
+		</li>
 		<li style="margin-left: 60px"><b> Efficiency:</b> Using LUND submissions add a network and disk allocation which may cause issue and inefficiencies</li>
 	</p>
 	<br/>
 
 	<section id="gen-test"><br/>
-	<h1> Test Generators </h1>
-	<p style="margin-left: 40px">
-		Before submitting large scale jobs to OSG it is recommended to test the generator. This can be done on the JLab cue machines.<br/>
-		To test mcgen version X (2.33 for example):
-	<pre>
+		<h1> Test Generators </h1>
+		<p style="margin-left: 40px">
+			Before submitting large scale jobs to OSG it is recommended to test the generator. This can be done on the JLab cue machines.<br/>
+			To test mcgen version X (2.33 for example):
+		<pre>
 	module load clas12
 	module switch mcgen/X
 	clasdis --t 20 25
 	dvcsgen --beam 10.604 --x 0.05 0.85 --trig 100 --q2 0.9 14 --t 0 0.79 --gpd 101 --y 0.15 0.9 --w 3.61 --zpos -3 --zwidth 5 --raster 0.025
 	</pre>
 
-	Notice on the portal the additional arguments will be given:
-	<pre>
+		Notice on the portal the additional arguments will be given:
+		<pre>
 	--trig  #nevents
 	--docker
 	--seed #seed
 	</pre>
-	</p>
-	<br/>
+		</p>
+		<br/>
 	</section>
 
 	<h1> Versions </h1>
 	<p style="margin-left: 40px">
 
 		The <a href="https://github.com/JeffersonLab/clas12-config">software versions of gemc, coatjava</a> and <a target="_blank" href="https://github.com/JeffersonLab/clas12-mcgen#readme">mcgen</a> are
-		selectable by dropdown menu.  <br/>  Please check the corresponding README for details.
+		selectable by dropdown menu. <br/> Please check the corresponding README for details.
 	</p>
 
 
