@@ -5,6 +5,7 @@
     "gemc/5.4 coatjava/10.0.2"
   ],
   "mcgen_versions": [
+    "2.42",
     "2.33",
     "2.32"
   ]
