@@ -22,6 +22,29 @@
 	  "-3.0*cm, 2.5*cm"
 	]
   },
+    "rga_fall2018_target_at_m3.": {
+	"tor-1.00_sol-1.00": [
+	  "45nA_10604MeV",
+	  "50nA_10604MeV",
+	  "55nA_10604MeV"
+	],
+	"tor+1.00_sol-1.00": [
+	  "40nA_10604MeV",
+	  "50nA_10604MeV"
+	],
+	"tor+1.01_sol-1.00": [
+	  "40nA_10604MeV"
+	],
+	"raster": [
+	  "0.0*cm, 0.0*cm"
+	],
+	"beam_spot": [
+	  "0.0*mm, 0.0*mm, 0.0*mm, 0.0*mm, 0*deg"
+	],
+	"z-position": [
+	  "-3.0*cm, 2.5*cm"
+	]
+  },
   "rga_spring2018": {
 	"tor-1.00_sol-1.00": [
 	],
