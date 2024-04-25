@@ -22,7 +22,7 @@
 	  "-3.0*cm, 2.5*cm"
 	]
   },
-    "rga_fall2018_target_at_m3": {
+    "rga_fall2018_target_at_m3.5": {
 	"tor-1.00_sol-1.00": [
 	  "45nA_10604MeV",
 	  "50nA_10604MeV",
