@@ -88,6 +88,10 @@ function genSelected(val) {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href = 'https://github.com/JeffersonLab/clas12-mcgen/tree/main/gibuu';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML = 'gibuu options';
 
+	} else if (generator == "clas-stringspinner") {
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].href = 'https://jeffersonlab.github.io/clas-stringspinner/';
+		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML = 'clas-stringspinner generator options';
+
 	} else if (generator == "gemc") {
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].href = 'https://gemc.jlab.org/gemc/html/documentation/generator/internal.html';
 		document.getElementById("generatorLink").getElementsByTagName('a')[0].innerHTML = 'gemc generator options';
