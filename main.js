@@ -101,7 +101,6 @@ function genSelected(val) {
 
 // The configuration is read from data/xrootd
 function configurationSelected() {
-
 	var text = "<option selected hidden value=\"\"></option>";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
@@ -115,7 +114,6 @@ function configurationSelected() {
 	};
 	xmlhttp.open("GET", "data/setup.json", true);
 	xmlhttp.send();
-
 }
 
 
@@ -138,7 +136,6 @@ function fieldSelected() {
 						text += "<option value=\"" + keys_field[key] + "\">" + keys_field[key] + "</option>";
 					}
 				}
-
 			}
 			document.getElementById("fields").innerHTML = text;
 		}
@@ -146,6 +143,34 @@ function fieldSelected() {
 	xmlhttp.open("GET", "data/setup.json", true);
 	xmlhttp.send();
 }
+
+function softwareVersionSelected() {
+	var selected_experiment = document.getElementById("configuration").value;
+
+	var text = "<option selected hidden value=\"\"></option>";
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			var myObj = JSON.parse(this.responseText);
+
+			if (selected_experiment in myObj) {
+
+				var keys_field = myObj[selected_experiment]["software_versions"];
+
+				for (key in keys_field) {
+					if (keys_field[key].includes("gemc/")) {
+						text += "<option value=\"" + keys_field[key] + "\">" + keys_field[key] + "</option>";
+					}
+				}
+			}
+			document.getElementById("softwarev").innerHTML = text;
+		}
+	};
+	xmlhttp.open("GET", "data/setup.json", true);
+	xmlhttp.send();
+}
+
 
 function vertexSelected() {
 
@@ -234,28 +259,28 @@ function vertexSelected() {
 }
 
 
-function update_gemc_coatjava_versions() {
-	var default_val = "gemc/5.9 coatjava/10.0.2";
-	var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
-	var xmlhttp = new XMLHttpRequest();
-
-	xmlhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-
-			var myObj = JSON.parse(this.responseText);
-			var vals = myObj["software_versions"];
-
-			for (val in vals) {
-				if (vals[val] == default_val) continue;
-				text += "<option  value=\"" + vals[val] + "\">" + vals[val] + "</option>";
-			}
-
-			document.getElementById("softwarev").innerHTML = text;
-		}
-	};
-	xmlhttp.open("GET", "data/software_versions.json", true);
-	xmlhttp.send();
-}
+// function update_gemc_coatjava_versions() {
+// 	var default_val = "gemc/5.9 coatjava/10.0.2";
+// 	var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
+// 	var xmlhttp = new XMLHttpRequest();
+//
+// 	xmlhttp.onreadystatechange = function () {
+// 		if (this.readyState == 4 && this.status == 200) {
+//
+// 			var myObj = JSON.parse(this.responseText);
+// 			var vals = myObj["software_versions"];
+//
+// 			for (val in vals) {
+// 				if (vals[val] == default_val) continue;
+// 				text += "<option  value=\"" + vals[val] + "\">" + vals[val] + "</option>";
+// 			}
+//
+// 			document.getElementById("softwarev").innerHTML = text;
+// 		}
+// 	};
+// 	xmlhttp.open("GET", "data/software_versions.json", true);
+// 	xmlhttp.send();
+// }
 
 function update_mcgen_versions() {
 	var default_val = "3.10";
