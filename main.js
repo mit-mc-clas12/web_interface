@@ -283,7 +283,7 @@ function vertexSelected() {
 // }
 
 function update_mcgen_versions() {
-	var default_val = "3.10";
+	var default_val = "3.11";
 	var text = "<option selected  value=\" " + default_val + "\">" + default_val + "</option>";
 	var xmlhttp = new XMLHttpRequest();
 
