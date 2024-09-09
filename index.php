@@ -16,7 +16,6 @@
 			<ul id="nav">
 				<li><a href="index.php">     <h3><b>Home</b></h3></a></li>
 				<li><a href="about.html">    About</a></li>
-<!--				<li><a href="disk.php">      Disk Usage</a></li>-->
 				<li><a href="osgStats.html"> OSG Stats</a></li>
 				<li><a href="monitor.html">  Monitors</a></li>
 			</ul>
