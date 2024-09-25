@@ -170,3 +170,7 @@ input {
 	height: 200px;
 	border: 0px;
 }
+
+.pdf-preview td {
+	width: 1400px;
+}
