@@ -168,12 +168,14 @@ input {
 	justify-content: center;
 }
 
+
+
 .pdf-preview {
-	width: 100%;
-	height: 200px;
-	border: 0px;
+        width: 100%;
+        height: 200px;
+        border: 0px;
 }
 
 .pdf-preview td {
-	width: 1400px;
+        width: 1500px;
 }
