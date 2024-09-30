@@ -161,6 +161,7 @@ input {
 }
 
 .pdf-container {
+	text-align: center;
 	align-content: center;
 	align-self: center;
 	display: flex;
