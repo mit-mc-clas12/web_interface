@@ -144,6 +144,8 @@ function fieldSelected() {
 	xmlhttp.send();
 }
 
+// set variable coatjava_last to 12.0.6t
+var coatjava_last = "12.0.6t";
 function softwareVersionSelected() {
 	var selected_experiment = document.getElementById("configuration").value;
 
@@ -164,9 +166,9 @@ function softwareVersionSelected() {
 					}
 				}
 			}
-			// if is_test, add versions "gemc/dev coatjava/11.1.0"
+			// if is_test, add versions "gemc/dev coatjava/$coatjava_last"
 			if (is_test) {
-				text += "<option value=\"gemc/dev coatjava/11.1.0\">gemc/dev coatjava/11.1.0</option>";
+				text += "<option value=\"gemc/dev coatjava/$coatjava_last\">gemc/dev coatjava/$coatjava_last</option>";
 			}
 			document.getElementById("softwarev").innerHTML = text;
 		}
