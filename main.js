@@ -145,37 +145,40 @@ function fieldSelected() {
 }
 
 // set variable coatjava_last to 12.0.6t
-var coatjava_last = "12.0.6t";
+const coatjava_last = "12.0.6t";
 function softwareVersionSelected() {
-	var selected_experiment = document.getElementById("configuration").value;
+  const selected_experiment = document.getElementById("configuration").value;
 
-	var text = "<option selected hidden value=\"\"></option>";
-	var xmlhttp = new XMLHttpRequest();
+  let text = '<option selected hidden value=""></option>';
+  const xmlhttp = new XMLHttpRequest();
 
-	xmlhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			var myObj = JSON.parse(this.responseText);
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      const data = JSON.parse(this.responseText);
 
-			if (selected_experiment in myObj) {
+      if (data[selected_experiment]) {
+        const versions = data[selected_experiment].software_versions;
+        for (const key in versions) {
+          if (Object.hasOwnProperty.call(versions, key) && versions[key].includes("gemc/")) {
+            text += `<option value="${versions[key]}">${versions[key]}</option>`;
+          }
+        }
+      }
 
-				var keys_field = myObj[selected_experiment]["software_versions"];
+      // if is_test is true, append the dev + latest‑coatjava option
+      if (window.is_test) {                           // or replace with your own test flag
+        const devVersion = `gemc/dev coatjava/${coatjava_last}`;
+        text += `<option value="${devVersion}">${devVersion}</option>`;
+      }
 
-				for (key in keys_field) {
-					if (keys_field[key].includes("gemc/")) {
-						text += "<option value=\"" + keys_field[key] + "\">" + keys_field[key] + "</option>";
-					}
-				}
-			}
-			// if is_test, add versions "gemc/dev coatjava/$coatjava_last"
-			if (is_test) {
-				text += "<option value=\"gemc/dev coatjava/$coatjava_last\">gemc/dev coatjava/$coatjava_last</option>";
-			}
-			document.getElementById("softwarev").innerHTML = text;
-		}
-	};
-	xmlhttp.open("GET", "data/setup.json", true);
-	xmlhttp.send();
+      document.getElementById("softwarev").innerHTML = text;
+    }
+  };
+
+  xmlhttp.open("GET", "data/setup.json", true);
+  xmlhttp.send();
 }
+
 
 
 function vertexSelected() {
