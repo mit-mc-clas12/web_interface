@@ -163,13 +163,7 @@ function softwareVersionSelected() {
           }
         }
       }
-
-      // if is_test is true, append the dev + latest‑coatjava option
-      if (window.is_test) {                           // or replace with your own test flag
-        const devVersion = `gemc/dev coatjava/${coatjava_last}`;
-        text += `<option value="${devVersion}">${devVersion}</option>`;
-      }
-
+	  
       document.getElementById("softwarev").innerHTML = text;
     }
   };
