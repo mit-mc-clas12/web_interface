@@ -144,8 +144,7 @@ function fieldSelected() {
 	xmlhttp.send();
 }
 
-// set variable coatjava_last to 12.0.6t
-const coatjava_last = "12.0.6t";
+
 function softwareVersionSelected() {
   const selected_experiment = document.getElementById("configuration").value;
 
