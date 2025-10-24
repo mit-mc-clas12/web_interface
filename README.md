@@ -11,9 +11,69 @@ We start from very simple php scripts for displaying farm statistics and letting
 - apache, to handle both client and server side programming, i.e. js and php
 - Write permission for pushing some text
 
+# Python modules needed on the server:
+
+- python3-pip installed
+- pip install fs
+- python3-mysqlclient installed
+- numpy
+
 # How to practice php scripting
 
+
+Debugging:
+
+Add this on top:
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
+
+If PHP-FPM:
+
+Tell Apache to pass the auth headers to PHP-FPM
+In the Apache config (vhost or .conf that applies to this site), add:
+
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+or, on some setups:
+
+CGIPassAuth On
+
+Then reload Apache.
+
+Debugging php form writing:
+
+echo "<pre>";
+echo "PHP running as UID: " . getmyuid() . "\n";
+echo "PHP running as GID: " . getmygid() . "\n";
+echo "Effective user: " . get_current_user() . "\n";
+echo "File owner of current script: " . fileowner(__FILE__) . "\n";
+echo "File group of current script: " . filegroup(__FILE__) . "\n";
+echo "</pre>";
+
+                                        $fp = fopen('/var/www/gemc-runtime/scard_type1.txt', 'w');
+
+
+
+if (!function_exists('posix_geteuid')) {
+    echo "<pre>posix_* functions not available</pre>";
+} else {
+    echo "<pre>";
+    echo "geteuid: " . posix_geteuid() . " (" . posix_getpwuid(posix_geteuid())['name'] . ")\n";
+    echo "getegid: " . posix_getegid() . " (" . posix_getgrgid(posix_getegid())['name'] . ")\n";
+    echo "</pre>";
+}
+
+
+
 ## Having server
+
+
+In the server, ungaro (2 factors) has root priviledges:  sudo bash
+
 
 Any php script will use php extension.
 Without a server, php scripts cannot be converted to html at client side.

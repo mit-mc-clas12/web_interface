@@ -5,7 +5,7 @@
         $background = imagecolorallocate( $uname, 255, 255, 255 );
         $text_colour = imagecolorallocate( $uname, 0, 0, 0 );
         imagefilledrectangle($uname, 0, 0, 400, 60, $background);
-        $font = '/usr/share/fonts/dejavu/DejaVuSans.ttf';
+        $font = '/usr/share/fonts/dejavu/dejavu-sans-fonts';
         $text=$_SERVER['PHP_AUTH_USER'];
         imagettftext( $uname,40,0,10,45,$text_colour, $font,$text );
 

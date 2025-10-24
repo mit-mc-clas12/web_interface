@@ -57,7 +57,8 @@
 				}
 
 				if (!empty($project) && !empty($configuration)  && !empty($softwarev)   && !empty($mcgenv)   && !empty($generator) && !empty($nevents)  && !empty($jobs) && !empty($fields)&& !empty($bkmerging) ) {
-					$fp = fopen('scard_type1.txt', 'w');
+                    $fp = fopen('/var/www/gemc-runtime/scard_type1.txt', 'w');
+
 					fwrite($fp, 'project: '.$project.PHP_EOL);
 					fwrite($fp, 'configuration: '.$configuration.PHP_EOL);
 					fwrite($fp, 'softwarev: '.$softwarev.PHP_EOL);
@@ -82,10 +83,10 @@
 					}
 					fclose($fp);
 					if (strpos($uri, 'test/web_interface') !== false) {
-						$command = escapeshellcmd('../SubMit/client/src/SubMit.py --test_database -u '.$username.' scard_type1.txt');
+						$command = escapeshellcmd('../SubMit/client/src/SubMit.py --test_database -u '.$username.' /var/www/gemc-runtime/scard_type1.txt');
 						$output = shell_exec($command);
 					} else {
-						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' scard_type1.txt');
+						$command = escapeshellcmd('../SubMit/client/src/SubMit.py -u '.$username.' /var/www/gemc-runtime/scard_type1.txt');
 						$output = shell_exec($command);
 					}
 				}

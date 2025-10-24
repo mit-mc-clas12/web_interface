@@ -163,7 +163,7 @@ function softwareVersionSelected() {
           }
         }
       }
-	  
+
       document.getElementById("softwarev").innerHTML = text;
     }
   };
