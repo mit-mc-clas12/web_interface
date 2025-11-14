@@ -39,7 +39,7 @@
 				$nevents       = $_POST['nevents'];
 				$jobs          = $_POST['jobs'];
 				$totalevents   = $_POST['totalevents'];
-				$username      = $_SERVER['PHP_AUTH_USER'];
+				$username      = $_SERVER['REMOTE_USER'];
 				$client_ip     = $_SERVER['REMOTE_ADDR'];
 				$fields		   = $_POST['fields'];
 				$bkmerging     = $_POST['bkmerging'];
