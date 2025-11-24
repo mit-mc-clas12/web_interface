@@ -41,8 +41,11 @@
 		<h3>
 			<center>
 				<font color="blue">
-					May 21 2024 Upgrade <br/>
-					Job Submission is suspended. <br/>
+					Nov 20, 2025 <br/>
+					There are issues with pelican that prevent file transfers  <br/>
+					XROOTD has been deprecated at JLab. All jobs that have background merging are placed on hold.
+					When a solution is found, these jobs will be resubmitted.<br/>
+					All submissions are suspended until these issues are resolved. <br/>
 				</font>
 			</center>
 		</h3>
