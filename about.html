@@ -105,12 +105,13 @@
 	<pre style="font-size: 20px; background-color: #ececec">
 
 	ssh scosg2202
-	ls -l  ~gemc/osgOutput/&lt;username&gt;/job_OSGID
+	ls -l /home/gemc/osgOutput/&lt;username&gt;/job_OSGID
 	</pre>
-	On the node, you can also used the condor-probe.py for more details:
+	On the node, you can also used the `condor_q` or our wrapper around it `condor-probe.py` for general/more details:
 	<pre style="font-size: 20px; background-color: #ececec">
 
-	~gemc/condor-probe.py
+	condor_q
+	/home/gemc/condor-probe.py
 	</pre>
 	</p>
 
