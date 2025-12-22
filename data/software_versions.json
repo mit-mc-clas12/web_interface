@@ -1,17 +1,6 @@
 {
-  "software_versions": [
-    "gemc/4.4.2 coatjava/6.5.9",
-    "gemc/4.4.2 coatjava/6.5.6.1",
-    "gemc/5.9 coatjava/10.0.2",
-    "gemc/5.10 coatjava/10.0.2"
-  ],
   "mcgen_versions": [
-    "3.16",
-    "3.15",
-    "3.14",
-    "3.12",
-    "3.11",
-    "3.10",
-    "3.02"
+    "3.18",
+    "3.16"
   ]
 }
