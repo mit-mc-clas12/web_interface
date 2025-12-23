@@ -103,11 +103,14 @@
 	ssh scosg2202
 	ls -l /home/gemc/osgOutput/&lt;username&gt;/job_OSGID
 	</pre>
-	<li>You will see the script used on the OSG (nodeScript.sh).</li>
-	<li>The file condorSubmissionError.txt will show a log in case of submission problem.</li>
-	<li>The log submdir contains, for each subjob, the condor (.log), and the std out/err (.out, .err) logs.</li>
+	<ul>
+		<li>You will see the script used on the OSG (nodeScript.sh).</li>
+		<li>The file condorSubmissionError.txt will show a log in case of submission problem.</li>
+		<li>The log submdir contains, for each subjob, the condor (.log), and the std out/err (.out, .err) logs.</li>
+
+	</ul>
 	<br/>
-		On the node, you can also used the `condor_q` or our wrapper around it `condor-probe.py` for general/more details:
+	On the node, you can also used the `condor_q` or our wrapper around it `condor-probe.py` for general/more details:
 	<pre style="font-size: 20px; background-color: #ececec">
 
 	condor_q
@@ -157,13 +160,15 @@
 	--docker
 	--seed #seed
 	</pre>
-	<br/>
+		<br/>
 	</section>
 
 	<h1> Versions </h1>
 	<p style="margin-left: 40px">
 
-		The <a href="https://github.com/JeffersonLab/clas12-config">software versions of gemc, coatjava</a> and <a target="_blank" href="https://github.com/JeffersonLab/clas12-mcgen#readme">mcgen</a> are
+		The <a href="https://github.com/JeffersonLab/clas12-config">software versions of gemc, coatjava</a> and <a target="_blank"
+																												   href="https://github.com/JeffersonLab/clas12-mcgen#readme">mcgen</a>
+		are
 		selectable by dropdown menu. <br/> Please check the corresponding README for details.
 	</p>
 
