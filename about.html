@@ -103,7 +103,12 @@
 	ssh scosg2202
 	ls -l /home/gemc/osgOutput/&lt;username&gt;/job_OSGID
 	</pre>
-	On the node, you can also used the `condor_q` or our wrapper around it `condor-probe.py` for general/more details:
+	    * You will see the script used on the OSG (nodeScript.sh).
+	    * The file condorSubmissionError.txt will show a log in case of submission problem.
+	    * The log submdir contains, for each subjob, the condor (.log), and the std out/err (.out, .err) logs.
+
+	
+		On the node, you can also used the `condor_q` or our wrapper around it `condor-probe.py` for general/more details:
 	<pre style="font-size: 20px; background-color: #ececec">
 
 	condor_q
