@@ -48,7 +48,7 @@
 				$beam          = $_POST['beamspot-show'];
 				$vertex_choice = $_POST['vuser_selection'];
 				$string_id     = $_POST['user_string'];
-				$output_type     = $_POST['output_type'];
+				$output_type   = $_POST['output_type'];
 				$uri		   = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
@@ -160,7 +160,11 @@
 				</tr>
 				<tr>
 					<td> Background Merging </td>
-					<td> <?php echo($bkmerging); ?> M</td>
+					<td> <?php echo($bkmerging); ?></td>
+				</tr>
+				<tr>
+					<td> Output Type </td>
+					<td> <?php echo($output_type); ?></td>
 				</tr>
 				<tr>
                     <td> String Identifier: </td>
