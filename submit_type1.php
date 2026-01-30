@@ -48,6 +48,7 @@
 				$beam          = $_POST['beamspot-show'];
 				$vertex_choice = $_POST['vuser_selection'];
 				$string_id     = $_POST['user_string'];
+				$output_type     = $_POST['output_type'];
 				$uri		   = $_SERVER['REQUEST_URI'];
 
 				function yesorno($cond){
@@ -76,6 +77,7 @@
 					fwrite($fp, 'beam: '.$beam.PHP_EOL);
 					fwrite($fp, 'vertex_choice: '.$vertex_choice.PHP_EOL);
 					fwrite($fp, 'string_id: '.$string_id.PHP_EOL);
+					fwrite($fp, 'output_type: '.$output_type.PHP_EOL);
 					if (strpos($uri, 'test/web_interface') !== false) {
 						fwrite($fp, 'submission: devel'.PHP_EOL);
 					} else {
