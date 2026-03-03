@@ -146,32 +146,31 @@ function fieldSelected() {
 
 
 function softwareVersionSelected() {
-  const selected_experiment = document.getElementById("configuration").value;
+	const selected_experiment = document.getElementById("configuration").value;
 
-  let text = '<option selected hidden value=""></option>';
-  const xmlhttp = new XMLHttpRequest();
+	let text = '<option selected hidden value=""></option>';
+	const xmlhttp = new XMLHttpRequest();
 
-  xmlhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      const data = JSON.parse(this.responseText);
+	xmlhttp.onreadystatechange = function () {
+		if (this.readyState === 4 && this.status === 200) {
+			const data = JSON.parse(this.responseText);
 
-      if (data[selected_experiment]) {
-        const versions = data[selected_experiment].software_versions;
-        for (const key in versions) {
-          if (Object.hasOwnProperty.call(versions, key) && versions[key].includes("gemc/")) {
-            text += `<option value="${versions[key]}">${versions[key]}</option>`;
-          }
-        }
-      }
+			if (data[selected_experiment]) {
+				const versions = data[selected_experiment].software_versions;
+				for (const key in versions) {
+					if (Object.hasOwnProperty.call(versions, key) && versions[key].includes("gemc/")) {
+						text += `<option value="${versions[key]}">${versions[key]}</option>`;
+					}
+				}
+			}
 
-      document.getElementById("softwarev").innerHTML = text;
-    }
-  };
+			document.getElementById("softwarev").innerHTML = text;
+		}
+	};
 
-  xmlhttp.open("GET", "data/setup.json", true);
-  xmlhttp.send();
+	xmlhttp.open("GET", "data/setup.json", true);
+	xmlhttp.send();
 }
-
 
 
 function vertexSelected() {
@@ -419,9 +418,6 @@ function renderJobDetails(data) {
 	if (data.user) {
 		html += `<tr><th>User</th><td>${escapeHtml(data.user)}</td></tr>`;
 	}
-	if (data.submitted_at) {
-		html += `<tr><th>Submitted</th><td>${escapeHtml(data.submitted_at)}</td></tr>`;
-	}
 	if (data.user_submission_id) {
 		html += `<tr><th>Job ID</th><td>${escapeHtml(data.user_submission_id)}</td></tr>`;
 	}
@@ -565,12 +561,16 @@ function osgLogtoTable() {
 			document.getElementById("osgLog").innerHTML = txt;
 			document.getElementById("osgLog_summary").innerHTML = txt_summary;
 
-			document.getElementById("osgLog").addEventListener("click", function (e) {
-				const link = e.target.closest(".job-id-link");
-				if (!link) return;
-				e.preventDefault();
-				showJobDetails(link.dataset.jobId);
-			}, { once: true });
+			const osgLogEl = document.getElementById("osgLog");
+			if (!osgLogEl.dataset.jobClickBound) {
+				osgLogEl.addEventListener("click", function (e) {
+					const link = e.target.closest(".job-id-link");
+					if (!link) return;
+					e.preventDefault();
+					showJobDetails(link.dataset.jobId);
+				});
+				osgLogEl.dataset.jobClickBound = "1";
+			}
 
 			ensureJobDetailsModal();
 		}
