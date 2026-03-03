@@ -306,46 +306,225 @@ function bkmergingSelected() {
 	xmlhttp.send();
 }
 
+function escapeHtml(value) {
+	if (value === null || value === undefined) return "";
+	return String(value)
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#39;");
+}
+
+function ensureJobDetailsModal() {
+	if (document.getElementById("jobDetailsModal")) return;
+
+	const style = document.createElement("style");
+	style.textContent = `
+		#jobDetailsModal {
+			display: none;
+			position: fixed;
+			z-index: 9999;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.45);
+		}
+		#jobDetailsModal .modal-content {
+			background: #fff;
+			margin: 4% auto;
+			padding: 20px;
+			width: 80%;
+			max-width: 950px;
+			max-height: 82vh;
+			overflow-y: auto;
+			border-radius: 8px;
+			box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+			font-family: Arial, sans-serif;
+		}
+		#jobDetailsModal .modal-close {
+			float: right;
+			font-size: 26px;
+			font-weight: bold;
+			cursor: pointer;
+			margin-top: -6px;
+		}
+		#jobDetailsModal h3 {
+			margin-top: 0;
+			margin-bottom: 14px;
+		}
+		#jobDetailsModal table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 10px;
+		}
+		#jobDetailsModal th,
+		#jobDetailsModal td {
+			border: 1px solid #d9d9d9;
+			padding: 8px 10px;
+			text-align: left;
+			vertical-align: top;
+		}
+		#jobDetailsModal th {
+			background: #f4f4f4;
+			width: 220px;
+		}
+		#jobDetailsModal pre {
+			margin: 0;
+			white-space: pre-wrap;
+			word-break: break-word;
+			font-family: Menlo, Consolas, monospace;
+			font-size: 13px;
+		}
+		.job-id-link {
+			cursor: pointer;
+			color: #0b5ed7;
+			text-decoration: underline;
+		}
+	`;
+	document.head.appendChild(style);
+
+	const modal = document.createElement("div");
+	modal.id = "jobDetailsModal";
+	modal.innerHTML = `
+		<div class="modal-content">
+			<span class="modal-close" id="jobDetailsModalClose">&times;</span>
+			<div id="jobDetailsBody">Loading...</div>
+		</div>
+	`;
+	document.body.appendChild(modal);
+
+	document.getElementById("jobDetailsModalClose").onclick = function () {
+		modal.style.display = "none";
+	};
+
+	window.addEventListener("click", function (event) {
+		if (event.target === modal) {
+			modal.style.display = "none";
+		}
+	});
+}
+
+function renderJobDetails(data) {
+	let html = `<h3>Submission Details for Job ${escapeHtml(data.requested_id || "")}</h3>`;
+
+	if (data.error) {
+		html += `<div style="color:#b00020;font-weight:bold;">${escapeHtml(data.error)}</div>`;
+		return html;
+	}
+
+	html += `<table>`;
+
+	if (data.user) {
+		html += `<tr><th>User</th><td>${escapeHtml(data.user)}</td></tr>`;
+	}
+	if (data.submitted_at) {
+		html += `<tr><th>Submitted</th><td>${escapeHtml(data.submitted_at)}</td></tr>`;
+	}
+	if (data.user_submission_id) {
+		html += `<tr><th>Job ID</th><td>${escapeHtml(data.user_submission_id)}</td></tr>`;
+	}
+	if (data.status) {
+		html += `<tr><th>Status</th><td>${escapeHtml(data.status)}</td></tr>`;
+	}
+
+	if (data.details && Array.isArray(data.details) && data.details.length > 0) {
+		for (const item of data.details) {
+			html += `
+				<tr>
+					<th>${escapeHtml(item.key)}</th>
+					<td><pre>${escapeHtml(item.value)}</pre></td>
+				</tr>
+			`;
+		}
+	} else if (data.raw_scard) {
+		html += `
+			<tr>
+				<th>Details</th>
+				<td><pre>${escapeHtml(data.raw_scard)}</pre></td>
+			</tr>
+		`;
+	}
+
+	html += `</table>`;
+	return html;
+}
+
+function showJobDetails(jobId) {
+	ensureJobDetailsModal();
+
+	const modal = document.getElementById("jobDetailsModal");
+	const body = document.getElementById("jobDetailsBody");
+	body.innerHTML = `<h3>Submission Details for Job ${escapeHtml(jobId)}</h3><div>Loading...</div>`;
+	modal.style.display = "block";
+
+	fetch("get_submission_details.php?id=" + encodeURIComponent(jobId))
+		.then(response => response.json())
+		.then(data => {
+			body.innerHTML = renderJobDetails(data);
+		})
+		.catch(error => {
+			body.innerHTML = `
+				<h3>Submission Details for Job ${escapeHtml(jobId)}</h3>
+				<div style="color:#b00020;font-weight:bold;">Failed to load submission details.</div>
+				<pre>${escapeHtml(error)}</pre>
+			`;
+		});
+}
+
 function osgLogtoTable() {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var myObj = JSON.parse(this.responseText);
-			//set up table
+
 			var txt = "<table align=\"center\" style=\"width:80%;text-align:center\"><caption align=\"bottom\">";
 			var txt_summary = "<table align=\"center\" style=\"width:50%;text-align:center\"><tr>";
-			//bottom caption from metadata
+
 			var meta = myObj.metadata;
 			txt += meta["footer"];
 			txt += "</caption><tr>";
-			// first row from keys
+
 			let data_summary = {"user": [], "submission": [], "total": [], "done": [], "run": [], "idle": []};
 			var keys = Object.keys(myObj.user_data[0]);
+
+			let jobIdKey = null;
+			for (let k of keys) {
+				if (String(k).toLowerCase().replace(/\s+/g, "") === "jobid") {
+					jobIdKey = k;
+					break;
+				}
+			}
+
 			for (i in keys) {
 				txt += "<th>";
 				txt += keys[i];
 				txt += "</th>";
 			}
+
 			for (i in Object.keys(data_summary)) {
 				txt_summary += "<th>";
 				txt_summary += Object.keys(data_summary)[i];
 				txt_summary += "</th>";
 			}
-			// data rows
+
 			for (rows in myObj.user_data) {
 				txt += "</tr><tr>";
 				var val = myObj.user_data[rows];
+
 				for (var newkeys in val) {
 					txt += "<td>";
-					txt += val[newkeys];
+
+					if (newkeys === jobIdKey) {
+						txt += "<a href=\"#\" class=\"job-id-link\" data-job-id=\"" + escapeHtml(val[newkeys]) + "\">" + escapeHtml(val[newkeys]) + "</a>";
+					} else {
+						txt += escapeHtml(val[newkeys]);
+					}
+
 					txt += "</td>";
 				}
 
-//			    if (val.user == username){
-//			    	txt+="<td>yours</td>"
-//			    }
-
-				//summary part
 				if (data_summary.user.includes(val.user)) {
 					for (i in Object.keys(data_summary)) {
 						if (i < 2) continue;
@@ -360,8 +539,8 @@ function osgLogtoTable() {
 					}
 					data_summary["submission"].push(1);
 				}
-
 			}
+
 			txt += "</tr></table>";
 
 			for (i in data_summary.user) {
@@ -382,8 +561,18 @@ function osgLogtoTable() {
 			}
 
 			txt_summary += "</tr></table>";
+
 			document.getElementById("osgLog").innerHTML = txt;
 			document.getElementById("osgLog_summary").innerHTML = txt_summary;
+
+			document.getElementById("osgLog").addEventListener("click", function (e) {
+				const link = e.target.closest(".job-id-link");
+				if (!link) return;
+				e.preventDefault();
+				showJobDetails(link.dataset.jobId);
+			}, { once: true });
+
+			ensureJobDetailsModal();
 		}
 	};
 	xmlhttp.open("GET", "data/osgLog.json", true);

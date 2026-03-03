@@ -93,7 +93,6 @@
 		</div>
 
 		<div class="w3-padding w3-center">
-			<!--					<div id="farmStats"></div>-->
 			<br/><br/>
 			<h2 class="w3-xlarge" style="text-align:center">Details of current OSG Jobs</h2>
 			<div id="osgLog"></div>
