@@ -510,86 +510,122 @@ function osgLogtoTable() {
 				}
 			}
 
-			for (i in keys) {
-				txt += "<th>";
-				txt += keys[i];
-				txt += "</th>";
-			}
-
-			for (i in Object.keys(data_summary)) {
-				txt_summary += "<th>";
-				txt_summary += Object.keys(data_summary)[i];
-				txt_summary += "</th>";
-			}
-
-			for (rows in myObj.user_data) {
-				txt += "</tr><tr>";
-				var val = myObj.user_data[rows];
-
-				for (var newkeys in val) {
-					txt += "<td>";
-
-					if (newkeys === jobIdKey) {
-						txt += "<a href=\"#\" class=\"job-id-link\" data-job-id=\"" + escapeHtml(val[newkeys]) + "\">" + escapeHtml(val[newkeys]) + "</a>";
-					} else {
-						txt += escapeHtml(val[newkeys]);
+			// Fetch priorities first, then build the table
+			var priorityXhr = new XMLHttpRequest();
+			priorityXhr.onreadystatechange = function () {
+				if (this.readyState == 4) {
+					// Build a map of user_submission_id -> priority order
+					var priorityMap = {};
+					if (this.status == 200) {
+						try {
+							var priorityObj = JSON.parse(this.responseText);
+							var priorities = priorityObj.priorities || [];
+							for (var p = 0; p < priorities.length; p++) {
+								var entry = priorities[p];
+								if (entry.user_submission_id != null) {
+									priorityMap[String(entry.user_submission_id)] = entry.priority;
+								}
+							}
+						} catch (e) {
+							// If priority data fails to parse, proceed without it
+						}
 					}
 
-					txt += "</td>";
-				}
-
-				if (data_summary.user.includes(val.user)) {
-					for (i in Object.keys(data_summary)) {
-						if (i < 2) continue;
-						data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] = Number(data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)]);
-						data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] += Number(val[Object.keys(data_summary)[i]]);
+					// Build table headers (existing keys + 'order')
+					for (var i in keys) {
+						txt += "<th>";
+						txt += keys[i];
+						txt += "</th>";
 					}
-					data_summary["submission"][data_summary.user.indexOf(val.user)] += 1;
-				} else {
-					for (i in Object.keys(data_summary)) {
-						if (i == 1) continue;
-						data_summary[Object.keys(data_summary)[i]].push(val[Object.keys(data_summary)[i]]);
+					txt += "<th>order</th>";
+
+					for (var i in Object.keys(data_summary)) {
+						txt_summary += "<th>";
+						txt_summary += Object.keys(data_summary)[i];
+						txt_summary += "</th>";
 					}
-					data_summary["submission"].push(1);
+
+					for (var rows in myObj.user_data) {
+						txt += "</tr><tr>";
+						var val = myObj.user_data[rows];
+
+						for (var newkeys in val) {
+							txt += "<td>";
+
+							if (newkeys === jobIdKey) {
+								txt += "<a href=\"#\" class=\"job-id-link\" data-job-id=\"" + escapeHtml(val[newkeys]) + "\">" + escapeHtml(val[newkeys]) + "</a>";
+							} else {
+								txt += escapeHtml(val[newkeys]);
+							}
+
+							txt += "</td>";
+						}
+
+						// Add 'order' column: filled for Not Submitted, empty for Submitted
+						var jobId = jobIdKey ? String(val[jobIdKey]) : null;
+						var isNotSubmitted = String(val["submission"] || "").trim().toLowerCase() === "not submitted";
+						var orderVal = "";
+						if (isNotSubmitted && jobId && priorityMap.hasOwnProperty(jobId)) {
+							orderVal = priorityMap[jobId];
+						}
+						txt += "<td>" + escapeHtml(orderVal != null ? String(orderVal) : "") + "</td>";
+
+						if (data_summary.user.includes(val.user)) {
+							for (var i in Object.keys(data_summary)) {
+								if (i < 2) continue;
+								data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] = Number(data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)]);
+								data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] += Number(val[Object.keys(data_summary)[i]]);
+							}
+							data_summary["submission"][data_summary.user.indexOf(val.user)] += 1;
+						} else {
+							for (var i in Object.keys(data_summary)) {
+								if (i == 1) continue;
+								data_summary[Object.keys(data_summary)[i]].push(val[Object.keys(data_summary)[i]]);
+							}
+							data_summary["submission"].push(1);
+						}
+					}
+
+					txt += "</tr></table>";
+
+					for (var i in data_summary.user) {
+						txt_summary += "</tr><tr>";
+						for (var j in Object.keys(data_summary)) {
+							txt_summary += "<td>";
+							txt_summary += data_summary[Object.keys(data_summary)[j]][i];
+							txt_summary += "</td>";
+						}
+					}
+
+					txt_summary += "<tr><td>total</td>";
+					for (var j in Object.keys(data_summary)) {
+						if (j == 0) continue;
+						txt_summary += "<td>";
+						txt_summary += data_summary[Object.keys(data_summary)[j]].reduce((a, b) => Number(a) + Number(b), 0);
+						txt_summary += "</td>";
+					}
+
+					txt_summary += "</tr></table>";
+
+					document.getElementById("osgLog").innerHTML = txt;
+					document.getElementById("osgLog_summary").innerHTML = txt_summary;
+
+					const osgLogEl = document.getElementById("osgLog");
+					if (!osgLogEl.dataset.jobClickBound) {
+						osgLogEl.addEventListener("click", function (e) {
+							const link = e.target.closest(".job-id-link");
+							if (!link) return;
+							e.preventDefault();
+							showJobDetails(link.dataset.jobId);
+						});
+						osgLogEl.dataset.jobClickBound = "1";
+					}
+
+					ensureJobDetailsModal();
 				}
-			}
-
-			txt += "</tr></table>";
-
-			for (i in data_summary.user) {
-				txt_summary += "</tr><tr>";
-				for (j in Object.keys(data_summary)) {
-					txt_summary += "<td>";
-					txt_summary += data_summary[Object.keys(data_summary)[j]][i];
-					txt_summary += "</td>";
-				}
-			}
-
-			txt_summary += "<tr><td>total</td>";
-			for (j in Object.keys(data_summary)) {
-				if (j == 0) continue;
-				txt_summary += "<td>";
-				txt_summary += data_summary[Object.keys(data_summary)[j]].reduce((a, b) => Number(a) + Number(b), 0);
-				txt_summary += "</td>";
-			}
-
-			txt_summary += "</tr></table>";
-
-			document.getElementById("osgLog").innerHTML = txt;
-			document.getElementById("osgLog_summary").innerHTML = txt_summary;
-
-			const osgLogEl = document.getElementById("osgLog");
-			if (!osgLogEl.dataset.jobClickBound) {
-				osgLogEl.addEventListener("click", function (e) {
-					const link = e.target.closest(".job-id-link");
-					if (!link) return;
-					e.preventDefault();
-					showJobDetails(link.dataset.jobId);
-				});
-				osgLogEl.dataset.jobClickBound = "1";
-			}
-
-			ensureJobDetailsModal();
+			};
+			priorityXhr.open("GET", "data/submission_priorities.json", true);
+			priorityXhr.send();
 		}
 	};
 	xmlhttp.open("GET", "data/osgLog.json", true);
