@@ -523,7 +523,7 @@ function osgLogtoTable() {
 							for (var p = 0; p < priorities.length; p++) {
 								var entry = priorities[p];
 								if (entry.user_submission_id != null) {
-									priorityMap[String(entry.user_submission_id)] = entry.priority;
+									priorityMap[String(entry.user_submission_id).trim()] = entry.priority;
 								}
 							}
 						} catch (e) {
@@ -561,9 +561,10 @@ function osgLogtoTable() {
 							txt += "</td>";
 						}
 
-						// Add 'order' column: filled if job appears in priorities (Not Submitted), empty otherwise
-						var jobId = jobIdKey ? String(val[jobIdKey]) : null;
-						var orderVal = (jobId && priorityMap.hasOwnProperty(jobId)) ? priorityMap[jobId] : "";
+						// Add 'order' column: filled with priority if osg id is "Not Submitted", empty otherwise
+						var isNotSubmitted = String(val["osg id"] || "").trim() === "Not Submitted";
+						var jobId = String(val["job id"] || "").trim();
+						var orderVal = (isNotSubmitted && jobId && priorityMap.hasOwnProperty(jobId)) ? priorityMap[jobId] : "";
 						txt += "<td>" + escapeHtml(orderVal != null ? String(orderVal) : "") + "</td></tr>";
 
 						if (data_summary.user.includes(val.user)) {
