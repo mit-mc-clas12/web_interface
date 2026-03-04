@@ -487,25 +487,7 @@ function showJobDetails(jobId) {
 }
 
 function osgLogtoTable() {
-	var osgLogUrl = "data/osgLog.json";
-	var prioritiesUrl = "data/submission_priorities.json";
-
-	Promise.all([
-		fetch(osgLogUrl).then(function(r) { return r.json(); }),
-		fetch(prioritiesUrl).then(function(r) { return r.json(); }).catch(function() { return {}; })
-	]).then(function(results) {
-		var myObj = results[0];
-		var priorityObj = results[1];
-
-		// Build priority map: user_submission_id -> priority
-		var priorityMap = {};
-		var priorities = (priorityObj && priorityObj.priorities) ? priorityObj.priorities : [];
-		for (var p = 0; p < priorities.length; p++) {
-			var entry = priorities[p];
-			if (entry.user_submission_id != null) {
-				priorityMap[String(entry.user_submission_id).trim()] = entry.priority;
-			}
-		}
+	fetch("data/osgLog.json").then(function(r) { return r.json(); }).then(function(myObj) {
 
 		var txt = "<table align=\"center\" style=\"width:80%;text-align:center\"><caption align=\"bottom\">";
 		var txt_summary = "<table align=\"center\" style=\"width:50%;text-align:center\"><tr>";
@@ -550,12 +532,7 @@ function osgLogtoTable() {
 				txt += "</td>";
 			}
 
-			// order column
-			var osgId = String(val["osg id"] || "").trim();
-			var jobIdVal = jobIdKey ? String(val[jobIdKey] || "").trim() : "";
-			var isNotSubmitted = osgId === "Not Submitted";
-			var orderVal = (isNotSubmitted && priorityMap.hasOwnProperty(jobIdVal)) ? priorityMap[jobIdVal] : "";
-			txt += "<td>" + escapeHtml(String(orderVal)) + "</td></tr>";
+			txt += "<td></td></tr>";
 
 			if (data_summary.user.includes(val.user)) {
 				for (var i in Object.keys(data_summary)) {
@@ -604,6 +581,43 @@ function osgLogtoTable() {
 		}
 
 		ensureJobDetailsModal();
+
+		// Now fetch priorities and fill in the order column
+		fetch("data/submission_priorities.json").then(function(r) { return r.json(); }).then(function(priorityObj) {
+			var priorities = (priorityObj && priorityObj.priorities) ? priorityObj.priorities : [];
+			var priorityMap = {};
+			for (var p = 0; p < priorities.length; p++) {
+				var entry = priorities[p];
+				if (entry.user_submission_id != null) {
+					priorityMap[String(entry.user_submission_id).trim()] = entry.priority;
+				}
+			}
+
+			// Update each order cell in the rendered table
+			var rows = document.querySelectorAll("#osgLog table tr");
+			for (var r = 1; r < rows.length; r++) { // skip header row
+				var cells = rows[r].querySelectorAll("td");
+				if (!cells.length) continue;
+				var lastCell = cells[cells.length - 1];
+				// Find osg id cell - it's the last data cell before the order cell
+				// Find job id cell via the link
+				var link = rows[r].querySelector(".job-id-link");
+				var jobId = link ? link.dataset.jobId : "";
+				// Find osg id by scanning cells
+				var osgIdCell = null;
+				var headerCells = rows[0] ? rows[0].querySelectorAll("th") : [];
+				for (var h = 0; h < headerCells.length; h++) {
+					if (headerCells[h].textContent.trim() === "osg id") {
+						osgIdCell = cells[h];
+						break;
+					}
+				}
+				var osgIdVal = osgIdCell ? osgIdCell.textContent.trim() : "";
+				if (osgIdVal === "Not Submitted" && priorityMap.hasOwnProperty(jobId)) {
+					lastCell.textContent = priorityMap[jobId];
+				}
+			}
+		}).catch(function(e) { console.warn("priorities fetch failed:", e); });
 	});
 }
 
