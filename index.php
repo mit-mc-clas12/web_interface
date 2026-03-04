@@ -102,6 +102,6 @@
 
 	</body>
 
-	<script src="main.js"></script>		<!-- Don't move this line to the top! It causes an error at Safari -->
+	<script src="main.js?v=2"></script>
 
 </html>
