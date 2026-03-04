@@ -487,150 +487,124 @@ function showJobDetails(jobId) {
 }
 
 function osgLogtoTable() {
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			var myObj = JSON.parse(this.responseText);
+	var osgLogUrl = "data/osgLog.json";
+	var prioritiesUrl = "data/submission_priorities.json";
 
-			var txt = "<table align=\"center\" style=\"width:80%;text-align:center\"><caption align=\"bottom\">";
-			var txt_summary = "<table align=\"center\" style=\"width:50%;text-align:center\"><tr>";
+	Promise.all([
+		fetch(osgLogUrl).then(function(r) { return r.json(); }),
+		fetch(prioritiesUrl).then(function(r) { return r.json(); }).catch(function() { return {}; })
+	]).then(function(results) {
+		var myObj = results[0];
+		var priorityObj = results[1];
 
-			var meta = myObj.metadata;
-			txt += meta["footer"];
-			txt += "</caption><tr>";
+		// Build priority map: user_submission_id -> priority
+		var priorityMap = {};
+		var priorities = (priorityObj && priorityObj.priorities) ? priorityObj.priorities : [];
+		for (var p = 0; p < priorities.length; p++) {
+			var entry = priorities[p];
+			if (entry.user_submission_id != null) {
+				priorityMap[String(entry.user_submission_id).trim()] = entry.priority;
+			}
+		}
 
-			let data_summary = {"user": [], "submission": [], "total": [], "done": [], "run": [], "idle": []};
-			var keys = Object.keys(myObj.user_data[0]);
+		var txt = "<table align=\"center\" style=\"width:80%;text-align:center\"><caption align=\"bottom\">";
+		var txt_summary = "<table align=\"center\" style=\"width:50%;text-align:center\"><tr>";
 
-			let jobIdKey = null;
-			for (let k of keys) {
-				if (String(k).toLowerCase().replace(/\s+/g, "") === "jobid") {
-					jobIdKey = k;
-					break;
+		var meta = myObj.metadata;
+		txt += meta["footer"];
+		txt += "</caption><tr>";
+
+		var data_summary = {"user": [], "submission": [], "total": [], "done": [], "run": [], "idle": []};
+		var keys = Object.keys(myObj.user_data[0]);
+
+		var jobIdKey = null;
+		for (var k = 0; k < keys.length; k++) {
+			if (String(keys[k]).toLowerCase().replace(/\s+/g, "") === "jobid") {
+				jobIdKey = keys[k];
+				break;
+			}
+		}
+
+		// Headers
+		for (var i = 0; i < keys.length; i++) {
+			txt += "<th>" + keys[i] + "</th>";
+		}
+		txt += "<th>order</th></tr>";
+
+		for (var i in Object.keys(data_summary)) {
+			txt_summary += "<th>" + Object.keys(data_summary)[i] + "</th>";
+		}
+
+		// Rows
+		for (var rows in myObj.user_data) {
+			txt += "<tr>";
+			var val = myObj.user_data[rows];
+
+			for (var newkeys in val) {
+				txt += "<td>";
+				if (newkeys === jobIdKey) {
+					txt += "<a href=\"#\" class=\"job-id-link\" data-job-id=\"" + escapeHtml(val[newkeys]) + "\">" + escapeHtml(val[newkeys]) + "</a>";
+				} else {
+					txt += escapeHtml(val[newkeys]);
 				}
+				txt += "</td>";
 			}
 
-			console.log("[osgLog] keys:", keys);
-			console.log("[osgLog] jobIdKey:", jobIdKey);
-			console.log("[osgLog] sample row:", JSON.stringify(myObj.user_data[0]));
+			// order column
+			var osgId = String(val["osg id"] || "").trim();
+			var jobIdVal = jobIdKey ? String(val[jobIdKey] || "").trim() : "";
+			var isNotSubmitted = osgId === "Not Submitted";
+			var orderVal = (isNotSubmitted && priorityMap.hasOwnProperty(jobIdVal)) ? priorityMap[jobIdVal] : "";
+			txt += "<td>" + escapeHtml(String(orderVal)) + "</td></tr>";
 
-			// Fetch priorities, then build table
-			var priorityXhr = new XMLHttpRequest();
-			priorityXhr.onreadystatechange = function () {
-				if (this.readyState == 4) {
-					var priorityMap = {};
-					if (this.status == 200) {
-						try {
-							var priorityObj = JSON.parse(this.responseText);
-							var priorities = priorityObj.priorities || [];
-							for (var p = 0; p < priorities.length; p++) {
-								var entry = priorities[p];
-								if (entry.user_submission_id != null) {
-									priorityMap[String(entry.user_submission_id).trim()] = entry.priority;
-								}
-							}
-							console.log("[priorities] loaded", priorities.length, "entries");
-							console.log("[priorities] map keys sample:", Object.keys(priorityMap).slice(0, 5));
-							if (priorities.length > 0) {
-								console.log("[priorities] sample entry:", JSON.stringify(priorities[0]));
-							}
-						} catch (e) {
-							console.warn("[priorities] parse error:", e);
-						}
-					} else {
-						console.warn("[priorities] HTTP status:", this.status);
-					}
-
-					// Build table headers (existing keys + 'order')
-					for (var i in keys) {
-						txt += "<th>" + keys[i] + "</th>";
-					}
-					txt += "<th>order</th></tr>";
-
-					for (var i in Object.keys(data_summary)) {
-						txt_summary += "<th>" + Object.keys(data_summary)[i] + "</th>";
-					}
-
-					for (var rows in myObj.user_data) {
-						txt += "<tr>";
-						var val = myObj.user_data[rows];
-
-						for (var newkeys in val) {
-							txt += "<td>";
-							if (newkeys === jobIdKey) {
-								txt += "<a href=\"#\" class=\"job-id-link\" data-job-id=\"" + escapeHtml(val[newkeys]) + "\">" + escapeHtml(val[newkeys]) + "</a>";
-							} else {
-								txt += escapeHtml(val[newkeys]);
-							}
-							txt += "</td>";
-						}
-
-						// 'order' column
-						var osgId = String(val["osg id"] || "").trim();
-						var jobIdVal = String(val[jobIdKey] || "").trim();
-						var isNotSubmitted = osgId === "Not Submitted";
-						var inMap = priorityMap.hasOwnProperty(jobIdVal);
-						var orderVal = (isNotSubmitted && inMap) ? priorityMap[jobIdVal] : "";
-
-						console.log("[row]", jobIdKey + "=[" + jobIdVal + "]", "osg id=[" + osgId + "]", "isNotSubmitted=" + isNotSubmitted, "inMap=" + inMap, "orderVal=" + orderVal);
-
-						txt += "<td>" + escapeHtml(String(orderVal)) + "</td></tr>";
-
-						if (data_summary.user.includes(val.user)) {
-							for (var i in Object.keys(data_summary)) {
-								if (i < 2) continue;
-								data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] = Number(data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)]);
-								data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] += Number(val[Object.keys(data_summary)[i]]);
-							}
-							data_summary["submission"][data_summary.user.indexOf(val.user)] += 1;
-						} else {
-							for (var i in Object.keys(data_summary)) {
-								if (i == 1) continue;
-								data_summary[Object.keys(data_summary)[i]].push(val[Object.keys(data_summary)[i]]);
-							}
-							data_summary["submission"].push(1);
-						}
-					}
-
-					txt += "</table>";
-
-					for (var i in data_summary.user) {
-						txt_summary += "</tr><tr>";
-						for (var j in Object.keys(data_summary)) {
-							txt_summary += "<td>" + data_summary[Object.keys(data_summary)[j]][i] + "</td>";
-						}
-					}
-
-					txt_summary += "<tr><td>total</td>";
-					for (var j in Object.keys(data_summary)) {
-						if (j == 0) continue;
-						txt_summary += "<td>" + data_summary[Object.keys(data_summary)[j]].reduce((a, b) => Number(a) + Number(b), 0) + "</td>";
-					}
-					txt_summary += "</tr></table>";
-
-					document.getElementById("osgLog").innerHTML = txt;
-					document.getElementById("osgLog_summary").innerHTML = txt_summary;
-
-					const osgLogEl = document.getElementById("osgLog");
-					if (!osgLogEl.dataset.jobClickBound) {
-						osgLogEl.addEventListener("click", function (e) {
-							const link = e.target.closest(".job-id-link");
-							if (!link) return;
-							e.preventDefault();
-							showJobDetails(link.dataset.jobId);
-						});
-						osgLogEl.dataset.jobClickBound = "1";
-					}
-
-					ensureJobDetailsModal();
+			if (data_summary.user.includes(val.user)) {
+				for (var i in Object.keys(data_summary)) {
+					if (i < 2) continue;
+					data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] = Number(data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)]);
+					data_summary[Object.keys(data_summary)[i]][data_summary.user.indexOf(val.user)] += Number(val[Object.keys(data_summary)[i]]);
 				}
-			};
-			priorityXhr.open("GET", "data/submission_priorities.json", true);
-			priorityXhr.send();
+				data_summary["submission"][data_summary.user.indexOf(val.user)] += 1;
+			} else {
+				for (var i in Object.keys(data_summary)) {
+					if (i == 1) continue;
+					data_summary[Object.keys(data_summary)[i]].push(val[Object.keys(data_summary)[i]]);
+				}
+				data_summary["submission"].push(1);
+			}
 		}
-	};
-	xmlhttp.open("GET", "data/osgLog.json", true);
-	xmlhttp.send();
+
+		txt += "</table>";
+
+		for (var i in data_summary.user) {
+			txt_summary += "</tr><tr>";
+			for (var j in Object.keys(data_summary)) {
+				txt_summary += "<td>" + data_summary[Object.keys(data_summary)[j]][i] + "</td>";
+			}
+		}
+
+		txt_summary += "<tr><td>total</td>";
+		for (var j in Object.keys(data_summary)) {
+			if (j == 0) continue;
+			txt_summary += "<td>" + data_summary[Object.keys(data_summary)[j]].reduce(function(a, b) { return Number(a) + Number(b); }, 0) + "</td>";
+		}
+		txt_summary += "</tr></table>";
+
+		document.getElementById("osgLog").innerHTML = txt;
+		document.getElementById("osgLog_summary").innerHTML = txt_summary;
+
+		var osgLogEl = document.getElementById("osgLog");
+		if (!osgLogEl.dataset.jobClickBound) {
+			osgLogEl.addEventListener("click", function(e) {
+				var link = e.target.closest(".job-id-link");
+				if (!link) return;
+				e.preventDefault();
+				showJobDetails(link.dataset.jobId);
+			});
+			osgLogEl.dataset.jobClickBound = "1";
+		}
+
+		ensureJobDetailsModal();
+	});
 }
 
 
