@@ -632,6 +632,8 @@ function osgLogtoTable() {
 	xmlhttp.open("GET", "data/osgLog.json", true);
 	xmlhttp.send();
 }
+
+
 function fairshareToTable() {
 	var fairshareEl = document.getElementById("fairshare");
 	var fairshareSummaryEl = document.getElementById("fairshare_summary");
