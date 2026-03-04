@@ -510,11 +510,14 @@ function osgLogtoTable() {
 				}
 			}
 
-			// Fetch priorities first, then build the table
+			console.log("[osgLog] keys:", keys);
+			console.log("[osgLog] jobIdKey:", jobIdKey);
+			console.log("[osgLog] sample row:", JSON.stringify(myObj.user_data[0]));
+
+			// Fetch priorities, then build table
 			var priorityXhr = new XMLHttpRequest();
 			priorityXhr.onreadystatechange = function () {
 				if (this.readyState == 4) {
-					// Build a map of user_submission_id -> priority order
 					var priorityMap = {};
 					if (this.status == 200) {
 						try {
@@ -526,23 +529,26 @@ function osgLogtoTable() {
 									priorityMap[String(entry.user_submission_id).trim()] = entry.priority;
 								}
 							}
+							console.log("[priorities] loaded", priorities.length, "entries");
+							console.log("[priorities] map keys sample:", Object.keys(priorityMap).slice(0, 5));
+							if (priorities.length > 0) {
+								console.log("[priorities] sample entry:", JSON.stringify(priorities[0]));
+							}
 						} catch (e) {
-							// If priority data fails to parse, proceed without it
+							console.warn("[priorities] parse error:", e);
 						}
+					} else {
+						console.warn("[priorities] HTTP status:", this.status);
 					}
 
 					// Build table headers (existing keys + 'order')
 					for (var i in keys) {
-						txt += "<th>";
-						txt += keys[i];
-						txt += "</th>";
+						txt += "<th>" + keys[i] + "</th>";
 					}
 					txt += "<th>order</th></tr>";
 
 					for (var i in Object.keys(data_summary)) {
-						txt_summary += "<th>";
-						txt_summary += Object.keys(data_summary)[i];
-						txt_summary += "</th>";
+						txt_summary += "<th>" + Object.keys(data_summary)[i] + "</th>";
 					}
 
 					for (var rows in myObj.user_data) {
@@ -551,21 +557,24 @@ function osgLogtoTable() {
 
 						for (var newkeys in val) {
 							txt += "<td>";
-
 							if (newkeys === jobIdKey) {
 								txt += "<a href=\"#\" class=\"job-id-link\" data-job-id=\"" + escapeHtml(val[newkeys]) + "\">" + escapeHtml(val[newkeys]) + "</a>";
 							} else {
 								txt += escapeHtml(val[newkeys]);
 							}
-
 							txt += "</td>";
 						}
 
-						// Add 'order' column: filled with priority if osg id is "Not Submitted", empty otherwise
-						var isNotSubmitted = String(val["osg id"] || "").trim() === "Not Submitted";
-						var jobId = String(val["job id"] || "").trim();
-						var orderVal = (isNotSubmitted && jobId && priorityMap.hasOwnProperty(jobId)) ? priorityMap[jobId] : "";
-						txt += "<td>" + escapeHtml(orderVal != null ? String(orderVal) : "") + "</td></tr>";
+						// 'order' column
+						var osgId = String(val["osg id"] || "").trim();
+						var jobIdVal = String(val[jobIdKey] || "").trim();
+						var isNotSubmitted = osgId === "Not Submitted";
+						var inMap = priorityMap.hasOwnProperty(jobIdVal);
+						var orderVal = (isNotSubmitted && inMap) ? priorityMap[jobIdVal] : "";
+
+						console.log("[row]", jobIdKey + "=[" + jobIdVal + "]", "osg id=[" + osgId + "]", "isNotSubmitted=" + isNotSubmitted, "inMap=" + inMap, "orderVal=" + orderVal);
+
+						txt += "<td>" + escapeHtml(String(orderVal)) + "</td></tr>";
 
 						if (data_summary.user.includes(val.user)) {
 							for (var i in Object.keys(data_summary)) {
@@ -583,25 +592,20 @@ function osgLogtoTable() {
 						}
 					}
 
-					txt += "</tr></table>";
+					txt += "</table>";
 
 					for (var i in data_summary.user) {
 						txt_summary += "</tr><tr>";
 						for (var j in Object.keys(data_summary)) {
-							txt_summary += "<td>";
-							txt_summary += data_summary[Object.keys(data_summary)[j]][i];
-							txt_summary += "</td>";
+							txt_summary += "<td>" + data_summary[Object.keys(data_summary)[j]][i] + "</td>";
 						}
 					}
 
 					txt_summary += "<tr><td>total</td>";
 					for (var j in Object.keys(data_summary)) {
 						if (j == 0) continue;
-						txt_summary += "<td>";
-						txt_summary += data_summary[Object.keys(data_summary)[j]].reduce((a, b) => Number(a) + Number(b), 0);
-						txt_summary += "</td>";
+						txt_summary += "<td>" + data_summary[Object.keys(data_summary)[j]].reduce((a, b) => Number(a) + Number(b), 0) + "</td>";
 					}
-
 					txt_summary += "</tr></table>";
 
 					document.getElementById("osgLog").innerHTML = txt;
@@ -628,7 +632,6 @@ function osgLogtoTable() {
 	xmlhttp.open("GET", "data/osgLog.json", true);
 	xmlhttp.send();
 }
-
 function fairshareToTable() {
 	var fairshareEl = document.getElementById("fairshare");
 	var fairshareSummaryEl = document.getElementById("fairshare_summary");
