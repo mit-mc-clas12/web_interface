@@ -9,14 +9,17 @@ function calculate() {
 }
 
 window.onscroll = function () {
-	myFunction()
+	myFunction();
 };
+
 var navbar = document.getElementById("nav");
-var sticky = navbar.offsetTop;
+var sticky = navbar ? navbar.offsetTop : 0;
 
 function myFunction() {
+	if (!navbar) return;
+
 	if (window.pageYOffset >= sticky) {
-		navbar.classList.add("sticky")
+		navbar.classList.add("sticky");
 	} else {
 		navbar.classList.remove("sticky");
 	}
@@ -25,9 +28,23 @@ function myFunction() {
 var is_test = window.location.pathname.includes("test");
 var title = "CLAS12 Monte-Carlo Job Submission Portal";
 if (is_test) {
-	title = title + " (Test Version)";
+	title = "CLAS12 Test Job Submission Portal";
 }
-document.getElementById('title').innerHTML = title;
+if (document.getElementById('title')) {
+	document.getElementById('title').innerHTML = title;
+}
+
+function formatNumber(value, digits = 6) {
+	var num = Number(value);
+	if (!isFinite(num)) return "";
+	return num.toFixed(digits);
+}
+
+function formatAgeDays(value) {
+	var num = Number(value);
+	if (!isFinite(num)) return "";
+	return num.toFixed(2);
+}
 
 function genSelected(val) {
 	var generator = document.getElementById("generator").value;
@@ -579,40 +596,78 @@ function osgLogtoTable() {
 	xmlhttp.send();
 }
 
-function diskUsagetoTable() {
+function fairshareToTable() {
+	var fairshareEl = document.getElementById("fairshare");
+	var fairshareSummaryEl = document.getElementById("fairshare_summary");
+
+	if (!fairshareEl || !fairshareSummaryEl) {
+		return;
+	}
+
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			var myObj = JSON.parse(this.responseText);
-			//set up table
-			var txt = "<table align=\"center\" style=\"width:60%;text-align:center\"><tr><th>Name</th><th>Disk Usage</th></tr>";
-			for (var user in myObj) {
-				txt += "<tr><td>" + user + "</td>";
-				txt += "<td>" + myObj[user].total_size + "</td>"
-				if (user == username) {
-					txt += "<td><details><summary>details</summary>";
-					txt += "<div class=\"w3-center\"><form action=\"condorrm.php\" method=\"POST\">";
-					for (var index in myObj[username]["sub_directories"]) {
-						var nameandsize = myObj[username]["sub_directories"][index];
-						for (var keys in nameandsize) {
-							if (keys == "name") {
-								txt += "<input type=\"checkbox\" name=\"" + nameandsize[keys] + "\">";
-							}
-							txt += keys + ": " + nameandsize[keys] + "  ";
-						}
-						txt += "<br>";
-					}
-					txt += "<input type=\"submit\" value=\"cancel\">";
-					txt += "</form>";
-					txt += "</div></details></td>";
-					txt += "</tr>";
-				}
+		if (this.readyState == 4) {
+			if (this.status != 200) {
+				fairshareEl.innerHTML = "<div style=\"color:#b00020;font-weight:bold;\">Failed to load fairshare data.</div>";
+				fairshareSummaryEl.innerHTML = "";
+				return;
 			}
+
+			var myObj = JSON.parse(this.responseText);
+
+			var priorities = [];
+			if (myObj.priorities && Array.isArray(myObj.priorities)) {
+				priorities = myObj.priorities;
+			}
+
+			var summaryTxt = "<table align=\"center\" style=\"width:60%;text-align:center\">";
+			summaryTxt += "<tr><th>Setting</th><th>Value</th></tr>";
+			summaryTxt += "<tr><td>Algorithm</td><td>" + escapeHtml(myObj.priority_algorithm || "") + "</td></tr>";
+			summaryTxt += "<tr><td>Half-life days</td><td>" + escapeHtml(myObj.half_life_days == null ? "n/a" : myObj.half_life_days) + "</td></tr>";
+			summaryTxt += "<tr><td>Total pending jobs</td><td>" + escapeHtml(myObj.total_not_submitted_jobs || 0) + "</td></tr>";
+			summaryTxt += "</table>";
+
+			var txt = "<table align=\"center\" style=\"width:90%;text-align:center\"><tr>";
+			var headers = [
+				"user",
+				"user_submission_id",
+				"client_time",
+				"priority",
+				"pending_jobs_for_user",
+				"score",
+				"age_days"
+			];
+
+			for (var i = 0; i < headers.length; i++) {
+				txt += "<th>" + headers[i] + "</th>";
+			}
+			txt += "</tr>";
+
+			for (var rowIndex in priorities) {
+				var row = priorities[rowIndex];
+				txt += "<tr>";
+				txt += "<td>" + escapeHtml(row.user) + "</td>";
+				txt += "<td>" + escapeHtml(row.user_submission_id) + "</td>";
+				txt += "<td>" + escapeHtml(row.client_time) + "</td>";
+				txt += "<td>" + escapeHtml(row.priority) + "</td>";
+				txt += "<td>" + escapeHtml(row.pending_jobs_for_user) + "</td>";
+				txt += "<td>" + escapeHtml(formatNumber(row.score)) + "</td>";
+				txt += "<td>" + escapeHtml(row.age_days == null ? "n/a" : formatAgeDays(row.age_days)) + "</td>";
+				txt += "</tr>";
+			}
+
+			if (priorities.length === 0) {
+				txt += "<tr><td colspan=\"7\">No fairshare entries found.</td></tr>";
+			}
+
 			txt += "</table>";
-			document.getElementById("du").innerHTML = txt;
+
+			fairshareSummaryEl.innerHTML = summaryTxt;
+			fairshareEl.innerHTML = txt;
 		}
 	};
-	xmlhttp.open("GET", "data/disk.json", true);
+
+	xmlhttp.open("GET", "data/submission_priorities.json", true);
 	xmlhttp.send();
 }
 
