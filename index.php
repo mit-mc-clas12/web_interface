@@ -102,6 +102,6 @@
 
 	</body>
 
-	<script src="main.js?v=2"></script>
+	<script src="main.js?v=3"></script>
 
 </html>

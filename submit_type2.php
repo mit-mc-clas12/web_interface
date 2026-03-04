@@ -16,7 +16,6 @@
 			<ul id="nav">
 				<li><a href="index.php">     Home</a></li>
 				<li><a href="about.html">    About</a></li>
-				<li><a href="disk.php">      Disk Usage</a></li>
 				<li><a href="osgStats.html"> OSG Stats</a></li>
 				<li><a href="fairshare.html"> Fairshare</a></li>
 			</ul>
