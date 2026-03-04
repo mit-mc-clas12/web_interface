@@ -599,8 +599,9 @@ function osgLogtoTable() {
 function fairshareToTable() {
 	var fairshareEl = document.getElementById("fairshare");
 	var fairshareSummaryEl = document.getElementById("fairshare_summary");
+	var fairshareUserSummaryEl = document.getElementById("fairshare_user_summary");
 
-	if (!fairshareEl || !fairshareSummaryEl) {
+	if (!fairshareEl || !fairshareSummaryEl || !fairshareUserSummaryEl) {
 		return;
 	}
 
@@ -610,6 +611,7 @@ function fairshareToTable() {
 			if (this.status != 200) {
 				fairshareEl.innerHTML = "<div style=\"color:#b00020;font-weight:bold;\">Failed to load fairshare data.</div>";
 				fairshareSummaryEl.innerHTML = "";
+				fairshareUserSummaryEl.innerHTML = "";
 				return;
 			}
 
@@ -620,12 +622,37 @@ function fairshareToTable() {
 				priorities = myObj.priorities;
 			}
 
+			var jobsPerUser = [];
+			if (myObj.jobs_per_user && Array.isArray(myObj.jobs_per_user)) {
+				jobsPerUser = myObj.jobs_per_user;
+			}
+
+			var daysConsidered = "all";
+			if (myObj.days_considered !== null && myObj.days_considered !== undefined) {
+				daysConsidered = "last " + myObj.days_considered;
+			}
+
 			var summaryTxt = "<table align=\"center\" style=\"width:60%;text-align:center\">";
 			summaryTxt += "<tr><th>Setting</th><th>Value</th></tr>";
 			summaryTxt += "<tr><td>Algorithm</td><td>" + escapeHtml(myObj.priority_algorithm || "") + "</td></tr>";
 			summaryTxt += "<tr><td>Half-life days</td><td>" + escapeHtml(myObj.half_life_days == null ? "n/a" : myObj.half_life_days) + "</td></tr>";
-			summaryTxt += "<tr><td>Total pending jobs</td><td>" + escapeHtml(myObj.total_not_submitted_jobs || 0) + "</td></tr>";
+			summaryTxt += "<tr><td>Days considered</td><td>" + escapeHtml(daysConsidered) + "</td></tr>";
+			summaryTxt += "<tr><td>Total jobs</td><td>" + escapeHtml(myObj.total_jobs || 0) + "</td></tr>";
+			summaryTxt += "<tr><td>Total users</td><td>" + escapeHtml(myObj.total_users || 0) + "</td></tr>";
+			summaryTxt += "<tr><td>Total 'Not Submitted' jobs</td><td>" + escapeHtml(myObj.total_not_submitted_jobs || 0) + "</td></tr>";
 			summaryTxt += "</table>";
+
+			var userSummaryTxt = "<table align=\"center\" style=\"width:40%;text-align:center\"><tr><th>user</th><th>jobs</th></tr>";
+			for (var i = 0; i < jobsPerUser.length; i++) {
+				userSummaryTxt += "<tr>";
+				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].user) + "</td>";
+				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].jobs) + "</td>";
+				userSummaryTxt += "</tr>";
+			}
+			if (jobsPerUser.length === 0) {
+				userSummaryTxt += "<tr><td colspan=\"2\">No summary entries found.</td></tr>";
+			}
+			userSummaryTxt += "</table>";
 
 			var txt = "<table align=\"center\" style=\"width:90%;text-align:center\"><tr>";
 			var headers = [
@@ -638,12 +665,12 @@ function fairshareToTable() {
 				"age_days"
 			];
 
-			for (var i = 0; i < headers.length; i++) {
-				txt += "<th>" + headers[i] + "</th>";
+			for (var j = 0; j < headers.length; j++) {
+				txt += "<th>" + headers[j] + "</th>";
 			}
 			txt += "</tr>";
 
-			for (var rowIndex in priorities) {
+			for (var rowIndex = 0; rowIndex < priorities.length; rowIndex++) {
 				var row = priorities[rowIndex];
 				txt += "<tr>";
 				txt += "<td>" + escapeHtml(row.user) + "</td>";
@@ -663,6 +690,7 @@ function fairshareToTable() {
 			txt += "</table>";
 
 			fairshareSummaryEl.innerHTML = summaryTxt;
+			fairshareUserSummaryEl.innerHTML = userSummaryTxt;
 			fairshareEl.innerHTML = txt;
 		}
 	};
