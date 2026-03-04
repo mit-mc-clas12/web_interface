@@ -487,6 +487,7 @@ function showJobDetails(jobId) {
 }
 
 function osgLogtoTable() {
+	console.log("osgLogtoTable version 2 loaded");
 	fetch("data/osgLog.json").then(function(r) { return r.json(); }).then(function(myObj) {
 
 		var txt = "<table align=\"center\" style=\"width:80%;text-align:center\"><caption align=\"bottom\">";
