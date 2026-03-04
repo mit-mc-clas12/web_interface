@@ -537,7 +537,7 @@ function osgLogtoTable() {
 						txt += keys[i];
 						txt += "</th>";
 					}
-					txt += "<th>order</th>";
+					txt += "<th>order</th></tr>";
 
 					for (var i in Object.keys(data_summary)) {
 						txt_summary += "<th>";
@@ -546,7 +546,7 @@ function osgLogtoTable() {
 					}
 
 					for (var rows in myObj.user_data) {
-						txt += "</tr><tr>";
+						txt += "<tr>";
 						var val = myObj.user_data[rows];
 
 						for (var newkeys in val) {
@@ -561,14 +561,10 @@ function osgLogtoTable() {
 							txt += "</td>";
 						}
 
-						// Add 'order' column: filled for Not Submitted, empty for Submitted
+						// Add 'order' column: filled if job appears in priorities (Not Submitted), empty otherwise
 						var jobId = jobIdKey ? String(val[jobIdKey]) : null;
-						var isNotSubmitted = String(val["submission"] || "").trim().toLowerCase() === "not submitted";
-						var orderVal = "";
-						if (isNotSubmitted && jobId && priorityMap.hasOwnProperty(jobId)) {
-							orderVal = priorityMap[jobId];
-						}
-						txt += "<td>" + escapeHtml(orderVal != null ? String(orderVal) : "") + "</td>";
+						var orderVal = (jobId && priorityMap.hasOwnProperty(jobId)) ? priorityMap[jobId] : "";
+						txt += "<td>" + escapeHtml(orderVal != null ? String(orderVal) : "") + "</td></tr>";
 
 						if (data_summary.user.includes(val.user)) {
 							for (var i in Object.keys(data_summary)) {
