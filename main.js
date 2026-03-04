@@ -632,34 +632,42 @@ function fairshareToTable() {
 				daysConsidered = "last " + myObj.days_considered;
 			}
 
+			// Settings summary table
 			var summaryTxt = "<table align=\"center\" style=\"width:60%;text-align:center\">";
 			summaryTxt += "<tr><th>Setting</th><th>Value</th></tr>";
 			summaryTxt += "<tr><td>Algorithm</td><td>" + escapeHtml(myObj.priority_algorithm || "") + "</td></tr>";
 			summaryTxt += "<tr><td>Half-life days</td><td>" + escapeHtml(myObj.half_life_days == null ? "n/a" : myObj.half_life_days) + "</td></tr>";
+			summaryTxt += "<tr><td>History half-life days</td><td>" + escapeHtml(myObj.history_half_life_days == null ? "n/a" : myObj.history_half_life_days) + "</td></tr>";
 			summaryTxt += "<tr><td>Days considered</td><td>" + escapeHtml(daysConsidered) + "</td></tr>";
 			summaryTxt += "<tr><td>Total jobs</td><td>" + escapeHtml(myObj.total_jobs || 0) + "</td></tr>";
 			summaryTxt += "<tr><td>Total users</td><td>" + escapeHtml(myObj.total_users || 0) + "</td></tr>";
 			summaryTxt += "<tr><td>Total 'Not Submitted' jobs</td><td>" + escapeHtml(myObj.total_not_submitted_jobs || 0) + "</td></tr>";
 			summaryTxt += "</table>";
 
-			var userSummaryTxt = "<table align=\"center\" style=\"width:40%;text-align:center\"><tr><th>user</th><th>jobs</th></tr>";
+			// Per-user summary table
+			var userSummaryTxt = "<table align=\"center\" style=\"width:60%;text-align:center\">";
+			userSummaryTxt += "<tr><th>user</th><th>total jobs</th><th>weight</th><th>pending jobs</th></tr>";
 			for (var i = 0; i < jobsPerUser.length; i++) {
 				userSummaryTxt += "<tr>";
 				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].user) + "</td>";
 				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].jobs) + "</td>";
+				userSummaryTxt += "<td>" + escapeHtml(formatNumber(jobsPerUser[i].submitted_load, 2)) + "</td>";
+				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].pending_jobs) + "</td>";
 				userSummaryTxt += "</tr>";
 			}
 			if (jobsPerUser.length === 0) {
-				userSummaryTxt += "<tr><td colspan=\"2\">No summary entries found.</td></tr>";
+				userSummaryTxt += "<tr><td colspan=\"4\">No summary entries found.</td></tr>";
 			}
 			userSummaryTxt += "</table>";
 
+			// Per-job priorities table
 			var txt = "<table align=\"center\" style=\"width:90%;text-align:center\"><tr>";
 			var headers = [
 				"user",
 				"user_submission_id",
 				"client_time",
-				"priority",
+				"order",
+				"wait_time (h)",
 				"pending_jobs_for_user",
 				"score",
 				"age_days"
@@ -672,11 +680,20 @@ function fairshareToTable() {
 
 			for (var rowIndex = 0; rowIndex < priorities.length; rowIndex++) {
 				var row = priorities[rowIndex];
+
+				var waitTime = "";
+				var clientMs = Date.parse(row.client_time ? row.client_time.replace(" ", "T") : "");
+				if (!isNaN(clientMs)) {
+					var hours = (Date.now() - clientMs) / 3600000;
+					if (hours >= 0) waitTime = hours.toFixed(1);
+				}
+
 				txt += "<tr>";
 				txt += "<td>" + escapeHtml(row.user) + "</td>";
 				txt += "<td>" + escapeHtml(row.user_submission_id) + "</td>";
 				txt += "<td>" + escapeHtml(row.client_time) + "</td>";
 				txt += "<td>" + escapeHtml(row.priority) + "</td>";
+				txt += "<td>" + escapeHtml(waitTime) + "</td>";
 				txt += "<td>" + escapeHtml(row.pending_jobs_for_user) + "</td>";
 				txt += "<td>" + escapeHtml(formatNumber(row.score)) + "</td>";
 				txt += "<td>" + escapeHtml(row.age_days == null ? "n/a" : formatAgeDays(row.age_days)) + "</td>";
@@ -684,7 +701,7 @@ function fairshareToTable() {
 			}
 
 			if (priorities.length === 0) {
-				txt += "<tr><td colspan=\"7\">No fairshare entries found.</td></tr>";
+				txt += "<tr><td colspan=\"8\">No fairshare entries found.</td></tr>";
 			}
 
 			txt += "</table>";
