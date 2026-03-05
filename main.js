@@ -663,8 +663,8 @@ function fairshareToTable() {
 			var summaryTxt = "<table align=\"center\" style=\"width:60%;text-align:center\">";
 			summaryTxt += "<tr><th>Setting</th><th>Value</th></tr>";
 			summaryTxt += "<tr><td>Algorithm</td><td>" + escapeHtml(myObj.priority_algorithm || "") + "</td></tr>";
-			summaryTxt += "<tr><td>Half-life days</td><td>" + escapeHtml(myObj.half_life_days == null ? "n/a" : myObj.half_life_days) + "</td></tr>";
-			summaryTxt += "<tr><td>History half-life days</td><td>" + escapeHtml(myObj.history_half_life_days == null ? "n/a" : myObj.history_half_life_days) + "</td></tr>";
+			summaryTxt += "<tr><td>Aging Half-life (days)</td><td>" + escapeHtml(myObj.half_life_days == null ? "n/a" : myObj.half_life_days) + "</td></tr>";
+			summaryTxt += "<tr><td>History half-life (days)</td><td>" + escapeHtml(myObj.history_half_life_days == null ? "n/a" : myObj.history_half_life_days) + "</td></tr>";
 			summaryTxt += "<tr><td>Days considered</td><td>" + escapeHtml(daysConsidered) + "</td></tr>";
 			summaryTxt += "<tr><td>Total jobs</td><td>" + escapeHtml(myObj.total_jobs || 0) + "</td></tr>";
 			summaryTxt += "<tr><td>Total users</td><td>" + escapeHtml(myObj.total_users || 0) + "</td></tr>";
