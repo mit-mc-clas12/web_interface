@@ -34,7 +34,7 @@ if (document.getElementById('title')) {
 	document.getElementById('title').innerHTML = title;
 }
 
-function formatNumber(value, digits = 6) {
+function formatNumber(value, digits = 1) {
 	var num = Number(value);
 	if (!isFinite(num)) return "";
 	return num.toFixed(digits);
@@ -666,7 +666,7 @@ function fairshareToTable() {
 			summaryTxt += "<tr><td>Aging Half-life (days)</td><td>" + escapeHtml(myObj.half_life_days == null ? "n/a" : myObj.half_life_days) + "</td></tr>";
 			summaryTxt += "<tr><td>History half-life (days)</td><td>" + escapeHtml(myObj.history_half_life_days == null ? "n/a" : myObj.history_half_life_days) + "</td></tr>";
 			summaryTxt += "<tr><td>Days considered</td><td>" + escapeHtml(daysConsidered) + "</td></tr>";
-			summaryTxt += "<tr><td>Total jobs</td><td>" + escapeHtml(myObj.total_jobs || 0) + "</td></tr>";
+			summaryTxt += "<tr><td>Total submissions</td><td>" + escapeHtml(myObj.total_submissions || 0) + "</td></tr>";
 			summaryTxt += "<tr><td>Total users</td><td>" + escapeHtml(myObj.total_users || 0) + "</td></tr>";
 			summaryTxt += "<tr><td>Total 'Not Submitted' jobs</td><td>" + escapeHtml(myObj.total_not_submitted_jobs || 0) + "</td></tr>";
 			summaryTxt += "</table>";
