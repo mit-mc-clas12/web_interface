@@ -666,14 +666,14 @@ function fairshareToTable() {
 			summaryTxt += "<tr><td>Aging Half-life (days)</td><td>" + escapeHtml(myObj.half_life_days == null ? "n/a" : myObj.half_life_days) + "</td></tr>";
 			summaryTxt += "<tr><td>History half-life (days)</td><td>" + escapeHtml(myObj.history_half_life_days == null ? "n/a" : myObj.history_half_life_days) + "</td></tr>";
 			summaryTxt += "<tr><td>Days considered</td><td>" + escapeHtml(daysConsidered) + "</td></tr>";
-			summaryTxt += "<tr><td>Total Submissions</td><td>" + escapeHtml(myObj.total_submissions || 0) + "</td></tr>";
+			summaryTxt += "<tr><td>Number of Submissions</td><td>" + escapeHtml(myObj.total_submissions || 0) + "</td></tr>";
 			summaryTxt += "<tr><td>Total users</td><td>" + escapeHtml(myObj.total_users || 0) + "</td></tr>";
-			summaryTxt += "<tr><td>Total Not Submitted</td><td>" + escapeHtml(myObj.total_not_submitted_jobs || 0) + "</td></tr>";
+			summaryTxt += "<tr><td>Not Submitted</td><td>" + escapeHtml(myObj.total_not_submitted_jobs || 0) + "</td></tr>";
 			summaryTxt += "</table>";
 
 			// Per-user summary table
 			var userSummaryTxt = "<table align=\"center\" style=\"width:60%;text-align:center\">";
-			userSummaryTxt += "<tr><th>user</th><th>total submissions</th><th>history weight</th><th>pending submissions</th></tr>";
+			userSummaryTxt += "<tr><th>user</th><th>submissions</th><th>history weight</th><th>pending submissions</th></tr>";
 			for (var i = 0; i < jobsPerUser.length; i++) {
 				userSummaryTxt += "<tr>";
 				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].user) + "</td>";
