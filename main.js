@@ -695,7 +695,7 @@ function fairshareToTable() {
 				"client_time",
 				"order",
 				"wait_time (h)",
-				"pending_submissions",
+				"pending",
 				"score",
 				"age_days"
 			];
