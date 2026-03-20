@@ -692,7 +692,7 @@ function fairshareToTable() {
 			var headers = [
 				"user",
 				"user_submission_id",
-				"client_time",
+				"date",
 				"order",
 				"wait_time (h)",
 				"pending",
