@@ -678,7 +678,7 @@ function fairshareToTable() {
 				userSummaryTxt += "<tr>";
 				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].user) + "</td>";
 				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].jobs) + "</td>";
-				userSummaryTxt += "<td>" + escapeHtml(formatNumber(jobsPerUser[i].submitted_load, 2)) + "</td>";
+				userSummaryTxt += "<td>" + escapeHtml(formatNumber(jobsPerUser[i].submitted_load*100, 2)) + "</td>";
 				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].pending_jobs) + "</td>";
 				userSummaryTxt += "</tr>";
 			}
