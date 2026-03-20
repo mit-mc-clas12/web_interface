@@ -673,7 +673,7 @@ function fairshareToTable() {
 
 			// Per-user summary table
 			var userSummaryTxt = "<table align=\"center\" style=\"width:60%;text-align:center\">";
-			userSummaryTxt += "<tr><th>user</th><th>submissions</th><th>history weight</th><th>pending submissions</th></tr>";
+			userSummaryTxt += "<tr><th>user</th><th>submissions</th><th>history weight</th><th>pending</th></tr>";
 			for (var i = 0; i < jobsPerUser.length; i++) {
 				userSummaryTxt += "<tr>";
 				userSummaryTxt += "<td>" + escapeHtml(jobsPerUser[i].user) + "</td>";
